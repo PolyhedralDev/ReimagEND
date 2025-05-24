@@ -20,8 +20,8 @@ distributor:
 locator:
   type: SURFACE
   range:
-    min: 0
-    max: 300
+    min: $meta.yml:bottom-y
+    max: $meta.yml:top-y
 
 structures:
   distribution:

@@ -10,7 +10,7 @@ distributor:
         expression: |
           max(circle(centerRadius, x+noise(x,z)-1, z+noise(x,z)-1, 1),circle(centerRadius, x+noise(x,z)-1, z+noise(x,z)-1, 0.5))
         variables:
-          centerRadius: ${meta.yml:dragon-island.small-pillar-min}
+          centerRadius: ${customization.yml:dragon-island.small-pillar-min}
         functions:
           circle:    {arguments: [r, x, z, l], expression: "if(x*x+z*z>r*r,-1,l)"}
         samplers:
@@ -30,8 +30,8 @@ locator:
   locators:
     - type: SURFACE
       range: &range
-        min: 40
-        max: 319
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
     - type: PATTERN
       range: *range
       pattern:
@@ -56,7 +56,7 @@ locator:
         expression: |
           if( toggle = 0, -1, 1)
         variables:
-          toggle: ${meta.yml:dragon-island.small-pillar-min}
+          toggle: ${customization.yml:dragon-island.small-pillar-min}
         functions:
         samplers:
           noise:

@@ -2,9 +2,9 @@ distribution-map: &distribution-map
     type: EXPRESSION
     expression: if(toggle > 0, split((noise(x/spread,z/spread)+1)*4/(radius/spread)-1), -1)
     variables:
-      spread: ${meta.yml:biome-distribution.aether-pocket-spread}
-      radius: ${meta.yml:biome-distribution.aether-pocket-radius}
-      toggle: ${meta.yml:biome-distribution.toggle-aether-pockets}
+      spread: ${customization.yml:aether.aether-pocket-spread}
+      radius: ${customization.yml:aether.aether-pocket-radius}
+      toggle: ${customization.yml:aether.toggle-aether-pockets}
     functions:
       split:
         arguments: [x]

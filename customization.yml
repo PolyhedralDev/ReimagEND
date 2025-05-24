@@ -1,0 +1,89 @@
+dragon-island:
+  # Dragon Island Configuration
+  # Controls various features of the dragon island
+  
+  # Be warned that certain features when enabled will make the dragon fight more challenging.
+
+  base-level: 65
+  # PLACEHOLDER FOR FUTURE.
+  # Currently, controls certain dragon island feature ranges.
+  # Default: 65
+
+  dragon-pit-radius: 0
+  # Adds a pit around the dragon fountain that is now on a small floating center island. Disabled by default at 0. 
+  # Enable the dragon pit by setting the radius to the recommended 28 or any other digit.
+
+  fountain-base-level: 65
+  # Controls the y-level placement of the dragon island fountain if dragon pit is enabled.
+
+  fountain-vex-toggle: 0
+  # Toggles vex spawners under the fountain. Disabled by default at 0. 
+  # Enable the vex spawners by setting the value to 1.
+
+  pillar-vex-top-toggle: 0
+  pillar-vex-bottom-toggle: 0
+  # Toggles vex spawners inside the pillar under the top or under the bottom. Disabled by default at 0. 
+  # Enable the vex spawners by setting the value to 1.
+
+  dragon-chains-toggle: 0
+  # Toggles giant obsidian chains at the corners of the dragon island. Disabled by default at 0. 
+  # Enable the dragon island chains by setting the value to 1.
+
+  # Controls various aspects of the endstone debri ring around the dragon island
+  endstone-ring-height: 104
+  # Default: 104
+  endstone-ring-min: 170
+  # Default: 170
+  endstone-ring-max: 240
+  # Default: 240
+  
+  # Controls the sky nebulas above the dragon island
+  nebula-glass-height: 170
+  # Default: 170
+  nebula-concrete-height: 160
+  # Default: 160
+  nebula-obsidian-height: 150
+  # Default: 150
+
+  small-pillar-min: 80
+  # Controls the min radius of small pillars at the main end island from the center of the island
+  # Default: 80
+
+outer-end:
+
+  end-sky-height: 254
+  # Controls the height of the end sky feature. Disabled when set to 0.
+  # Default: 254
+
+  end-gateway-min: 5000
+  # Controls the min radius of end gateway spawns throughout the outer end
+  # Default: 5000
+
+void:
+
+  asteroid-ice-transition: 125
+  # Controls when asteroid field y-level when features become icy
+  # Default: 125
+
+aether:
+
+  # Aether Pockets
+  toggle-aether-pockets: 1
+  # Adds aether pockets throughout the outer end frontier.
+  # Can be disabled by setting to 0
+
+  aether-pocket-spread: 3000
+  # Controls the spread between each aether pocket.
+  # Default: 3000
+
+  aether-pocket-radius: 500
+  # Controls the radius of aether pockets
+  # Default: 500
+
+  aether-sky-height: 254
+  # Controls the height of the aether pseudo sky feature. Disabled when set to 0.
+  # Default: 254
+
+  ancient-aether-base: 20
+  # Controls the base level of ancient aether structures
+  # Default: 20

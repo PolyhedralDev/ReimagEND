@@ -10,8 +10,8 @@ distributor:
         expression: |
           circle(minRadius+noise(x,z)*10, maxRadius+noise(x,z)*10, x+noise(x,z)-1, z+noise(x,z)-1, 1)
         variables:
-          minRadius: ${meta.yml:dragon-island.endstone-ring-min}
-          maxRadius: ${meta.yml:dragon-island.endstone-ring-max}
+          minRadius: ${customization.yml:dragon-island.endstone-ring-min}
+          maxRadius: ${customization.yml:dragon-island.endstone-ring-max}
         functions:
           circle:    {arguments: [s, b, x, z, l], expression: "if( x*x + z*z > s*s && x*x + z*z < b*b, -1, l)"}
         samplers:
@@ -47,8 +47,8 @@ locator:
   locators:
     - type: PATTERN
       range: &range
-        min: 0
-        max: 319
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
       pattern:
         type: MATCH_AIR
         offset: 0  
@@ -59,7 +59,7 @@ locator:
         expression: |
           if( y = round(height+noise(x,z)), 1, -1)
         variables:
-          height: ${meta.yml:dragon-island.endstone-ring-height}
+          height: ${customization.yml:dragon-island.endstone-ring-height}
         functions:
         samplers:
           noise:

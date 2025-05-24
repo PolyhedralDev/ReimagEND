@@ -27,8 +27,8 @@ locator:
   locators:
     - type: PATTERN
       range: &range
-        min: 0
-        max: 319
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
       pattern:
         type: MATCH_AIR
         offset: 0  
@@ -39,7 +39,7 @@ locator:
         expression: |
           if( height != 0, if( y = round(height+noise(x,z)), 1, -1), -1)
         variables:
-          height: ${meta.yml:biome-distribution.aether-sky-height}-2
+          height: ${customization.yml:aether.aether-sky-height}-2
         functions:
         samplers:
           noise:

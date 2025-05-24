@@ -3,7 +3,7 @@ distribution-map: &distribution-map
   expression: |
     circle(radius, x-1, z-1, 1)
   variables:
-    radius: ${meta.yml:dragon-island.dragon-pit-radius}
+    radius: ${customization.yml:dragon-island.dragon-pit-radius}
   functions:
     circle:    {arguments: [r, x, z, l], expression: "if(x*x+z*z<r*r,-1,l)"}
   samplers:

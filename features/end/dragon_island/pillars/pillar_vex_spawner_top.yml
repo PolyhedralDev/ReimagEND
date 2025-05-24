@@ -34,15 +34,15 @@ distributor:
         expression: |
           if (toggle > 0, -1, 1)
         variables:
-          toggle: ${meta.yml:dragon-island.pillar-vex-top-toggle}
+          toggle: ${customization.yml:dragon-island.pillar-vex-top-toggle}
 
 locator:
   type: AND
   locators:
     - type: TOP
       range: &range
-        min: 60
-        max: 120
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
     - type: PATTERN
       range: *range
       pattern:

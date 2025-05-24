@@ -12,7 +12,7 @@ locator:
   locators:
     - type: TOP
       range: &range
-        min: 0
+        min: $meta.yml:bottom-y
         max: 235
       amount: 1
     - type: PATTERN

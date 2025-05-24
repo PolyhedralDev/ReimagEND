@@ -16,8 +16,8 @@ locator:
     # Match air underground
     - type: PATTERN
       range: &range
-        min: -19
-        max: 319
+        min: ${meta.yml:bottom-y} + 20
+        max: $meta.yml:top-y
       pattern:
         type: MATCH_AIR
         offset: 0

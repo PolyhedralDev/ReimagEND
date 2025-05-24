@@ -11,8 +11,8 @@ distributor:
 locator:
   type: PATTERN
   range:
-    min: 0
-    max: 280
+    min: $meta.yml:bottom-y
+    max: $meta.yml:top-y
   pattern:
     # Match air on top of lava
     type: AND

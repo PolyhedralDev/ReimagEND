@@ -29,10 +29,10 @@ distributor:
 locator:
   type: AND
   locators:
-    - type: TOP
+    - type: SURFACE
       range: &range
-        min: 0
-        max: 70
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
       pattern:
         type: MATCH_AIR
         offset: 0
@@ -41,6 +41,11 @@ locator:
       pattern:
         type: MATCH_SOLID
         offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -5
 
 structures:
   distribution:

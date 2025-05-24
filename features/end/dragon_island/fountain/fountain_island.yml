@@ -34,8 +34,8 @@ locator:
   locators:
     - type: RANDOM
       height: &range
-        min: 55
-        max: 65
+        min: ${customization.yml:dragon-island.fountain-base-level}-1
+        max: $customization.yml:dragon-island.fountain-base-level
       amount: 1
     - type: PATTERN
       range: *range

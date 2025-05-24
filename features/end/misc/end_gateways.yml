@@ -10,7 +10,7 @@ distributor:
         expression: |
           if( radius != 0, max(circle(radius, x+noise(x,z)-1, z+noise(x,z)-1, 1),circle(radius, x+noise(x,z)-1, z+noise(x,z)-1, 0.5)), -1)
         variables:
-          radius: ${meta.yml:biome-distribution.end-gateway-min}
+          radius: ${customization.yml:outer-end.end-gateway-min}
         functions:
           circle:    {arguments: [r, x, z, l], expression: "if(x*x+z*z>r*r,-1,l)"}
         samplers:
@@ -29,8 +29,8 @@ locator:
   locators:
     - type: RANDOM
       height: &range
-        min: 253
-        max: 254
+        min: ${meta.yml:top-y} - 1
+        max: $meta.yml:top-y
       amount: 1
     
     - type: SAMPLER_3D
@@ -39,7 +39,7 @@ locator:
         expression: |
           if( toggle = 0, -1, 1)
         variables:
-          toggle: ${meta.yml:biome-distribution.end-gateway-min}
+          toggle: ${customization.yml:outer-end.end-gateway-min}
         functions:
         samplers:
           noise:

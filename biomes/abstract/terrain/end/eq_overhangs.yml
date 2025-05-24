@@ -21,7 +21,7 @@ terrain:
       overhangStrength: 20
       threshold: ${meta.yml:terrain-configuration.island-threshold}
       max: 210 #${meta.yml:terrain-configuration.island-max-height}
-      min: 0 #${meta.yml:terrain-configuration.island-min-height}
+      min: $meta.yml:bottom-y #${meta.yml:terrain-configuration.island-min-height}
       taper: ${meta.yml:terrain-configuration.island-taper}
       flatness: ${meta.yml:terrain-configuration.island-flatness}
       undercarriageTranslate: ${meta.yml:terrain-configuration.island-undercarriage-translate}

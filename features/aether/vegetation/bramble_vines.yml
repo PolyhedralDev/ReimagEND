@@ -15,7 +15,7 @@ locator:
     - type: PATTERN
       range: &range
         min: -50
-        max: 319
+        max: $meta.yml:top-y
       pattern:
         type: MATCH_AIR
         offset: 0

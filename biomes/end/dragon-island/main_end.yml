@@ -22,7 +22,7 @@ terrain:
     variables:
       threshold: 0.7
       max: 70
-      min: 0
+      min: $meta.yml:bottom-y
       taper: ${meta.yml:terrain-configuration.island-taper}
       flatness: 0.5
       undercarriageTranslate: ${meta.yml:terrain-configuration.island-undercarriage-translate}

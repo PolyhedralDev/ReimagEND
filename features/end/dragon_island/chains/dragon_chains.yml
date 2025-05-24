@@ -20,7 +20,7 @@ distributor:
         expression: |
           if (toggle > 0, -1, 1)
         variables:
-          toggle: ${meta.yml:dragon-island.dragon-chains-toggle}
+          toggle: ${customization.yml:dragon-island.dragon-chains-toggle}
 
 
 locator:
@@ -28,8 +28,8 @@ locator:
   locators:
     - type: TOP
       range: &range
-        min: 40
-        max: 80
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
       pattern:
         type: MATCH_SOLID
         offset: -1
