@@ -54,3 +54,11 @@ ReimagEnd has optional dragon island difficulty tweaks that can be enabled to ma
 - Vex spawners within the top and bottom sections of the dragon pillars that give the end crystals a bit more protection against those who seek to destroy them.
 
 Go to the `meta.yml` to enable and configure these features
+
+## End Gateways
+End gateways are manually placed by Terra that allows for two-way gateways to be created by players.
+
+## Ender Dragon Respawn
+Respawning the ender dragon will cause the original vanilla end dragon pillars/towers to spawn paying no mind to the ones placed
+by Terra. It is designed this way to at least make the first dragon fight memorable with end crystals as Terra completely overwrites
+world generation including initial dragon pillar generation.
