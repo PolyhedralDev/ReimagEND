@@ -51,9 +51,9 @@ dragon-island:
 
 outer-end:
 
-  end-sky-height: 254
+  end-sky-height: ${meta.yml:top-y} - 2
   # Controls the height of the end sky feature. Disabled when set to 0.
-  # Default: 254
+  # Default: ${meta.yml:top-y} - 2
 
   end-gateway-min: 5000
   # Controls the min radius of end gateway spawns throughout the outer end
@@ -80,9 +80,9 @@ aether:
   # Controls the radius of aether pockets
   # Default: 500
 
-  aether-sky-height: 254
+  aether-sky-height: ${meta.yml:top-y} - 2
   # Controls the height of the aether pseudo sky feature. Disabled when set to 0.
-  # Default: 254
+  # Default: ${meta.yml:top-y} - 2
 
   ancient-aether-base: 20
   # Controls the base level of ancient aether structures
