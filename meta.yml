@@ -100,7 +100,7 @@ terrain-configuration:
   # Threshold or density of default island
   # Default: 0.4
 
-  island-max-height: 200
+  island-max-height: ${meta.yml:top-y} - 20
   # Max height of default terrain
   # Default: 200
 
@@ -156,6 +156,9 @@ terrain-configuration:
 
 
 # World Y levels
-top-y: 255
+top-y: 819
+# Default: 319
+
 bottom-y: -64
+# Default: -64
 
