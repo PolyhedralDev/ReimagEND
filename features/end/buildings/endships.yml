@@ -12,7 +12,7 @@ locator:
   locators:
     - type: RANDOM
       height: &range
-        min: ${meta.yml:top-y} - 100
+        min: ${meta.yml:bottom-y} + 150
         max: ${meta.yml:top-y} - 30
       amount: 1
       salt: 3678
