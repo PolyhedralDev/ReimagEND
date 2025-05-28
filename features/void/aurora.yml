@@ -66,3 +66,4 @@ structures:
     #- purple_aurora_segment: 1 
     - magenta_aurora_segment: 1 
     #- pink_aurora_segment: 1 
+    - blank: 1
