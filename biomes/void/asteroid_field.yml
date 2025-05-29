@@ -5,10 +5,10 @@ vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:ASTEROID_FIELD
 
 palette:
-  - ICE_ASTEROID: 315
-  - ICE_ASTEROID_MIDDLE: 165
-  - ICE_ASTEROID_BOTTOM: 135
-  - ASTEROID: 125
+  - ICE_ASTEROID: $meta.yml:top-y
+  - ICE_ASTEROID_MIDDLE: ${meta.yml:top-y}/2
+  - ICE_ASTEROID_BOTTOM: ${meta.yml:top-y}/3
+  - ASTEROID: ${meta.yml:top-y}/4
 
 features:
   trees:

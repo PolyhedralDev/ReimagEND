@@ -9,7 +9,7 @@ colors:
   foliage: 0x898096
 
 palette:
-  - BLUE_LIGHT_TERRACOTTA: 319
+  - BLUE_LIGHT_TERRACOTTA: $meta.yml:top-y
 
 features:
   flora:

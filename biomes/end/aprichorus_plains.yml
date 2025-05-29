@@ -9,7 +9,7 @@ colors:
   foliage: 0xdd5f00
 
 palette:
-  - ORANGE_POWDER_END: 319
+  - ORANGE_POWDER_END: $meta.yml:top-y
 
 features:
   flora:

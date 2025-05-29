@@ -9,9 +9,9 @@ dragon-island:
   # Currently, controls certain dragon island feature ranges.
   # Default: 65
 
-  dragon-pit-radius: 0
-  # Adds a pit around the dragon fountain that is now on a small floating center island. Disabled by default at 0. 
-  # Enable the dragon pit by setting the radius to the recommended 28 or any other digit.
+  dragon-pit-radius: 28
+  # Adds a pit around the dragon fountain that is now on a small floating center island. Enabled by default at 28 blocks.
+  # You can adjust the radius or disable it by setting the value to 0.
 
   fountain-base-level: 65
   # Controls the y-level placement of the dragon island fountain if dragon pit is enabled.
@@ -84,6 +84,6 @@ aether:
   # Controls the height of the aether pseudo sky feature. Disabled when set to 0.
   # Default: ${meta.yml:top-y} - 2
 
-  ancient-aether-base: 20
+  ancient-aether-base: ${meta.yml:bottom-y} + 20
   # Controls the base level of ancient aether structures
-  # Default: 20
+  # Default: ${meta.yml:top-y} + 20

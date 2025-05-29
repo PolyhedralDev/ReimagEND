@@ -9,7 +9,7 @@ colors:
   foliage: 0xb33c35
 
 palette:
-  - RED_POWDER_END: 319
+  - RED_POWDER_END: $meta.yml:top-y
 
 features:
   trees:

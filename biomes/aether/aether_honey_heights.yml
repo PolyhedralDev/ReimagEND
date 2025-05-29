@@ -11,7 +11,7 @@ colors:
   water-fog: 0xEBAF4C
 
 palette:
-  - YELLOW_CONCRETE_TERRACOTTA: 319
+  - YELLOW_CONCRETE_TERRACOTTA: $meta.yml:top-y
 
 features:
   landforms:

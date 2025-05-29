@@ -18,7 +18,7 @@ terrain:
         )
       )
     variables:
-      threshold: ${meta.yml:terrain-configuration.aether-island-threshold}*2
+      threshold: ${meta.yml:terrain-configuration.aether-island-threshold}
       max: ${meta.yml:terrain-configuration.aether-island-max-height}
       min: ${meta.yml:terrain-configuration.aether-island-min-height}
       taper: ${meta.yml:terrain-configuration.aether-island-taper}

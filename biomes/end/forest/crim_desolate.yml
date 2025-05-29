@@ -9,7 +9,7 @@ colors:
   foliage: 0x9a596c
 
 palette:
-  - PURPLE_TERRACOTTA_END: 319
+  - PURPLE_TERRACOTTA_END: $meta.yml:top-y
 
 features:
   trees:

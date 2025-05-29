@@ -9,7 +9,7 @@ colors:
   foliage: 0x808080
 
 palette:
-  - DEAD_CORAL_GROUND: 319
+  - DEAD_CORAL_GROUND: $meta.yml:top-y
 
 features:
   flora:

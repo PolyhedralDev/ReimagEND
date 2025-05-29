@@ -5,4 +5,4 @@ color: $biomes/colors.yml:AETHER_CLOUD_SEA
 vanilla: minecraft:the_end
 
 palette:
-  - GRASS: 319
+  - GRASS: $meta.yml:top-y

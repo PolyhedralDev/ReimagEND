@@ -9,7 +9,7 @@ colors:
   foliage: 0xc059b7
 
 palette:
-  - MAGENTA_POWDER_END: 319
+  - MAGENTA_POWDER_END: $meta.yml:top-y
 
 features:
   landforms:

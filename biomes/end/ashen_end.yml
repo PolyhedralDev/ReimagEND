@@ -5,12 +5,12 @@ vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:ASHEN_END
 
 palette:
-  - ASHEN_END: 319
+  - ASHEN_END: $meta.yml:top-y
 
 slant:
   - threshold: 0.8
     palette:
-      - BLOCK:minecraft:smooth_basalt: 319
+      - BLOCK:minecraft:smooth_basalt: $meta.yml:top-y
 
 features:
   landforms:

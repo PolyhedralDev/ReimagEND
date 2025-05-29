@@ -11,7 +11,7 @@ colors:
   foliage: 0xccfff9
 
 palette:
-  - GRASS: 319
+  - GRASS: $meta.yml:top-y
       
 features:
   postprocessors:

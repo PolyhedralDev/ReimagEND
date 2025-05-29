@@ -9,7 +9,7 @@ colors:
   foliage: 0xffffff
 
 palette:
-  - WHITE_POWDER_END: 319
+  - WHITE_POWDER_END: $meta.yml:top-y
 
 features:
   flora:

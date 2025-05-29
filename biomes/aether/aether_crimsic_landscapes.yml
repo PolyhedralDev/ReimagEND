@@ -9,12 +9,12 @@ colors:
   foliage: 0xDC143C
 
 palette:
-  - GRASS_GRAY_TERRACOTTA: 319
+  - GRASS_GRAY_TERRACOTTA: $meta.yml:top-y
 
 slant:
   - threshold: 0.4
     palette:
-      - GRAY_CONCRETE_TERRACOTTA: 319
+      - GRAY_CONCRETE_TERRACOTTA: $meta.yml:top-y
 
 features:
   trees:

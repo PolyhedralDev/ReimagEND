@@ -44,16 +44,16 @@ Go to the corresponding distribution stage for that biome type (end, aether, & v
 ## Overworld-Like Aether Pockets
 By default, overworld-like Aether pockets generate throughout the frontier of the outer end. 
 
-Aether pocket generation can be disabled by going to the `meta.yml` and toggling the `toggle-aether-pockets` value
+Aether pocket generation can be disabled by going to the `customization.yml` and toggling the `toggle-aether-pockets` value.
 ###### Place a # in front of the stage to comment out the stage
 
 ## Dragon Island Difficulty Tweaks
-ReimagEnd has optional dragon island difficulty tweaks that can be enabled to make the dragon fight a bit more challenging, which are listed below.
-- Pitfall into the void around the dragon fountain that now resides on a small floating island in the center.
-- Vex spawners under the dragon fountain that make approaching the fountain a bit more challenging.
-- Vex spawners within the top and bottom sections of the dragon pillars that give the end crystals a bit more protection against those who seek to destroy them.
+ReimagEnd has dragon island difficulty tweaks that can be adjusted to your liking.
+- Pitfall into the void around the dragon fountain that now resides on a small floating island in the center. Enabled by default.
+- Vex spawners under the dragon fountain that make approaching the fountain a bit more challenging. Disabled by default.
+- Vex spawners within the top and bottom sections of the dragon pillars that give the end crystals a bit more protection against those who seek to destroy them. Disabled by default.
 
-Go to the `meta.yml` to enable and configure these features
+Go to the `customization.yml` to enable and configure these features.
 
 ## End Gateways
 End gateways are manually placed by Terra that allows for two-way gateways to be created by players.

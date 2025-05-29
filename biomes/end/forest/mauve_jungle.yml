@@ -11,7 +11,7 @@ colors:
   water-fog: 0xA020F0
 
 palette:
-  - PURPLE_POWDER_END: 319
+  - PURPLE_POWDER_END: $meta.yml:top-y
 
 features:
   trees:

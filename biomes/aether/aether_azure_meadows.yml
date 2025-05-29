@@ -9,7 +9,7 @@ colors:
   foliage: 0x3c79cf
 
 palette:
-  - GRASS_GRAVEL_PATCHES: 319
+  - GRASS_GRAVEL_PATCHES: $meta.yml:top-y
   
 features:
   flora:

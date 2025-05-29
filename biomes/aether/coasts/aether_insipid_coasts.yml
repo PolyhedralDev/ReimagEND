@@ -5,7 +5,7 @@ color: $biomes/colors.yml:AETHER_INSIPID_COASTS
 vanilla: minecraft:the_end
 
 palette:
-  - LIGHT_GRAY_POWDER: 319
+  - LIGHT_GRAY_POWDER: $meta.yml:top-y
 
 features:
   landforms:

@@ -5,5 +5,5 @@ vanilla: minecraft:the_void
 color: $biomes/colors.yml:VOID
 
 palette:
-  - BLOCK:minecraft:end_stone: 319
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
 

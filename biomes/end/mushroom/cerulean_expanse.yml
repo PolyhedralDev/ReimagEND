@@ -9,7 +9,7 @@ colors:
   foliage: 0x2c2e8e
 
 palette:
-  - BLUE_POWDER_END: 319
+  - BLUE_POWDER_END: $meta.yml:top-y
 
 features:
   landforms:

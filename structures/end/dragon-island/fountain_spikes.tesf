@@ -6,7 +6,7 @@ num twopi = 6.28318530718;
 num spikes = 8;
 num rootBase = 0;
 num rootDroop = -0.02;
-num rootVerticalDirection = -1-randomInt(randPrecision)/randPrecision*0.3;
+num rootVerticalDirection = -1-randomInt(randPrecision)/randPrecision*0.2;
 num rootAngle = randomInt(randPrecision)/randPrecision*2*pi;
 
 num yTranslate = -10;

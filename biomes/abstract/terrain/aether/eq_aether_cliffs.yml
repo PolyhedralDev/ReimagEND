@@ -10,7 +10,7 @@ terrain:
       lerp(y, max, 0, max-taper,
         max(
           lerp(y, min-undercarriageTranslate, 0, min-undercarriageTranslate+taper,
-            simplex3(x, y*1.5, z)/1.5
+            simplex3(x, y, z)/1.5
           ),
           lerp(y, min, 0, min+taper,
             simplex3(x, (y-undercarriageTranslate), z) * undercarriageMask(x, y/2, z) * 1.3

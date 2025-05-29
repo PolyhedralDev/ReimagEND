@@ -11,7 +11,7 @@ colors:
   water-fog: 0xd3658e
 
 palette:
-  - PINK_POWDER_END: 319
+  - PINK_POWDER_END: $meta.yml:top-y
 
 features:
   preprocessors:

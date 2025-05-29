@@ -48,12 +48,12 @@ terrain:
             frequency: 0.005 / ${meta.yml:terrain-configuration.island-scale}
 
 palette:
-  - CRAGGY_END: 319
+  - CRAGGY_END: $meta.yml:top-y
 
 slant:
   - threshold: 0.4
     palette:
-      - CRAGGY_END: 319
+      - CRAGGY_END: $meta.yml:top-y
 
 features:
   landforms:

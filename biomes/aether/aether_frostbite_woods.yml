@@ -9,7 +9,7 @@ colors:
   foliage: 0xc7d6f0
 
 palette:
-  - CALCITE_POWDER_MIX: 319
+  - CALCITE_POWDER_MIX: $meta.yml:top-y
 
 features:
   slabs:

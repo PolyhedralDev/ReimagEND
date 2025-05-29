@@ -5,7 +5,7 @@ vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:AMETHYST_END  
   
 palette:
-  - AMETHYST_END: 319
+  - AMETHYST_END: $meta.yml:top-y
 
 features:
   landforms:

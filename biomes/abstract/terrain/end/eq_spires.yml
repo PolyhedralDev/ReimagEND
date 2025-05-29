@@ -18,10 +18,10 @@ terrain:
         )
       )
     variables:
-      spireStrength: 3
-      threshold: ${meta.yml:terrain-configuration.island-threshold}
-      max: 230 #${meta.yml:terrain-configuration.island-extended-max-height}
-      min: -30 #${meta.yml:terrain-configuration.island-min-height}
+      spireStrength: 2.5
+      threshold: ${meta.yml:terrain-configuration.island-threshold}/1.5
+      max: ${meta.yml:terrain-configuration.island-max-height}
+      min: ${meta.yml:terrain-configuration.island-min-height}
       taper: ${meta.yml:terrain-configuration.island-taper}
       flatness: ${meta.yml:terrain-configuration.island-flatness}
       undercarriageTranslate: ${meta.yml:terrain-configuration.island-undercarriage-translate}

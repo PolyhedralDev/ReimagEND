@@ -48,7 +48,7 @@ terrain:
             frequency: 0.05 / ${meta.yml:terrain-configuration.island-scale}
 
 palette:
-  - BLOCK:minecraft:end_stone: 319
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
 
 features:
   preprocessors:

@@ -102,11 +102,11 @@ terrain-configuration:
 
   island-max-height: ${meta.yml:top-y} - 20
   # Max height of default terrain
-  # Default: 200
+  # Default: ${meta.yml:top-y} - 20
 
-  island-min-height: -70
+  island-min-height: ${meta.yml:bottom-y} + 20
   # Lowest height of default terrain
-  # Default: -70
+  # Default: ${meta.yml:bottom-y} + 20
 
   island-taper: 100
   # Range for narrowing default terrain
@@ -133,13 +133,13 @@ terrain-configuration:
   # Threshold or density of default island
   # Default: 0.4
 
-  aether-island-max-height: 200
+  aether-island-max-height: ${meta.yml:top-y} - 20
   # Max height of default terrain
-  # Default: 200
+  # Default: ${meta.yml:top-y} - 20
 
-  aether-island-min-height: -70
+  aether-island-min-height: ${meta.yml:bottom-y} + 20
   # Lowest height of default terrain
-  # Default: -70
+  # Default: ${meta.yml:bottom-y} + 20
 
   aether-island-taper: 100
   # Range for narrowing default terrain
@@ -153,12 +153,10 @@ terrain-configuration:
   # Translate placement of default terrain undercarriage
   # Default: -10
 
-
-
 # World Y levels
-top-y: 819
+top-y: 319
 # Default: 319
 
-bottom-y: -64
-# Default: -64
+bottom-y: 0
+# Default: 0
 

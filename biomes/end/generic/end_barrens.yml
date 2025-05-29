@@ -5,4 +5,4 @@ vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:END_BARRENS
 
 palette:
-  - BLOCK:minecraft:end_stone: 319
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y

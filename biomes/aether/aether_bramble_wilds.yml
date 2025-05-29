@@ -9,7 +9,7 @@ colors:
   foliage: 0x705f36
 
 palette:
-  - PODZOL: 319
+  - PODZOL: $meta.yml:top-y
 
 features:
   trees:

@@ -9,7 +9,7 @@ colors:
   foliage: 0x8b8b82
 
 palette:
-  - LIGHT_GRAY_POWDER_END: 319
+  - LIGHT_GRAY_POWDER_END: $meta.yml:top-y
 
 features:
   landforms:

@@ -9,7 +9,7 @@ colors:
   foliage: 0x60A17B
 
 palette:
-  - PODZOL: 319
+  - PODZOL: $meta.yml:top-y
   
 features:
   slabs:

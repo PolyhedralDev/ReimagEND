@@ -9,9 +9,9 @@ carving:
     variables:
   
       carvingThreshold: 0.55 # Higher = less carving
-      carvingMinHeight: -63
+      carvingMinHeight: $meta.yml:bottom-y
       carvingMinTaper: 8
-      carvingMaxHeight: 240
+      carvingMaxHeight: $meta.yml:top-y
       carvingMaxTaper: 20
       carvingCap: 1 # Caps the amount of base carving
 

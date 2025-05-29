@@ -9,7 +9,7 @@ colors:
   foliage: 0xd0b2a0
 
 palette:
-  - WHITE_GRAY_TERRACOTTA: 319
+  - WHITE_GRAY_TERRACOTTA: $meta.yml:top-y
 
 features:
   flora:

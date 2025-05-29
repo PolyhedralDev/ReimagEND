@@ -5,12 +5,12 @@ color: $biomes/colors.yml:AETHER_FRIGID_BLUFFS
 vanilla: minecraft:the_end
 
 palette:
-  - SNOW: 319
+  - SNOW: $meta.yml:top-y
 
 slant:
   - threshold: 0.9
     palette:
-      - STONE_COBBLE_MIX: 319
+      - STONE_COBBLE_MIX: $meta.yml:top-y
 
 features:
   slabs:

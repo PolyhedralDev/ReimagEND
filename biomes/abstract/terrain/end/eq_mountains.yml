@@ -18,9 +18,9 @@ terrain:
         )
       )
     variables:
-      threshold: ${meta.yml:terrain-configuration.island-threshold}*2
-      max: 230 #${meta.yml:terrain-configuration.island-extended-max-height}
-      min: $meta.yml:bottom-y #${meta.yml:terrain-configuration.island-min-height}
+      threshold: ${meta.yml:terrain-configuration.island-threshold}*1.5
+      max: ${meta.yml:terrain-configuration.island-max-height}
+      min: ${meta.yml:terrain-configuration.island-min-height}
       taper: ${meta.yml:terrain-configuration.island-taper}
       flatness: ${meta.yml:terrain-configuration.island-flatness}
       undercarriageTranslate: ${meta.yml:terrain-configuration.island-undercarriage-translate}

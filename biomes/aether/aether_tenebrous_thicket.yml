@@ -9,7 +9,7 @@ colors:
   foliage: 0x292825
 
 palette:
-  - MUD_POWDER_MIX: 319
+  - MUD_POWDER_MIX: $meta.yml:top-y
 
 features:
   flora:

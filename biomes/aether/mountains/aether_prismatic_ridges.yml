@@ -5,7 +5,7 @@ color: $biomes/colors.yml:AETHER_PRISMATIC_RIDGES
 vanilla: minecraft:the_end
 
 palette:
-  - TERRACOTTA_MIX: 319
+  - TERRACOTTA_MIX: $meta.yml:top-y
 
 features:
   postprocessors:

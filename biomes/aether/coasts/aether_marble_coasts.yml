@@ -9,7 +9,7 @@ colors:
   foliage: 0xe3e0cd
 
 palette:
-  - CALCITE_STONE_MIX: 319
+  - CALCITE_STONE_MIX: $meta.yml:top-y
 
 features:
   trees:

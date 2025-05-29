@@ -9,7 +9,7 @@ colors:
   foliage: 0x35343b
 
 palette:
-  - BLACK_POWDER_END: 319
+  - BLACK_POWDER_END: $meta.yml:top-y
 
 features:
   flora:
