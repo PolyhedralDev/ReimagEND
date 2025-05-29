@@ -100,11 +100,11 @@ terrain-configuration:
   # Threshold or density of default island
   # Default: 0.4
 
-  island-max-height: ${meta.yml:top-y} - 20
+  island-max-height: ${meta.yml:top-y}
   # Max height of default terrain
   # Default: ${meta.yml:top-y} - 20
 
-  island-min-height: ${meta.yml:bottom-y} + 20
+  island-min-height: ${meta.yml:bottom-y}
   # Lowest height of default terrain
   # Default: ${meta.yml:bottom-y} + 20
 
@@ -133,11 +133,11 @@ terrain-configuration:
   # Threshold or density of default island
   # Default: 0.4
 
-  aether-island-max-height: ${meta.yml:top-y} - 20
+  aether-island-max-height: ${meta.yml:top-y}
   # Max height of default terrain
   # Default: ${meta.yml:top-y} - 20
 
-  aether-island-min-height: ${meta.yml:bottom-y} + 20
+  aether-island-min-height: ${meta.yml:bottom-y}
   # Lowest height of default terrain
   # Default: ${meta.yml:bottom-y} + 20
 
