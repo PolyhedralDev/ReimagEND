@@ -154,8 +154,8 @@ terrain-configuration:
   # Default: -10
 
 # World Y levels
-top-y: 319
-# Default: 319
+top-y: 255
+# Default: 255
 
 bottom-y: 0
 # Default: 0
