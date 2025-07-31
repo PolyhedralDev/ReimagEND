@@ -11,7 +11,7 @@ It is currently survival ready, but not feature complete. Expect frequent change
 Vanilla End Cites generate with their loot tables unaffected while custom structures don't have custom loot table implementation as of the current moment.
 
 ## Installation
-Download the ReimagEnd pack from the [releases page](https://github.com/justaureus/ReimagEND/releases) for a reliable pack version 
+Download the ReimagEnd pack from the [releases page](https://github.com/PolyhedralDev/ReimagEND/releases) for a reliable pack version 
 or from the main ReimagEnd branch for changes that haven't been applied to the latest release yet.
 
 Follow this [installation guide](https://terra.polydev.org/install/index.html) for your particular platform.
