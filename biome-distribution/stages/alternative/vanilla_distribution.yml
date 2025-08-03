@@ -1,0 +1,9 @@
+stages:
+  - type: REPLACE
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 500 / ${customization.yml:outer-end-biome-scale}
+    from: outer-end
+    to: END_HIGHLANDS
+      

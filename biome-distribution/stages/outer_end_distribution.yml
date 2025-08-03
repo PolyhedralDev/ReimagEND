@@ -1,0 +1,48 @@
+stages:
+  - type: REPLACE
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 500 / ${customization.yml:outer-end-biome-scale}
+    from: ring5
+    to:
+      ring1: 1
+      ring2: 1
+      ring3: 1
+      ring4: 1
+
+  - type: REPLACE_LIST
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 500 / ${customization.yml:outer-end-biome-scale}
+    default-from: ring1
+    default-to:
+      - END_HIGHLANDS: 1
+      - SHATTERED_END: 1
+      - SHATTERED_FOREST: 1
+    to:
+      ring2:
+        - CRYING_CURRENTS: 1
+        - DARK_END: 1
+        - AMETHYST_END: 1
+        - CHORAL_DEADLANDS: 1
+      ring3:
+        - IVORY_EMPYREAN: 1
+        - VERMILION_WILDS: 1
+        - CRIM_DESOLATE: 1
+        - STYGIAN_BARRENS: 1
+      ring4:
+        - MAUVE_JUNGLE: 1
+        - FLAXEN_FOREST: 1
+        - CHORUVE_WOODS: 1
+        - WARPED_WOODLANDS: 1
+        - TWISTED_GROVE: 1
+
+  - type: REPLACE
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 200 / ${customization.yml:outer-end-biome-scale}
+    from: void
+    to: VOID

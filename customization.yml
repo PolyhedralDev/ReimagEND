@@ -1,3 +1,45 @@
+dragon-island-radius: 150
+
+dragon-pit-radius: 60
+
+void-buffer-width: 500
+
+outer-end-start: ${customization.yml:dragon-island-radius} + ${customization.yml:void-buffer-width}
+
+outer-end-rings-scale: 1
+
+outer-end-biome-scale: 1
+
+aether-biome-scale: 1
+
+# ---
+# Spot Biomes
+# ---
+
+# System originated from the Overworld 2.0 pack.
+# Spot biomes are special circular biomes scattered around the world.
+
+spot-spawn-radius-offset: 4000
+# Roughly how far spots will generate away from spawn
+# Default: 4000
+
+spot-spread: 4050
+# Roughly how many blocks apart each spot biome will be
+# Default: 4050
+
+spot-border: 200
+# Roughly the biome border that generates around the inner spot biome
+# Default: 2050
+
+spot-radius-min: 200
+# Default: 200
+
+spot-radius-max: 250
+# Default: 250
+
+
+# Everything below here is currently being redone and may not do anything
+
 dragon-island:
   # Dragon Island Configuration
   # Controls various features of the dragon island
@@ -49,9 +91,11 @@ dragon-island:
   # Controls the min radius of small pillars at the main end island from the center of the island
   # Default: 80
 
+
+
 outer-end:
 
-  end-sky-height: ${meta.yml:top-y} - 2
+  end-sky-height: 0
   # Controls the height of the end sky feature. Disabled when set to 0.
   # Default: ${meta.yml:top-y} - 2
 

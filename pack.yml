@@ -27,11 +27,37 @@ addons:
   structure-block-shortcut: "1.+"
   terrascript-function-sampler: "1.+"
 
-# Default biome distribution
-biomes: $biome-providers/presets/default.yml:biomes
+# ---
+# Biome distribution
+# ---
+# Several preset biome providers are available to choose from below.
 
-# Single biome - to change the single biome to use, check the configuration file.
-#biomes: $biome-providers/presets/single.yml:biomes
+# To pick a different preset you can uncomment the line starting with 'biomes:'
+# under the preset name, and comment the old preset that was previously set.
+# (Not commenting the old one will result in an error!)
+
+# Default biome distribution
+biomes: $biome-distribution/presets/default.yml:biomes
+
+# Aether world biome distribution
+#biomes: $biome-distribution/presets/aether.yml:biomes
+
+# Single biome - Generates a single biome, as well as void pockets.
+#biomes: $biome-distribution/presets/single.yml:biomes
+preset-single-biome: END_HIGHLANDS
+
+# Single debug biome - Used for debugging a singular biome, should not be used for regular world generation
+#biomes: $biome-distribution/presets/single_debug.yml:biomes
+preset-single-debug-biome: END_HIGHLANDS
+
+# Regular biome distribution
+#biomes: $biome-distribution/presets/alternative/normal.yml:biomes
+
+# Vanilla-Like biome distribution
+#biomes: $biome-distribution/presets/alternative/vanilla-ish.yml:biomes
+
+# BetterEnd biome distribution
+#biomes: $biome-distribution/presets/alternative/betterend.yml:biomes
 
 stages:
   # Used to generate lava at the bottom of the world.
@@ -88,6 +114,7 @@ functions:
 samplers:
   "<<":
     - math/samplers/simplex.yml:samplers
+    - math/samplers/spots.yml:samplers
 
 blend:
   palette:

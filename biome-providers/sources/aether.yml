@@ -1,9 +1,0 @@
-source:
-  type: SAMPLER
-  biomes:
-    - aether: 1
-  sampler:
-    type: CELLULAR
-    return: CellValue
-    frequency: 1 / ${meta.yml:biome-distribution.aether-biome-scale} / ${meta.yml:biome-distribution.global-scale}
-    salt: 6579

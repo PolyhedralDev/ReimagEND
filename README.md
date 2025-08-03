@@ -38,7 +38,7 @@ worlds:
 Dislike a particular biome? 
 Well, you can customize everything in ReimagEnd to your liking and that includes disabling any biomes!
 
-Go to the corresponding distribution stage for that biome type (end, aether, & void), which can be found in `biome-providers\stages`
+Go to the corresponding distribution stage for that biome type (end, aether, & void), which can be found in `biome-distribution\stages`
 ###### Place a # in front of the weighted item representing the biome in the list to comment out the biome and disable it
 
 ## Overworld-Like Aether Pockets

@@ -1,0 +1,6 @@
+stages:
+  - type: REPLACE
+    sampler:
+      type: CONSTANT
+    from: outer-end
+    to: ring5
