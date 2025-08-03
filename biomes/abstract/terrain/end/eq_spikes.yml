@@ -31,7 +31,7 @@ vars: &variables
   platformMaskNone: 0
   platformMaskFull: 0.1
   
-  threshold: ${meta.yml:terrain-configuration.island-threshold}
+  threshold: 0.4
   max: ${meta.yml:terrain-configuration.island-max-height}
   min: ${meta.yml:terrain-configuration.island-min-height}
   taper: ${meta.yml:terrain-configuration.island-taper}
