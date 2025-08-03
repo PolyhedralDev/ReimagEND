@@ -1,4 +1,4 @@
-num length = 3+randomInt(6);
+num length = 3+randomInt(2);
 bool allow = true;
 
 for (num y = 1; y < length; y = y + 1) {
