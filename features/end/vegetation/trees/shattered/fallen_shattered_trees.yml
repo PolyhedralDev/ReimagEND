@@ -1,11 +1,11 @@
-id: SHATTERED_TREES
+id: FALLEN_SHATTERED_TREES
 type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 8
-  padding: 6
-  salt: 4678
+  width: 53
+  padding: 44
+  salt: 6475
 
 locator:
   type: AND
@@ -30,6 +30,6 @@ locator:
 structures:
   distribution:
     type: WHITE_NOISE
-  structures: 
-    - small_shattered_tree: 5
-    - large_shattered_tree: 1
+  structures:
+    - fallen_shattered_tree_procedural: 1
+    - blank: 2

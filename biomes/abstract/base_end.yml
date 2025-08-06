@@ -6,12 +6,11 @@ tags:
   - NOT_VOID_SEA
   
 colors:
-# fog: 0x000000
- water: 0x62529E
- water-fog: 0x62529E
-# sky: 0x000000
- grass: 0x8EB971
- foliage: 0x85947f
+  grass: 0xdee6a4
+  water: 0x62529E
+  water-fog: 0x62529E
+  #fog: 0x000000
+  #sky: 0x000000
   
 #climate:
 # precipitation: none

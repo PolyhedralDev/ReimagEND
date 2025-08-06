@@ -1,0 +1,29 @@
+str mainLeafBlock = "minecraft:purple_stained_glass";
+str altLeafBlock = "minecraft:magenta_stained_glass";
+num checkRadius = 2;
+
+bool light = true;
+for (num cx = -checkRadius; cx < checkRadius; cx = cx + 1) {
+    for (num cy = -checkRadius; cy < checkRadius; cy = cy + 1) {
+        for (num cz = -checkRadius; cz < checkRadius; cz = cz + 1) {
+            if (getBlock(cx,cy,cz) == "minecraft:end_stone") {
+                light = false;
+                break;
+            }
+        }
+    }
+}
+
+str setBlock = mainLeafBlock;
+for (num x = 0; x < 1; x = x + 1) {
+  for (num y = 0; y < 1; y = y + 1) {
+    for (num z = 0; z < 1; z = z + 1) {
+        setBlock = mainLeafBlock;
+        num random = randomInt(2);
+        if (light) random = random + randomInt(2);
+        if (random == 1) setBlock = altLeafBlock;
+        if (random == 2) setBlock = "minecraft:light[level=15]";
+        block(x, y, z, setBlock, false);
+        }
+    }  
+}
