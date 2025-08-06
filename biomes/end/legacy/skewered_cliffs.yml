@@ -11,4 +11,4 @@ features:
   trees:
     - TIPPED_OBSIDIAN_SPIKES
   postprocessors:
-    - CRYING_CURRENTS_GLOWS
+    - TAINTED_GLOWS

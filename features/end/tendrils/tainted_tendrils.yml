@@ -1,12 +1,12 @@
-id: CRYING_CURRENTS_GLOWS
+id: TAINTED_TENDRILS
 type: FEATURE
 
 distributor:
   type: SAMPLER
   sampler:
     type: POSITIVE_WHITE_NOISE
-    salt: 5364
-  threshold: 0.05
+    salt: 6458
+  threshold: 0.003
 
 locator:
   type: AND
@@ -24,24 +24,16 @@ locator:
           range: *range
           pattern:
             type: MATCH
-            block: minecraft:purple_concrete_powder
-            offset: 1
+            block: minecraft:purple_concrete
+            offset: -1
         - type: PATTERN
           range: *range
           pattern:
             type: MATCH
-            block: minecraft:purple_concrete_powder
-            offset: -1
-        - type: ADJACENT_PATTERN
-          range: *range
-          pattern:
-            type: MATCH
-            block: minecraft:purple_concrete_powder
-            offset: 0
-    
-      
+            block: minecraft:purple_concrete
+            offset: 1
 
 structures:
   distribution:
     type: CONSTANT
-  structures: BLOCK:minecraft:light[level=15]
+  structures: tainted_tendril

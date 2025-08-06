@@ -36,4 +36,4 @@ locator:
 structures:
   distribution:
     type: CONSTANT
-  structures: small_crying_tendril
+  structures: small_tainted_tendril
