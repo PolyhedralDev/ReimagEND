@@ -1,6 +1,6 @@
 vars: &variables
   outerEndStart: $customization.yml:outer-end-start
-  outerEndRingScale: 1000 * ${customization.yml:outer-end-rings-scale}
+  outerEndRingScale: 2000 * ${customization.yml:outer-end-rings-scale}
 
 stages:
   - type: REPLACE
