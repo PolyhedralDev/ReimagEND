@@ -3,30 +3,27 @@ type: PALETTE
 
 layers:
   - materials:
-      - minecraft:black_concrete_powder: 10
-      - minecraft:black_concrete: 3
-      - minecraft:obsidian: 1
-      - minecraft:crying_obsidian: 1
+      - minecraft:black_concrete_powder: 4
+      - minecraft:black_concrete: 1
       - minecraft:purple_concrete: 1
       - minecraft:purple_concrete_powder: 1
       - minecraft:purple_concrete: 1
-      - minecraft:crying_obsidian: 1
-      - minecraft:obsidian: 1
-      - minecraft:black_concrete: 3
-      - minecraft:black_concrete_powder: 10
+      - minecraft:black_concrete: 1
+      - minecraft:black_concrete_powder: 4
     layers: 1
+
+sampler:
+  type: DOMAIN_WARP
+  amplitude: 2
+  warp:
+    type: GAUSSIAN
+  sampler:
+    type: FBM
+    octaves: 2
     sampler:
-      type: DOMAIN_WARP
-      amplitude: 2
-      warp:
-        type: GAUSSIAN
-      sampler:
-        type: FBM
-        octaves: 2
-        sampler:
-          type: OPEN_SIMPLEX_2
-          frequency: 0.01
-          salt: 6881
-          
+      type: OPEN_SIMPLEX_2
+      frequency: 0.01
+      salt: 6881
+
 
 
