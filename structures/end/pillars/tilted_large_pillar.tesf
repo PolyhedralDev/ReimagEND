@@ -1,0 +1,37 @@
+num randPrecision = 100;
+
+num length = 40 + randomInt(30);
+num yTranslate = -20;
+num radius = 4 + randomInt(2);
+
+str mainBlock = "minecraft:obsidian";
+
+if (getBlock(radius, -2, radius) == "minecraft:air" ||
+    getBlock(-radius, -2, -radius) == "minecraft:air" ||
+    getBlock(-radius, -2, radius) == "minecraft:air" ||
+    getBlock(radius, -2, -radius) == "minecraft:air"
+) fail;
+
+// Direction vector
+num dx = (randomInt(randPrecision)/randPrecision-0.5)*1.5;
+num dy = 5;
+num dz = (randomInt(randPrecision)/randPrecision-0.5)*1.5;
+
+// Normalize vector
+num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+dx = dx/mag;
+dy = dy/mag;
+dz = dz/mag;
+
+for(num y = 0; y < length; y = y + 1) {
+    for(num x = -radius; x < radius; x = x + 1) {
+        for(num z = -radius; z < radius; z = z + 1) {
+            if (pow(x,2)+pow(z,2) < pow(radius,2)) {
+                block((dx * y) + x, (dy * y) + yTranslate, (dz * y) + z, mainBlock);
+            }
+        }
+    }
+}
+
+block(dx * length, dy * (length + yTranslate), dz * length, "minecraft:cobbled_deepslate");
+entity(round(dx * length), round(dy * (length + yTranslate)), round(dz * length), "minecraft:end_crystal");

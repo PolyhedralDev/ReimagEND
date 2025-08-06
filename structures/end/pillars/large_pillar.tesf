@@ -1,0 +1,23 @@
+num length = 40 + randomInt(30);
+num yTranslate = -20;
+num radius = 4 + randomInt(2);
+str mainBlock = "minecraft:obsidian";
+
+if (getBlock(radius, -2, radius) == "minecraft:air" ||
+    getBlock(-radius, -2, -radius) == "minecraft:air" ||
+    getBlock(-radius, -2, radius) == "minecraft:air" ||
+    getBlock(radius, -2, -radius) == "minecraft:air"
+) fail;
+
+for(num y = 0; y < length; y = y + 1) {
+    for(num x = -radius; x < radius; x = x + 1) {
+        for(num z = -radius; z < radius; z = z + 1) {
+            if (pow(x,2) + pow(z,2) < pow(radius,2)) {
+                block(x, yTranslate+y, z, mainBlock);
+            }
+        }
+    }
+}
+
+block(0, length + yTranslate, 0, "minecraft:cobbled_deepslate");
+entity(0, length + yTranslate + 1, 0, "minecraft:end_crystal");

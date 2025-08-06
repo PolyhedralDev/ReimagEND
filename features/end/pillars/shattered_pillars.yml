@@ -5,8 +5,8 @@ distributor:
   type: SAMPLER
   sampler:
     type: POSITIVE_WHITE_NOISE
-    salt: 6821
-  threshold: 0.003
+    salt: 7568
+  threshold: 0.008
 
 locator:
   type: AND
@@ -29,8 +29,5 @@ locator:
 
 structures:
   distribution:
-    type: WHITE_NOISE
-  structures: 
-    - shattered_pillar_procedural: 150
-    - giant_obsidian_pillar: 2
-    - tilted_giant_obsidian_pillar: 1
+    type: CONSTANT
+  structures: shattered_pillar_procedural

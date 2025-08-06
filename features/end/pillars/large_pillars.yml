@@ -1,11 +1,11 @@
-id: PURPLE_TENDRILS_UP
+id: LARGE_PILLARS
 type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 16
-  padding: 12
-  salt: 5467
+  width: 53
+  padding: 47
+  salt: 6547
 
 locator:
   type: AND
@@ -18,25 +18,23 @@ locator:
       range: *range
       pattern:
         type: MATCH
-        block: minecraft:purple_concrete
+        block: minecraft:end_stone
         offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -3
     - type: PATTERN
       range: *range
       pattern:
         type: MATCH_AIR
         offset: 0
-    - type: PATTERN
-      range: *range
-      pattern:
-        type: MATCH_SOLID
-        offset: -5
-    - type: PATTERN
-      range: *range
-      pattern:
-        type: MATCH_AIR
-        offset: 10
 
 structures:
   distribution:
-    type: CONSTANT
-  structures: purple_tendril_up
+    type: WHITE_NOISE
+  structures:
+    - large_pillar: 2
+    - tilted_large_pillar: 1

@@ -1,26 +1,30 @@
-num height = 7+randomInt(5);
-num random = randomInt(21);
-num r = 0.5;
+num length = 10 + randomInt(10);
+num yTranslate = -3 - randomInt(3);
+str mainBlock = "minecraft:obsidian";
 
-if (random >= 20) {
-    r = 1.2;
-    height = 12+randomInt(9);
-} else if (random >= 16) {
-    r = 0.5;
-    height = 7+randomInt(5);
-} else if (random >= 0) {
-    r = 0.1;
-    height = 7+randomInt(7);
-}
+num endCrystalChance = 10;
 
-for (num y = -5+randomInt(3); y <= height ; y = y + 1) {
-    for (num x = -r; x <= r; x = x + 1) {
-        for (num z = -r; z <= r; z = z + 1) {
-            block(x, y, z, "minecraft:obsidian");
+num radius = 1;
+if (randomInt(3) == 0) radius = 1.5;
+
+for (num y = 0; y < length ; y = y + 1) {
+    for (num x = -radius; x < radius; x = x + 1) {
+        for (num z = -radius; z < radius; z = z + 1) {
+            if(getBlock(x, yTranslate + y, z) != "minecraft:air" &&
+            getBlock(x, yTranslate + y, z) != "minecraft:end_stone") fail;
+            if (pow(x,2) + pow(z,2) < pow(radius,2)) {
+                block(x, yTranslate + y, z, mainBlock);
+            }
         }
     }
-    
 }
 
-if (randomInt(10) == 0 && r != 0.5) entity(0, height+2, 0, "minecraft:end_crystal");
 
+if(randomInt(endCrystalChance) == 0) {
+    if (radius == 1.5) {
+        entity(0.5, length + yTranslate + 1, 0.5, "minecraft:end_crystal");
+    } else {
+        block(0, length + yTranslate, 0, "minecraft:cobbled_deepslate");
+        entity(0, length + yTranslate + 1, 0, "minecraft:end_crystal");
+    }
+}
