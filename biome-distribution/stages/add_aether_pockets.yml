@@ -3,8 +3,9 @@ stages:
     sampler:
       type: EXPRESSION
       expression: |
-        if(radius(x,z) > spawnRadiusOffset, 
-          if(spotDistance(x, z) < spotRadius(x, z) + biomeBorder, 1, -1), -1)
+        if(aetherPocketToggle != 0,
+          if(radius(x,z) > spawnRadiusOffset, 
+            if(spotDistance(x, z) < spotRadius(x, z) + biomeBorder, 1, -1), -1), -1)
       variables: $math/samplers/spots.yml:variables
       samplers:
         radius:

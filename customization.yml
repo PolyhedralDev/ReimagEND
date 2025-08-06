@@ -19,6 +19,9 @@ aether-biome-scale: 1
 # System originated from the Overworld 2.0 pack.
 # Spot biomes are special circular biomes scattered around the world.
 
+aether-pocket-toggle: 1
+# Toggles aether pocket generation. Set to 0 to disable.
+
 spot-spawn-radius-offset: 4000
 # Roughly how far spots will generate away from spawn
 # Default: 4000

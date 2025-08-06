@@ -1,4 +1,6 @@
 variables: &variables
+  aetherPocketToggle: $customization.yml:aether-pocket-toggle
+
   spawnRadiusOffset: $customization.yml:spot-spawn-radius-offset
 
   spread: $customization.yml:spot-spread
