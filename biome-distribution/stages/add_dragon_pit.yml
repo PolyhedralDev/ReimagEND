@@ -6,5 +6,5 @@ stages:
       radius: $customization.yml:dragon-pit-radius
     from: MAIN_END
     to: 
-      - MAIN_END_VOID: 1
+      - DRAGON_PIT: 1
       - MAIN_END: 1
