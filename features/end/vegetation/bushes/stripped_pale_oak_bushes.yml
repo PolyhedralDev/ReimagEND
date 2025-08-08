@@ -1,12 +1,11 @@
-id: END_GRASS
+id: STRIPPED_PALE_OAK_BUSHES
 type: FEATURE
 
 distributor:
-  type: SAMPLER
-  sampler:
-    type: POSITIVE_WHITE_NOISE
-    salt: 7544
-  threshold: 0.125
+  type: PADDED_GRID
+  width: 7
+  padding: 2
+  salt: 35467
 
 locator:
   type: AND
@@ -25,12 +24,16 @@ locator:
       range: *range
       pattern:
         type: MATCH
+        block: minecraft:air
+        offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH
         block: minecraft:end_stone
         offset: -3
 
 structures:
   distribution:
-    type: WHITE_NOISE
-  structures:
-    - BLOCK:minecraft:short_grass: 6
-    - tall_grass: 1
+    type: CONSTANT
+  structures: stripped_pale_oak_bush
