@@ -1,0 +1,68 @@
+str blockID = "minecraft:small_amethyst_bud";
+
+num budChance = 1;
+
+num mediumChance = 0.4;
+num largeChance = 0.8;
+
+block(0,0,0, "minecraft:budding_amethyst");
+
+if (randomInt(budChance) == 0 && getBlock(0,1,0) == "minecraft:air") {
+    num blockSelection = randomInt(1000)/1000;
+    blockID = "minecraft:small_amethyst_bud[";
+    if (blockSelection >= mediumChance) blockID = "minecraft:medium_amethyst_bud[";
+    if (blockSelection >= largeChance) blockID = "minecraft:large_amethyst_bud[";
+
+    blockID = blockID + "facing=up]";
+    block(0,1,0, blockID, false);
+}
+
+if (randomInt(budChance) == 0 && getBlock(0,-1,0) == "minecraft:air") {
+    num blockSelection = randomInt(1000)/1000;
+    blockID = "minecraft:small_amethyst_bud[";
+    if (blockSelection >= mediumChance) blockID = "minecraft:medium_amethyst_bud[";
+    if (blockSelection >= 0.8) blockID = "minecraft:large_amethyst_bud[";
+
+    blockID = blockID + "facing=down]";
+    block(0,-1,0, blockID, false);
+}
+
+if (randomInt(budChance) == 0 && getBlock(1,0,0) == "minecraft:air") {
+    num blockSelection = randomInt(1000)/1000;
+    blockID = "minecraft:small_amethyst_bud[";
+    if (blockSelection >= mediumChance) blockID = "minecraft:medium_amethyst_bud[";
+    if (blockSelection >= 0.8) blockID = "minecraft:large_amethyst_bud[";
+
+    blockID = blockID + "facing=east]";
+    block(1,0,0, blockID, false);
+}
+
+if (randomInt(budChance) == 0 && getBlock(-1,0,0) == "minecraft:air") {
+    num blockSelection = randomInt(1000)/1000;
+    blockID = "minecraft:small_amethyst_bud[";
+    if (blockSelection >= mediumChance) blockID = "minecraft:medium_amethyst_bud[";
+    if (blockSelection >= 0.8) blockID = "minecraft:large_amethyst_bud[";
+
+    blockID = blockID + "facing=west]";
+    block(-1,0,0, blockID, false);
+}
+
+if (randomInt(budChance) == 0 && getBlock(0,0,1) == "minecraft:air") {
+    num blockSelection = randomInt(1000)/1000;
+    blockID = "minecraft:small_amethyst_bud[";
+    if (blockSelection >= mediumChance) blockID = "minecraft:medium_amethyst_bud[";
+    if (blockSelection >= 0.8) blockID = "minecraft:large_amethyst_bud[";
+
+    blockID = blockID + "facing=south]";
+    block(0,0,1, blockID, false);
+}
+
+if (randomInt(budChance) == 0 && getBlock(0,0,-1) == "minecraft:air") {
+    num blockSelection = randomInt(1000)/1000;
+    blockID = "minecraft:small_amethyst_bud[";
+    if (blockSelection >= mediumChance) blockID = "minecraft:medium_amethyst_bud[";
+    if (blockSelection >= 0.8) blockID = "minecraft:large_amethyst_bud[";
+
+    blockID = blockID + "facing=north]";
+    block(0,0,-1, blockID, false);
+}

@@ -1,6 +1,8 @@
 id: AMETHYST_END
 type: BIOME
-extends: [ BASE_END, EQ_DEFAULT ]
+extends:
+  - BASE_END
+  - EQ_DEFAULT
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:AMETHYST_END  
   
@@ -9,4 +11,4 @@ palette:
 
 features:
   landforms:
-    - GIANT_AMETHYST_CRYSTALS
+    - AMETHYST_SPIKE_CLUSTERS

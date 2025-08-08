@@ -1,0 +1,52 @@
+num randPrecision = 100;
+
+num spikes = 1 + randomInt(3);
+
+str mainBlock = "minecraft:amethyst_block";
+
+str altBlock = "budding_amethyst";
+num altChance = 6;
+
+for (num i = 0; i < spikes; i = i + 1) {
+
+    num length = 15 + randomInt(randPrecision) / randPrecision * 2;
+    num radius = 2 + randomInt(randPrecision) / randPrecision;
+
+    // Direction vector
+    num dx = randomInt(randPrecision) / randPrecision * 2 - 1;
+    num dy = randomInt(randPrecision) / randPrecision * 2 - 1;
+    num dz = randomInt(randPrecision) / randPrecision * 2 - 1;
+
+    // Normalize vector
+    num mag = sqrt(pow(dx, 2) + pow(dy, 2) + pow(dz, 2));
+    dx = dx / mag;
+    dy = dy / mag;
+    dz = dz / mag;
+
+    if (getBlock(length * dx, length * dy - radius, length * dz) != "minecraft:air") continue;
+
+    for (num l = 0; l <= length; l = l + 1) {
+        num t = l / length;
+
+        // Reduce radius inversely to length
+        num r = max(radius * (1 - t), 1);
+
+        if (t > 0.7) continue;
+
+        // Generate sphere at each point
+        for (num x = -r; x <= r; x = x + 1) {
+            for (num y = -r; y <= r; y = y + 1) {
+                for (num z = -r; z <= r; z = z + 1) {
+                    if (pow(x, 2) + pow(y, 2) + pow(z, 2) < pow(r, 2)) {
+
+                        if (randomInt(altChance) == 0) {
+                            structure(l * dx + x, l * dy + y - radius, l * dz + z, altBlock, "NONE");
+                        } else {
+                            block(l * dx + x, l * dy + y - radius, l * dz + z, mainBlock);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
