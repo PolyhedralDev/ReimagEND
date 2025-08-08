@@ -1,6 +1,8 @@
 id: VERMILION_WILDS
 type: BIOME
-extends: [ BASE_END, EQ_DEFAULT ]
+extends:
+  - BASE_END
+  - EQ_DEFAULT
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:VERMILION_WILDS
 
@@ -12,8 +14,12 @@ palette:
   - RED_POWDER_END: $meta.yml:top-y
 
 features:
+  postprocessors:
+    - VERMILION_VINES
   trees:
     - VERMILION_TREES
+    - HANGING_VERMILION_BULBS
+    - FALLEN_VERMILION_TREES
   flora:
     - STRIPPED_MANGROVE_BUSHES
     - END_GRASS

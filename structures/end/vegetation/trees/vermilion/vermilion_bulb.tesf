@@ -1,16 +1,15 @@
-num randPrecision = 100;
-
-num baseRadius = 4;
+num bulbRadius = 2.5;
 num warp = 2;
 num warpFreq = 5;
 num squish = 0.5;
-num radiusSquared = pow(baseRadius,2);
+num radiusSquared = pow(bulbRadius,2);
 num yTranslate = 0;
 
-str setBlock = "";
-for (num x = -baseRadius-warp; x < baseRadius+warp; x = x + 1) {
-    for (num y = (-baseRadius-warp)/squish; y < (baseRadius+warp)/squish; y = y + 1) {
-        for (num z = -baseRadius-warp; z < baseRadius+warp; z = z + 1) {
+str innerBlock = "minecraft:shroomlight";
+str outerBlock = "minecraft:red_stained_glass";
+for (num x = -bulbRadius-warp; x < bulbRadius+warp; x = x + 1) {
+    for (num y = (-bulbRadius-warp)/squish; y < (bulbRadius+warp)/squish; y = y + 1) {
+        for (num z = -bulbRadius-warp; z < bulbRadius+warp; z = z + 1) {
             num warpX = warp * sampler("simplex3",
                                 warpFreq*(x+originX()),
                                 warpFreq*(y+originY()+1000),
@@ -25,12 +24,11 @@ for (num x = -baseRadius-warp; x < baseRadius+warp; x = x + 1) {
                                 warpFreq*(z+originZ()));
 			num distanceSquared = pow(x+warpX,2)+pow((y+warpY)*squish,2)+pow(z+warpZ,2);
             if (distanceSquared < radiusSquared) {
-				      block(x, y+yTranslate, z, "minecraft:red_stained_glass", false);
+				      block(x, y+yTranslate, z, outerBlock, false);
 			      }
 
-            if (distanceSquared < (radiusSquared-12)) {
-                setBlock = "minecraft:shroomlight";
-				block(x, y+yTranslate, z, setBlock, true);
+            if (distanceSquared < (radiusSquared-bulbRadius*2)) {
+				block(x, y+yTranslate, z, innerBlock, true);
 			}
         }
     }
