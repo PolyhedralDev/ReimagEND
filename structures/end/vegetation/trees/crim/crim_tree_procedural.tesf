@@ -2,8 +2,8 @@ num randPrecision = 100;
 num goldenAngle = 2.39996;
 num pi = 3.14159;
 
-str trunkBlock = "minecraft:purple_terracotta";
-str altTrunkBlock = "minecraft:crimson_planks";
+str trunkBlock = "minecraft:stripped_crimson_hyphae";
+str altTrunkBlock = "minecraft:magenta_terracotta";
 str setBlock = trunkBlock;
 
 num trunkRadius = 3;

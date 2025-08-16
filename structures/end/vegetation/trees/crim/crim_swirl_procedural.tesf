@@ -1,34 +1,28 @@
-if (true) {
-    if (getBlock(2,-2,0) == "minecraft:air") fail;
-    if (getBlock(-2,-2,0) == "minecraft:air") fail;
-    if (getBlock(0,-2,2) == "minecraft:air") fail;
-    if (getBlock(0,-2,-2) == "minecraft:air") fail;
-}
-
-
 num randPrecision = 100;
-num goldenAngle = 2.39996;
 num pi = 3.14159;
 
-num height = 150+randomInt(200);
-num additionalSize = randomInt(10);
+num height = 100+randomInt(350);
 
 num radius = 1;
 
-str mainBlock = "minecraft:white_terracotta";
-str altBlock = "minecraft:light_gray_terracotta";
+str mainBlock = "minecraft:stripped_crimson_hyphae";
+str altBlock = "minecraft:crimson_planks";
+str endBlock = "minecraft:yellow_concrete";
+str lightBlock = "minecraft:light[level=15]";
 
 num angle = randomInt(randPrecision)/randPrecision*2*pi;
+
+num dir = 1;
+if (randomInt(2) == 0) dir = -1;
 
 str setBlock = "";
 for (num a = 0; a < height; a = a + 1) {
     
     num yTranslate = a/6;
-    num length = 20-(a/(height/15));
+    num length = 15-(a/(height/15));
     
-    num droop = -0.01-(a/(height*100));
+    num droop = -0.07-(a/(height*100));
     num verticalDirection = -2+randomInt(randPrecision)/randPrecision;
-
 
     // Branch direction vector
     num dx = sin(angle);
@@ -40,7 +34,11 @@ for (num a = 0; a < height; a = a + 1) {
     dy = dy/mag;
     dz = dz/mag;
 
-    for (num l = 0; l <= length; l = l + 0.1) {
+    if (a > height/1.25) {
+
+    }
+
+    for (num l = 0; l <= length; l = l + 0.5) {
 
         num r = (radius/length * -l/2) + radius;
 
@@ -53,9 +51,15 @@ for (num a = 0; a < height; a = a + 1) {
                 for(num z = -r; z <= r; z = z + 1) {
                     setBlock = mainBlock;
                     if (randomInt(2) == 0) setBlock = altBlock;
-                        
+                    if (a > height/1.25) {
+                        setBlock = endBlock;
+                        block(cx + 1, cy + yTranslate, cz, lightBlock, false);
+                        block(cx - 1, cy + yTranslate, cz, lightBlock, false);
+                        block(cx, cy + yTranslate, cz + 1, lightBlock, false);
+                        block(cx, cy + yTranslate, cz - 1, lightBlock, false);
+                    }
                     if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
-                        block(cx + x, cy + yTranslate, cz + z, setBlock, true);
+                        block(cx + x, cy + y + yTranslate, cz + z, setBlock, true);
                     }
                 }  
             }
@@ -70,7 +74,7 @@ for (num a = 0; a < height; a = a + 1) {
         dz = dz/mag;
     }
 
-    angle = angle + 0.1;
+    angle = angle + 0.1*dir;
 }
 
 

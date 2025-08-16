@@ -1,11 +1,12 @@
-id: CRIM_TREES
+id: CRIM_SWIRLS
 type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 17
-  padding: 6
-  salt: 4357
+  width: 22
+  padding: 18
+  salt: 4981
+
 
 locator:
   type: AND
@@ -23,13 +24,16 @@ locator:
       range: *range
       pattern:
         type: MATCH_SET
-        blocks:
-          - minecraft:purple_terracotta
-          - minecraft:magenta_terracotta
-          - minecraft:end_stone
+        blocks: $features/meta.yml:end-plantable-blocks
         offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -3
     
 structures:
   distribution:
     type: CONSTANT
-  structures: crim_tree
+  structures: crim_swirl_procedural

@@ -6,8 +6,8 @@ num amount = 5+randomInt(5);
 
 num radius = 1;
 
-str mainBlock = "minecraft:purple_terracotta";
-str altBlock = "minecraft:crimson_planks";
+str mainBlock = "minecraft:magenta_terracotta";
+str altBlock = "minecraft:stripped_crimson_hyphae";
 
 structure(0,0,0,"inner_shell","NONE");
 

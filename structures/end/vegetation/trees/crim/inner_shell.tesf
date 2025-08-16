@@ -6,8 +6,9 @@ num amount = 1;
 
 num radius = 1;
 
-str mainBlock = "minecraft:ochre_froglight";
-str altBlock = "minecraft:ochre_froglight";
+str mainBlock = "minecraft:yellow_concrete";
+str altBlock = "minecraft:yellow_concrete";
+str lightBlock = "minecraft:light[level=15]";
 
 str setBlock = "";
 for (num a = 0; a < amount; a = a + 1) {
@@ -42,7 +43,11 @@ for (num a = 0; a < amount; a = a + 1) {
                     if (randomInt(2) == 0) setBlock = altBlock;
                     
                     if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
-                        block(cx + x, cy + y, cz + z, setBlock, false);                  
+                        block(cx + x, cy + y, cz + z, setBlock, false);
+                        block(cx + x + 1, cy + y, cz + z, lightBlock, false);
+                        block(cx + x - 1, cy + y, cz + z, lightBlock, false);
+                        block(cx + x, cy + y, cz + z + 1, lightBlock, false);
+                        block(cx + x, cy + y, cz + z - 1, lightBlock, false);
                     }
                 }  
             }
