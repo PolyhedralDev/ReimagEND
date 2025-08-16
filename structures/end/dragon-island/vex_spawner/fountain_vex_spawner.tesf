@@ -6,7 +6,7 @@ structure(0,yTranslate,0, "vex_spawner_sc", "NONE");
 for (num x = -radius; x < radius; x = x + 1) {
     for (num y = -radius; y < radius; y = y + 1) {
         for (num z = -radius; z < radius; z = z + 1) {
-            if (getBlock(x,y+yTranslate,z) == "minecraft:spawner") state(x, y+yTranslate, z,"type=VEX");
+            if (getBlock(x,y+yTranslate,z) == "minecraft:spawner") state(x, y+yTranslate, z,"type=minecraft:VEX");
         }
     }
 }

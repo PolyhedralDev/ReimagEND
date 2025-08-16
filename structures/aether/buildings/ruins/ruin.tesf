@@ -38,7 +38,7 @@ for (num y = height; y > yOffset; y = y - 1) {
 
                     if (x == 0 && z == 0 && randomInt(4) == 0) {
                         block(x,y+1,z,"minecraft:spawner");
-                        state(x,y+1,z,"type=VEX");
+                        state(x,y+1,z,"type=minecraft:VEX");
                     }
                 }
             }   
