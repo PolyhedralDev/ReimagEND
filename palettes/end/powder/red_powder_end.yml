@@ -3,19 +3,26 @@ type: PALETTE
 
 layers:
   - materials:
-      - minecraft:red_concrete: 1
-      - minecraft:red_concrete_powder: 2
+      - minecraft:red_concrete_powder: 3
+      - minecraft:end_stone: 2
     layers: 1
   - materials:
-      - minecraft:red_concrete: 1
-      - minecraft:red_concrete_powder: 2
-      - minecraft:end_stone: 1
+      - minecraft:red_concrete_powder: 3
+      - minecraft:end_stone: 2
     layers: 1
   - materials:
       - minecraft:end_stone: 1
     layers: 1
 
 sampler:
-  type: WHITE_NOISE
-  salt: 4357
-threshold: 0.5
+  type: DOMAIN_WARP
+  amplitude: 2
+  warp:
+    type: GAUSSIAN
+  sampler:
+    type: FBM
+    octaves: 2
+    sampler:
+      type: OPEN_SIMPLEX_2
+      frequency: 0.007
+      salt: 6881
