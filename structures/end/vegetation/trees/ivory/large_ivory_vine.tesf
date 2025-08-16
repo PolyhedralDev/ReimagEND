@@ -2,7 +2,7 @@ if (getBlock(0,1,0) != "minecraft:white_stained_glass" ||
     getBlock(0,0,0) != "minecraft:air" ||
     getBlock(0,-1,0) != "minecraft:air") fail;
 
-num length = 4 + randomInt(7);
+num length = 7 + randomInt(7);
 
 str setBlock = "minecraft:white_stained_glass_pane";
 str endBlock = "minecraft:white_stained_glass";

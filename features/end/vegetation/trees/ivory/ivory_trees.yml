@@ -49,5 +49,7 @@ locator:
 
 structures:
   distribution:
-    type: CONSTANT
-  structures: ivory_tree_procedural
+    type: WHITE_NOISE
+  structures:
+    - large_ivory_tree_procedural: 1
+    - ivory_tree_procedural: 3

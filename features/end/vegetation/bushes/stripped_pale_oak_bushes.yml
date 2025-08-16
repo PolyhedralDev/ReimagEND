@@ -23,8 +23,10 @@ locator:
     - type: PATTERN
       range: *range
       pattern:
-        type: MATCH
-        block: minecraft:air
+        type: MATCH_SET
+        blocks:
+          - minecraft:snow
+          - minecraft:air
         offset: 0
     - type: PATTERN
       range: *range

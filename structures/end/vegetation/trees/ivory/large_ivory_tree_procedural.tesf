@@ -2,7 +2,7 @@ num randPrecision = 100;
 num goldenAngle = 2.39996;
 num pi = 3.14159;
 
-num trunkHeight = 12 + randomInt(5);
+num trunkHeight = 20 + randomInt(5);
 num trunkBase = 2+randomInt(4);
 num trunkRadius = 2;
 str mainBlock = "minecraft:white_concrete";
@@ -228,8 +228,8 @@ num twopi = pi*2;
 for (num v = trunkHeight; v < trunkHeight+topBranchLengthOutwardsMin; v = v + 0.25) {
     num rx = sin(randomInt(randPrecision)/randPrecision * twopi) * (8 + randomInt(7));
     num rz = cos(randomInt(randPrecision)/randPrecision * twopi) * (8 + randomInt(7));
-    structure(rx, v, rz, "ivory_vine", "NONE");
-    structure(-rx, v, rz, "ivory_vine", "NONE");
-    structure(rx, v, -rz, "ivory_vine", "NONE");
-    structure(-rx, v, -rz, "ivory_vine", "NONE");
+    structure(rx, v, rz, "large_ivory_vine", "NONE");
+    structure(-rx, v, rz, "large_ivory_vine", "NONE");
+    structure(rx, v, -rz, "large_ivory_vine", "NONE");
+    structure(-rx, v, -rz, "large_ivory_vine", "NONE");
 }
