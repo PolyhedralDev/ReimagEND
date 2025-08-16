@@ -3,9 +3,9 @@ type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 34
-  padding: 25
-  salt: 5467
+  width: 74
+  padding: 65
+  salt: 3246
 
 locator:
   type: AND
@@ -14,13 +14,16 @@ locator:
       range: &range
         min: $meta.yml:bottom-y
         max: $meta.yml:top-y
-      amount: 1
     - type: PATTERN
       range: *range
       pattern:
-        type: MATCH
-        block: minecraft:end_stone
-        offset: -5
+        type: MATCH_AIR
+        offset: 12
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 6
     - type: PATTERN
       range: *range
       pattern:
@@ -29,10 +32,21 @@ locator:
     - type: PATTERN
       range: *range
       pattern:
-        type: MATCH_AIR
-        offset: 10
+        type: MATCH_SOLID
+        offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -6
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -12
+
 
 structures:
   distribution:
     type: CONSTANT
-  structures: legged_lantern
+  structures: place_legged_lantern

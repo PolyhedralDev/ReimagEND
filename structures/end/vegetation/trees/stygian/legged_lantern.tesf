@@ -1,0 +1,139 @@
+num randPrecision = 100;
+num goldenAngle = 2.39996;
+num pi = 3.14159;
+
+num radius = 3.5 + randomInt(randPrecision) / randPrecision;
+num warp = 2;
+num warpFreq = 2.5;
+num squish = 0.6;
+num radiusSquared = pow(radius, 2);
+num yTranslateLantern = -1;
+
+num yTranslate = 12+randomInt(5);
+
+num legAmount = 8;
+num legRadius = 1.15;
+
+num maxLength = 30;
+num droopFlip = 5;
+num droopVariation = 0.08;
+
+str lanternBlock = "minecraft:white_concrete";
+
+str mainBlock = "minecraft:black_concrete";
+str altBlock = "minecraft:black_concrete_powder";
+
+bool valid = false;
+for (num i = 0; i < legAmount; i = i + 1) {
+    num droop = -0.08-(randomInt(droopVariation*100)/100);
+    num verticalDirection = 1+randomInt(randPrecision)/randPrecision;
+    num angle = randomInt(randPrecision)/randPrecision*2*pi;
+
+    // Branch direction vector
+    num dx = sin(angle);
+    num dy = verticalDirection;
+    num dz = cos(angle);
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+
+    num length = 0;
+    bool legValid = false;
+    for (num j = 0; j < maxLength; j = j + 0.15) {
+        if (getBlock(j * dx, j * dy + yTranslate, j * dz) != "minecraft:air" &&
+            getBlock(j * dx, j * dy + yTranslate, j * dz) != "minecraft:black_concrete" &&
+            getBlock(j * dx, j * dy + yTranslate, j * dz) != "minecraft:black_concrete_powder") {
+            length = j;
+            legValid = true;
+            break;
+        }
+
+        // Point vector down more
+        if (j < droopFlip) {
+            dy = dy - droop;
+        } else dy = dy + droop/3;
+
+        // Normalize vector
+        mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
+        dx = dx/mag;
+        dy = dy/mag;
+        dz = dz/mag;
+    }
+
+    if (!legValid) continue;
+
+    valid = true;
+
+    dx = sin(angle);
+    dy = verticalDirection;
+    dz = cos(angle);
+    // Normalize vector
+    mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+
+    for (num l = 0; l < length; l = l + 0.15) {
+
+        num r = legRadius;
+        for(num x = -r; x < r; x = x + 1) {
+            for(num y = -r; y < r; y = y + 1) {
+                for (num z = -r; z < r; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                        if (randomInt(2) == 0) {
+                            block(l * dx + x, l * dy - r + y + yTranslate, l * dz + z, altBlock, false);
+                            block(l * dx + x, l * dy - r + y - 1 + yTranslate, l * dz + z, mainBlock, true);
+                        } else block(l * dx + x, l * dy - r + y + yTranslate, l * dz + z, mainBlock, false);
+                    }
+                }
+            }
+        }
+
+        // Point vector down more
+        if (l < droopFlip) {
+            dy = dy - droop;
+        } else dy = dy + droop/2;
+
+        // Normalize vector
+        mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
+        dx = dx/mag;
+        dy = dy/mag;
+        dz = dz/mag;
+    }
+
+    angle = angle + goldenAngle;
+}
+
+if (!valid) fail;
+
+str setBlock = lanternBlock;
+for (num x = -radius - warp; x < radius + warp; x = x + 1) {
+    for (num y = (-radius - warp) / squish; y < (radius + warp) / squish; y = y + 1) {
+        for (num z = -radius - warp; z < radius + warp; z = z + 1) {
+            num warpX = warp * sampler("simplex3",
+                warpFreq * (x + originX()),
+                warpFreq * (y + originY() + 1000),
+                warpFreq * (z + originZ()));
+            num warpY = warp * sampler("simplex3",
+                warpFreq * (x + originX()),
+                warpFreq * (y + originY() + 2000),
+                warpFreq * (z + originZ()));
+            num warpZ = warp * sampler("simplex3",
+                warpFreq * (x + originX()),
+                warpFreq * (y + originY() + 3000),
+                warpFreq * (z + originZ()));
+            num distanceSquared = pow(x + warpX, 2) + pow((y + warpY) * squish, 2) + pow(z + warpZ, 2);
+            if (distanceSquared < radiusSquared / 1.5) {
+                setBlock = lanternBlock;
+                if (randomInt(3) == 0) setBlock = mainBlock;
+                block(x, y + yTranslateLantern + yTranslate, z, setBlock, false);
+            }
+
+            if (distanceSquared < radiusSquared) {
+                block(x, y + yTranslateLantern + yTranslate, z, "minecraft:light[level=15]", false);
+            }
+        }
+    }
+}

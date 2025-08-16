@@ -1,0 +1,13 @@
+num amount = 5 + randomInt(10);
+
+for (num p = 0; p < amount; p = p + 1) {
+
+    num theta = randomInt(360) * 3.14159 / 180;
+    num r = 10 - randomInt(randomInt(10) + 1);
+    num x = cos(theta) * r;
+    num y = (tan(theta) * r) / 3;
+    num z = sin(theta) * r;
+    if (check(x, 0, z) != "AIR") fail;
+    structure(x, y, z, "stygian_jelly", "NONE");
+}
+

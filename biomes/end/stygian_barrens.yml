@@ -1,0 +1,31 @@
+id: STYGIAN_BARRENS
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_TEST
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:STYGIAN_BARRENS
+
+colors:
+  grass: 0x211f24
+  foliage: 0x35343b
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+slant:
+  - threshold: 1
+    palette:
+      - BLACK_POWDER_END: $meta.yml:top-y
+  - threshold: 0.5
+    palette:
+      - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+features:
+  postprocessors:
+    - STYGIAN_CROSS_STRANDS
+    - STYGIAN_JELLIES
+  flora:
+    - END_GRASS
+  trees:
+    - LEGGED_LANTERNS
