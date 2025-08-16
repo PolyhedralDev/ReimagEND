@@ -52,4 +52,6 @@ locator:
 structures:
   distribution:
     type: WHITE_NOISE
-  structures: vermilion_tree_procedural
+  structures:
+    - large_vermilion_tree_procedural: 1
+    - vermilion_tree_procedural: 3

@@ -2,7 +2,7 @@ num randPrecision = 100;
 num goldenAngle = 2.39996;
 num pi = 3.14159;
 
-num trunkHeight = 10 + randomInt(5);
+num trunkHeight = 15 + randomInt(8);
 num trunkBase = 4 + randomInt(3);
 num trunkRadius = 2;
 str mainBlock = "minecraft:red_concrete";

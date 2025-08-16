@@ -17,8 +17,8 @@ num tmag = sqrt(pow2(tdx) + pow2(tdz));
 tdx = tdx / tmag;
 tdz = tdz / tmag;
 
-str mainBlock = "minecraft:red_stained_glass";
-str altBlock = "minecraft:red_concrete";
+str mainBlock = "minecraft:red_concrete";
+str altBlock = "minecraft:red_concrete_powder";
 
 str setBlock = mainBlock;
 // Generate roots at base of trunk

@@ -21,27 +21,6 @@ locator:
         offset: 0
     - type: OR
       locators:
-        - type: PATTERN
-          range: *range
-          pattern:
-            type: MATCH_SET
-            blocks:
-              - minecraft:end_stone
-            offset: -1
-        - type: PATTERN
-          range: *range
-          pattern:
-            type: MATCH_SET
-            blocks:
-              - minecraft:end_stone
-            offset: 1
-        - type: ADJACENT_PATTERN
-          range: *range
-          pattern:
-            type: MATCH_SET
-            blocks:
-              - minecraft:end_stone
-            offset: 0
         - type: ADJACENT_PATTERN
           range: *range
           pattern:
@@ -55,7 +34,7 @@ locator:
             type: MATCH_SET
             blocks:
               - minecraft:end_stone
-            offset: -1
+            offset: 1
         
 
     # Match ridged simplex to create 'walls'
