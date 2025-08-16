@@ -18,8 +18,8 @@ for (num y = 0; y < length; y = y + 1) {
 
 block(0, length-1, 0, "minecraft:spawner", false);
 if (randomInt(5) == 0) {
-    state(0, length-1, 0, "type=SILVERFISH");
-} else { state(0, length-1, 0, "type=VEX"); }
+    state(0, length-1, 0, "type=minecraft:SILVERFISH");
+} else { state(0, length-1, 0, "type=minecraft:VEX"); }
 
 
 block(1, length-1, 0, "minecraft:iron_bars[north=true,south= true]", false);
