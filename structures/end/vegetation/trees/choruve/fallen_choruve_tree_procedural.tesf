@@ -1,0 +1,75 @@
+num randPrecision = 100;
+num goldenAngle = 2.39996;
+num pi = 3.14159;
+
+num length = 8 + randomInt(4);
+num trunkRadius = 0.75;
+num buffer = 7;
+num scanOffset = 5;
+num maxCheckDepth = 20;
+
+// Direction vector
+num tdx = (randomInt(randPrecision) / randPrecision - 0.5) * 1.5;
+num tdz = (randomInt(randPrecision) / randPrecision - 0.5) * 1.5;
+
+num tmag = sqrt(pow2(tdx) + pow2(tdz));
+tdx = tdx / tmag;
+tdz = tdz / tmag;
+
+str mainBlock = "minecraft:blue_terracotta";
+str altBlock = "minecraft:light_blue_terracotta";
+
+str setBlock = mainBlock;
+// Generate roots at base of trunk
+num roots = 3;
+num rootMaxDepth = 3;
+num rootHeight = 3;
+num rootLength = 4;
+num rootAngle = randomInt(randPrecision)/randPrecision*2*pi;
+for (num r = 0; r < roots; r = r + 1) {
+    num dx = sin(rootAngle);
+    num dz = cos(rootAngle);
+    setBlock = mainBlock;
+
+    for (num l = 0; l <= (rootLength+randomInt(3)); l = l + 1) {
+        num height = (rootHeight+randomInt(3)) * (1-(l/rootLength));
+        bool bottomedOut = false;
+        for (num h = height; h >= -rootMaxDepth; h = h - 1) {
+            if (check(round(l*dx),round(h),round(l*dz)) != "AIR") {
+                bottomedOut = true;
+                break;
+            }
+            setBlock = mainBlock;
+            if (randomInt(2) == 0) setBlock = altBlock;
+            block(l*dx, h, l*dz, setBlock);
+        }
+        if (!bottomedOut) break;
+    }
+    rootAngle = rootAngle + goldenAngle;
+}
+
+if (check((length / 2) * tdx, scanOffset, (length / 2) * tdz) == "LAND") fail;
+if (getBlock((length / 2) * tdx, scanOffset, (length / 2) * tdz) != "minecraft:air") fail;
+
+for (num l = buffer; l <= buffer + length; l = l + 1) {
+
+    num yTranslate = scanOffset;
+    while (check(l * tdx, yTranslate - 1, l * tdz) != "LAND" &&
+        yTranslate > -maxCheckDepth) yTranslate = yTranslate - 1;
+
+    if (yTranslate == -maxCheckDepth) fail;
+
+    num r = trunkRadius;
+    // Generate sphere at each point
+    for (num x = -r; x < r; x = x + 1) {
+        for (num y = -r; y < r; y = y +1) {
+            for (num z = -r; z < r; z = z +1) {
+                if (pow(x, 2) + pow(y, 2) + pow(z, 2) <= pow(r, 2)) {
+                    setBlock = mainBlock;
+                    if (randomInt(2) == 0) setBlock = altBlock;
+                    block(l * tdx +x, yTranslate +y, l * tdz +z, setBlock, true);
+                }
+            }
+        }
+    }
+}

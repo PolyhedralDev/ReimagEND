@@ -1,11 +1,11 @@
-id: MAUVE_TREES
+id: FALLEN_CHORUVE_TREES
 type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 16
-  padding: 7
-  salt: 6578
+  width: 53
+  padding: 44
+  salt: 5368
 
 locator:
   type: AND
@@ -17,21 +17,19 @@ locator:
     - type: PATTERN
       range: *range
       pattern:
-        type: MATCH_AIR
-        offset: 0
+        type: MATCH_SET
+        blocks: $features/meta.yml:end-plantable-blocks
+        offset: -1
     - type: PATTERN
       range: *range
       pattern:
-        type: MATCH_SET
-        blocks:
-          - minecraft:purple_concrete_powder
-          - minecraft:purple_concrete
-          - minecraft:end_stone
-        offset: -1
-    
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -3
+
 structures:
   distribution:
     type: WHITE_NOISE
-  structures:  
-    - small_mauve_tree: 3
-    - large_mauve_tree: 1
+  structures:
+    - fallen_choruve_tree_procedural: 1
+    - blank: 2

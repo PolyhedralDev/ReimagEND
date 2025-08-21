@@ -1,18 +1,20 @@
 id: CHORUVE_WOODS
 type: BIOME
-extends: [ BASE_END, EQ_DEFAULT ]
+extends:
+  - BASE_END
+  - EQ_DEFAULT
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:CHORUVE_WOODS
 
 colors:
-  grass: 0x898096
-  foliage: 0x898096
+  grass: 0x584a6c
 
 palette:
-  - BLUE_LIGHT_TERRACOTTA: $meta.yml:top-y
+  - BLUE_TERRACOTTA: $meta.yml:top-y
 
 features:
   flora:
     - END_GRASS
   trees:
     - CHORUVE_TREES
+    - FALLEN_CHORUVE_TREES
