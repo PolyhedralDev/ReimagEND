@@ -24,16 +24,14 @@ locator:
         - type: ADJACENT_PATTERN
           range: *range
           pattern:
-            type: MATCH_SET
-            blocks:
-              - minecraft:end_stone
+            type: MATCH
+            block: minecraft:end_stone
             offset: 1
         - type: ADJACENT_PATTERN
           range: *range
           pattern:
-            type: MATCH_SET
-            blocks:
-              - minecraft:end_stone
+            type: MATCH
+            block: minecraft:end_stone
             offset: 1
         
 
