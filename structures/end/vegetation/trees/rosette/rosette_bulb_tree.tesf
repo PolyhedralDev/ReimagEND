@@ -1,7 +1,6 @@
 num randPrecision = 100;
 num goldenAngle = 2.39996;
 num pi = 3.14159;
-num twopi = 6.28318530718;
 
 num trunkHeight = 2+randomInt(5);
 str trunkBlock = "minecraft:stripped_crimson_hyphae";

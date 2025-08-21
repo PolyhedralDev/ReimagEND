@@ -1,0 +1,107 @@
+num randPrecision = 100;
+num goldenAngle = 2.39996;
+num pi = 3.14159;
+
+str innerBlock = "minecraft:stripped_crimson_hyphae";
+str outerBlock = "minecraft:oak_leaves[distance=1,persistent=false]";
+str lightBlock = "minecraft:light[level=15]";
+
+block(0, -1, 0, innerBlock, true);
+block(0, 0, 0, lightBlock, true);
+
+num spikes = 8;
+num bulbAngle = randomInt(randPrecision) / randPrecision * 2 * pi;
+
+str setBlock = innerBlock;
+for (num i = 0; i < spikes; i = i + 1) {
+
+    num bulbLength = 7;
+    num bulbRadius = 2;
+    num dx = sin(bulbAngle);
+    num dy = 1 + randomInt(randPrecision) / randPrecision * 0.3;
+    num dz = cos(bulbAngle);
+
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+
+    for(num l = 0; l <= bulbLength; l = l + 1) {
+
+        // Reduce radius inversely to length
+        num r = (bulbRadius/bulbLength * -l) + bulbRadius;
+
+        // Generate sphere at each point
+        for(num x = -r; x <= r; x = x + 1) {
+            for(num y = -r; y <= r; y = y + 1) {
+                for(num z = -r; z <= r; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                        setBlock = outerBlock;
+                        block(l*dx + x, l*dy + y - r, l*dz + z, setBlock, false);
+                        block(l*dx + x, l*dy + y - r - 1, l*dz + z, setBlock, false);
+                    }
+                }
+            }
+        }
+    }
+
+    bulbAngle = bulbAngle + goldenAngle;
+}
+
+num amount = 8;
+
+num radius = 1;
+
+num yTranslate = -4;
+
+str mainBlock = "minecraft:stripped_crimson_hyphae";
+str altBlock = mainBlock;
+
+for (num a = 0; a < amount; a = a + 1) {
+
+    num length = 5;
+    
+    num droop = -0.02;
+    num verticalDirection = -0.4-randomInt(randPrecision)/randPrecision;
+    num angle = randomInt(randPrecision)/randPrecision*2*pi;
+
+    // Branch direction vector
+    num dx = sin(angle);
+    num dy = verticalDirection;
+    num dz = cos(angle);
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+
+    for (num l = 0; l <= length; l = l + 0.1) {
+
+        num cx = l*dx;
+        num cy = l*dy;
+        num cz = l*dz;
+
+        num r = radius;
+        for(num x = -r; x <= r; x = x + 1) {
+            for(num y = -r; y <= r; y = y + 1) {
+                for(num z = -r; z <= r; z = z + 1) {
+                    setBlock = mainBlock;
+                    if (randomInt(2) == 0) setBlock = altBlock;
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                    block(cx, cy+yTranslate, cz, setBlock, false);                  
+                    }
+                }  
+            }
+        }
+
+        // Point vector down more
+        dy = dy - droop;
+        // Normalize vector
+        mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
+        dx = dx/mag;
+        dy = dy/mag;
+        dz = dz/mag;
+    }
+
+    angle = angle + goldenAngle;
+}

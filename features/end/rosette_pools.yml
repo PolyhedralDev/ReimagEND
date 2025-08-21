@@ -1,0 +1,40 @@
+id: ROSETTE_POOLS
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 6
+  padding: 3
+  salt: 4357
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 30
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: AND
+        patterns:
+          - type: MATCH_SET
+            blocks: $features/meta.yml:end-plantable-blocks
+            offset: -1
+          - type: MATCH
+            block: minecraft:end_stone
+            offset: -3
+          - type: MATCH
+            block: minecraft:end_stone
+            offset: -5
+          - type: MATCH
+            block: minecraft:air
+            offset: 3
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+   - rosette_pool: 1
+   - blank: 1

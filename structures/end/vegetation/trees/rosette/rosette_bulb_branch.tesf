@@ -11,6 +11,8 @@ str setBlock = "minecraft:stripped_crimson_hyphae";
     
 for (num h = 0; h < length; h = h + 1) {
 
+    if (getBlock(x, h + 8, z) == "minecraft:end_stone") length = h+1;
+
     block(x, y, z, setBlock);
     random = randomInt(5);
 
@@ -44,8 +46,17 @@ for (num h = 0; h < length; h = h + 1) {
 
     } else y = y + 1;
 
+    random = randomInt(4);
+    if (randomInt(3) == 0) {
+        if (random == 0) block(x + 1, y, z, setBlock);
+        if (random == 1) block(x - 1, y, z, setBlock);
+        if (random == 2) block(x, y, z + 1, setBlock);
+        if (random == 3) block(x, y, z - 1, setBlock);
+
+    }
+
     if (h == (length-1) ) structure(x,y+3,z,"rosette_bulb","NONE");
-}   
+}
 
 
 
