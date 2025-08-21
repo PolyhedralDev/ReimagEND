@@ -2,7 +2,7 @@ id: STYGIAN_BARRENS
 type: BIOME
 extends:
   - BASE_END
-  - EQ_TEST
+  - EQ_NARROW
 vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:STYGIAN_BARRENS
 
