@@ -1,22 +1,22 @@
 id: MAUVE_JUNGLE
 type: BIOME
-extends: [ BASE_END, EQ_DEFAULT ]
+extends:
+  - BASE_END
+  - EQ_DEFAULT
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:MAUVE_JUNGLE
 
 colors:
   grass: 0x8e3db7
-  foliage: 0x972ad1
-  water: 0xA020F0
-  water-fog: 0xA020F0
+  foliage: 0x8e3db7
 
 palette:
   - PURPLE_POWDER_END: $meta.yml:top-y
 
 features:
   trees:
-    - MAUVE_TREES
-  flora:
+    - GIANT_MAUVE_CHORUS_PLANTS
+    - MAUVE_CHORUS_PLANTS
     - CRIMSON_STEM_BUSHES
+  flora:
     - END_GRASS
-    - END_TALL_GRASS

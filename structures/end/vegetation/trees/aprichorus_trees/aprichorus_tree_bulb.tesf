@@ -1,8 +1,8 @@
 num radius = 4;
 num sideLength = 10;
 
-str mainBlock = "orange_concrete";
-str altBlock = "orange_concrete_powder";
+str mainBlock = "purple_concrete";
+str altBlock = "purple_concrete_powder";
 
 num r = radius;
 for (num x = -r; x <= r; x = x + 1) {
@@ -54,19 +54,19 @@ for (num x = -r; x <= r; x = x + 1) {
             if ((y == 3 || y == -3) &&
             z == 0 &&
             x == 0) {
-                block(x, y, z, "minecraft:black_concrete_powder", true);   
+                block(x, y, z, "minecraft:black_concrete", true);   
             }
 
             if (y == 0 &&
             (x == -3 || x == 3) &&
             z == 0) {
-                block(x, y, z, "minecraft:black_concrete_powder", true);   
+                block(x, y, z, "minecraft:black_concrete", true);   
             }
 
             if (y == 0 &&
             (z == -3 || z == 3) &&
             x == 0) {
-                block(x, y, z, "minecraft:black_concrete_powder", true);   
+                block(x, y, z, "minecraft:black_concrete", true);   
             }
 
             if ((y == 4 || y == -4) &&

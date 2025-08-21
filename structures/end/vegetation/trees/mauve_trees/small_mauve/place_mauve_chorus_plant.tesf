@@ -1,0 +1,6 @@
+if (getBlock(10, -10, 10) != "minecraft:end_stone" ||
+    getBlock(-10, -10, -10) != "minecraft:end_stone" ||
+    getBlock(-10, -10, 10) != "minecraft:end_stone" ||
+    getBlock(10, -10, -10) != "minecraft:end_stone") fail;
+
+structure(0, 0, 0, "mauve_chorus_procedural", "NONE");

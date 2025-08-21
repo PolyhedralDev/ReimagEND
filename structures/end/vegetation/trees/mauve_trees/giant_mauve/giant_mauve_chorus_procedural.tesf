@@ -1,0 +1,87 @@
+num height = 20+randomInt(10);
+num radius = 2;
+num sideLength = 10;
+num yTranslate = -3;
+
+for (num h = 0; h < height; h = h + 1) {
+    num r = radius;
+    
+    for (num x = -r; x < r; x = x + 1) {
+        for (num y = -r; y < r; y = y + 1) {
+            for (num z = -r; z < r; z = z + 1) {
+                if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                    structure(x, h + y+yTranslate, z, "giant_mauve_chorus_spikes", "NONE");
+                }
+            }
+        }
+    }
+}
+
+
+if (randomInt(2) == 0 && getBlock(sideLength-1, height+3, 0) == "minecraft:air") {
+    for (num h = 0; h < sideLength; h = h + 1) {
+    num r = radius;
+    
+        for (num x = -r; x < r; x = x + 1) {
+            for (num y = -r; y < r; y = y + 1) {
+                for (num z = -r; z < r; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                        structure(x + h, y+yTranslate + (height-1), z, "giant_mauve_chorus_spikes", "NONE");
+                    }
+                }
+            }
+        }
+    }
+    structure(sideLength-1, height-1+yTranslate, 0,"giant_mauve_chorus_branch", "NONE");
+}
+
+if (randomInt(2) == 0 && getBlock(-sideLength+1, height+3, 0) == "minecraft:air") {
+    for (num h = 0; h < sideLength; h = h + 1) {
+    num r = radius;
+    
+        for (num x = -r; x < r; x = x + 1) {
+            for (num y = -r; y < r; y = y + 1) {
+                for (num z = -r; z < r; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                        structure(x - h, y+yTranslate + (height-1), z, "giant_mauve_chorus_spikes", "NONE");
+                    }
+                }
+            }
+        }
+    }
+    structure(-sideLength+1, height-1+yTranslate, 0,"giant_mauve_chorus_branch", "NONE");
+}
+
+if (randomInt(2) == 0  && getBlock(0, height+3, sideLength-1) == "minecraft:air") {
+    for (num h = 0; h < sideLength; h = h + 1) {
+    num r = radius;
+    
+        for (num x = -r; x < r; x = x + 1) {
+            for (num y = -r; y < r; y = y + 1) {
+                for (num z = -r; z < r; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                        structure(x, y+yTranslate + (height-1), z + h, "giant_mauve_chorus_spikes", "NONE");
+                    }
+                }
+            }
+        }
+    }
+    structure(0, height-1+yTranslate, sideLength-1,"giant_mauve_chorus_branch", "NONE");
+}
+
+if (randomInt(2) == 0 && getBlock(0, height+3, -sideLength+1) == "minecraft:air") {
+    for (num h = 0; h < sideLength; h = h + 1) {
+    num r = radius;
+    
+        for (num x = -r; x < r; x = x + 1) {
+            for (num y = -r; y < r; y = y + 1) {
+                for (num z = -r; z < r; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                        structure(x, y+yTranslate + (height-1), z - h, "giant_mauve_chorus_spikes", "NONE");
+                    }
+                }
+            }
+        }
+    }
+    structure(0, height-1+yTranslate, -sideLength+1,"giant_mauve_chorus_branch", "NONE");
+}
