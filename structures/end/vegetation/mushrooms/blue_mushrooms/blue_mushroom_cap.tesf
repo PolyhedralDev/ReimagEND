@@ -6,6 +6,10 @@ num squish = 1;
 num radiusSquared = pow(radius,2);
 num yTranslate = 1;
 
+str mainBlock = "minecraft:purple_concrete";
+str altBlock = "minecraft:purple_concrete_powder";
+str lightBlock = "minecraft:light[level=15]";
+
 for (num x = -radius-warp; x < radius+warp; x = x + 1) {
     for (num y = ((-radius-warp)*3); y < ((radius+warp)*3); y = y + 1) {
         for (num z = -radius-warp; z < radius+warp; z = z + 1) {
@@ -25,9 +29,9 @@ for (num x = -radius-warp; x < radius+warp; x = x + 1) {
 
             if ((distanceSquared < (radiusSquared)/10)) {
                 if (randomInt(3) == 0) {
-                    block(x, y+radius, z, "minecraft:white_concrete_powder", false);
-                    block(x, y+radius-1, z, "minecraft:white_concrete", false);
-                } else block(x, y+radius, z, "minecraft:white_concrete", false);
+                    block(x, y+radius, z, altBlock, false);
+                    block(x, y+radius-1, z, mainBlock, false);
+                } else block(x, y+radius, z, mainBlock, false);
 				
 			}
 
@@ -35,7 +39,7 @@ for (num x = -radius-warp; x < radius+warp; x = x + 1) {
                                 20*(x+originX()),
                                 10*(y+originY()+3000),
                                 30*(z+originZ()))) {
-                if (randomInt(3) == 0) block(x, y, z, "minecraft:light[level=15]", false);
+                if (randomInt(3) == 0) block(x, y, z, lightBlock, false);
 			}
 
             
@@ -44,9 +48,9 @@ for (num x = -radius-warp; x < radius+warp; x = x + 1) {
                                 10*(y+originY()+3000),
                                 30*(z+originZ()))) {
                 if (randomInt(8) == 0) {
-                    block(x, y, z, "minecraft:blue_concrete_powder", true);
-                    block(x, y-1, z, "minecraft:blue_concrete", true);
-                } else block(x, y, z, "minecraft:blue_concrete", true);
+                    block(x, y, z, altBlock, true);
+                    block(x, y-1, z, mainBlock, true);
+                } else block(x, y, z, mainBlock, true);
 			}
         }
     }

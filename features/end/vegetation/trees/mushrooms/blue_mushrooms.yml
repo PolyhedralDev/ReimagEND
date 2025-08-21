@@ -36,37 +36,16 @@ locator:
     - type: PATTERN
       range: *range
       pattern:
-        type: MATCH_AIR
-        offset: 5
-    - type: PATTERN
-      range: *range
-      pattern:
-        type: MATCH_AIR
-        offset: 7
-    - type: PATTERN
-      range: *range
-      pattern:
         type: MATCH_SET
-        blocks:
-          - minecraft:blue_concrete
-          - minecraft:blue_concrete_powder
-          - minecraft:end_stone
+        blocks: $features/meta.yml:end-plantable-blocks
         offset: -1
     - type: PATTERN
       range: *range
       pattern:
-        type: MATCH_SET
-        blocks:
-          - minecraft:blue_concrete
-          - minecraft:blue_concrete_powder
-          - minecraft:end_stone
-        offset: -5
-    - type: ADJACENT_PATTERN
-      range: *range
-      pattern:
-        type: MATCH_SOLID
-        offset: -1
-    
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -3
+
     
 
 structures:
