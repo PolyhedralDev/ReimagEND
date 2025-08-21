@@ -5,7 +5,7 @@ distributor:
   type: PADDED_GRID
   width: 7
   padding: 2
-  salt: 9152
+  salt: 3546
 
 locator:
   type: AND
@@ -17,16 +17,9 @@ locator:
     - type: PATTERN
       range: *range
       pattern:
-        type: OR
-        patterns:
-          - type: MATCH_SET
-            blocks: $features/meta.yml:end-plantable-blocks
-            offset: -1
-          - type: MATCH_SET
-            blocks:
-              - minecraft:sand
-              - minecraft:red_sand
-            offset: -1
+        type: MATCH_SET
+        blocks: $features/meta.yml:end-plantable-blocks
+        offset: -1
     - type: PATTERN
       range: *range
       pattern:
@@ -35,6 +28,12 @@ locator:
           - minecraft:snow
           - minecraft:air
         offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -3
 
 structures:
   distribution:

@@ -1,20 +1,26 @@
-id: TWISTING_BEANSTALKS
+id: TWISTING_VINES
 type: FEATURE
 
 distributor:
   type: AND
   distributors:
-    - type: PADDED_GRID
-      width: 9
-      padding: 4
-      salt: 7589
+    - type: SAMPLER
+      sampler:
+        type: POSITIVE_WHITE_NOISE
+        salt: 7589
+      threshold: 0.2
     - type: SAMPLER
       sampler:
         type: PROBABILITY
         sampler:
-          type: OPEN_SIMPLEX_2
-          salt: 8679
-      threshold: 0.7
+          type: DOMAIN_WARP
+          amplitude: 5
+          warp:
+            type: GAUSSIAN
+          sampler:
+            type: OPEN_SIMPLEX_2
+            salt: 6578
+      threshold: 0.2
 
 locator:
   type: AND
@@ -37,19 +43,8 @@ locator:
           - type: MATCH
             block: minecraft:air
             offset: 0
-          - type: MATCH
-            block: minecraft:air
-            offset: 3
-          - type: MATCH
-            block: minecraft:air
-            offset: 6
-          - type: MATCH
-            block: minecraft:air
-            offset: 9
 
 structures:
   distribution:
-    type: WHITE_NOISE
-  structures:
-    - twisting_beanstalk_procedural: 1
-    - blank: 2
+    type: CONSTANT
+  structures: twisting_vines

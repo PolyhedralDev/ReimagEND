@@ -4,7 +4,7 @@ num height = 20+randomInt(60);
 num direction = randomInt(randPrecision)/randPrecision;
 num dirInterval = 1;
 
-num radius = 2;
+num radius = 1.5;
 
 str mainBlock = "minecraft:warped_wart_block";
 str altBlock = "minecraft:stripped_warped_hyphae";
@@ -22,12 +22,14 @@ if (randomInt(2) == 0) {
 str checkBlock = "";
 
 for (num l = 0; l < height; l = l + 1) {
+    if (getBlock(0, l + 5, 0) == "minecraft:end_stone") height = l;
+
     setBlock = mainBlock;
     checkBlock = getBlock(0,l,0);
 
     num leafInterval = baseLeafInterval+randomInt(leafIntervalVar);
 
-    if (l % leafInterval == 0 && l < (height-5) && l > 5) {
+    if (l % leafInterval == 0 && l < (height-10) && l > 5) {
         if (rotate == 4) rotate = 0;
 
         if (rotate == 0) structure(0, l, 0, "twisting_leaf", "NONE");

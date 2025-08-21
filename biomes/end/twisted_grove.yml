@@ -1,6 +1,8 @@
 id: TWISTED_GROVE
 type: BIOME
-extends: [ BASE_END, EQ_DEFAULT ]
+extends:
+  - BASE_END
+  - EQ_DEFAULT
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:TWISTED_GROVE
 
@@ -13,9 +15,10 @@ palette:
 
 features:
   flora:
-    - WARPED_GRASS
     - END_GRASS
+    - TWISTING_VINES
     - WARPED_STEM_BUSHES
   trees:
-    - WARPED_MANGROVES
     - TWISTING_BEANSTALKS
+  postprocessors:
+    - WARPED_OVERGROWTH

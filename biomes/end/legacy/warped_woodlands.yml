@@ -16,6 +16,5 @@ features:
     - WARPED_MESQUITE_TREES
     - TWISTING_BEANSTALKS
   flora:
-    - WARPED_GRASS
     - END_GRASS
     - WARPED_STEM_BUSHES
