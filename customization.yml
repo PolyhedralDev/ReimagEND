@@ -2,7 +2,7 @@ dragon-island-radius: 150
 
 dragon-pit-radius: 80
 
-void-buffer-width: 500
+void-buffer-width: 1000
 
 outer-end-start: ${customization.yml:dragon-island-radius} + ${customization.yml:void-buffer-width}
 
