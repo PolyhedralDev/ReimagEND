@@ -7,8 +7,8 @@ vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:TWISTED_GROVE
 
 colors:
-  grass: 0x54c0d9
-  foliage: 0x57c9e1
+  grass: 0x3d8a9c
+  foliage: 0x3d8a9c
   
 palette:
   - CYAN_POWDER_END: $meta.yml:top-y

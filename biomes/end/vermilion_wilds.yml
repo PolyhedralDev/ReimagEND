@@ -7,8 +7,8 @@ vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:VERMILION_WILDS
 
 colors:
-  grass: 0xb33c35
-  foliage: 0xb33c35
+  grass: 0xc0423a
+  foliage: 0xc0423a
 
 palette:
   - RED_POWDER_END: $meta.yml:top-y

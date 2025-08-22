@@ -7,8 +7,8 @@ vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:CRIM_DESOLATE
 
 colors:
-  grass: 0x9a596c
-  foliage: 0x9a596c
+  grass: 0x75394b
+  foliage: 0x75394b
 
 palette:
   - PURPLE_TERRACOTTA_END: $meta.yml:top-y

@@ -7,8 +7,8 @@ vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:STYGIAN_BARRENS
 
 colors:
-  grass: 0x211f24
-  foliage: 0x35343b
+  grass: 0x44404a
+  foliage: 0x44404a
 
 palette:
   - BLOCK:minecraft:end_stone: $meta.yml:top-y

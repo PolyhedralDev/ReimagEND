@@ -7,8 +7,8 @@ vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:IVORY_EMPYREAN
 
 colors:
-  grass: 0xffffff
-  foliage: 0xffffff
+  grass: 0xadadad
+  foliage: 0xadadad
 
 palette:
   - WHITE_POWDER_END: $meta.yml:top-y

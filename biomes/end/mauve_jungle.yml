@@ -7,8 +7,8 @@ vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:MAUVE_JUNGLE
 
 colors:
-  grass: 0x8e3db7
-  foliage: 0x8e3db7
+  grass: 0x7b349e
+  foliage: 0x7b349e
 
 palette:
   - PURPLE_POWDER_END: $meta.yml:top-y
