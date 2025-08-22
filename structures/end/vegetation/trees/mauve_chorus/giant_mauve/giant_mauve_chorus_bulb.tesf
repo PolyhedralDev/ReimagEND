@@ -3,8 +3,9 @@ num radius = 4;
 str mainBlock = "minecraft:purple_concrete";
 str altBlock = "minecraft:purple_concrete_powder";
 
-str middleBlock = "minecraft:black_concrete";
-str outlineBlock = "minecraft:white_concrete";
+str middleBlock = "minecraft:white_concrete";
+str outlineBlock = "minecraft:blue_terracotta";
+
 num r = radius;
 for (num x = -r; x <= r; x = x + 1) {
     for (num y = -r; y <= r; y = y + 1) {
@@ -19,55 +20,55 @@ for (num x = -r; x <= r; x = x + 1) {
             if ((y == -1 || y == 1) &&
                 (x == -3 || x == 3) &&
                 z == 0) {
-                block(x, y, z, middleBlock, true);
+                block(x, y, z, outlineBlock, true);
             }
 
             if ((y == -1 || y == 1) &&
                 (z == -3 || z == 3) &&
                 x == 0) {
-                block(x, y, z, middleBlock, true);
+                block(x, y, z, outlineBlock, true);
             }
 
             if (y == 0 &&
                 (z == -3 || z == 3) &&
                 (x == -1 || x == 1)) {
-                block(x, y, z, middleBlock, true);
+                block(x, y, z, outlineBlock, true);
             }
 
             if (y == 0 &&
                 (x == -3 || x == 3) &&
                 (z == -1 || z == 1)) {
-                block(x, y, z, middleBlock, true);
+                block(x, y, z, outlineBlock, true);
             }
 
             if ((y == 3) &&
                 x == 0 &&
                 (z == -1 || z == 1)) {
-                block(x, y, z, middleBlock, true);
+                block(x, y, z, outlineBlock, true);
             }
 
             if ((y == 3) &&
                 z == 0 &&
                 (x == -1 || x == 1)) {
-                block(x, y, z, middleBlock, true);
+                block(x, y, z, outlineBlock, true);
             }
 
             if ((y == 3) &&
                 z == 0 &&
                 x == 0) {
-                block(x, y, z, outlineBlock, true);
+                block(x, y, z, middleBlock, true);
             }
 
             if (y == 0 &&
                 (x == -3 || x == 3) &&
                 z == 0) {
-                block(x, y, z, outlineBlock, true);
+                block(x, y, z, middleBlock, true);
             }
 
             if (y == 0 &&
                 (z == -3 || z == 3) &&
                 x == 0) {
-                block(x, y, z, outlineBlock, true);
+                block(x, y, z, middleBlock, true);
             }
 
             if ((y == 4) &&

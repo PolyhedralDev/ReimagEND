@@ -4,7 +4,7 @@ str mainBlock = "minecraft:purple_concrete";
 str altBlock = "minecraft:purple_concrete_powder";
 
 str middleBlock = "minecraft:white_concrete";
-str outlineBlock = "minecraft:black_concrete";
+str outlineBlock = "minecraft:blue_terracotta";
 str lightBlock = "minecraft:light[level=15]";
 
 num r = radius;
