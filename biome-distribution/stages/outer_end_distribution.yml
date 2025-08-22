@@ -34,7 +34,7 @@ stages:
         - STYGIAN_BARRENS: 1
       ring4:
         - MAUVE_JUNGLE: 1
-        - FLAXEN_FOREST: 1
+        - END_WILDS: 1
         - CHORUVE_WOODS: 1
         - TWISTED_GROVE: 1
 

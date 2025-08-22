@@ -1,10 +1,10 @@
-id: FLAXEN_FOREST
+id: END_WILDS
 type: BIOME
 extends:
   - BASE_END
   - EQ_OVERHANGS
 vanilla: minecraft:end_highlands
-color: $biomes/colors.yml:FLAXEN_FOREST
+color: $biomes/colors.yml:END_WILDS
 
 colors:
   grass: 0xffce2d
