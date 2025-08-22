@@ -3,13 +3,15 @@ type: PALETTE
 
 layers:
   - materials:
-      - minecraft:black_concrete_powder: 4
+      - minecraft:end_stone: 2
+      - minecraft:black_concrete_powder: 1
       - minecraft:black_concrete: 1
       - minecraft:purple_concrete: 1
       - minecraft:purple_concrete_powder: 1
       - minecraft:purple_concrete: 1
       - minecraft:black_concrete: 1
-      - minecraft:black_concrete_powder: 4
+      - minecraft:black_concrete_powder: 1
+      - minecraft:end_stone: 2
     layers: 1
 
 sampler:
