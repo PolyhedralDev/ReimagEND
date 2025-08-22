@@ -1,10 +1,10 @@
-id: CRIM_DESOLATE
+id: CRIM_THICKET
 type: BIOME
 extends:
   - BASE_END
   - EQ_DEFAULT
 vanilla: minecraft:end_highlands
-color: $biomes/colors.yml:CRIM_DESOLATE
+color: $biomes/colors.yml:CRIM_THICKET
 
 colors:
   grass: 0x75394b
