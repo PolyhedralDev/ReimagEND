@@ -36,7 +36,6 @@ stages:
         - MAUVE_JUNGLE: 1
         - FLAXEN_FOREST: 1
         - CHORUVE_WOODS: 1
-        - WARPED_WOODLANDS: 1
         - TWISTED_GROVE: 1
 
   - type: REPLACE
