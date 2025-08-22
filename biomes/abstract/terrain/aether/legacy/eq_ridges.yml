@@ -29,12 +29,12 @@ terrain:
         )
       )
     variables:
-      threshold: ${meta.yml:terrain-configuration.aether-island-threshold}*2
-      max: ${meta.yml:terrain-configuration.aether-island-max-height}
-      min: ${meta.yml:terrain-configuration.aether-island-min-height}
-      taper: ${meta.yml:terrain-configuration.aether-island-taper}
-      flatness: ${meta.yml:terrain-configuration.aether-island-flatness}*2
-      undercarriageTranslate: ${meta.yml:terrain-configuration.aether-island-undercarriage-translate}
+      threshold: ${customization.yml:aether-island-threshold}*2
+      max: ${customization.yml:aether-island-max-height}
+      min: ${customization.yml:aether-island-min-height}
+      taper: ${customization.yml:aether-island-taper}
+      flatness: ${customization.yml:aether-island-flatness}*2
+      undercarriageTranslate: ${customization.yml:aether-island-undercarriage-translate}
     samplers:
       simplex3:
         dimensions: 3
@@ -44,7 +44,7 @@ terrain:
           octaves: 5
           sampler:
             type: OPEN_SIMPLEX_2
-            frequency: 0.002 / ${meta.yml:terrain-configuration.island-scale}
+            frequency: 0.002 / ${customization.yml:island-scale}
       undercarriageMask:
         dimensions: 3
         type: PROBABILITY
@@ -54,9 +54,9 @@ terrain:
           gain: 1
           sampler:
             type: OPEN_SIMPLEX_2
-            frequency: 0.005 / ${meta.yml:terrain-configuration.island-scale}
+            frequency: 0.005 / ${customization.yml:island-scale}
       ridges:
         dimensions: 3
         type: CELLULAR
         return: CellValue
-        frequency: 0.02 / ${meta.yml:terrain-configuration.island-scale}
+        frequency: 0.02 / ${customization.yml:island-scale}

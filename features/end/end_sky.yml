@@ -22,7 +22,7 @@ distributor:
         expression: |
           max(circle(centerRadius+endSkyBuffer, x+noise(x,z)-1, z+noise(x,z)-1, 1),circle(centerRadius+endSkyBuffer, x+noise(x,z)-1, z+noise(x,z)-1, 0.5))
         variables:
-          centerRadius: ${meta.yml:biome-distribution.main-end-scale}+${meta.yml:biome-distribution.void-buffer-scale}
+          centerRadius: ${customization.yml:dragon-island-radius}+${customization.yml:void-buffer-width}
           endSkyBuffer: 155
         functions:
           circle:    {arguments: [r, x, z, l], expression: "if(x*x+z*z>r*r,-1,l)"}

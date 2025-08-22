@@ -18,10 +18,10 @@ terrain:
         )
       )
     variables:
-      threshold: ${meta.yml:terrain-configuration.island-threshold}
-      max: ${meta.yml:terrain-configuration.island-max-height}
-      min: ${meta.yml:terrain-configuration.island-min-height}
-      taper: ${meta.yml:terrain-configuration.island-taper}
+      threshold: ${customization.yml:island-threshold}
+      max: ${customization.yml:island-max-height}
+      min: ${customization.yml:island-min-height}
+      taper: ${customization.yml:island-taper}
       flatness: 2
       undercarriageTranslate: 10
     samplers:
@@ -33,7 +33,7 @@ terrain:
           octaves: 5
           sampler:
             type: OPEN_SIMPLEX_2
-            frequency: 0.002 / ${meta.yml:terrain-configuration.island-scale}
+            frequency: 0.002 / ${customization.yml:island-scale}
       undercarriageMask:
         dimensions: 3
         type: PROBABILITY
@@ -43,8 +43,8 @@ terrain:
           gain: 1
           sampler:
             type: OPEN_SIMPLEX_2
-            frequency: 0.005 / ${meta.yml:terrain-configuration.island-scale}
+            frequency: 0.005 / ${customization.yml:island-scale}
       simplex:
         dimensions: 2
         type: OPEN_SIMPLEX_2
-        frequency: 0.02 / ${meta.yml:terrain-configuration.island-scale}
+        frequency: 0.02 / ${customization.yml:island-scale}
