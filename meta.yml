@@ -96,9 +96,9 @@ terrain-configuration:
   # Scale of default terrain
   # Default: 1
 
-  island-threshold: 0.4
+  island-threshold: 0.3
   # Threshold or density of default island
-  # Default: 0.4
+  # Default: 0.3
 
   island-max-height: ${meta.yml:top-y}
   # Max height of default terrain
