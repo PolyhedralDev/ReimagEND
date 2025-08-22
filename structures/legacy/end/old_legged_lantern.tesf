@@ -13,7 +13,6 @@ str altBlock = "minecraft:black_concrete_powder";
 str endBlock = "minecraft:white_concrete";
 str lightBlock = "minecraft:light[level=15]";
 
-str setBlock = mainBlock;
 for (num a = 0; a < amount; a = a + 1) {
     
     num length = 5+(yTranslate);

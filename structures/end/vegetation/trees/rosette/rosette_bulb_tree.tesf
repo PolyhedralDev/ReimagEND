@@ -9,23 +9,12 @@ num topBranches = 3+randomInt(3);
 num topBranchLengthUpwardsMin = 5+randomInt(3);
 num topBranchLengthOutwardsMin = 6+randomInt(3);
 num topBranchVerticalDirection = 0.4;
-num topBranchLeafRadiusMin = 4;
 num topBranchLeafTranslate = 0;
-num topBranchLeafTopFlatness = 2;
-num topBranchLeafBottomFlatness = 4;
-num topBranchLeafDensity = 0.6;
 str topBranchBlockX = "minecraft:stripped_crimson_hyphae";
 str topBranchBlockY = "minecraft:stripped_crimson_hyphae";
 str topBranchBlockZ = "minecraft:stripped_crimson_hyphae";
 
 if (getBlock(0,trunkHeight,0) != "minecraft:air") fail;
-
-// Generate roots at base of trunk
-num roots = 6+randomInt(3);
-num rootMaxLength = 10+randomInt(10);
-num rootDroop = -0.04;
-num rootVerticalDirection = -0.4-randomInt(randPrecision)/randPrecision*0.3;
-num rootAngle = randomInt(randPrecision)/randPrecision*2*pi;
 
 num branchAngle = randomInt(randPrecision)/randPrecision*2*pi;
 for (num i = 0; i < trunkHeight; i = i + 1) {
@@ -59,9 +48,7 @@ for (num b = 1; b <= topBranches; b = b + 1) {
     }
     // Rotate angle of next branch
     branchAngle = branchAngle + goldenAngle;
-    // Generate leaf cluster at the end of the branch
-    num radius = topBranchLeafRadiusMin;
-    num radiusSquared = pow(radius, 2);
+
     // Leaf cluster origin (end of branch)
     num lox = ox+branchLength*dx;
     num loy = oy+branchLength*dy + topBranchLeafTranslate;

@@ -1,4 +1,3 @@
-num amount = 3;
 num maxRadius = 3;
 
 num x = 0;
