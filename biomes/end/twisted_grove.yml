@@ -23,5 +23,3 @@ features:
     - WARPED_STEM_BUSHES
   trees:
     - TWISTING_BEANSTALKS
-  postprocessors:
-    - WARPED_OVERGROWTH
