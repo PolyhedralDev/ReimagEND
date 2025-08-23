@@ -2,7 +2,7 @@ id: TAINTED_END
 type: BIOME
 extends:
   - BASE_END
-  - EQ_NARROW
+  - EQ_DEFAULT
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:TAINTED_END
 
