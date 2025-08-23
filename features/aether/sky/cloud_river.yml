@@ -76,5 +76,4 @@ structures:
     type: WHITE_NOISE
   structures: 
     - cloud: 1
-    - translucent_cloud: 1
     - blank: 15

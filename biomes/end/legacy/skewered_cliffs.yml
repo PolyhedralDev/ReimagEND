@@ -1,6 +1,6 @@
 id: SKEWERED_CLIFFS
 type: BIOME
-extends: [ BASE_END, EQ_MOUNTAINS, CARVING_LAND ]
+extends: [ BASE_END, EQ_MOUNTAINS, CARVING_AETHER ]
 vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:SKEWERED_CLIFFS
 

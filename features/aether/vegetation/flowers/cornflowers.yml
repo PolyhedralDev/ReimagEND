@@ -1,4 +1,4 @@
-id: BLUE_FLOWERS
+id: CORNFLOWERS
 type: FEATURE
 
 distributor:
@@ -38,15 +38,7 @@ locator:
 
 structures:
   distribution:
-    type: DOMAIN_WARP
-    amplitude: 4
-    warp:
-      type: GAUSSIAN
-    sampler:
-      type: CELLULAR
-      return: CellValue
-      frequency: 0.03
-      seed: 5790
+    type: WHITE_NOISE
   structures:
-    - BLOCK:minecraft:cornflower: 3
-    - BLOCK:minecraft:blue_orchid: 1
+    - BLOCK:minecraft:cornflower: 1
+    - blank: 1

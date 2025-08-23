@@ -17,7 +17,7 @@ for (num l = 0; l < checkLength; l = l + 1) {
 if (chainValid) {
     block(0,0,0,"minecraft:oak_fence");
     for (num y = 1; y < length; y = y + 1) {
-        block(0,y,0,"minecraft:chain");
+        block(0,y,0,"minecraft:chain", false);
     }      
 } 
 

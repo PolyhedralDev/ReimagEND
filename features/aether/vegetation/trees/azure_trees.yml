@@ -2,10 +2,19 @@ id: AZURE_TREES
 type: FEATURE
 
 distributor:
-  type: PADDED_GRID
-  width: 9
-  padding: 10
-  salt: 5468
+  type: AND
+  distributors:
+    - type: PADDED_GRID
+      width: 13
+      padding: 9
+      salt: 4677
+    - type: SAMPLER
+      sampler:
+        type: PROBABILITY
+        sampler:
+          type: OPEN_SIMPLEX_2
+          salt: 6476
+      threshold: 0.35
 
 locator:
   type: AND
@@ -28,8 +37,20 @@ locator:
           - minecraft:snow
           - minecraft:air
         offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 5
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -3
 
 structures:
   distribution:
-    type: CONSTANT
-  structures: azure_tree
+    type: WHITE_NOISE
+  structures:
+    - azure_tree: 2
+    - blank: 1

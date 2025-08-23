@@ -1,4 +1,4 @@
-num length = 15+randomInt(35);
+num length = 15;
 num height = 3;
 num width = 2;
 num cobwebChance = 40; 

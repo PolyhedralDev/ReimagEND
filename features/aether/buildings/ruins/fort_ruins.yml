@@ -28,4 +28,4 @@ locator:
 structures:
   distribution:
     type: CONSTANT
-  structures: fort_ruin
+  structures: place_fort_ruin
