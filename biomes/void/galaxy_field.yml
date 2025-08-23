@@ -1,12 +1,13 @@
 id: GALAXY_FIELD
 type: BIOME
-extends: [ VOID ]
+extends:
+  - VOID
 vanilla: minecraft:the_void
 color: $biomes/colors.yml:GALAXY_FIELD
 
 features:
-  trees:
-    - GALAXYS
   preprocessors:
     - STAR_TRAILS
+  trees:
+    - GALAXIES
 

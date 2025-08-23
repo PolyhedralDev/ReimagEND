@@ -1,10 +1,10 @@
 id: AURORA_FIELD
 type: BIOME
-extends: [ VOID ]
+extends:
+  - VOID
 vanilla: minecraft:the_void
 color: $biomes/colors.yml:AURORA_FIELD
 
 features:
   preprocessors:
     - AURORA
-

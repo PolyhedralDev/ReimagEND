@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:TWISTED_GROVE
 
+tags:
+  - ADD_VOID_BIOMES
+
 colors:
   grass: 0x3d8a9c
   foliage: 0x3d8a9c

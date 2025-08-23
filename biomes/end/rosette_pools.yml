@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:ROSETTE_POOLS
 
+tags:
+  - ADD_VOID_BIOMES
+
 colors:
   grass: 0xd3658e
   foliage: 0xd3658e

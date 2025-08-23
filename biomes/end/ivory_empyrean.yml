@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:IVORY_EMPYREAN
 
+tags:
+  - ADD_VOID_BIOMES
+
 colors:
   grass: 0xadadad
   foliage: 0xadadad

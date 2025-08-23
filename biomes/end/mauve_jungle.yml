@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:MAUVE_JUNGLE
 
+tags:
+  - ADD_VOID_BIOMES
+
 colors:
   grass: 0x7b349e
   foliage: 0x7b349e

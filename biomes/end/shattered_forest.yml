@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:SHATTERED_FOREST
 
+tags:
+  - ADD_VOID_BIOMES
+
 palette:
   - BLOCK:minecraft:end_stone: $meta.yml:top-y
 

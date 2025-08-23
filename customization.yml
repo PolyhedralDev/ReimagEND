@@ -16,6 +16,12 @@ void-buffer-width: 1000
 # Biome Distribution
 # ---
 
+void-biome-max: ${meta.yml:top-y} - 10
+# Determines the max height that void biomes can generate
+
+void-biome-min: ${meta.yml:bottom-y} + 10
+# Determines the min height that void biomes can generate
+
 outer-end-start: ${customization.yml:dragon-island-radius} + ${customization.yml:void-buffer-width}
 # Determines the start of the outer end
 
@@ -24,6 +30,9 @@ outer-end-rings-scale: 1
 
 outer-end-biome-scale: 1
 # Modifies the scale of the outer end biomes
+
+void-biome-scale: 1
+# Modifies the scale of the outer end void biomes
 
 aether-biome-scale: 1
 # Modifies the scale of the aether biomes

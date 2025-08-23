@@ -1,6 +1,7 @@
 id: WEBBED_VOID
 type: BIOME
-extends: [ VOID ]
+extends:
+  - VOID
 vanilla: minecraft:the_void
 color: $biomes/colors.yml:WEBBED_VOID
 

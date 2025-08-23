@@ -1,9 +1,6 @@
 id: BASE_END
 type: BIOME
 abstract: true
-
-tags:
-  - NOT_VOID_SEA
   
 colors:
   grass: 0xdee6a4
@@ -11,15 +8,8 @@ colors:
   water-fog: 0x62529E
   #fog: 0x000000
   #sky: 0x000000
-  
-#climate:
-# precipitation: none
-# temperature: 0.5
-# downfall: 0.5
 
 features:
-  global-preprocessors:
-    - END_SKY
   buildings:
     - SHULKER_RUINS
     - ENDSHIPS

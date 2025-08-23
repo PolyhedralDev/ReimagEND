@@ -1,0 +1,2 @@
+block(0, 0, 0, "minecraft:white_concrete");
+block(0, 1, 0, "minecraft:light[level=15]");

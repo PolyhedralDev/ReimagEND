@@ -16,42 +16,46 @@ sampler: &sampler
       frequency: 0.1
 
 biomes:
-  type: PIPELINE
-  resolution: 4
-  blend:
-    amplitude: 2
-    sampler:
-      type: GAUSSIAN
-      frequency: 0.1
-  pipeline:
-    source:
-      type: SAMPLER
-      sampler: *sampler
-      biomes:
-        - outer-end: 1
-        - MAIN_END_VOID: 2
-        - MAIN_END: 1
-    stages:
-      - << biome-distribution/stages/add_aether_pockets.yml:stages
-      - << biome-distribution/stages/alternative/betterend_distribution.yml:stages
+  type: EXTRUSION
+  extrusions:
+    - << biome-distribution/extrusions/add_starfield.yml:extrusions
+  provider:
+    type: PIPELINE
+    resolution: 4
+    blend:
+      amplitude: 2
+      sampler:
+        type: GAUSSIAN
+        frequency: 0.1
+    pipeline:
+      source:
+        type: SAMPLER
+        sampler: *sampler
+        biomes:
+          - outer-end: 1
+          - MAIN_END_VOID: 2
+          - MAIN_END: 1
+      stages:
+        - << biome-distribution/stages/add_aether_pockets.yml:stages
+        - << biome-distribution/stages/alternative/betterend_distribution.yml:stages
 
-      - type: FRACTAL_EXPAND
-        sampler:
-          type: WHITE_NOISE
-      - type: FRACTAL_EXPAND
-        sampler:
-          type: WHITE_NOISE
-      - type: FRACTAL_EXPAND
-        sampler:
-          type: WHITE_NOISE
-      - type: FRACTAL_EXPAND
-        sampler:
-          type: WHITE_NOISE
-      - type: SMOOTH
-        sampler:
-          type: WHITE_NOISE
-      - type: SMOOTH
-        sampler:
-          type: WHITE_NOISE
+        - type: FRACTAL_EXPAND
+          sampler:
+            type: WHITE_NOISE
+        - type: FRACTAL_EXPAND
+          sampler:
+            type: WHITE_NOISE
+        - type: FRACTAL_EXPAND
+          sampler:
+            type: WHITE_NOISE
+        - type: FRACTAL_EXPAND
+          sampler:
+            type: WHITE_NOISE
+        - type: SMOOTH
+          sampler:
+            type: WHITE_NOISE
+        - type: SMOOTH
+          sampler:
+            type: WHITE_NOISE
 
-      - << biome-distribution/stages/add_dragon_pit.yml:stages
+        - << biome-distribution/stages/add_dragon_pit.yml:stages

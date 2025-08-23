@@ -1,8 +1,6 @@
 id: AURORA
 type: FEATURE
 
-# Adds 'webs' of sculk blocks
-
 variables: &variables
   wallThickness: 0.08
   webThickness: 0.08
@@ -48,7 +46,7 @@ locator:
             type: CELLULAR
             distance: Euclidean
             return: Distance2Div
-            frequency: 0.06
+            frequency: 0.03
 
 structures:
   distribution:

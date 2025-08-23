@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:CRIM_THICKET
 
+tags:
+  - ADD_VOID_BIOMES
+
 colors:
   grass: 0x75394b
   foliage: 0x75394b

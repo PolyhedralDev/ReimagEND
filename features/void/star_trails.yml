@@ -5,7 +5,7 @@ type: FEATURE
 
 variables: &variables
   wallThickness: 0.08
-  webThickness: 0.18
+  webThickness: 0.08
 
 distributor:
   type: "YES"
@@ -54,7 +54,7 @@ structures:
   distribution:
     type: WHITE_NOISE
   structures: 
-    - BLOCK:minecraft:pearlescent_froglight: 3
+    - star: 3
     - BLOCK:minecraft:black_stained_glass: 25
     - BLOCK:minecraft:purple_stained_glass: 25
     - BLOCK:minecraft:magenta_stained_glass: 25

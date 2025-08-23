@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:CHORAL_DEADLANDS
 
+tags:
+  - ADD_VOID_BIOMES
+
 colors:
   grass: 0x808080
   foliage: 0x808080

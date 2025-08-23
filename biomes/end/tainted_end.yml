@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:TAINTED_END
 
+tags:
+  - ADD_VOID_BIOMES
+
 palette:
   - TAINTED_END: $meta.yml:top-y
 

@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:STYGIAN_BARRENS
 
+tags:
+  - ADD_VOID_BIOMES
+
 colors:
   grass: 0x44404a
   foliage: 0x44404a

@@ -1,6 +1,8 @@
 id: ASTEROID_FIELD
 type: BIOME
-extends: [ VOID, EQ_DEBRI ]
+extends:
+  - VOID
+  - EQ_DEBRI
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:ASTEROID_FIELD
 

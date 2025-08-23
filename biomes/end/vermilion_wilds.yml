@@ -6,6 +6,9 @@ extends:
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:VERMILION_WILDS
 
+tags:
+  - ADD_VOID_BIOMES
+
 colors:
   grass: 0xc0423a
   foliage: 0xc0423a
