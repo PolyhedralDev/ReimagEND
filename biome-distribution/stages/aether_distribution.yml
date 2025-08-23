@@ -6,7 +6,6 @@ stages:
     from: aether-spot
     to: &biome-list
       AETHER_AZURE_MEADOWS: 1
-      AETHER_GOLDEN_FIELDS: 1
 
   - type: REPLACE
     sampler:

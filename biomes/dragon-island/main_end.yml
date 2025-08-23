@@ -4,6 +4,10 @@ extends: [ BASE_END ]
 vanilla: minecraft:the_end
 color: $biomes/colors.yml:MAIN_END
 
+particles:
+  particle: minecraft:trail{target:[0,78,0],color:[0.302, 0.192, 0.412],duration:75}
+  probability: 0.0005
+
 terrain:
   sampler:
     type: EXPRESSION
