@@ -39,7 +39,7 @@ locator:
         expression: |
           if( height != 0, if( y = round(height+noise(x,z)), 1, -1), -1)
         variables:
-          height: ${customization.yml:aether.aether-sky-height}
+          height: ${customization.yml:aether-sky-height}
         functions:
         samplers:
           noise:

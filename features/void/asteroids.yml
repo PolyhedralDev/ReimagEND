@@ -22,7 +22,7 @@ locator:
     - type: RANDOM
       height: &range
         min: ${meta.yml:bottom-y} + 20
-        max: $customization.yml:void.asteroid-ice-transition
+        max: ${meta.yml:top-y}/3
       amount: 1
       salt: 1276
     - type: PATTERN

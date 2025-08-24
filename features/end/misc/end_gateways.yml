@@ -10,7 +10,7 @@ distributor:
         expression: |
           if( radius != 0, max(circle(radius, x+noise(x,z)-1, z+noise(x,z)-1, 1),circle(radius, x+noise(x,z)-1, z+noise(x,z)-1, 0.5)), -1)
         variables:
-          radius: ${customization.yml:outer-end.end-gateway-min}
+          radius: ${customization.yml:end-gateway-min}
         functions:
           circle:    {arguments: [r, x, z, l], expression: "if(x*x+z*z>r*r,-1,l)"}
         samplers:
@@ -39,7 +39,7 @@ locator:
         expression: |
           if( toggle = 0, -1, 1)
         variables:
-          toggle: ${customization.yml:outer-end.end-gateway-min}
+          toggle: ${customization.yml:end-gateway-min}
         functions:
         samplers:
           noise:

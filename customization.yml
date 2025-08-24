@@ -4,19 +4,24 @@
 
 dragon-island-radius: 150
 # Controls the size of the dragon island
+# Default: 150
 
 dragon-pit-radius: 80
 # Controls the size of the dragon island pit
+# Default: 80
 
 dragon-island-edge-buffer: 80
 # Controls the size of the dragon island pit
+# Default: 80
 
 dragon-island-edge-width: 100
 # Controls the size of the dragon island pit
+# Default: 100
 
 void-buffer-width: 1000
 # Controls the width of the void buffer between
 # the dragon island and outer end
+# Default: 1000
 
 # ---
 # Biome Distribution
@@ -24,27 +29,35 @@ void-buffer-width: 1000
 
 void-biome-max: ${meta.yml:top-y} - 10
 # Determines the max height that void biomes can generate
+# Default: ${meta.yml:top-y} - 10
 
 void-biome-min: ${meta.yml:bottom-y} + 10
 # Determines the min height that void biomes can generate
+# Default: ${meta.yml:bottom-y} + 10
 
 outer-end-start: ${customization.yml:dragon-island-radius} + ${customization.yml:void-buffer-width}
 # Determines the start of the outer end
+# Default: ${customization.yml:dragon-island-radius} + ${customization.yml:void-buffer-width}
 
 outer-end-rings-scale: 1
 # Modifies the scale of the Rings of Life preset rings sizes
+# Default: 1
 
 outer-end-biome-scale: 1
 # Modifies the scale of the outer end biomes
+# Default: 1
 
 void-biome-scale: 1
 # Modifies the scale of the outer end void biomes
+# Default: 1
 
 aether-biome-scale: 1
 # Modifies the scale of the aether biomes
+# Default: 1
 
 global-scale: 1
 # Modifies the scale of all biome distribution
+# Default: 1
 
 # ---
 # Spot Biomes
@@ -55,6 +68,7 @@ global-scale: 1
 
 aether-pocket-toggle: 1
 # Toggles aether pocket generation. Set to 0 to disable.
+# Default: 1
 
 spot-spawn-radius-offset: 4000
 # Roughly how far spots will generate away from spawn
@@ -88,11 +102,11 @@ island-threshold: 0.3
 
 island-max-height: ${meta.yml:top-y}
 # Max height of default terrain
-# Default: ${meta.yml:top-y} - 20
+# Default: ${meta.yml:top-y}
 
 island-min-height: ${meta.yml:bottom-y} - 20
 # Lowest height of default terrain
-# Default: ${meta.yml:bottom-y} + 20
+# Default: ${meta.yml:bottom-y} - 20
 
 island-taper: 100
 # Range for narrowing default terrain
@@ -124,7 +138,7 @@ aether-island-max-height: ${meta.yml:top-y} - 20
 
 aether-island-min-height: ${meta.yml:bottom-y} - 20
 # Lowest height of default terrain
-# Default: ${meta.yml:bottom-y} + 20
+# Default: ${meta.yml:bottom-y} - 20
 
 aether-island-taper: 100
 # Range for narrowing default terrain
@@ -138,96 +152,22 @@ aether-island-undercarriage-translate: -10
 # Translate placement of default terrain undercarriage
 # Default: -10
 
-# Everything below here is currently being redone and may not do anything
+# ---
+# End
+# ---
 
-dragon-island:
-  # Dragon Island Configuration
-  # Controls various features of the dragon island
-  
-  # Be warned that certain features when enabled will make the dragon fight more challenging.
+end-gateway-min: 5000
+# Controls the min radius of end gateway spawns throughout the outer end
+# Default: 5000
 
-  base-level: 65
-  # PLACEHOLDER FOR FUTURE.
-  # Currently, controls certain dragon island feature ranges.
-  # Default: 65
+# ---
+# Aether
+# ---
 
-  dragon-pit-radius: 28
-  # Adds a pit around the dragon fountain that is now on a small floating center island. Enabled by default at 28 blocks.
-  # You can adjust the radius or disable it by setting the value to 0.
+aether-sky-height: ${meta.yml:top-y} - 2
+# Controls the height of the aether pseudo sky feature. Disabled when set to 0.
+# Default: ${meta.yml:top-y} - 2
 
-  fountain-base-level: 65
-  # Controls the y-level placement of the dragon island fountain if dragon pit is enabled.
-
-  fountain-vex-toggle: 0
-  # Toggles vex spawners under the fountain. Disabled by default at 0. 
-  # Enable the vex spawners by setting the value to 1.
-
-  pillar-vex-top-toggle: 0
-  pillar-vex-bottom-toggle: 0
-  # Toggles vex spawners inside the pillar under the top or under the bottom. Disabled by default at 0. 
-  # Enable the vex spawners by setting the value to 1.
-
-  dragon-chains-toggle: 0
-  # Toggles giant obsidian chains at the corners of the dragon island. Disabled by default at 0. 
-  # Enable the dragon island chains by setting the value to 1.
-
-  # Controls various aspects of the endstone debri ring around the dragon island
-  endstone-ring-height: 104
-  # Default: 104
-  endstone-ring-min: 170
-  # Default: 170
-  endstone-ring-max: 240
-  # Default: 240
-  
-  # Controls the sky nebulas above the dragon island
-  nebula-glass-height: 170
-  # Default: 170
-  nebula-concrete-height: 160
-  # Default: 160
-  nebula-obsidian-height: 150
-  # Default: 150
-
-  small-pillar-min: 80
-  # Controls the min radius of small pillars at the main end island from the center of the island
-  # Default: 80
-
-
-
-outer-end:
-
-  end-sky-height: 0
-  # Controls the height of the end sky feature. Disabled when set to 0.
-  # Default: ${meta.yml:top-y} - 2
-
-  end-gateway-min: 5000
-  # Controls the min radius of end gateway spawns throughout the outer end
-  # Default: 5000
-
-void:
-
-  asteroid-ice-transition: 125
-  # Controls when asteroid field y-level when features become icy
-  # Default: 125
-
-aether:
-
-  # Aether Pockets
-  toggle-aether-pockets: 1
-  # Adds aether pockets throughout the outer end frontier.
-  # Can be disabled by setting to 0
-
-  aether-pocket-spread: 3000
-  # Controls the spread between each aether pocket.
-  # Default: 3000
-
-  aether-pocket-radius: 500
-  # Controls the radius of aether pockets
-  # Default: 500
-
-  aether-sky-height: ${meta.yml:top-y} - 2
-  # Controls the height of the aether pseudo sky feature. Disabled when set to 0.
-  # Default: ${meta.yml:top-y} - 2
-
-  ancient-aether-base: ${meta.yml:bottom-y} + 20
-  # Controls the base level of ancient aether structures
-  # Default: ${meta.yml:top-y} + 20
+ancient-aether-base: ${meta.yml:bottom-y} + 20
+# Controls the base level of ancient aether structures
+# Default: ${meta.yml:bottom-y} + 20

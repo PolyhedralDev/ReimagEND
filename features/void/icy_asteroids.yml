@@ -21,7 +21,7 @@ locator:
   locators:
     - type: RANDOM
       height: &range
-        min: $customization.yml:void.asteroid-ice-transition
+        min: ${meta.yml:top-y}/3
         max: ${meta.yml:top-y} - 20
       amount: 1
       salt: 2346

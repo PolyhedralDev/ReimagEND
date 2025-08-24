@@ -1,8 +1,10 @@
 id: ENDSTONE_RING
 type: FEATURE
 
-variables: &vars
+variables: &variables
   yHeight: 120
+  minRadius: 170
+  maxRadius: 240
 
 distributor:
   type: AND
@@ -12,9 +14,7 @@ distributor:
         type: EXPRESSION
         expression: |
           circle(minRadius+noise(x,z)*10, maxRadius+noise(x,z)*10, x+noise(x,z)-1, z+noise(x,z)-1, 1)
-        variables:
-          minRadius: ${customization.yml:dragon-island.endstone-ring-min}
-          maxRadius: ${customization.yml:dragon-island.endstone-ring-max}
+        variables: *variables
         functions:
           circle:    {arguments: [s, b, x, z, l], expression: "if( x*x + z*z > s*s && x*x + z*z < b*b, -1, l)"}
         samplers:
@@ -61,7 +61,7 @@ locator:
         type: EXPRESSION
         expression: |
           if( y = round(yHeight+noise(x,z)), 1, -1)
-        variables: *vars
+        variables: *variables
         functions:
         samplers:
           noise:

@@ -10,8 +10,8 @@ distributor:
 locator:
   type: RANDOM
   height: &range
-    min: $customization.yml:aether.ancient-aether-base
-    max: ${customization.yml:aether.ancient-aether-base} + 1
+    min: $customization.yml:ancient-aether-base
+    max: ${customization.yml:ancient-aether-base} + 1
   amount: 1
         
 structures:
