@@ -1,5 +1,4 @@
-num length = 10+randomInt(6);
-num radius = 2;
+num length = 6+randomInt(3);
 
 str setBlock = "minecraft:pink_stained_glass";
 if (getBlock(0,0,0) == "minecraft:air") block(0, 0, 0, "minecraft:light[level=15]", false);
@@ -9,8 +8,5 @@ if (getBlock(-1, 1, 0) == "minecraft:air") block(-1, 1, 0, "minecraft:light[leve
 if (getBlock(0, 1, -1) == "minecraft:air") block(0, 1, -1, "minecraft:light[level=15]", false);
 
 for(num l = 0; l < length; l = l + 1) {
-
-    num r = radius;
-
-    block(0, l, 0, setBlock, false);
+    block(0, l, 0, setBlock, true);
 }
