@@ -18,7 +18,8 @@ sampler: &sampler
 biomes:
   type: EXTRUSION
   extrusions:
-    - << biome-distribution/extrusions/add_starfield.yml:extrusions
+    - << biome-distribution/extrusions/add_3d_biomes.yml:extrusions
+    - << biome-distribution/extrusions/add_void_biomes.yml:extrusions
   provider:
     type: PIPELINE
     resolution: 4
@@ -32,12 +33,12 @@ biomes:
         type: SAMPLER
         sampler: *sampler
         biomes:
-          - outer-end: 1
+          - END_HIGHLANDS: 1
           - DRAGON_ISLAND_VOID: 2
           - DRAGON_ISLAND: 1
       stages:
         - << biome-distribution/stages/add_aether_pockets.yml:stages
-        - << biome-distribution/stages/alternative/betterend_distribution.yml:stages
+        - << biome-distribution/stages/aether_distribution.yml:stages
 
         - type: FRACTAL_EXPAND
           sampler:

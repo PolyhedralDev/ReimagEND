@@ -57,10 +57,13 @@ preset-single-debug-biome: END_HIGHLANDS
 #biomes: $biome-distribution/presets/alternative/vanilla-ish.yml:biomes
 
 # Vanilla-Like-Enhanced biome distribution
-#biomes: $biome-distribution/presets/alternative/vanilla-ish-enhanced.yml:biomes
+#biomes: $biome-distribution/presets/alternative/vanilla-ish_enhanced.yml:biomes
 
 # BetterEnd biome distribution (Dfsek's BetterEnd Plugin)
 #biomes: $biome-distribution/presets/alternative/betterend.yml:biomes
+
+# Normal 3D biome distribution
+#biomes: $biome-distribution/presets/alternative/normal_3d.yml:biomes
 
 stages:
   # Used to generate lava at the bottom of the world.

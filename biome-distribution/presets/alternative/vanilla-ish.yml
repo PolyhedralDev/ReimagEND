@@ -54,3 +54,4 @@ biomes:
           type: WHITE_NOISE
 
       - << biome-distribution/stages/add_dragon_pit.yml:stages
+      - << biome-distribution/stages/add_dragon_island_edge.yml:stages
