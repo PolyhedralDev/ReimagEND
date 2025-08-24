@@ -51,6 +51,7 @@ stages:
       - END_WILDS: 1
       - CHORUVE_WOODS: 1
       - TWISTED_GROVE: 1
+      - ROSETTE_POOLS: 1
 
   - type: REPLACE
     sampler:
