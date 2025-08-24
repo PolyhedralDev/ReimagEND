@@ -1,5 +1,4 @@
 num radius = 4;
-num sideLength = 10;
 
 str mainBlock = "purple_concrete";
 str altBlock = "purple_concrete_powder";

@@ -26,8 +26,6 @@ str sideBranchLeafStructure = "blank";
 
 if (getBlock(0,length,0) != "minecraft:air") fail;
 
-num branchAngle = randomInt(randPrecision)/randPrecision*2*pi;
-
 // tree trunk
 for(num h = 0; h <= length; h = h + 1) {
     // light_blueuce radius inversely to length

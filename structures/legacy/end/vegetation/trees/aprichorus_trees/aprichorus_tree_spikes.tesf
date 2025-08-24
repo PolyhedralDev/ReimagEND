@@ -19,7 +19,6 @@ dz = dz/mag;
 
 num length = 0;
 num radius = 0;
-str setBlock = "";
 for (num i = 0; i < spikes; i = i + 1) {
 
     length = 4+randomInt(5);

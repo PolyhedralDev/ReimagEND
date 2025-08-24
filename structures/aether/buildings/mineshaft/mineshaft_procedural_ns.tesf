@@ -2,8 +2,7 @@ num length = 15;
 num height = 3;
 num width = 2;
 num cobwebChance = 40; 
-num railChance = 2; 
-num yTranslate = -1;
+num railChance = 2;
 
 //if (getBlock(0, 0, length/1.5) == "minecraft:air") fail;
 

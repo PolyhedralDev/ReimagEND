@@ -4,7 +4,6 @@ getBlock(-4,-3,0) == "minecraft:air" ||
 getBlock(4,-3,0) == "minecraft:air" 
 ) fail;
 
-num randPrecision = 100;
 num radius = 4;
 num warp = 5;
 num warpFreq = 10;
@@ -13,7 +12,6 @@ num yTranslate = -5;
 
 str mainBlock = "minecraft:deepslate";
 
-str setBlock = "";
 for (num x = -radius-warp; x < radius+warp; x = x + 1) {
     for (num y = (-radius*5); y < (radius*5); y = y + 1) {
         for (num z = -radius-warp; z < radius+warp; z = z + 1) {

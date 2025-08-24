@@ -1,6 +1,4 @@
 num randPrecision = 100;
-num goldenAngle = 2.39996;
-num pi = 3.14159;
 num twopi = 6.28318530718;
 
 num debriAmount = 25+randomInt(10);

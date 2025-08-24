@@ -5,8 +5,6 @@ getBlock(4,-3,0) == "minecraft:air"
 ) fail;
 
 num randPrecision = 100;
-num goldenAngle = 2.39996;
-num pi = 3.14159;
 num twopi = 6.28318530718;
 
 num length = 4+randomInt(3);

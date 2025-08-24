@@ -1,10 +1,8 @@
-num randPrecision = 100;
+
 num radius = 5;
 num warp = 2;
 num warpFreq = 2;
-num squish = 1;
 num radiusSquared = pow(radius,2);
-num yTranslate = 1;
 
 str mainBlock = "minecraft:purple_concrete";
 str altBlock = "minecraft:purple_concrete_powder";

@@ -4,7 +4,6 @@ num pi = 3.14159;
 
 str trunkBlock = "minecraft:black_concrete";
 str altBlock = "minecraft:black_concrete_powder";
-str setBlock = trunkBlock;
 
 num trunkRadius = 2+randomInt(2);
 num length = 30+randomInt(20);
@@ -21,7 +20,6 @@ num topBranchLeafTopFlatness = 1;
 num topBranchLeafBottomFlatness = 2;
 num topBranchLeafDensity = 0.5;
 str topBranchLeafStructure = "burble_bulb";
-num heightDir = 1;
 
 num sideBranchInterval = 8;
 num sideBranchMinHeight = 5;

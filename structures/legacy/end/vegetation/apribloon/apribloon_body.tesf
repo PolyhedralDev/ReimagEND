@@ -1,10 +1,6 @@
-num randPrecision = 100;
 num radius = 6+randomInt(4);
 num warp = 2;
-num warpFreq = 2;
-num squish = 1;
 num radiusSquared = pow(radius,2);
-num yTranslate = 1;
 
 for (num x = -radius-warp; x < radius+warp; x = x + 1) {
     for (num y = ((-radius-warp)); y < ((radius+warp)); y = y + 1) {

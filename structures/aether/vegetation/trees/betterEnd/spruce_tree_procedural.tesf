@@ -3,9 +3,7 @@ num leafRadius = 3 + randomInt(4);
 num trunkHeight = 10 + randomInt(7);
 num leafTopHeight = trunkHeight * 1.3;
 num leafBottomHeight = 1 + randomInt(8);
-str trunkBlockX = "minecraft:spruce_log[axis=x]";
 str trunkBlockY = "minecraft:spruce_log[axis=y]";
-str trunkBlockZ = "minecraft:spruce_log[axis=z]";
 str leafBlock   = "minecraft:spruce_leaves[distance=1,persistent=false]";
 
 num leafMidPointRatio = 0.1;

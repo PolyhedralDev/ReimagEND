@@ -1,5 +1,4 @@
 num randPrecision = 100;
-num goldenAngle = 2.39996;
 num pi = 3.14159;
 
 str trunkBlock = "minecraft:white_concrete";
@@ -15,11 +14,6 @@ num topBranches = 8+randomInt(3);
 num topBranchLengthUpwardsMin = 0;
 num topBranchLengthOutwardsMin = 0;
 num topBranchVerticalDirection = 0.8+randomInt(randPrecision)/randPrecision/1.5;
-num topBranchLeafRadiusMin = 1;
-num topBranchLeafTranslate = 0;
-num topBranchLeafTopFlatness = 1;
-num topBranchLeafBottomFlatness = 1;
-num topBranchLeafDensity = 1;
 str topBranchLeafStructure = "blue_mushroom_cap";
 
 num sideBranchInterval = 5+randomInt(5);
@@ -29,11 +23,6 @@ num sideBranchLengthMin = 1;
 num sideBranchLengthVariation = 1;
 num sideBranchVerticalVariation = 0;
 num sideBranchVerticalDirection = 0.8+randomInt(randPrecision)/randPrecision/1.5;
-num sideBranchLeafRadiusMin = 4;
-num sideBranchLeafTranslate = 0;
-num sideBranchLeafTopFlatness = 1;
-num sideBranchLeafBottomFlatness = 1;
-num sideBranchLeafDensity = 1;
 
 if (getBlock(0,length,0) != "minecraft:air") fail;
 
@@ -72,8 +61,6 @@ for(num h = 0; h <= length; h = h + 1) {
             num ox = xTranslate;
             num oy = h;
             num oz = zTranslate;
-            // Set branch block based on largest unsigned vector component
-            num branchLength = sideBranchLengthMin + randomInt(randPrecision)/randPrecision*sideBranchLengthVariation;
             // Generate branch
             structure(dx+ox, dy+oy, dz+oz, "blank","NONE");
         }
@@ -99,7 +86,6 @@ for (num b = 1; b <= topBranches; b = b + 1) {
     num oy = length-3;
     num oz = zTranslate;
     // Set branch block based on largest unsigned vector component
-    num branchLength = topBranchLengthUpwardsMin*ti + topBranchLengthOutwardsMin*t;
     // Generate branch
     structure(dx+ox, dy+oy, dz+oz, topBranchLeafStructure,"NONE");
 }

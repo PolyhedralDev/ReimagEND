@@ -1,14 +1,10 @@
 num randPrecision = 100;
 num goldenAngle = 2.39996;
 num pi = 3.14159;
-num twopi = 6.28318530718;
-
 num trunkHeight = 10+randomInt(8);
 num trunkBase = 7+randomInt(4);
 str trunkBlock = "minecraft:stripped_warped_hyphae";
 str rootBlock = "minecraft:stripped_warped_hyphae";
-str undergroundRootBlock = "minecraft:stripped_warped_hyphae";
-str underwaterRootBlock = "minecraft:stripped_warped_hyphae";
 
 num sideBranchInterval = 1;
 num sideBranchMinHeight = 0;

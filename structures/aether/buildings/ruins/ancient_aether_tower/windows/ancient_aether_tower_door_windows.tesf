@@ -2,7 +2,7 @@ num length = 12;
 num width = 10;
 num wallWidth = 3;
 
-str setBlock = "ruin_block";
+str setBlock = "minecraft:air";
 
 for (num y = 0; y < length; y = y + 1) {
     for (num x = -width-wallWidth; x <= width+wallWidth; x = x + 1) {
@@ -11,23 +11,23 @@ for (num y = 0; y < length; y = y + 1) {
                 //south
                 if (y > 5 && y < length &&
                 z > 10 && x < 2 && x > -2) {
-                    block(x, y, z, "minecraft:air", true);
+                    block(x, y, z, setBlock, true);
                 }
 
                 if (y > 5 && y < (length-1) &&
                 z > 10 && (x == 2 || x == -2)) {
-                    block(x, y, z, "minecraft:air", true);
+                    block(x, y, z, setBlock, true);
                 }
                 
                 //north
                 if (y > 5 && y < length &&
                 z > 10 && x < 2 && x > -2) {
-                    block(x, y, -z, "minecraft:air", true);
+                    block(x, y, -z, setBlock, true);
                 }
 
                 if (y > 5 && y < (length-1) &&
                 z > 10 && (x == 2 || x == -2)) {
-                    block(x, y, -z, "minecraft:air", true);
+                    block(x, y, -z, setBlock, true);
                 }
                 
 
@@ -35,23 +35,23 @@ for (num y = 0; y < length; y = y + 1) {
                 //east
                 if (y > 5 && y < length &&
                 x > 10 && z < 2 && z > -2) {
-                    block(x, y, z, "minecraft:air", true);
+                    block(x, y, z, setBlock, true);
                 }
 
                 if (y > 5 && y < (length-1) &&
                 x > 10 && (z == 2 || z == -2)) {
-                    block(x, y, z, "minecraft:air", true);
+                    block(x, y, z, setBlock, true);
                 }
                 
                 //west
                 if (y > 5 && y < length &&
                 x > 10 && z < 2 && z > -2) {
-                    block(-x, y, z, "minecraft:air", true);
+                    block(-x, y, z, setBlock, true);
                 }
 
                 if (y > 5 && y < (length-1) &&
                 x > 10 && (z == 2 || z == -2)) {
-                    block(-x, y, z, "minecraft:air", true);
+                    block(-x, y, z, setBlock, true);
             }
         }
     }

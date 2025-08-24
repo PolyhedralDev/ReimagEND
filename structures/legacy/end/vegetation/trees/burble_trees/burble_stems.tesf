@@ -1,5 +1,3 @@
-num randPrecision = 100;
-
 num dx = 1;
 num dz = 1;
 

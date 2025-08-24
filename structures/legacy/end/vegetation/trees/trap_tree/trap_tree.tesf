@@ -1,5 +1,4 @@
 num randPrecision = 100;
-num goldenAngle = 2.39996;
 num pi = 3.14159;
 
 str trunkBlock = "minecraft:magenta_concrete";
@@ -15,11 +14,6 @@ num topBranches = 1;
 num topBranchLengthUpwardsMin = 0;
 num topBranchLengthOutwardsMin = 0;
 num topBranchVerticalDirection = 0.8+randomInt(randPrecision)/randPrecision/1.5;
-num topBranchLeafRadiusMin = 4;
-num topBranchLeafTranslate = 0;
-num topBranchLeafTopFlatness = 1;
-num topBranchLeafBottomFlatness = 1;
-num topBranchLeafDensity = 0.1;
 str topBranchLeafStructure = "trap_tree_mouth";
 
 num sideBranchInterval = 7+randomInt(3);
@@ -29,11 +23,6 @@ num sideBranchLengthMin = 1;
 num sideBranchLengthVariation = 1;
 num sideBranchVerticalVariation = 0;
 num sideBranchVerticalDirection = 0.8+randomInt(randPrecision)/randPrecision/1.5;
-num sideBranchLeafRadiusMin = 4;
-num sideBranchLeafTranslate = 0;
-num sideBranchLeafTopFlatness = 1;
-num sideBranchLeafBottomFlatness = 1;
-num sideBranchLeafDensity = 0.3;
 str sideBranchLeafStructure = "trap_tree_small_mouth";
 
 if (getBlock(0,length,0) != "minecraft:air") fail;

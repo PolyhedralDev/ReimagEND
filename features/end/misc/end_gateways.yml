@@ -28,7 +28,7 @@ locator:
   type: AND
   locators:
     - type: RANDOM
-      height: &range
+      height:
         min: ${meta.yml:top-y} - 1
         max: $meta.yml:top-y
       amount: 1

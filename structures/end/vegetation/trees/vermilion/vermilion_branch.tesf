@@ -35,8 +35,6 @@ dz = dz / mag;
 
 for (num l = 0; l <= length; l = l + 0.1) {
 
-    num r = (length * -l / 2);
-
     num cx = l * dx;
     num cy = l * dy;
     num cz = l * dz;

@@ -26,7 +26,7 @@ locator:
   type: AND
   locators:
     - type: PATTERN
-      range: &range
+      range:
         min: $meta.yml:bottom-y
         max: $meta.yml:top-y
       pattern:

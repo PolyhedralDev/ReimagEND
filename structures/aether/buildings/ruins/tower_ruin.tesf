@@ -1,5 +1,3 @@
-num randPrecision = 100;
-
 num segments = 5+randomInt(6);
 num radius = 4;
 num underhang = -3;

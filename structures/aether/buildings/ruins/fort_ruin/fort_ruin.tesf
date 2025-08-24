@@ -2,7 +2,6 @@ num randPrecision = 100;
 num radius = 20+randomInt(randPrecision)/randPrecision;
 num warp = 5;
 num warpFreq = 2;
-num squish = 1+randomInt(randPrecision)/randPrecision;
 num radiusSquared = pow(radius,2);
 num yTranslate = 10;
 

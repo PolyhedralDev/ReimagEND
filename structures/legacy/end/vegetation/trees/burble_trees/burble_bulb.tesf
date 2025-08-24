@@ -1,5 +1,4 @@
 str leafBlock = "minecraft:purple_stained_glass";
-str altLeafBlock = leafBlock;
 str placeBlock = leafBlock;
 
 num radius = 3+randomInt(2);
