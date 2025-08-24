@@ -8,11 +8,13 @@ num trunkRadius = 2;
 str mainBlock = "minecraft:obsidian";
 str altBlock = "minecraft:black_concrete";
 
+num trunkMaxReachRadius = 4;
+
 num branchRadius = 1.25;
 num sideBranchInterval = 2 + randomInt(2);
 num sideBranchMinHeight = 1 + randomInt(3);
-num sideBranchLengthMin = 6 + randomInt(4);
-num sideBranchLengthVariation = 4;
+num sideBranchLengthMin = 4 + randomInt(3);
+num sideBranchLengthVariation = 3;
 num sideBranchVerticalVariation = 0;
 num sideBranchVerticalDirection = 1 - randomInt(randPrecision) / randPrecision * 2;
 num sideBranchLeafRadiusMin = 4;
@@ -26,7 +28,7 @@ num topBranches = 3 + randomInt(2);
 num topBranchLengthUpwardsMin = 7 + randomInt(5);
 num topBranchLengthOutwardsMin = 5 + randomInt(5);
 num topBranchVerticalDirection = 1;
-num topBranchLeafRadiusMin = 7;
+num topBranchLeafRadiusMin = 5;
 num topBranchLeafTranslate = 0;
 num topBranchLeafTopFlatness = 1;
 num topBranchLeafBottomFlatness = 2;
@@ -163,6 +165,12 @@ for (num i = 0; i < trunkHeight+trunkBase; i = i + 1) {
 
     xOffset = xOffset + (1 - randomInt(3));
     zOffset = zOffset + (1 - randomInt(3));
+
+    if (xOffset > trunkMaxReachRadius) xOffset = xOffset - 1;
+    if (xOffset < -trunkMaxReachRadius) xOffset = xOffset + 1;
+    if (zOffset > trunkMaxReachRadius) zOffset = zOffset - 1;
+    if (zOffset < -trunkMaxReachRadius) zOffset = zOffset + 1;
+
 }
 
 for (num b = 1; b <= topBranches; b = b + 1) {
