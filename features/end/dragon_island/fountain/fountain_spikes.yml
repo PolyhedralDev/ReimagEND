@@ -10,15 +10,13 @@ distributor:
       z: 0
 
 locator:
-  type: AND
-  locators:
-    - type: TOP
-      range: &range
-        min: $meta.yml:bottom-y
-        max: $meta.yml:top-y
-      pattern:
-        type: MATCH_SOLID
-        offset: -1
+  type: TOP
+  range:
+    min: $meta.yml:bottom-y
+    max: $meta.yml:top-y
+  pattern:
+    type: MATCH_SOLID
+    offset: -1
 
 structures:
   distribution:

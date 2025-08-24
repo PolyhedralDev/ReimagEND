@@ -1,7 +1,11 @@
-id: PILLAR_CIRCLET
+id: DRAGON_ISLAND_GALAXY_INNER
 type: FEATURE
 
-# Obsidian crack-like ground between fountain and dragon pillars
+variables: &variables
+  yLevel: 190
+  minRadius: 10
+  maxRadius: 30
+  flatness: 4
 
 distributor:
   type: AND
@@ -11,9 +15,7 @@ distributor:
         type: EXPRESSION
         expression: |
           circle(minRadius+noise(x,z)*10, maxRadius+noise(x,z)*10, x+noise(x,z)-1, z+noise(x,z)-1, 1)
-        variables:
-          minRadius: 50
-          maxRadius: 75
+        variables: *variables
         functions:
           circle:    {arguments: [s, b, x, z, l], expression: "if( x*x + z*z > s*s && x*x + z*z < b*b,-1,l)"}
         samplers:
@@ -48,22 +50,31 @@ locator:
   type: AND
   locators:
     - type: PATTERN
-      range: &range
+      range:
         min: $meta.yml:bottom-y
         max: $meta.yml:top-y
       pattern:
-        type: MATCH
-        block: minecraft:end_stone
-        offset: 0
-    - type: PATTERN
-      range: *range
-      pattern:
         type: MATCH_AIR
-        offset: 1
+        offset: 0  
+
+    - type: SAMPLER_3D
+      sampler:
+        type: EXPRESSION
+        expression: |
+          if(y = round(yLevel+noise(x,z)+((x+z)/flatness)), 1, -1)
+        variables: *variables
+        functions:
+        samplers:
+          noise:
+            type: OPEN_SIMPLEX_2
+            dimensions: 2
+            salt: 3912
+            frequency: 0.1
 
 structures:
   distribution:
     type: WHITE_NOISE
-  structures: 
-    - BLOCK:minecraft:obsidian: 5
-    - BLOCK:minecraft:crying_obsidian: 1
+  structures:
+    - star: 2
+    - BLOCK:minecraft:white_stained_glass: 1
+    - BLOCK:minecraft:air: 3

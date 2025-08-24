@@ -1,5 +1,11 @@
-id: NEBULA_CONCRETE
+id: DRAGON_ISLAND_GALAXY_OUTER
 type: FEATURE
+
+variables: &variables
+  yLevel: 190
+  minRadius: 50
+  maxRadius: 75
+  flatness: 4
 
 distributor:
   type: AND
@@ -9,9 +15,7 @@ distributor:
         type: EXPRESSION
         expression: |
           circle(minRadius+noise(x,z)*10, maxRadius+noise(x,z)*10, x+noise(x,z)-1, z+noise(x,z)-1, 1)
-        variables:
-          minRadius: 50
-          maxRadius: 75
+        variables: *variables
         functions:
           circle:    {arguments: [s, b, x, z, l], expression: "if( x*x + z*z > s*s && x*x + z*z < b*b,-1,l)"}
         samplers:
@@ -46,7 +50,7 @@ locator:
   type: AND
   locators:
     - type: PATTERN
-      range: &range
+      range:
         min: $meta.yml:bottom-y
         max: $meta.yml:top-y
       pattern:
@@ -57,9 +61,8 @@ locator:
       sampler:
         type: EXPRESSION
         expression: |
-          if( y = round(height+noise(x,z)), 1, -1)
-        variables:
-          height: ${customization.yml:dragon-island.nebula-concrete-height}
+          if(y = round(yLevel+noise(x,z)+((x+z)/flatness)), 1, -1)
+        variables: *variables
         functions:
         samplers:
           noise:
@@ -71,12 +74,9 @@ locator:
 structures:
   distribution:
     type: WHITE_NOISE
-  structures: 
-    - BLOCK:minecraft:pearlescent_froglight: 3
-    - BLOCK:minecraft:black_concrete: 10
+  structures:
+    - star: 1
     - BLOCK:minecraft:magenta_stained_glass: 3
     - BLOCK:minecraft:purple_stained_glass: 3
     - BLOCK:minecraft:black_stained_glass: 3
-    - BLOCK:minecraft:obsidian: 5
-    - BLOCK:minecraft:crying_obsidian: 1
-    - BLOCK:minecraft:air: 5
+    - BLOCK:minecraft:air: 20

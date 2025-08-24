@@ -8,6 +8,12 @@ dragon-island-radius: 150
 dragon-pit-radius: 80
 # Controls the size of the dragon island pit
 
+dragon-island-edge-buffer: 80
+# Controls the size of the dragon island pit
+
+dragon-island-edge-width: 100
+# Controls the size of the dragon island pit
+
 void-buffer-width: 1000
 # Controls the width of the void buffer between
 # the dragon island and outer end

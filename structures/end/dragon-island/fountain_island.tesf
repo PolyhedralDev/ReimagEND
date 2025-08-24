@@ -1,14 +1,11 @@
-num randPrecision = 100;
 num radius = 15;
 num warp = 2;
 num warpFreq = 4;
-num squish = 10+randomInt(randPrecision)/randPrecision;
 num radiusSquared = pow(radius,2);
 num yTranslate = -1;
 
 str mainBlock = "minecraft:end_stone";
 
-str setBlock = "";
 for (num x = -radius-warp; x < radius+warp; x = x + 1) {
     for (num y = (-radius); y < (radius); y = y + 1) {
         for (num z = -radius-warp; z < radius+warp; z = z + 1) {

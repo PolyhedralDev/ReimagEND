@@ -1,0 +1,20 @@
+id: DRAGON_ISLAND_VOID
+type: BIOME
+extends:
+  - DRAGON_ISLAND
+  - EQ_VOID
+vanilla: minecraft:the_end
+color: $biomes/colors.yml:DRAGON_ISLAND_VOID
+
+tags:
+  - DRAGON_ISLAND_VOID
+
+particles:
+  particle: minecraft:portal
+  probability: 0.0025
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+
+

@@ -1,17 +1,14 @@
-id: FOUNTAIN_ISLAND
+id: END_PLATFORM_AIR
 type: FEATURE
 
-# Mound of endstone that end fountain spawns on top of
-
-# If you change this yLevel, you probably also want to change
-#  the coordinate for the trail particles in DRAGON_PIT
 variables: &variables
-  yLevel: 70
+  yLevel: 48
 
+# Puts air above where obsidian platform spawns
 distributor:
   type: POINTS
   points:
-    - x: 0
+    - x: 100
       z: 0
 
 locator:
@@ -24,14 +21,14 @@ locator:
           if(y = yLevel, 1, -1)
         variables: *variables
     - type: PATTERN
-      range:
+      range: &range
         min: $meta.yml:bottom-y
         max: $meta.yml:top-y
       pattern:
-        type: MATCH_AIR
+        type: MATCH_SOLID
         offset: 0
 
 structures:
   distribution:
     type: CONSTANT
-  structures: fountain_island
+  structures: end_platform_air

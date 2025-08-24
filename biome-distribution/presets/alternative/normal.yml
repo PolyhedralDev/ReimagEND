@@ -33,8 +33,8 @@ biomes:
         sampler: *sampler
         biomes:
           - outer-end: 1
-          - MAIN_END_VOID: 2
-          - MAIN_END: 1
+          - DRAGON_ISLAND_VOID: 2
+          - DRAGON_ISLAND: 1
       stages:
         - << biome-distribution/stages/add_aether_pockets.yml:stages
         - << biome-distribution/stages/aether_distribution.yml:stages

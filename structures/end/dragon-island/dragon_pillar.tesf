@@ -1,163 +1,97 @@
-num randPrecision = 100;
-num goldenAngle = 2.39996;
-num pi = 3.14159;
-num twopi = 6.28318530718;
-
-num height = 100+randomInt(20);
-num yTranslate = -65;
+num height = 105+randomInt(20);
+num yTranslate = -70;
 num radius = 6+randomInt(2);
 
-structure(0,-2,0,"obsidian_spike_cluster","NONE");
-
+str mainBlock = "minecraft:obsidian";
 str altBlock = "minecraft:crying_obsidian";
 
-num dir = 0;
-str setBlock = "";
-for(num h = yTranslate; h <= height+yTranslate; h = h + 1) {
-    for(num x = -radius; x <= radius; x = x + 1) {
-        for(num z = -radius; z <= radius; z = z + 1) {
-            if (pow(x,2)+pow(z,2) < pow(radius,2)) {
-                setBlock = "minecraft:obsidian";
-                if (randomInt(8) == 0) setBlock = "minecraft:crying_obsidian";
-                block(x, h, z, setBlock, true);
+str setBlock = mainBlock;
+num r = radius;
+for(num h = 0; h <= height; h = h + 1) {
+
+    for(num x = -r; x <= r; x = x + 1) {
+        for(num z = -r; z <= r; z = z + 1) {
+            if (pow(x,2)+pow(z,2) < pow(r,2)) {
+                setBlock = mainBlock;
+                if(round(randomInt(h+1)/10) == 0 && h < 60) setBlock = altBlock;
+                if(round(randomInt(h+1)/10) == 0 && h < 40) setBlock = "minecraft:air";
+                block(x, h + yTranslate, z, setBlock, true);
             }    
         }
     }
-    if (h > 0 && h % 15 == 0) radius = radius - 1;
-}    
 
+    if (h > (height/2) && h % 20 == 0) r = r - 1;
 
-for(num y = yTranslate+height-5; y <= height+yTranslate+4; y = y + 1) {
-    if (randomInt(15) == 0) { setBlock = altBlock;
-    } else setBlock = "minecraft:obsidian";
-    block(-radius, y, 0, setBlock, false);
-
-    if (randomInt(15) == 0) { setBlock = altBlock;
-    } else setBlock = "minecraft:obsidian";
-    block(0, y, -radius, setBlock, false);
-
-    if (randomInt(15) == 0) { setBlock = altBlock;
-    } else setBlock = "minecraft:obsidian";
-    block(radius, y, 0, setBlock, false);
-
-    if (randomInt(15) == 0) { setBlock = altBlock;
-    } else setBlock = "minecraft:obsidian";
-    block(0, y, radius, setBlock, false);
-
-    if (y < yTranslate+height+3) {
-
-    if (randomInt(15) == 0) { setBlock = altBlock;
-    } else setBlock = "minecraft:obsidian";
-    block(radius-1, y, radius-1, setBlock, false);
-
-    if (randomInt(15) == 0) { setBlock = altBlock;
-    } else setBlock = "minecraft:obsidian";
-    block(-radius+1, y, -radius+1, setBlock, false);
-    
-    if (randomInt(15) == 0) { setBlock = altBlock;
-    } else setBlock = "minecraft:obsidian";
-    block(-radius+1, y, radius-1, setBlock, false);
-
-    if (randomInt(15) == 0) { setBlock = altBlock;
-    } else setBlock = "minecraft:obsidian";
-    block(radius-1, y, -radius+1, setBlock, false);
-    }
-  
 }
 
+// Iron bars
 if (randomInt(3) == 0) {
-    for (num y = yTranslate+height; y < yTranslate+height+5; y = y + 1) {
+    for (num y = height; y < height+5; y = y + 1) {
         for (num x = -3; x <= 3; x = x + 1) {
             for (num z = -3; z <= 3; z = z + 1) {
                 // z-sides
-                if (x == 0 && (z == 2 || z == -2) && y > yTranslate+height) {
-                    block(x,y,z,"minecraft:iron_bars[east=true,west=true]");
-                    block(x+1,y,z,"minecraft:iron_bars[east=true,west=true]");
-                    block(x-1,y,z,"minecraft:iron_bars[east=true,west=true]");
+                if (x == 0 && (z == 2 || z == -2) && y > height) {
+                    block(x,y + yTranslate,z,"minecraft:iron_bars[east=true,west=true]");
+                    block(x+1,y + yTranslate,z,"minecraft:iron_bars[east=true,west=true]");
+                    block(x-1,y + yTranslate,z,"minecraft:iron_bars[east=true,west=true]");
                 }
 
                 // x-sides
-                if (z == 0 && (x == 2 || x == -2) && y > yTranslate+height) {
-                    block(x,y,z,"minecraft:iron_bars[north=true,south=true]");
-                    block(x,y,z+1,"minecraft:iron_bars[north=true,south=true]");
-                    block(x,y,z-1,"minecraft:iron_bars[north=true,south=true]");
+                if (z == 0 && (x == 2 || x == -2) && y > height) {
+                    block(x,y + yTranslate,z,"minecraft:iron_bars[north=true,south=true]");
+                    block(x,y + yTranslate,z+1,"minecraft:iron_bars[north=true,south=true]");
+                    block(x,y + yTranslate,z-1,"minecraft:iron_bars[north=true,south=true]");
                 }
 
                 // corners
-                if (z == 2 && x == 2 && y > yTranslate+height) {
-                    block(x,y,z,"minecraft:iron_bars[north=true,west=true]");
+                if (z == 2 && x == 2 && y > height) {
+                    block(x,y + yTranslate,z,"minecraft:iron_bars[north=true,west=true]");
                 }
 
-                if (z == 2 && x == -2 && y > yTranslate+height) {
-                    block(x,y,z,"minecraft:iron_bars[north=true,east=true]");
+                if (z == 2 && x == -2 && y > height) {
+                    block(x,y + yTranslate,z,"minecraft:iron_bars[north=true,east=true]");
                 }
 
-                if (z == -2 && x == 2 && y > yTranslate+height) {
-                    block(x,y,z,"minecraft:iron_bars[south=true,west=true]");
+                if (z == -2 && x == 2 && y > height) {
+                    block(x,y + yTranslate,z,"minecraft:iron_bars[south=true,west=true]");
                 }
 
-                if (z == -2 && x == -2 && y > yTranslate+height) {
-                    block(x,y,z,"minecraft:iron_bars[south=true,east=true]");
-                }
-            }
-        }
-    } 
-}
-
-block(0, height+yTranslate+1, 0, "minecraft:bedrock"); 
-entity(0, height+yTranslate+2, 0, "minecraft:end_crystal");   
-
-num spikes = 8;
-num rootBase = 0;
-num rootDroop = -0.025;
-num rootVerticalDirection = -1-randomInt(randPrecision)/randPrecision*0.3;
-num rootAngle = randomInt(randPrecision)/randPrecision*2*pi;
-
-num spikeRadius = radius/2;
-setBlock = "";
-
-for (num n = 0; n < spikes; n = n + 1) {
-    // Branch direction vector
-    num dx = sin(rootAngle);
-    num dy = rootVerticalDirection;
-    num dz = cos(rootAngle);
-    // Normalize vector
-    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
-    dx = dx/mag;
-    dy = dy/mag;
-    dz = dz/mag;
-
-    num length = 5;
-
-    for (num i = 0; i <= length; i = i + 0.05) {
-        num cx = i*dx;
-        num cy = rootBase+i*dy;
-        num cz = i*dz;
-
-        // Reduce radius inversely to length
-        num r = ((spikeRadius/(length)) * -i) + spikeRadius;
-
-        // Generate sphere at each point
-        for(num x = -r; x <= r; x = x + 1) {
-            for(num y = -r; y <= r; y = y + 1) {
-                for(num z = -r; z <= r; z = z + 1) {
-                    if (pow(x,2)+pow(y,2)+pow(z,2) <= pow(r,2)) {
-                        setBlock = "minecraft:obsidian";
-                        if (randomInt(5) == 0) setBlock = "minecraft:crying_obsidian";
-
-                        block(i*cx + x, i*cy + y - spikeRadius + (height+yTranslate-2), i*cz + z, setBlock, false);
-                    }
+                if (z == -2 && x == -2 && y > height) {
+                    block(x,y + yTranslate,z,"minecraft:iron_bars[south=true,east=true]");
                 }
             }
         }
-        // Point vector down more
-        dy = dy - rootDroop;
-        // Normalize vector
-        mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
-        dx = dx/mag;
-        dy = dy/mag;
-        dz = dz/mag;
     }
-
-    rootAngle = rootAngle + goldenAngle;
 }
+
+// Top Spikes
+for(num y = height-5; y <= height+3; y = y + 1) {
+    setBlock = mainBlock;
+    block(-r, y + yTranslate, 0, setBlock);
+
+    setBlock = mainBlock;
+    block(0, y + yTranslate, -r, setBlock);
+
+    setBlock = mainBlock;
+    block(r, y + yTranslate, 0, setBlock);
+
+    setBlock = mainBlock;
+    block(0, y + yTranslate, r, setBlock);
+
+    if (y < height + 2) {
+        setBlock = mainBlock;
+        block(r-1, y + yTranslate, r-1, setBlock);
+
+        setBlock = mainBlock;
+        block(-r+1, y + yTranslate, -r+1, setBlock);
+
+        setBlock = mainBlock;
+        block(-r+1, y + yTranslate, r-1, setBlock);
+
+        setBlock = mainBlock;
+        block(r-1, y + yTranslate, -r+1, setBlock);
+    }
+}
+
+block(0, height + yTranslate + 1, 0, "minecraft:bedrock");
+entity(0, height + yTranslate + 2, 0, "minecraft:end_crystal");

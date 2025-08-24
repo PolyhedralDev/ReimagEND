@@ -1,12 +1,28 @@
-id: STAR_TRAILS
+id: DRAGON_NEBULA
 type: FEATURE
 
 variables: &variables
   wallThickness: 0.08
   webThickness: 0.08
 
+  minRadius: 160
+  maxRadius: 300
+
 distributor:
-  type: "YES"
+  type: SAMPLER
+  sampler:
+    type: EXPRESSION
+    expression: |
+      circle(minRadius+noise(x,z)*10, maxRadius+noise(x,z)*10, x+noise(x,z)-1, z+noise(x,z)-1, 1)
+    variables: *variables
+    functions:
+      circle: { arguments: [ s, b, x, z, l ], expression: "if( x*x + z*z > s*s && x*x + z*z < b*b,-1,l)" }
+    samplers:
+      noise:
+        type: OPEN_SIMPLEX_2
+        dimensions: 2
+        salt: 3912
+        frequency: 0.1
 
 locator:
   type: AND
@@ -14,8 +30,8 @@ locator:
     # Match air underground
     - type: PATTERN
       range: &range
-        min: ${meta.yml:bottom-y} + 20
-        max: $meta.yml:top-y
+        min: 168
+        max: ${meta.yml:top-y} - 20
       pattern:
         type: MATCH_AIR
         offset: 0

@@ -2,18 +2,18 @@ num randPrecision = 100;
 num goldenAngle = 2.39996;
 num pi = 3.14159;
 
-num spikes = 8;
+num spikes = 5;
 num spikeRadius = 3.5;
-num spikeStart = 3;
-num spikeLengthBase = 7;
+num spikeStart = 2;
+num spikeLengthBase = 5;
 num spikeLengthVariation = 1;
 
 num rootBase = 0;
-num rootDroop = 0.06;
-num rootVerticalDirection = 0.5;
+num rootDroop = 0.03;
+num rootVerticalDirection = 0.3;
 num rootAngle = randomInt(randPrecision)/randPrecision*2*pi;
 
-num yTranslate = -10;
+num yTranslate = 0;
 
 str mainBlock = "minecraft:obsidian";
 

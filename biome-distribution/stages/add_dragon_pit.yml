@@ -4,7 +4,7 @@ stages:
       type: DISTANCE
       normalize: true
       radius: $customization.yml:dragon-pit-radius
-    from: MAIN_END
+    from: DRAGON_ISLAND
     to: 
       - DRAGON_PIT: 1
-      - MAIN_END: 1
+      - DRAGON_ISLAND: 1

@@ -1,5 +1,8 @@
-id: NEBULA_OBSIDIAN
+id: ENDSTONE_RING
 type: FEATURE
+
+variables: &vars
+  yHeight: 120
 
 distributor:
   type: AND
@@ -10,10 +13,10 @@ distributor:
         expression: |
           circle(minRadius+noise(x,z)*10, maxRadius+noise(x,z)*10, x+noise(x,z)-1, z+noise(x,z)-1, 1)
         variables:
-          minRadius: 25
-          maxRadius: 50
+          minRadius: ${customization.yml:dragon-island.endstone-ring-min}
+          maxRadius: ${customization.yml:dragon-island.endstone-ring-max}
         functions:
-          circle:    {arguments: [s, b, x, z, l], expression: "if( x*x + z*z > s*s && x*x + z*z < b*b,-1,l)"}
+          circle:    {arguments: [s, b, x, z, l], expression: "if( x*x + z*z > s*s && x*x + z*z < b*b, -1, l)"}
         samplers:
           noise:
             type: OPEN_SIMPLEX_2
@@ -57,9 +60,8 @@ locator:
       sampler:
         type: EXPRESSION
         expression: |
-          if( y = round(height+noise(x,z)), 1, -1)
-        variables:
-          height: ${customization.yml:dragon-island.nebula-obsidian-height}
+          if( y = round(yHeight+noise(x,z)), 1, -1)
+        variables: *vars
         functions:
         samplers:
           noise:
@@ -72,5 +74,5 @@ structures:
   distribution:
     type: WHITE_NOISE
   structures: 
-    - BLOCK:minecraft:obsidian: 5
-    - BLOCK:minecraft:crying_obsidian: 1
+    - BLOCK:minecraft:end_stone: 5
+    - BLOCK:minecraft:air: 1
