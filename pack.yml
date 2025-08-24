@@ -56,7 +56,10 @@ preset-single-debug-biome: END_HIGHLANDS
 # Vanilla-Like biome distribution
 #biomes: $biome-distribution/presets/alternative/vanilla-ish.yml:biomes
 
-# BetterEnd biome distribution
+# Vanilla-Like-Enhanced biome distribution
+#biomes: $biome-distribution/presets/alternative/vanilla-ish-enhanced.yml:biomes
+
+# BetterEnd biome distribution (Dfsek's BetterEnd Plugin)
 #biomes: $biome-distribution/presets/alternative/betterend.yml:biomes
 
 stages:
