@@ -3,9 +3,9 @@ type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 24
-  padding: 14
-  salt: 8772
+  width: 44
+  padding: 34
+  salt: 6478
 
 locator:
   type: AND
@@ -24,7 +24,5 @@ locator:
 
 structures:
   distribution:
-    type: WHITE_NOISE
-  structures: 
-    - vertical_galaxy: 1
-    - horizontal_galaxy: 1
+    type: CONSTANT
+  structures: place_galaxy

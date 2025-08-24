@@ -1,0 +1,40 @@
+num randPrecision = 100;
+
+num length = 10+randomInt(10);
+num direction = randomInt(randPrecision)/randPrecision;
+
+num innerEnd = 4;
+
+// Direction vector
+num dx = (randomInt(randPrecision)/randPrecision-0.5)*1.5;
+num dz = (randomInt(randPrecision)/randPrecision-0.5)*1.5;
+
+num mag = sqrt(pow(dx,2)+pow(dz,2));
+dx = dx/mag;
+dz = dz/mag;
+
+num dy = -1+randomInt(randPrecision)/randPrecision;
+
+str setBlock = "minecraft:white_concrete";
+for (num i = 0; i < length; i = i + 0.01) {
+
+        num random = randomInt(6);
+        setBlock = "minecraft:purple_concrete";
+        if (random == 1) setBlock = "minecraft:magenta_concrete";
+        if (random == 2) setBlock = "minecraft:gray_concrete";
+        if (random == 3) setBlock = "minecraft:purple_stained_glass";
+        if (random == 4) setBlock = "minecraft:magenta_stained_glass";
+        if (random == 5) setBlock = "minecraft:gray_stained_glass";
+
+
+        if ((randomInt(4) == 0) && (i < innerEnd)
+            && round(direction) % (2+randomInt(2)) == 0) {
+            structure(i*cos(direction),((dx*i*cos(direction))+(dz*i*sin(direction)))*dy,i*sin(direction), "star", "NONE");
+        }
+
+    if (round(direction) % (2+randomInt(2)) == 0 && i > innerEnd) {
+        block(i*cos(direction),((dx*cos(direction))+(dz*i*sin(direction)))*dy,i*sin(direction),setBlock);
+    }
+    
+    direction = direction + 0.1;
+}
