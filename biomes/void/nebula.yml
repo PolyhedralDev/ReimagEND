@@ -1,9 +1,9 @@
-id: GALAXY_FIELD
+id: NEBULA
 type: BIOME
 extends:
   - VOID
 vanilla: minecraft:the_void
-color: $biomes/colors.yml:GALAXY_FIELD
+color: $biomes/colors.yml:NEBULA
 
 features:
   preprocessors:

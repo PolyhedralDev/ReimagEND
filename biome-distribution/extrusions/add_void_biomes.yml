@@ -12,7 +12,7 @@ extrusions:
       - SELF: 20
       - AURORA_FIELD: 1
       - SELF: 20
-      - GALAXY_FIELD: 1
+      - NEBULA: 1
       - SELF: 20
       - ASTEROID_FIELD: 1
     range:
