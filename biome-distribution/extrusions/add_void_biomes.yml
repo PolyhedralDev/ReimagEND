@@ -10,7 +10,7 @@ extrusions:
       - SELF: 20
       - STARFIELD: 1
       - SELF: 20
-      - AURORA_FIELD: 1
+      - AURORA: 1
       - SELF: 20
       - NEBULA: 1
       - SELF: 20
