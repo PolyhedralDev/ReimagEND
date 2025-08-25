@@ -22,7 +22,7 @@ terrain:
       max: 70
       min: 0
       taper: 50
-      flatness: 2
+      flatness: 5
       undercarriageTranslate: -10
     samplers:
       simplex3:
