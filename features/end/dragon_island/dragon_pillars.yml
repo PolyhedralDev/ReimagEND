@@ -1,0 +1,43 @@
+id: DRAGON_PILLARS
+type: FEATURE
+
+variables: &variables
+  yLevel: 65
+
+distributor:
+  type: POINTS
+  points:
+    - x: 62
+      z: 0
+    - x: 53
+      z: 44
+    - x: 12
+      z: 59
+    - x: -12
+      z: 59
+    - x: -53
+      z: 44
+    - x: -62
+      z: 0
+    - x: -53
+      z: -44
+    - x: -12
+      z: -59
+    - x: 12
+      z: -59
+    - x: 53
+      z: -44
+
+
+locator:
+  type: SAMPLER_3D
+  sampler:
+    type: EXPRESSION
+    expression: |
+      if(y = yLevel, 1, -1)
+    variables: *variables
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: dragon_pillar

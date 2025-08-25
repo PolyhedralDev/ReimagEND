@@ -32,7 +32,7 @@ features:
     - UPGRADED_FOUNTAIN
     - FOUNTAIN_SPIKES
   flora:
-    - MAIN_PILLARS
+    - DRAGON_PILLARS
   postprocessors:
     - DRAGON_ISLAND_GALAXY_INNER
     - DRAGON_ISLAND_GALAXY_OUTER
