@@ -24,7 +24,6 @@ if(randomInt(endCrystalChance) == 0) {
     if (radius == 1.5) {
         entity(0.5, length + yTranslate + 1, 0.5, "minecraft:end_crystal");
     } else {
-        block(0, length + yTranslate, 0, "minecraft:cobbled_deepslate");
         entity(0, length + yTranslate + 1, 0, "minecraft:end_crystal");
     }
 }
