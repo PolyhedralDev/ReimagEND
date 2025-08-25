@@ -77,4 +77,7 @@ structures:
   structures:
     - star: 2
     - BLOCK:minecraft:white_stained_glass: 1
+    - BLOCK:minecraft:black_stained_glass: 1
+    - BLOCK:minecraft:gray_stained_glass: 1
+    - BLOCK:minecraft:light_gray_stained_glass: 1
     - BLOCK:minecraft:air: 3
