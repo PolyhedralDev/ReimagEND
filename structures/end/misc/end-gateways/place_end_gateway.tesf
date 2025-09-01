@@ -1,21 +1,7 @@
-num radius = 16;
-num heightCheck = 2;
-
 num checkStart = 0;
 num checkMax = 200;
 
 bool valid = true;
-
-for (num x = -radius; x < radius; x = x + 1) {
-    for (num y = -heightCheck; y < heightCheck; y = y + 1) {    
-        for (num z = -radius; z < radius; z = z + 1) {
-            if ( (getBlock(x, y, z)) != "minecraft:purple_stained_glass" ||
-            getBlock(x, y, z) != "minecraft:black_stained_glass" ||
-            getBlock(x, y, z) != "minecraft:magenta_stained_glass" ||
-            getBlock(x, y, z) != "minecraft:pearlescent_froglight") block( x, y, z, "minecraft:air");
-        }
-    }
-}
 
 num h = 0;
 

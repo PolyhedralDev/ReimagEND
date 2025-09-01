@@ -3,7 +3,7 @@ type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 199
+  width: 249
   padding: 136
   salt: 4666
 
@@ -32,5 +32,8 @@ locator:
 
 structures:
   distribution:
-    type: CONSTANT
-  structures: end_house
+    type: WHITE_NOISE
+  structures:
+    - blank: 2
+    - end_house: 4
+    - end_tower: 2

@@ -1,11 +1,11 @@
-id: END_TOWERS
+id: SHULKER_NESTS
 type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 360
-  padding: 311
-  salt: 4567
+  width: 89
+  padding: 102
+  salt: 1244
 
 locator:
   type: AND
@@ -32,5 +32,7 @@ locator:
 
 structures:
   distribution:
-    type: CONSTANT
-  structures: end_tower
+    type: WHITE_NOISE
+  structures:
+    - shulker_nest: 1
+    - blank: 2

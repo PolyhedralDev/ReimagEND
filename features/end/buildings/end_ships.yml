@@ -1,9 +1,9 @@
-id: ENDSHIPS
+id: END_SHIPS
 type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 511
+  width: 611
   padding: 402
   salt: 4356
 
@@ -34,5 +34,7 @@ locator:
 
 structures:
   distribution:
-    type: CONSTANT
-  structures: place_endship
+    type: WHITE_NOISE
+  structures:
+    - place_end_ship: 1
+    - blank: 1

@@ -1,11 +1,11 @@
-id: SHULKER_RUINS
+id: STYGIAN_SHULKER_NESTS
 type: FEATURE
 
 distributor:
   type: PADDED_GRID
   width: 89
   padding: 102
-  salt: 1244
+  salt: 7568
 
 locator:
   type: AND
@@ -32,5 +32,7 @@ locator:
 
 structures:
   distribution:
-    type: CONSTANT
-  structures: shulker_ruin
+    type: WHITE_NOISE
+  structures:
+    - stygian_shulker_nest: 1
+    - blank: 2

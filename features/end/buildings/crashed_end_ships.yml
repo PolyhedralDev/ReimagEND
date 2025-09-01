@@ -1,4 +1,4 @@
-id: CRASHED_ENDSHIPS
+id: CRASHED_END_SHIPS
 type: FEATURE
 
 distributor:
@@ -27,6 +27,7 @@ locator:
 
 structures:
   distribution:
-    type: CONSTANT
-  structures: 
-    - crashed_endship: 1
+    type: WHITE_NOISE
+  structures:
+    - blank: 2
+    - crashed_end_ship: 1

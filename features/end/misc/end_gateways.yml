@@ -32,21 +32,6 @@ locator:
         min: ${meta.yml:top-y} - 1
         max: $meta.yml:top-y
       amount: 1
-    
-    - type: SAMPLER_3D
-      sampler:
-        type: EXPRESSION
-        expression: |
-          if( toggle = 0, -1, 1)
-        variables:
-          toggle: ${customization.yml:end-gateway-min}
-        functions:
-        samplers:
-          noise:
-            type: OPEN_SIMPLEX_2
-            dimensions: 2
-            salt: 3912
-            frequency: 0.1
 
 structures:
   distribution:

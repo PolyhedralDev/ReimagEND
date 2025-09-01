@@ -26,25 +26,25 @@ for (num z = -width/2; z < width/2; z = z + 1) {
 for (num n = 0; n < debriAmount; n = n + 1) {
     num rx = sin(randomInt(randPrecision)/randPrecision * twopi) * 5;
     num rz = cos(randomInt(randPrecision)/randPrecision * twopi) * 5;
-    if (randomInt(2) == 0) {
-          num xDir = 1;
-    } else num xDir = -1;
-  
-    if (randomInt(2) == 0) {
-          num zDir = 1;
-    } else num zDir = -1;
-    structure(xDir*rx, n, zDir*rz, "end_debri_block", "NONE");
+
+    num xDir = 1;
+    if (randomInt(2) == 0) xDir = -1;
+
+    num zDir = 1;
+    if (randomInt(2) == 0) zDir = -1;
+
+    structure(xDir*rx, n, zDir*rz, "place_end_debri_block", "NONE");
 }
 
 for (num s = 0; s < shulkerAmount; s = s + 1) {
     num rx = sin(randomInt(randPrecision)/randPrecision * twopi) * randomInt(5);
     num rz = cos(randomInt(randPrecision)/randPrecision * twopi) * randomInt(5);
-    if (randomInt(2) == 0) {
-          num xDir = 1;
-    } else num xDir = -1;
-  
-    if (randomInt(2) == 0) {
-          num zDir = 1;
-    } else num zDir = -1;
-    structure(xDir*rx, 10, zDir*rz, "shulker_spawn", "NONE");
+
+    num xDir = 1;
+    if (randomInt(2) == 0) xDir = -1;
+
+    num zDir = 1;
+    if (randomInt(2) == 0) zDir = -1;
+
+    structure(xDir*rx, 10, zDir*rz, "spawn_shulker", "NONE");
 }

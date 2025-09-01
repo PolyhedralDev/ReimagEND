@@ -156,9 +156,9 @@ aether-island-undercarriage-translate: -10
 # End
 # ---
 
-end-gateway-min: 5000
+end-gateway-min: 6000
 # Controls the min radius of end gateway spawns throughout the outer end
-# Default: 5000
+# Default: 6000
 
 # ---
 # Aether

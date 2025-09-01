@@ -10,10 +10,10 @@ colors:
   #sky: 0x000000
 
 features:
-  buildings:
-    - SHULKER_RUINS
-    - ENDSHIPS
-    - CRASHED_ENDSHIPS
-    - END_HOUSES
-    - END_TOWERS
+  global-preprocessors:
     - END_GATEWAYS
+  buildings:
+    - END_SHIPS
+    - CRASHED_END_SHIPS
+    - END_HOUSES
+    - SHULKER_NESTS

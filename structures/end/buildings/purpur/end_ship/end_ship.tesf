@@ -19,7 +19,7 @@ for (num s = 0; s < shulkerAmount; s = s + 1) {
     if (randomInt(2) == 0) {
           num zDir = 1;
     } else num zDir = -1;
-    structure(xDir*rx, 10, zDir*rz, "shulker_spawn", "NONE");
+    structure(xDir*rx, 10, zDir*rz, "spawn_shulker", "NONE");
 }
 
 num radius = 16;

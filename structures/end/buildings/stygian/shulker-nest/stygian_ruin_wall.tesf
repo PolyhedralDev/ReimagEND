@@ -1,0 +1,25 @@
+num length = 3+randomInt(5);
+num random = randomInt(4);
+str face = "";
+
+if (getBlock(0,0,0) == "minecraft:air") fail;
+
+for (num y = 0; y < length; y = y + 1) {
+    block(0, y, 0,"minecraft:deepslate_bricks");
+}
+
+random = randomInt(5);
+num randomFace = randomInt(4);
+face = "north";
+if (randomFace == 1) face = "east";
+if (randomFace == 2)  face = "south";
+if (randomFace == 3) face = "west";
+
+random = randomInt(4);
+if (random == 0) block(0,length,0,"minecraft:deepslate_brick_stairs[facing="+face+"]");
+if (random == 1) block(0,length,0,"minecraft:polished_blackstone_brick_stairs[facing="+face+"]");
+if (random == 2) block(0,length,0,"minecraft:polished_blackstone_brick_slab");
+if (random == 3) block(0,length,0,"minecraft:deepslate_brick_slab");
+
+
+

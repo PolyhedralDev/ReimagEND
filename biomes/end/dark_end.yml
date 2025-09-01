@@ -1,0 +1,23 @@
+id: DARK_END
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_SPIKES
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:DARK_END
+
+particles:
+  particle: minecraft:ash
+  probability: 0.005
+
+palette:
+  - DARK_END: $meta.yml:top-y
+
+features:
+  trees:
+    - GLOWSTONE_SPIKES
+    - GLOWSTONE_TREES
+  buildings:
+    - END_SHIPS
+    - CRASHED_END_SHIPS
+    - STYGIAN_SHULKER_NESTS
