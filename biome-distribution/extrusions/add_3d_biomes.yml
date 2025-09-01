@@ -8,6 +8,7 @@ extrusions:
       frequency: 1 / 600 / ${customization.yml:outer-end-biome-scale} / ${customization.yml:global-scale}
     to:
       - END_HIGHLANDS: 1
+      - HANGING_ISLES: 1
       - SHATTERED_END: 1
       - SHATTERED_FOREST: 1
 

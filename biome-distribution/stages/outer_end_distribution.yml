@@ -7,6 +7,7 @@ stages:
     default-from: ring1
     default-to:
       - END_HIGHLANDS: 1
+      - HANGING_ISLES: 1
       - SHATTERED_END: 1
       - SHATTERED_FOREST: 1
     to:
@@ -34,6 +35,7 @@ stages:
     from: ring5
     to:
       - END_HIGHLANDS: 1
+      - HANGING_ISLES: 1
       - SHATTERED_END: 1
       - SHATTERED_FOREST: 1
 

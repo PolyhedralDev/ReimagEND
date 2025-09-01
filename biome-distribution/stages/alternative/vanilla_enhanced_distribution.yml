@@ -11,3 +11,5 @@ stages:
       - SHATTERED_FOREST: 1
       - AMETHYST_END: 1
       - END_WILDS: 1
+      - CHORAL_DEADLANDS: 1
+      - HANGING_ISLES: 1
