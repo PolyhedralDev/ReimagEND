@@ -23,3 +23,6 @@ if (valid) fail;
 // print("x: " + originX() + " y: " + originY() + " z: " + originZ());
 
 structure(0, -h, 0, "end_gateway", "NONE");
+
+block(0, -h+6, 0, "minecraft:end_stone_brick_wall");
+block(0, -h, 0, "minecraft:end_stone_brick_wall");
