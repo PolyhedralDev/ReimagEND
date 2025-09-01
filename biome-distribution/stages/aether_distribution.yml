@@ -14,3 +14,10 @@ stages:
       frequency: 1 / 500 / ${customization.yml:outer-end-biome-scale}
     from: aether
     to: *biome-list
+
+  - type: BORDER
+    sampler:
+      type: CONSTANT
+    replace: AETHER
+    from: VOID
+    to: AETHER_VOID

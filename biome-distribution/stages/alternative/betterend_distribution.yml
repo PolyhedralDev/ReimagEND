@@ -23,6 +23,13 @@ stages:
         - AETHER_HIGHLANDS: 2
         - AETHER_HIGHLANDS_FOREST: 1
 
+  - type: BORDER
+    sampler:
+      type: CONSTANT
+    replace: AETHER
+    from: VOID
+    to: AETHER_VOID
+
   - type: REPLACE
     sampler:
       type: CELLULAR

@@ -6,6 +6,9 @@ extends:
   - DEPOSITS_DEFAULT
   - CARVING_AETHER
 
+tags:
+  - AETHER
+
 # Overworld Atmosphere
 colors:
   grass: 0x91BD59
