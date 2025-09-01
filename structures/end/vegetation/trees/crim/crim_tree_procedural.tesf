@@ -7,7 +7,7 @@ str altTrunkBlock = "minecraft:magenta_terracotta";
 str setBlock = trunkBlock;
 
 num trunkRadius = 3;
-num length = 20+randomInt(25);
+num length = 20+randomInt(15);
 num xTranslate = 0;
 num zTranslate = 0;
 
@@ -112,6 +112,12 @@ for(num h = 0; h <= length; h = h + 1) {
             }
         }
     }
+
+    if (xTranslate > 5) xTranslate = xTranslate - 1;
+    if (xTranslate < -5) xTranslate = xTranslate + 1;
+    if (zTranslate > 5) zTranslate = zTranslate - 1;
+    if (zTranslate < -5) zTranslate = zTranslate + 1;
+
     xTranslate = xTranslate+(1-randomInt(3));
     zTranslate = zTranslate+(1-randomInt(3));
 }
