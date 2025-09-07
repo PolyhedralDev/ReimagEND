@@ -47,6 +47,11 @@ outer-end-biome-scale: 1
 # Modifies the scale of the outer end biomes
 # Default: 1
 
+desolate-scale: 1
+# Modifies the scale of the desolate variant end biomes
+# that only disable end city generation in them
+# Default: 1
+
 void-biome-scale: 1
 # Modifies the scale of the outer end void biomes
 # Default: 1
@@ -155,6 +160,14 @@ aether-island-undercarriage-translate: -10
 # ---
 # End
 # ---
+
+toggle-end-cities: 1
+# Toggles end city generation. Set to 0 to disable.
+# Default: 1
+
+end-city-min: 6000
+# Controls the min radius of end city spawns throughout the outer end
+# Default: 6000
 
 end-gateway-min: 6000
 # Controls the min radius of end gateway spawns throughout the outer end

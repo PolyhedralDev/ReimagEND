@@ -1,0 +1,34 @@
+id: STYGIAN_BARRENS_DESOLATE
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_NARROW
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:STYGIAN_BARRENS
+
+tags:
+  - ADD_VOID_BIOMES
+
+colors:
+  grass: 0x44404a
+  foliage: 0x44404a
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+slant:
+  - threshold: 1
+    palette:
+      - BLACK_POWDER_END: $meta.yml:top-y
+  - threshold: 0.5
+    palette:
+      - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+features:
+  postprocessors:
+    - STYGIAN_CROSS_STRANDS
+    - STYGIAN_JELLIES
+  flora:
+    - END_GRASS
+  trees:
+    - LEGGED_LANTERNS

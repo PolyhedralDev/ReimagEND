@@ -40,6 +40,7 @@ biomes:
         - << biome-distribution/stages/aether_distribution.yml:stages
         - << biome-distribution/stages/rings_of_life.yml:stages
         - << biome-distribution/stages/outer_end_distribution.yml:stages
+        - << biome-distribution/stages/desolate_distribution.yml:stages
 
         - type: FRACTAL_EXPAND
           sampler:

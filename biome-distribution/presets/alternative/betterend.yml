@@ -19,6 +19,8 @@ biomes:
   type: EXTRUSION
   extrusions:
     - << biome-distribution/extrusions/add_starfield.yml:extrusions
+    - << biome-distribution/stages/desolate_distribution.yml:stages
+
   provider:
     type: PIPELINE
     resolution: 4

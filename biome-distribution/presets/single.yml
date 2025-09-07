@@ -24,6 +24,7 @@ biomes:
             frequency: 1 / 600 / ${customization.yml:outer-end-biome-scale}
       stages:
         - << biome-distribution/stages/outer_end_distribution.yml:stages
+        - << biome-distribution/stages/desolate_distribution.yml:stages
 
         - type: REPLACE
           sampler:

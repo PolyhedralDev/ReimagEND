@@ -1,9 +1,9 @@
-id: ROSETTE_POOLS
+id: ROSETTE_POOLS_DESOLATE
 type: BIOME
 extends:
   - BASE_END
   - EQ_OVERHANGS
-vanilla: minecraft:end_highlands
+vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:ROSETTE_POOLS
 
 tags:

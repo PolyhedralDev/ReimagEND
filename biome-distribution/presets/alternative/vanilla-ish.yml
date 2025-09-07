@@ -33,6 +33,7 @@ biomes:
         - DRAGON_ISLAND: 1
     stages:
       - << biome-distribution/stages/alternative/vanilla_distribution.yml:stages
+      - << biome-distribution/stages/desolate_distribution.yml:stages
 
       - type: FRACTAL_EXPAND
         sampler:
