@@ -3,8 +3,8 @@ type: FEATURE
 
 distributor:
   type: PADDED_GRID
-  width: 500
-  padding: 400
+  width: 316
+  padding: 242
   salt: 6578
 
 locator:
@@ -30,4 +30,4 @@ structures:
     type: WHITE_NOISE
   structures:
     - blank: 2
-    - crashed_end_ship: 1
+    - place_crashed_end_ship: 1
