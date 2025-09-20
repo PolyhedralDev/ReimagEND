@@ -17,6 +17,6 @@ palette:
 features:
   flora:
     - GRASS
-    - CORNFLOWERS
+    - MIXED_FLOWER_COVER
   trees:
     - AZURE_TREES
