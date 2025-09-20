@@ -25,6 +25,5 @@ features:
     - CLOUDS
   buildings:
     - TOWER_RUINS
-    - FORT_RUINS
     - MINESHAFTS
     - ABANDONED_HOUSES
