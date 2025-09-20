@@ -39,5 +39,7 @@ locator:
 
 structures:
   distribution:
-    type: CONSTANT
-  structures: cloud
+    type: WHITE_NOISE
+  structures:
+    - cloud: 1
+    - blank: 1
