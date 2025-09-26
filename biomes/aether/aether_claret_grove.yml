@@ -1,0 +1,24 @@
+id: AETHER_CLARET_GROVE
+type: BIOME
+extends:
+  - BASE_AETHER
+  - MOB_AETHER
+  - EQ_AETHER_DEFAULT
+color: $biomes/colors.yml:AETHER_CLARET_GROVE
+vanilla: minecraft:the_end
+
+colors:
+  grass: 0x3ccfad
+  foliage: 0xc24f92
+
+palette:
+  - GRASS: $meta.yml:top-y
+
+features:
+  flora:
+    - GRASS
+    - FERNS
+    - MIXED_FLOWER_COVER
+  trees:
+    - DENSE_CLARET_TREES
+    - STRIPPED_SPRUCE_BUSHES
