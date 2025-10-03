@@ -21,8 +21,8 @@ locator:
   locators:
     - type: RANDOM
       height: &range
-        min: 25
-        max: 125
+        min: ${meta.yml:bottom-y} + 20
+        max: ${meta.yml:top-y}/3
       amount: 1
       salt: 1276
     - type: PATTERN

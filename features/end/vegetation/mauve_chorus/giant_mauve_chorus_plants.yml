@@ -1,0 +1,44 @@
+id: GIANT_MAUVE_CHORUS_PLANTS
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 44
+  padding: 24
+  salt: 7568
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 30
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: AND
+        patterns:
+          - type: MATCH_SET
+            blocks: $features/meta.yml:end-plantable-blocks
+            offset: -1
+          - type: MATCH
+            block: minecraft:end_stone
+            offset: -3
+          - type: MATCH
+            block: minecraft:air
+            offset: 0
+          - type: MATCH
+            block: minecraft:air
+            offset: 3
+          - type: MATCH
+            block: minecraft:air
+            offset: 6
+          - type: MATCH
+            block: minecraft:air
+            offset: 9
+    
+structures:
+  distribution:
+    type: CONSTANT
+  structures: place_giant_mauve_chorus_plant

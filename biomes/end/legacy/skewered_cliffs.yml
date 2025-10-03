@@ -1,0 +1,14 @@
+id: SKEWERED_CLIFFS
+type: BIOME
+extends: [ BASE_END, EQ_MOUNTAINS, CARVING_AETHER ]
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:SKEWERED_CLIFFS
+
+palette:
+  - SHATTERED_GROUND: $meta.yml:top-y
+
+features:
+  trees:
+    - TIPPED_OBSIDIAN_SPIKES
+  postprocessors:
+    - TAINTED_GLOWS

@@ -1,0 +1,32 @@
+extrusions:
+  - type: REPLACE
+    from: ADD_VOID_BIOMES
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      salt: 7586
+      frequency: 1 / 600 / ${customization.yml:outer-end-biome-scale} / ${customization.yml:global-scale}
+    to:
+      - END_HIGHLANDS: 1
+      - HANGING_ISLES: 1
+      - SHATTERED_END: 1
+      - SHATTERED_FOREST: 1
+
+      - TAINTED_END: 1
+      - DARK_END: 1
+      - AMETHYST_END: 1
+      - CHORAL_DEADLANDS: 1
+
+      - IVORY_EMPYREAN: 1
+      - VERMILION_WILDS: 1
+      - CRIM_THICKET: 1
+      - STYGIAN_BARRENS: 1
+
+      - MAUVE_JUNGLE: 1
+      - END_WILDS: 1
+      - CHORUVE_WOODS: 1
+      - TWISTED_GROVE: 1
+      - ROSETTE_POOLS: 1
+    range:
+      min: ${meta.yml:bottom-y} + 20
+      max: ${meta.yml:top-y} - 20

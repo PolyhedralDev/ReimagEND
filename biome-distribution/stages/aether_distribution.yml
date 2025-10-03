@@ -1,0 +1,26 @@
+stages:
+  - type: REPLACE
+    sampler:
+      type: EXPRESSION
+      expression: spotSizePercent(x, z)*2-1
+    from: aether-spot
+    to: &biome-list
+      - AETHER_AZURE_MEADOWS: 1
+      - AETHER_CLARET_GROVE: 1
+      - AETHER_WISPY_ISLES: 1
+      - AETHER_BRAMBLE_WILDS: 1
+
+  - type: REPLACE
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 500 / ${customization.yml:outer-end-biome-scale}
+    from: aether
+    to: *biome-list
+
+  - type: BORDER
+    sampler:
+      type: CONSTANT
+    replace: AETHER
+    from: VOID
+    to: AETHER_VOID

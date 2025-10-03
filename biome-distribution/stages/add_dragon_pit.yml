@@ -1,0 +1,10 @@
+stages:
+  - type: REPLACE
+    sampler:
+      type: DISTANCE
+      normalize: true
+      radius: $customization.yml:dragon-pit-radius
+    from: DRAGON_ISLAND
+    to: 
+      - DRAGON_PIT: 1
+      - DRAGON_ISLAND: 1

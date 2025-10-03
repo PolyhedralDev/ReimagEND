@@ -1,0 +1,20 @@
+id: AETHER_ORCHARD_WOODLANDS
+type: BIOME
+extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
+color: $biomes/colors.yml:AETHER_ORCHARD_WOODLANDS
+vanilla: minecraft:the_end
+
+colors:
+  grass: 0xde9168
+  foliage: 0xde9168
+
+palette:
+  - GRASS: $meta.yml:top-y
+  
+features:
+  trees:
+    - ORCHARD_TREES
+    - OAK_BUSHES
+  flora:
+    - GRASS
+    - FERNS

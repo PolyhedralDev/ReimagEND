@@ -1,0 +1,12 @@
+id: ARGIL_GROWTH
+type: BIOME
+extends: [ BASE_END, EQ_WEBS ]
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:ARGIL_GROWTH
+
+palette:
+  - BLACK_GRAY_TERRACOTTA: $meta.yml:top-y
+
+features:
+  preprocessors:
+    - ARGIL_VINE_SPIKES

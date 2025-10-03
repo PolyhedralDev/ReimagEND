@@ -1,11 +1,9 @@
 id: STAR_TRAILS
 type: FEATURE
 
-# Adds 'webs' of sculk blocks
-
 variables: &variables
   wallThickness: 0.08
-  webThickness: 0.18
+  webThickness: 0.08
 
 distributor:
   type: "YES"
@@ -16,8 +14,8 @@ locator:
     # Match air underground
     - type: PATTERN
       range: &range
-        min: -19
-        max: 319
+        min: ${meta.yml:bottom-y} + 20
+        max: $meta.yml:top-y
       pattern:
         type: MATCH_AIR
         offset: 0
@@ -54,7 +52,7 @@ structures:
   distribution:
     type: WHITE_NOISE
   structures: 
-    - BLOCK:minecraft:pearlescent_froglight: 3
+    - star: 3
     - BLOCK:minecraft:black_stained_glass: 25
     - BLOCK:minecraft:purple_stained_glass: 25
     - BLOCK:minecraft:magenta_stained_glass: 25

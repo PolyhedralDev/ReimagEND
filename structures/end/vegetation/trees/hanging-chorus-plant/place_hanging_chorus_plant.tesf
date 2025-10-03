@@ -1,0 +1,6 @@
+if (getBlock(6, 6, 6) != "minecraft:end_stone" ||
+    getBlock(-6, 6, -6) != "minecraft:end_stone" ||
+    getBlock(-6, 6, 6) != "minecraft:end_stone" ||
+    getBlock(6, 6, -6) != "minecraft:end_stone") fail;
+
+structure(0, 0, 0, "hanging_chorus_plant_procedural", "NONE");

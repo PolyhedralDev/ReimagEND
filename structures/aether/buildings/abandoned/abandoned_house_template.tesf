@@ -1,0 +1,37 @@
+num radius = 10;
+
+bool moss = true;
+num mossChance = 8;
+
+bool decay = true;
+num decayChance = 12;
+num cobwebChance = 4;
+num airChance = 8;
+
+bool chest = false;
+
+for(num x = -radius; x < radius; x = x + 1) {
+    for(num y = -radius; y < radius; y = y + 1) {
+        for(num z = -radius; z < radius; z = z + 1) {
+            if (chest == false) {
+                if (getBlock(x,y,z) == "minecraft:chest" ||
+                    getBlock(x,y,z) == "minecraft:trapped_chest")
+                        block(x,y,z,"minecraft:air", true);
+            }
+
+            if (moss == true && randomInt(mossChance) == 0) {
+                if (getBlock(x,y,z) == "minecraft:cobblestone")
+                        block(x,y,z,"minecraft:mossy_cobblestone", true);
+            }
+
+            if (decay == true && randomInt(decayChance) == 0) {
+                if (structure(x,y,z, "is_decay_replaceable", "NONE")) {
+                    num chance = randomInt(airChance + cobwebChance);
+                    if (chance < cobwebChance) {
+                        block(x,y,z, "minecraft:cobweb", true);
+                    } else block(x,y,z, "minecraft:air", true);
+                }
+            }
+        }
+    }
+}

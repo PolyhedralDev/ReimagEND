@@ -1,0 +1,14 @@
+extrusions:
+  - type: REPLACE
+    from: ADD_VOID_BIOMES
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      salt: 7586
+      frequency: 1 / 200 / ${customization.yml:void-biome-scale} / ${customization.yml:global-scale}
+    to:
+      - SELF: 20
+      - STARFIELD: 1
+    range:
+      min: $customization.yml:void-biome-min
+      max: $customization.yml:void-biome-max

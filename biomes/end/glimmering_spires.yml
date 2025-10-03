@@ -1,8 +1,0 @@
-id: GLIMMERING_SPIRES
-type: BIOME
-extends: [ BASE_END, EQ_SPIRES ]
-vanilla: minecraft:end_barrens
-color: $biomes/colors.yml:GLIMMERING_SPIRES
-
-palette:
-  - GRAY_GLIMMERING_CURRENTS: 319

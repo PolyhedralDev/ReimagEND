@@ -1,0 +1,50 @@
+id: EQ_DEFAULT_PLANES
+type: BIOME
+abstract: true
+
+terrain:
+  sampler:
+    type: EXPRESSION
+    expression: |
+      -1+threshold+(value(x,y*flatness,z)/5)+
+      lerp(y, max, 0, max-taper,
+        max(
+          lerp(y, min-undercarriageTranslate, 0, min-undercarriageTranslate+taper,
+            simplex3(x, y*flatness, z)
+          ),
+          lerp(y, min, 0, min+taper,
+            simplex3(x, (y-undercarriageTranslate)*flatness, z) * undercarriageMask(x, y/2, z) * 1.3
+          )
+        )
+      )
+    variables:
+      threshold: ${customization.yml:island-threshold}
+      max: ${customization.yml:island-max-height}
+      min: ${customization.yml:island-min-height}
+      taper: ${customization.yml:island-taper}
+      flatness: ${customization.yml:island-flatness}
+      undercarriageTranslate: ${customization.yml:island-undercarriage-translate}
+    samplers:
+      simplex3:
+        dimensions: 3
+        type: PROBABILITY
+        sampler:
+          type: FBM
+          octaves: 5
+          sampler:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.002 / ${customization.yml:island-scale}
+      undercarriageMask:
+        dimensions: 3
+        type: PROBABILITY
+        sampler:
+          type: RIDGED
+          octaves: 3
+          gain: 1
+          sampler:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.005 / ${customization.yml:island-scale}
+      value:
+        dimensions: 3
+        type: VALUE
+        frequency: 0.025 / ${customization.yml:island-scale}

@@ -1,0 +1,58 @@
+num randPrecision = 100;
+num goldenAngle = 2.39996;
+num pi = 3.14159;
+
+num trunkHeight = 2+randomInt(5);
+str trunkBlock = "minecraft:stripped_crimson_hyphae";
+
+num topBranches = 3+randomInt(3);
+num topBranchLengthUpwardsMin = 5+randomInt(3);
+num topBranchLengthOutwardsMin = 6+randomInt(3);
+num topBranchVerticalDirection = 0.4;
+num topBranchLeafTranslate = 0;
+str topBranchBlockX = "minecraft:stripped_crimson_hyphae";
+str topBranchBlockY = "minecraft:stripped_crimson_hyphae";
+str topBranchBlockZ = "minecraft:stripped_crimson_hyphae";
+
+if (getBlock(0,trunkHeight,0) != "minecraft:air") fail;
+
+num branchAngle = randomInt(randPrecision)/randPrecision*2*pi;
+for (num i = 0; i < trunkHeight; i = i + 1) {
+    block(0, i, 0, trunkBlock);
+}
+
+for (num b = 1; b <= topBranches; b = b + 1) {
+    num t = b/topBranches;
+    num ti = 1-t;
+    // Branch direction vector
+    num dx = sin(branchAngle) * t;
+    num dy = topBranchVerticalDirection;
+    num dz = cos(branchAngle) * t;
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+    // Branch origin
+    num ox = 0;
+    num oy = trunkHeight;
+    num oz = 0;
+    // Set branch block based on largest unsigned vector component
+    str branchBlock = topBranchBlockY;
+    if (abs(dx) > max(abs(dy),abs(dz))) branchBlock = topBranchBlockX;
+    else if (abs(dz) > max(abs(dy),abs(dx))) branchBlock = topBranchBlockZ;
+    num branchLength = topBranchLengthUpwardsMin*ti + topBranchLengthOutwardsMin*t;
+    // Generate branch
+    for (num l = 0; l <= branchLength; l = l + 1) {
+        block(l*dx+ox, l*dy+oy, l*dz+oz, branchBlock);
+    }
+    // Rotate angle of next branch
+    branchAngle = branchAngle + goldenAngle;
+
+    // Leaf cluster origin (end of branch)
+    num lox = ox+branchLength*dx;
+    num loy = oy+branchLength*dy + topBranchLeafTranslate;
+    num loz = oz+branchLength*dz;
+
+    structure(lox, loy, loz, "rosette_bulb_branch", "NONE", "CW_90", "CCW_90", "CW_180");
+}

@@ -1,0 +1,42 @@
+stages:
+  - type: REPLACE
+    sampler:
+      type: EXPRESSION
+      expression: |
+        if(aetherPocketToggle != 0,
+          if(radius(x,z) > spawnRadiusOffset, 
+            if(spotDistance(x, z) < spotRadius(x, z) + biomeBorder, 1, -1), -1), -1)
+      variables: $math/samplers/spots.yml:variables
+      samplers:
+        radius:
+          dimensions: 2
+          type: DOMAIN_WARP
+          amplitude: 10
+          warp:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.01
+          sampler:
+            type: DISTANCE
+    from: outer-end
+    to:
+      - SELF: 1
+      - spot: 1
+
+  - type: REPLACE
+    from: spot
+    to:
+      - aether-spot: 1
+    sampler:
+      type: EXPRESSION
+      expression: spotSizePercent(x, z)*2-1
+
+  - type: REPLACE
+    from: aether-spot
+    to:
+      - aether-spot: 1
+      - VOID: 1
+    sampler:
+      type: EXPRESSION
+      expression: if(spotDistance(x, z) < spotRadius(x, z) + biomeBorder, 
+                    if(spotDistance(x, z) > spotRadius(x, z), 1, -1), -1)
+      variables: $math/samplers/spots.yml:variables

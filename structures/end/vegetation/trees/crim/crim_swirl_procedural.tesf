@@ -1,0 +1,80 @@
+num randPrecision = 100;
+num pi = 3.14159;
+
+num height = 100+randomInt(350);
+
+num radius = 1;
+
+str mainBlock = "minecraft:stripped_crimson_hyphae";
+str altBlock = "minecraft:crimson_planks";
+str endBlock = "minecraft:yellow_concrete";
+str lightBlock = "minecraft:light[level=15]";
+
+num angle = randomInt(randPrecision)/randPrecision*2*pi;
+
+num dir = 1;
+if (randomInt(2) == 0) dir = -1;
+
+str setBlock = "";
+for (num a = 0; a < height; a = a + 1) {
+    
+    num yTranslate = a/6;
+    num length = 15-(a/(height/15));
+    
+    num droop = -0.07-(a/(height*100));
+    num verticalDirection = -2+randomInt(randPrecision)/randPrecision;
+
+    // Branch direction vector
+    num dx = sin(angle);
+    num dy = verticalDirection;
+    num dz = cos(angle);
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+
+    if (a > height/1.25) {
+
+    }
+
+    for (num l = 0; l <= length; l = l + 0.5) {
+
+        num r = (radius/length * -l/2) + radius;
+
+        num cx = l*dx;
+        num cy = l*dy;
+        num cz = l*dz;
+        
+        for(num x = -r; x <= r; x = x + 1) {
+            for(num y = -r; y <= r; y = y + 1) {
+                for(num z = -r; z <= r; z = z + 1) {
+                    setBlock = mainBlock;
+                    if (randomInt(2) == 0) setBlock = altBlock;
+                    if (a > height/1.25) {
+                        setBlock = endBlock;
+                        block(cx + 1, cy + yTranslate, cz, lightBlock, false);
+                        block(cx - 1, cy + yTranslate, cz, lightBlock, false);
+                        block(cx, cy + yTranslate, cz + 1, lightBlock, false);
+                        block(cx, cy + yTranslate, cz - 1, lightBlock, false);
+                    }
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                        block(cx + x, cy + y + yTranslate, cz + z, setBlock, true);
+                    }
+                }  
+            }
+        }
+
+        // Point vector down more
+        dy = dy - droop;
+        // Normalize vector
+        mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
+        dx = dx/mag;
+        dy = dy/mag;
+        dz = dz/mag;
+    }
+
+    angle = angle + 0.1*dir;
+}
+
+

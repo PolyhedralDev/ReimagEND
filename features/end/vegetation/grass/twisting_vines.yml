@@ -1,0 +1,50 @@
+id: TWISTING_VINES
+type: FEATURE
+
+distributor:
+  type: AND
+  distributors:
+    - type: SAMPLER
+      sampler:
+        type: POSITIVE_WHITE_NOISE
+        salt: 7589
+      threshold: 0.2
+    - type: SAMPLER
+      sampler:
+        type: PROBABILITY
+        sampler:
+          type: DOMAIN_WARP
+          amplitude: 5
+          warp:
+            type: GAUSSIAN
+          sampler:
+            type: OPEN_SIMPLEX_2
+            salt: 6578
+      threshold: 0.2
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 30
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: AND
+        patterns:
+          - type: MATCH_SET
+            blocks: $features/meta.yml:end-plantable-blocks
+            offset: -1
+          - type: MATCH
+            block: minecraft:end_stone
+            offset: -3
+          - type: MATCH
+            block: minecraft:air
+            offset: 0
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: twisting_vines

@@ -1,0 +1,29 @@
+num width = 2;
+num height = 7+(4*randomInt(6));
+
+num mineshaftChance = 14;
+
+if (getBlock(0,height,0) == "minecraft:air" &&
+getBlock(0,height+1,0) == "minecraft:air" &&
+getBlock(0,height+2,0) == "minecraft:air" &&
+getBlock(0,height+3,0) == "minecraft:air") fail;
+
+for(num x = -width/2; x <= width/2; x = x + 1) {
+    for(num y = 0; y < height; y = y + 1) {
+        for(num z = -width/2; z <= width/2; z = z + 1) {
+
+            block(x,y,z, "minecraft:air", true);
+
+            if ((x == (-width/2) || x == width/2) &&
+            (z == (-width/2) || z == width/2)) block(x,y,z, "minecraft:oak_planks", true);
+
+            if (y % 4 == 0) {
+
+                if (randomInt(mineshaftChance) == 0) structure(2,y-1,0, "mineshaft_procedural_ew", "NONE");
+                if (randomInt(mineshaftChance) == 0) structure(-2,y-1,0, "mineshaft_procedural_ew", "CW_180");
+                if (randomInt(mineshaftChance) == 0) structure(0,y-1,2, "mineshaft_procedural_ns", "NONE");
+                if (randomInt(mineshaftChance) == 0) structure(0,y-1,-2, "mineshaft_procedural_ns", "CW_180");
+            }
+        }
+    }    
+}

@@ -4,6 +4,4 @@ abstract: true
 
 replace:
   - minecraft:stone
-  - minecraft:cobblestone
-  - minecraft:mossy_cobblestone
 

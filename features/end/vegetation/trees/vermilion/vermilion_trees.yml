@@ -1,0 +1,57 @@
+id: VERMILION_TREES
+type: FEATURE
+
+distributor:
+  type: AND
+  distributors:
+    - type: PADDED_GRID
+      width: 13
+      padding: 8
+      salt: 6457
+    - type: SAMPLER
+      sampler:
+        type: PROBABILITY
+        sampler:
+          type: OPEN_SIMPLEX_2
+          salt: 7568
+      threshold: 0.85
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: AND
+        patterns:
+          - type: MATCH_SET
+            blocks: $features/meta.yml:end-plantable-blocks
+            offset: -1
+          - type: MATCH
+            block: minecraft:end_stone
+            offset: -3
+          - type: MATCH
+            block: minecraft:air
+            offset: 0
+          - type: MATCH
+            block: minecraft:air
+            offset: 3
+          - type: MATCH
+            block: minecraft:air
+            offset: 6
+    
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - large_vermilion_tree_procedural: 1
+    - vermilion_tree_procedural: 3

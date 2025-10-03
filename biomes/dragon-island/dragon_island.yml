@@ -1,0 +1,44 @@
+id: DRAGON_ISLAND
+type: BIOME
+extends:
+  - MOB_DRAGON_ISLAND
+  - EQ_DRAGON_ISLAND
+vanilla: minecraft:the_end
+color: $biomes/colors.yml:DRAGON_ISLAND
+
+tags:
+  - DRAGON_ISLAND
+
+particles:
+  particle: minecraft:reverse_portal
+  probability: 0.0025
+
+colors:
+  grass: 0xdee6a4
+  water: 0x62529E
+  water-fog: 0x62529E
+  #fog: 0x000000
+  #sky: 0x000000
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+features:
+  preprocessors:
+    - FOUNTAIN_ISLAND
+  landforms:
+    - FOUNTAIN_HILL
+  trees:
+    - UPGRADED_FOUNTAIN
+    - FOUNTAIN_SPIKES
+  flora:
+    - DRAGON_PILLARS
+  postprocessors:
+    - DRAGON_ISLAND_GALAXY_INNER
+    - DRAGON_ISLAND_GALAXY_OUTER
+
+    - ENDSTONE_RING
+
+    - DRAGON_NEBULA
+
+    - END_PLATFORM_AIR

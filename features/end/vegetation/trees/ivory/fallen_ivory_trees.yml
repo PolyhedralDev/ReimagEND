@@ -1,0 +1,35 @@
+id: FALLEN_IVORY_TREES
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 53
+  padding: 44
+  salt: 6512
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SET
+        blocks: $features/meta.yml:end-plantable-blocks
+        offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -3
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - fallen_ivory_tree_procedural: 1
+    - blank: 2

@@ -5,9 +5,8 @@ num yTranslate = 0;
 bool valid = false;
 
 for(num h = 0; h < checkHeight; h = h + 1) {
-    if(getBlock(0, -h, 0) != "minecraft:grass" &&
-    getBlock(0, -h, 0) != "minecraft:air" &&
-    getBlock(0, -h, 0) != "minecraft:oak_leaves") {
+    if(getBlock(0, -h, 0) == "minecraft:grass_block" ||
+    getBlock(0, -h, 0) == "minecraft:stone") {
         yTranslate = -h;
         valid = true;
         break;

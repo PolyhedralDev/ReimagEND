@@ -1,0 +1,19 @@
+id: CRYSTAL_OVERHEAD
+type: BIOME
+extends: [ BASE_END, EQ_RECTANGULAR ]
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:CRYSTAL_OVERHEAD
+
+colors:
+  grass: 0x8b8b82
+  foliage: 0x8b8b82
+
+palette:
+  - LIGHT_GRAY_POWDER_END: $meta.yml:top-y
+
+features:
+  landforms:
+    - CRYSTAL_SPIKES
+    - CRYSTAL_SPIKES_DOWN
+  flora:
+    - END_GRASS

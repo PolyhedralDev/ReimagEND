@@ -1,0 +1,8 @@
+id: END_MIDLANDS
+type: BIOME
+extends: [ BASE_END, EQ_DEFAULT ]
+vanilla: minecraft:end_midlands
+color: $biomes/colors.yml:END_MIDLANDS
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y

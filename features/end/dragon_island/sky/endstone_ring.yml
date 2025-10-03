@@ -1,0 +1,78 @@
+id: ENDSTONE_RING
+type: FEATURE
+
+variables: &variables
+  yHeight: 120
+  minRadius: 170
+  maxRadius: 240
+
+distributor:
+  type: AND
+  distributors:
+    - type: SAMPLER
+      sampler:
+        type: EXPRESSION
+        expression: |
+          circle(minRadius+noise(x,z)*10, maxRadius+noise(x,z)*10, x+noise(x,z)-1, z+noise(x,z)-1, 1)
+        variables: *variables
+        functions:
+          circle:    {arguments: [s, b, x, z, l], expression: "if( x*x + z*z > s*s && x*x + z*z < b*b, -1, l)"}
+        samplers:
+          noise:
+            type: OPEN_SIMPLEX_2
+            dimensions: 2
+            salt: 3912
+            frequency: 0.1
+    - type: SAMPLER
+      sampler:
+        type: DOMAIN_WARP
+        amplitude: 5
+        warp:
+          type: FBM
+          octaves: 2
+          sampler:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.03
+        sampler:
+          type: FBM
+          octaves: 2
+          sampler:
+            type: LINEAR
+            min: -1
+            max: -0.2
+            sampler:
+              type: CELLULAR
+              return: Distance3Sub
+              frequency: 0.2
+        
+locator:
+  type: AND
+  locators:
+    - type: PATTERN
+      range:
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+      pattern:
+        type: MATCH_AIR
+        offset: 0  
+
+    - type: SAMPLER_3D
+      sampler:
+        type: EXPRESSION
+        expression: |
+          if( y = round(yHeight+noise(x,z)), 1, -1)
+        variables: *variables
+        functions:
+        samplers:
+          noise:
+            type: OPEN_SIMPLEX_2
+            dimensions: 2
+            salt: 3912
+            frequency: 0.1
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures: 
+    - BLOCK:minecraft:end_stone: 5
+    - BLOCK:minecraft:air: 1

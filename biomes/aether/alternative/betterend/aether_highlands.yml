@@ -1,0 +1,28 @@
+id: AETHER_HIGHLANDS
+type: BIOME
+extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
+color: $biomes/colors.yml:AETHER_HIGHLANDS
+vanilla: minecraft:the_end
+
+colors:
+  grass: 0x80B497
+  foliage: 0x60A17B
+
+palette:
+  - PODZOL: $meta.yml:top-y
+  
+features:
+  slabs:
+    - SNOW
+  trees:
+    - SPRUCE_BUSHES
+    - SPARSE_SPRUCE_TREES
+  flora:
+    - GRASS
+    - FERNS
+    - SWEET_BERRY_BUSH_PATCHES
+  postprocessors:
+    - HANGING_LANTERNS
+    - TREE_SNOW
+  landforms:
+    - SMALL_MOSSY_BOULDER_PATCHES

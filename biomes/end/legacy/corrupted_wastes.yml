@@ -1,0 +1,12 @@
+id: CORRUPTED_WASTES
+type: BIOME
+extends: [ BASE_END, EQ_FRAGMENTED ]
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:CORRUPTED_WASTES
+
+palette:
+  - OBBY_PURPLE_MIX: $meta.yml:top-y
+
+features:
+  trees:
+    - CORRUPTED_WHIRLS

@@ -1,0 +1,186 @@
+# ---
+# Dragon Island
+# ---
+
+dragon-island-radius: 150
+# Controls the size of the dragon island
+# Default: 150
+
+dragon-pit-radius: 80
+# Controls the size of the dragon island pit
+# Default: 80
+
+dragon-island-edge-buffer: 80
+# Controls the size of the dragon island pit
+# Default: 80
+
+dragon-island-edge-width: 100
+# Controls the size of the dragon island pit
+# Default: 100
+
+void-buffer-width: 1000
+# Controls the width of the void buffer between
+# the dragon island and outer end
+# Default: 1000
+
+# ---
+# Biome Distribution
+# ---
+
+void-biome-max: ${meta.yml:top-y} - 10
+# Determines the max height that void biomes can generate
+# Default: ${meta.yml:top-y} - 10
+
+void-biome-min: ${meta.yml:bottom-y} + 10
+# Determines the min height that void biomes can generate
+# Default: ${meta.yml:bottom-y} + 10
+
+outer-end-start: ${customization.yml:dragon-island-radius} + ${customization.yml:void-buffer-width}
+# Determines the start of the outer end
+# Default: ${customization.yml:dragon-island-radius} + ${customization.yml:void-buffer-width}
+
+outer-end-rings-scale: 1
+# Modifies the scale of the Rings of Life preset rings sizes
+# Default: 1
+
+outer-end-biome-scale: 1
+# Modifies the scale of the outer end biomes
+# Default: 1
+
+desolate-scale: 1
+# Modifies the scale of the desolate variant end biomes
+# that only disable end city generation in them
+# Default: 1
+
+void-biome-scale: 1
+# Modifies the scale of the outer end void biomes
+# Default: 1
+
+aether-biome-scale: 1
+# Modifies the scale of the aether biomes
+# Default: 1
+
+global-scale: 1
+# Modifies the scale of all biome distribution
+# Default: 1
+
+# ---
+# Spot Biomes
+# ---
+
+# System originated from the Overworld 2.0 pack.
+# Spot biomes are special circular biomes scattered around the world.
+
+aether-pocket-toggle: 1
+# Toggles aether pocket generation. Set to 0 to disable.
+# Default: 1
+
+spot-spawn-radius-offset: 4000
+# Roughly how far spots will generate away from spawn
+# Default: 4000
+
+spot-spread: 4050
+# Roughly how many blocks apart each spot biome will be
+# Default: 4050
+
+spot-border: 300
+# Roughly the biome border that generates around the inner spot biome
+# Default: 300
+
+spot-radius-min: 600
+# Default: 600
+
+spot-radius-max: 650
+# Default: 650
+
+# ---
+# End Terrain
+# ---
+
+island-scale: 1
+# Scale of default terrain
+# Default: 1
+
+island-threshold: 0.3
+# Threshold or density of default island
+# Default: 0.3
+
+island-max-height: ${meta.yml:top-y}
+# Max height of default terrain
+# Default: ${meta.yml:top-y}
+
+island-min-height: ${meta.yml:bottom-y} - 20
+# Lowest height of default terrain
+# Default: ${meta.yml:bottom-y} - 20
+
+island-taper: 100
+# Range for narrowing default terrain
+# Default: 100
+
+island-flatness: 5
+# Flatness of default terrain
+# Default: 5
+
+island-undercarriage-translate: -10
+# Translate placement of default terrain undercarriage
+# Default: -10
+
+# ---
+# Aether Terrain
+# ---
+
+aether-island-scale: 1
+# Scale of default terrain
+# Default: 1
+
+aether-island-threshold: 0.4
+# Threshold or density of default island
+# Default: 0.4
+
+aether-island-max-height: ${meta.yml:top-y} - 20
+# Max height of default terrain
+# Default: ${meta.yml:top-y} - 20
+
+aether-island-min-height: ${meta.yml:bottom-y} - 20
+# Lowest height of default terrain
+# Default: ${meta.yml:bottom-y} - 20
+
+aether-island-taper: 100
+# Range for narrowing default terrain
+# Default: 100
+
+aether-island-flatness: 1
+# Flatness of default terrain
+# Default: 1
+
+aether-island-undercarriage-translate: -10
+# Translate placement of default terrain undercarriage
+# Default: -10
+
+# ---
+# End
+# ---
+
+toggle-end-cities: 1
+# Toggles end city generation. Set to 0 to disable.
+# Default: 1
+
+end-city-min: 6000
+# Controls the min radius of end city spawns throughout the outer end
+# Default: 6000
+
+end-gateway-min: 6000
+# Controls the min radius of end gateway spawns throughout the outer end
+# Default: 6000
+
+# ---
+# Aether
+# ---
+
+aether-sky-height: ${meta.yml:top-y} - 2
+# Controls the height of the aether pseudo sky feature. Disabled when set to 0.
+# Default: ${meta.yml:top-y} - 2
+
+ancient-aether-base: ${meta.yml:bottom-y} + 20
+# Controls the base level of ancient aether structures
+# Default: ${meta.yml:bottom-y} + 20

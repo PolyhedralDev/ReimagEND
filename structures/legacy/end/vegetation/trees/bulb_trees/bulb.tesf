@@ -1,0 +1,42 @@
+num baseRadius = 7;
+num warp = 1;
+num warpFreq = 1;
+num squish = 0.8;
+num radiusSquared = pow(baseRadius,2);
+num yTranslate = 5;
+
+str setBlock = "";
+for (num x = -baseRadius-warp; x < baseRadius+warp; x = x + 1) {
+    for (num y = (-baseRadius-warp)/squish; y < (baseRadius+warp)/squish; y = y + 1) {
+        for (num z = -baseRadius-warp; z < baseRadius+warp; z = z + 1) {
+            num warpX = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+1000),
+                                warpFreq*(z+originZ()));
+            num warpY = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+2000),
+                                warpFreq*(z+originZ()));
+            num warpZ = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+3000),
+                                warpFreq*(z+originZ()));
+			num distanceSquared = pow(x+warpX,2)+pow((y+warpY)*squish,2)+pow(z+warpZ,2);
+
+            if (distanceSquared < (radiusSquared-20)) {
+                setBlock = "minecraft:white_concrete";
+				block(x, y+yTranslate, z, setBlock, false);
+			} 
+
+            if (distanceSquared < (radiusSquared-15)) {
+                setBlock = "minecraft:light[level=15]";
+				block(x, y+yTranslate, z, setBlock, false);
+			} 
+            
+            if (distanceSquared < radiusSquared) {
+				block(x, y+yTranslate, z, "minecraft:light_gray_stained_glass", false);
+			}
+        }
+    }
+}
+

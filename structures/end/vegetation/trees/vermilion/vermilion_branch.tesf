@@ -1,0 +1,57 @@
+num randPrecision = 100;
+num pi = 3.14159;
+
+str mainBlock = "minecraft:red_concrete";
+str altBlock = "minecraft:fire_coral_block";
+
+str lightBlock = "minecraft:shroomlight";
+num lightChance = 20;
+
+num yDir = 1;
+num yTranslate = 0;
+
+num length = 10 + randomInt(3);
+num droop = 0.02;
+
+if (randomInt(6) == 0) {
+    yDir = -1;
+    length = 8 + randomInt(3);
+    yTranslate = 7;
+    lightBlock = altBlock;
+}
+
+num verticalDirection = yDir * (2 + randomInt(randPrecision) / randPrecision);
+num angle = randomInt(randPrecision) / randPrecision * 2 * pi;
+
+// Branch direction vector
+num dx = sin(angle);
+num dy = verticalDirection;
+num dz = cos(angle);
+// Normalize vector
+num mag = sqrt(pow(dx, 2) + pow(dy, 2) + pow(dz, 2));
+dx = dx / mag;
+dy = dy / mag;
+dz = dz / mag;
+
+for (num l = 0; l <= length; l = l + 0.1) {
+
+    num cx = l * dx;
+    num cy = l * dy;
+    num cz = l * dz;
+
+    str setBlock = mainBlock;
+    if (randomInt(2) == 0) setBlock = altBlock;
+    block(cx, cy +  yTranslate, cz, setBlock, true);
+
+    if (l < (length/2) && randomInt(lightChance) == 0) block(cx, cy - 1 + yTranslate, cz, lightBlock, true);
+
+    // Point vector down more
+    dy = dy - droop*yDir;
+    // Normalize vector
+    mag = sqrt(pow2(dx) + pow2(dy) + pow2(dz));
+    dx = dx / mag;
+    dy = dy / mag;
+    dz = dz / mag;
+
+
+}

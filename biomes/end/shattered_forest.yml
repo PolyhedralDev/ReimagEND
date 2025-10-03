@@ -1,0 +1,20 @@
+id: SHATTERED_FOREST
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_SHATTERED
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:SHATTERED_FOREST
+
+tags:
+  - ADD_VOID_BIOMES
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+features:
+  trees:
+    - SHATTERED_TREES
+    - FALLEN_SHATTERED_TREES
+  flora:
+    - SPARSE_END_GRASS

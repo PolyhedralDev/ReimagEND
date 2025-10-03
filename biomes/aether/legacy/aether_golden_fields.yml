@@ -1,0 +1,20 @@
+id: AETHER_GOLDEN_FIELDS
+type: BIOME
+extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
+color: $biomes/colors.yml:AETHER_GOLDEN_FIELDS
+vanilla: minecraft:the_end
+
+colors:
+  grass: 0xffd65c
+  foliage: 0xffd65c
+
+palette:
+  - GRASS: $meta.yml:top-y
+  
+features:
+  trees:
+    - OAK_BUSHES
+  flora:
+    - GRASS
+    - TALL_GRASS
+    - WHEAT_PATCHES

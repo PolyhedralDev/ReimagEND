@@ -1,0 +1,28 @@
+id: AETHER_FRIGID_BLUFFS
+type: BIOME
+extends: [ BASE_AETHER, EQ_AETHER_MOUNTAINS ]
+color: $biomes/colors.yml:AETHER_FRIGID_BLUFFS
+vanilla: minecraft:the_end
+
+palette:
+  - SNOW: $meta.yml:top-y
+
+slant:
+  - threshold: 0.9
+    palette:
+      - STONE_COBBLE_MIX: $meta.yml:top-y
+
+features:
+  slabs:
+    - SNOW_LAYERS
+  trees:
+    - OAK_BUSHES
+  flora:
+    - GRASS
+    - FERNS
+  postprocessors:
+    - HANGING_LANTERNS
+    - TREE_SNOW
+    - CEILING_ICICLES
+    - SNOW_STONE
+  

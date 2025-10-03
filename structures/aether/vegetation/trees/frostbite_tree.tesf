@@ -1,5 +1,4 @@
 num randPrecision = 100;
-num goldenAngle = 2.39996;
 num pi = 3.14159;
 
 str trunkBlock = "minecraft:white_concrete";
@@ -24,7 +23,6 @@ dx = dx/mag;
 dy = dy/mag;
 dz = dz/mag;
 
-num branchAngle = randomInt(randPrecision)/randPrecision*2*pi;
 
 // tree trunk
 for(num h = 0; h <= height; h = h + 1) {

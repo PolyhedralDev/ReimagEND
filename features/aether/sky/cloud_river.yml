@@ -1,0 +1,79 @@
+id: CLOUD_RIVER
+type: FEATURE
+
+variables: &variables
+  riverValue: -1 # Value the sampler outputs where there should be a river.
+  wetlandValue: 0 # Value the sampler outputs for areas bordering rivers, used for wetland biomes.
+  notRiverValue: 1 # Value the sampler outputs for areas where there is not a river.
+  
+  riverFrequency: 0.1
+  riverThreshold: 0.35 # Determines the area calculated as river, which also determines how far from rivers wetlands can be.
+  riverMaxWidth: 0.5 # Determines the width of rivers within riverThreshold.
+  wetlandThreshold: 0 # Determines how much area within riverThreshold will be wetlands.
+
+distributor:
+  type: SAMPLER
+  sampler:
+    type: EXPRESSION
+    expression: |
+      if(|riverNoise((x+riverMaxWidth)*riverFrequency,(z+riverMaxWidth)*riverFrequency)|>riverThreshold,notRiverValue,
+        if(riverKerneled(x/riverMaxWidth, z/riverMaxWidth)!=0,riverValue,if(wetlandMask(x*riverFrequency,z*riverFrequency)<wetlandThreshold,wetlandValue,notRiverValue))
+      )
+    variables: *variables
+    samplers:
+      wetlandMask:
+        dimensions: 2
+        type: PROBABILITY
+        sampler:
+          type: DOMAIN_WARP
+          amplitude: 2
+          warp:
+            type: OPEN_SIMPLEX_2
+            salt: 9123
+            frequency: 0.2
+          sampler:
+            type: OPEN_SIMPLEX_2
+            salt: 4812
+            frequency: 0.02
+      riverNoise: &riverNoise
+        dimensions: 2
+        type: DOMAIN_WARP
+        amplitude: 2
+        sampler:
+          type: OPEN_SIMPLEX_2
+        warp:
+          type: OPEN_SIMPLEX_2
+          frequency: 0.14
+      riverKerneled:
+        dimensions: 2
+        type: KERNEL # Edge detection
+        kernel: [
+          [ 0,  1, 0 ],
+          [ 1, -4, 1 ],
+          [ 0,  1, 0 ]
+        ]
+        sampler:
+          type: EXPRESSION
+          expression: riverNoise(x*riverMaxWidth*riverFrequency, z*riverMaxWidth*riverFrequency)>0
+          variables: *variables
+          samplers:
+            riverNoise: *riverNoise
+
+locator:
+  type: SAMPLER_3D
+  sampler:
+    type: EXPRESSION
+    expression: "if( y > (209+(noise(x,z)*5)) && y < (210+(noise(x,z)*5)) , 1, -1)"
+    salt: 6578
+    samplers:
+      noise:
+        dimensions: 2
+        type: OPEN_SIMPLEX_2
+        frequency: 0.05
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures: 
+    - cloud: 1
+    - blank: 15

@@ -1,0 +1,26 @@
+id: AETHER_FROSTBITE_WOODS
+type: BIOME
+extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
+color: $biomes/colors.yml:AETHER_FROSTBITE_WOODS
+vanilla: minecraft:the_end
+
+colors:
+  grass: 0xc7d6f0
+  foliage: 0xc7d6f0
+
+palette:
+  - CALCITE_POWDER_MIX: $meta.yml:top-y
+
+features:
+  slabs:
+    - SNOW
+  trees:
+    - FROSTBITE_TREES
+    - OAK_BUSHES
+  flora:
+    - GRASS
+    - FERNS
+  postprocessors:
+    - TREE_SNOW
+    - HANGING_LANTERNS
+    - CEILING_ICICLES

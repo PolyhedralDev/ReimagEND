@@ -12,8 +12,8 @@ locator:
   locators:
     - type: TOP
       range: &range
-        min: 75
-        max: 175
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 30
     - type: PATTERN
       range: *range
       pattern:
@@ -28,4 +28,4 @@ locator:
 structures:
   distribution:
     type: CONSTANT
-  structures: fort_ruin
+  structures: place_fort_ruin

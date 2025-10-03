@@ -1,0 +1,35 @@
+biomes:
+  type: PIPELINE
+  resolution: 4
+  blend:
+    amplitude: 2
+    sampler:
+      type: OPEN_SIMPLEX_2
+      frequency: 0.1
+  pipeline:
+    source:
+      type: SAMPLER
+      biomes: aether
+      sampler:
+        type: CONSTANT
+    stages:
+      - << biome-distribution/stages/aether_distribution.yml:stages
+
+      - type: FRACTAL_EXPAND
+        sampler:
+          type: WHITE_NOISE
+      - type: FRACTAL_EXPAND
+        sampler:
+          type: WHITE_NOISE
+      - type: FRACTAL_EXPAND
+        sampler:
+          type: WHITE_NOISE
+      - type: FRACTAL_EXPAND
+        sampler:
+          type: WHITE_NOISE
+      - type: SMOOTH
+        sampler:
+          type: WHITE_NOISE
+      - type: SMOOTH
+        sampler:
+          type: WHITE_NOISE

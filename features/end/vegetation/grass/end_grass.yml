@@ -13,8 +13,8 @@ locator:
   locators:
     - type: SURFACE
       range: &range
-        min: 0
-        max: 319
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
     - type: PATTERN
       range: *range
       pattern:
@@ -26,7 +26,7 @@ locator:
       pattern:
         type: MATCH
         block: minecraft:end_stone
-        offset: -2
+        offset: -3
 
 structures:
   distribution:

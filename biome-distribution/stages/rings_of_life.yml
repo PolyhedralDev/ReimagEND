@@ -1,0 +1,40 @@
+vars: &variables
+  outerEndStart: $customization.yml:outer-end-start
+  outerEndRingScale: 2000 * ${customization.yml:outer-end-rings-scale}
+
+stages:
+  - type: REPLACE
+    sampler:
+      type: EXPRESSION
+      expression: |
+          if(voidRadius(x,z) < 1, -1, 
+                (outerEndRadius(x,z) - outerEndStart - outerEndRingScale) / outerEndRingScale )
+      variables: *variables
+      samplers:
+        voidRadius:
+          dimensions: 2
+          type: DOMAIN_WARP
+          amplitude: 10
+          warp:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.01
+          sampler:
+            type: DISTANCE
+            normalize: true
+            radius: $customization.yml:outer-end-start
+        outerEndRadius:
+          dimensions: 2
+          type: DOMAIN_WARP
+          amplitude: 10
+          warp:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.01
+          sampler:
+            type: DISTANCE
+    from: outer-end
+    to:
+      - ring1: 1
+      - ring2: 1
+      - ring3: 1
+      - ring4: 1
+      - ring5: 1

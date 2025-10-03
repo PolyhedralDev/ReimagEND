@@ -1,0 +1,40 @@
+id: LARGE_PILLARS
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 53
+  padding: 47
+  salt: 6547
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -3
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 0
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - large_pillar: 2
+    - tilted_large_pillar: 1

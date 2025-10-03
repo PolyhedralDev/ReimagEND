@@ -1,4 +1,3 @@
-num randPrecision = 100;
 num radius = 10;
 num warp = 5;
 num warpFreq = 2;

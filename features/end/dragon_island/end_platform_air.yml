@@ -1,0 +1,34 @@
+id: END_PLATFORM_AIR
+type: FEATURE
+
+variables: &variables
+  yLevel: 48
+
+# Puts air above where obsidian platform spawns
+distributor:
+  type: POINTS
+  points:
+    - x: 100
+      z: 0
+
+locator:
+  type: AND
+  locators:
+    - type: SAMPLER_3D
+      sampler:
+        type: EXPRESSION
+        expression: |
+          if(y = yLevel, 1, -1)
+        variables: *variables
+    - type: PATTERN
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+      pattern:
+        type: MATCH_SOLID
+        offset: 0
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: end_platform_air

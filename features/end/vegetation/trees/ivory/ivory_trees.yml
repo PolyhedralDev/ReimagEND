@@ -1,0 +1,55 @@
+id: IVORY_TREES
+type: FEATURE
+
+distributor:
+  type: AND
+  distributors:
+    - type: PADDED_GRID
+      width: 9
+      padding: 6
+      salt: 5987
+    - type: SAMPLER
+      sampler:
+        type: PROBABILITY
+        sampler:
+          type: OPEN_SIMPLEX_2
+          salt: 5468
+      threshold: 0.75
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 30
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: AND
+        patterns:
+          - type: MATCH_SET
+            blocks: $features/meta.yml:end-plantable-blocks
+            offset: -1
+          - type: MATCH
+            block: minecraft:end_stone
+            offset: -3
+          - type: MATCH
+            block: minecraft:air
+            offset: 0
+          - type: MATCH
+            block: minecraft:air
+            offset: 3
+          - type: MATCH
+            block: minecraft:air
+            offset: 6
+          - type: MATCH
+            block: minecraft:air
+            offset: 9
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - large_ivory_tree_procedural: 1
+    - ivory_tree_procedural: 3

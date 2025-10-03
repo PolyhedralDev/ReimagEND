@@ -1,0 +1,17 @@
+id: END_HIGHLANDS
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_DEFAULT
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:END_HIGHLANDS
+
+tags:
+  - ADD_VOID_BIOMES
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+features:
+  trees:
+    - CHORUS_PLANTS

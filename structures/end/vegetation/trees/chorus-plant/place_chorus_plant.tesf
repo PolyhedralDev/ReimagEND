@@ -1,0 +1,6 @@
+if (getBlock(15, -15, 15) != "minecraft:end_stone" ||
+    getBlock(-15, -15, -15) != "minecraft:end_stone" ||
+    getBlock(-15, -15, 15) != "minecraft:end_stone" ||
+    getBlock(15, -15, -15) != "minecraft:end_stone") fail;
+
+structure(0, 0, 0, "chorus_plant_procedural", "NONE");

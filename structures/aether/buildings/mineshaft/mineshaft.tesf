@@ -1,0 +1,6 @@
+num random = randomInt(4);
+
+if (random == 0) structure(0,0,0, "mineshaft_procedural_ew", "NONE");
+if (random == 1) structure(0,0,0, "mineshaft_procedural_ew", "CW_180");
+if (random == 2) structure(0,0,0, "mineshaft_procedural_ns", "NONE");
+if (random == 3) structure(0,0,0, "mineshaft_procedural_ns", "CW_180");

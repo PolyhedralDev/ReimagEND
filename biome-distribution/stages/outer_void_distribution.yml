@@ -1,0 +1,23 @@
+stages:
+  - type: REPLACE_LIST
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 200 / ${customization.yml:outer-end-biome-scale}
+    default-from: ring1
+    default-to:
+      - void: 1
+      - SELF: 2
+    to:
+      ring2:  
+        - void: 1
+        - SELF: 2
+      ring3:  
+        - void: 1
+        - SELF: 2
+      ring4:  
+        - void: 1
+        - SELF: 2
+      ring5:  
+        - void: 1
+        - SELF: 2

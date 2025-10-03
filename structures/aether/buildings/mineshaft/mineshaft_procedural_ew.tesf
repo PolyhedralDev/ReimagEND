@@ -1,9 +1,8 @@
-num length = 15+randomInt(35);
+num length = 15;
 num height = 3;
 num width = 2;
 num cobwebChance = 40; 
-num railChance = 2; 
-num yTranslate = -1;
+num railChance = 2;
 
 //if (getBlock(length/1.5, 0, 0) == "minecraft:air") fail;
 
@@ -30,10 +29,10 @@ for(num x = 0; x < length; x = x + 1) {
                 if (y > 0 && y < height &&
                 x % 5 == 0 &&
                 (z == (-width/2) ||
-                z == width/2)) block(x, y, z, "minecraft:oak_fence", false);
+                z == width/2)) block(x, y, z, "minecraft:oak_fence", true);
 
                 if (y == height && 
-                x % 5 == 0) block(x, y, z, "minecraft:oak_planks", false);
+                x % 5 == 0) block(x, y, z, "minecraft:oak_planks", true);
             } else {
                 if (y == 1 && 
                 x % 5 == 0 &&

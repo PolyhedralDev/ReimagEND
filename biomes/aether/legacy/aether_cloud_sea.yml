@@ -1,0 +1,8 @@
+id: AETHER_CLOUD_SEA
+type: BIOME
+extends: [ BASE_AETHER, EQ_VOID ]
+color: $biomes/colors.yml:AETHER_CLOUD_SEA
+vanilla: minecraft:the_end
+
+palette:
+  - GRASS: $meta.yml:top-y

@@ -1,0 +1,47 @@
+id: HANGING_VERMILION_BULBS
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 37
+  padding: 29
+  salt: 6745
+
+locator:
+  type: AND
+  locators:
+    - type: PATTERN
+      range: &range
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 30
+      pattern:
+        type: MATCH_AIR
+        offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: AND
+        patterns:
+          - type: MATCH
+            block: minecraft:end_stone
+            offset: 1
+          - type: MATCH
+            block: minecraft:end_stone
+            offset: 3
+          - type: MATCH
+            block: minecraft:air
+            offset: -3
+          - type: MATCH
+            block: minecraft:air
+            offset: -5
+          - type: MATCH
+            block: minecraft:air
+            offset: -9
+          - type: MATCH
+            block: minecraft:air
+            offset: -12
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: hanging_vermilion_bulb

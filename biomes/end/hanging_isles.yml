@@ -1,0 +1,17 @@
+id: HANGING_ISLES
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_OVERHANGS
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:HANGING_ISLES
+
+tags:
+  - ADD_VOID_BIOMES
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+features:
+  trees:
+    - HANGING_CHORUS_PLANTS

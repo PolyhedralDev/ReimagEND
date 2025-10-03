@@ -1,0 +1,41 @@
+id: STRIPPED_PALE_OAK_BUSHES
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 7
+  padding: 2
+  salt: 35467
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SET
+        blocks: $features/meta.yml:end-plantable-blocks
+        offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SET
+        blocks:
+          - minecraft:snow
+          - minecraft:air
+        offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -3
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: stripped_pale_oak_bush

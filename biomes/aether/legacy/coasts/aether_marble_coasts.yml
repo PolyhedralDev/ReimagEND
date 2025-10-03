@@ -1,0 +1,23 @@
+id: AETHER_MARBLE_COASTS
+type: BIOME
+extends: [ BASE_AETHER, EQ_AETHER_COAST_ISLES ]
+color: $biomes/colors.yml:AETHER_MARBLE_COASTS
+vanilla: minecraft:the_end
+
+colors:
+  grass: 0xe3e0cd
+  foliage: 0xe3e0cd
+
+palette:
+  - CALCITE_STONE_MIX: $meta.yml:top-y
+
+features:
+  trees:
+    - OAK_BUSHES
+  flora:
+    - GRASS
+    - FERNS
+  postprocessors:
+    - HANGING_LANTERNS
+  buildings: []
+  

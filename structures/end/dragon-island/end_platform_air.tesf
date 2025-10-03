@@ -1,0 +1,12 @@
+num length = 4;
+num width = 4;
+num height = 4;
+
+
+for (num x = -length/2; x <= length/2; x = x + 1) {
+    for (num y = 0; y < height; y = y + 1) {
+        for (num z = -width/2; z <= width/2; z = z + 1) {
+            block(x, y, z, "minecraft:air");
+        }
+    }
+}

@@ -1,0 +1,20 @@
+id: APRICHORUS_PLAINS
+type: BIOME
+extends: [ BASE_END, EQ_DEFAULT ]
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:APRICHORUS_PLAINS
+
+colors:
+  grass: 0xdd5f00
+  foliage: 0xdd5f00
+
+palette:
+  - ORANGE_POWDER_END: $meta.yml:top-y
+
+features:
+  flora:
+    - END_GRASS
+    - STRIPPED_ACACIA_BUSHES
+  trees:
+    - APRICHORUS_TREES
+    - APRIBLOONS

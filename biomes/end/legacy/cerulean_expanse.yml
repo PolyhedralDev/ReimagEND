@@ -1,0 +1,18 @@
+id: CERULEAN_EXPANSE
+type: BIOME
+extends: [ BASE_END, EQ_DEFAULT ]
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:CERULEAN_EXPANSE
+
+colors:
+  grass: 0x2c2e8e
+  foliage: 0x2c2e8e
+
+palette:
+  - BLUE_POWDER_END: $meta.yml:top-y
+
+features:
+  landforms:
+    - BLUE_MUSHROOMS
+  flora:
+    - END_GRASS

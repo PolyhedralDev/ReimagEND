@@ -1,0 +1,28 @@
+id: AETHER_CRIMSIC_LANDSCAPES
+type: BIOME
+extends: [ BASE_AETHER, EQ_AETHER_CLIFFS ]
+color: $biomes/colors.yml:AETHER_CRIMSIC_LANDSCAPES
+vanilla: minecraft:the_end
+
+colors:
+  grass: 0xDC143C
+  foliage: 0xDC143C
+
+palette:
+  - GRASS_GRAY_TERRACOTTA: $meta.yml:top-y
+
+slant:
+  - threshold: 0.4
+    palette:
+      - GRAY_CONCRETE_TERRACOTTA: $meta.yml:top-y
+
+features:
+  trees:
+    - OAK_BUSHES
+    - CRIMSIC_TREES
+  flora:
+    - GRASS
+    - FERNS
+  postprocessors:
+    - HANGING_LANTERNS
+  

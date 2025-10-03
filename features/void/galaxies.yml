@@ -1,0 +1,28 @@
+id: GALAXIES
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 44
+  padding: 34
+  salt: 6478
+
+locator:
+  type: AND
+  locators:
+    - type: RANDOM
+      height: &range
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 20
+      amount: 1
+      salt: 2913
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 0
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: place_galaxy

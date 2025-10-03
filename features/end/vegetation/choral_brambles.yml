@@ -22,8 +22,8 @@ locator:
   locators:
     - type: SURFACE
       range: &range
-        min: 0
-        max: 225
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 30
     - type: PATTERN
       range: *range
       pattern:

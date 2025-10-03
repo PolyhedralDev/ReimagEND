@@ -1,0 +1,83 @@
+num randPrecision = 100;
+num goldenAngle = 2.39996;
+num pi = 3.14159;
+
+num amount = 5+randomInt(5);
+
+num radius = 1;
+
+num yTranslate = 10+randomInt(3);
+
+str mainBlock = "minecraft:black_concrete";
+str altBlock = "minecraft:black_concrete_powder";
+str endBlock = "minecraft:white_concrete";
+str lightBlock = "minecraft:light[level=15]";
+
+for (num a = 0; a < amount; a = a + 1) {
+    
+    num length = 5+(yTranslate);
+    
+    num droop = -0.08;
+    num verticalDirection = -2-randomInt(randPrecision)/randPrecision;
+    num angle = randomInt(randPrecision)/randPrecision*2*pi;
+
+    // Branch direction vector
+    num dx = sin(angle);
+    num dy = verticalDirection;
+    num dz = cos(angle);
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+
+    if (getBlock(dx*length, (dy*length) + yTranslate, dz*length) == "minecraft:air") continue;
+
+    for (num l = 0; l <= length; l = l + 0.1) {
+
+        num cx = l*dx;
+        num cy = l*dy;
+        num cz = l*dz;
+
+        num r = radius;
+        for(num x = -r; x <= r; x = x + 1) {
+            for(num y = -r*3; y <= r*3; y = y + 1) {
+                for(num z = -r; z <= r; z = z + 1) {
+  
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                        if (randomInt(2) == 0) {
+                            block(cx + x, cy + y + yTranslate, cz + z, mainBlock, false);
+                        } else {
+                            block(cx + x, cy + y + yTranslate, cz + z, altBlock, false);
+                        }
+                    }
+
+                    if (pow(x,2)+(pow(y,2)/3)+pow(z,2) < pow(r,2)+2) {
+                        block(x, y + yTranslate + 2,z, endBlock,true);
+                        block(x + 1, y + yTranslate + 2,z, lightBlock, false);
+                        block(x - 1, y + yTranslate + 2,z, lightBlock, false);
+                        block(x, y + yTranslate + 2,z + 1, lightBlock, false);
+                        block(x, y + yTranslate + 2,z - 1, lightBlock, false);
+                    }
+                }  
+            }
+        }
+
+        // Point vector down more
+        if (l < length/3) {
+            dy = dy - droop;
+        } else dy = dy + droop/2;
+        
+        // Normalize vector
+        mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
+        dx = dx/mag;
+        dy = dy/mag;
+        dz = dz/mag;
+    }
+
+    angle = angle + goldenAngle;
+}
+
+
+
+

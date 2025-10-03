@@ -1,8 +1,13 @@
 id: ROSETTE_POOLS
 type: BIOME
-extends: [ BASE_END, EQ_SMALL_ISLES ]
-vanilla: minecraft:end_barrens
+extends:
+  - BASE_END
+  - EQ_OVERHANGS
+vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:ROSETTE_POOLS
+
+tags:
+  - ADD_VOID_BIOMES
 
 colors:
   grass: 0xd3658e
@@ -11,14 +16,16 @@ colors:
   water-fog: 0xd3658e
 
 palette:
-  - PINK_POWDER_END: 319
+  - PINK_POWDER_END: $meta.yml:top-y
 
 features:
-  preprocessors:
-    - WATER_POOLS
-    - WATER_COLUMNS
   flora:
     - CRIMSON_STEM_BUSHES
     - END_GRASS
+  landforms:
+    - ROSETTE_POOLS
   trees:
-    - ROSETTE_BULB_TREES
+    - ROSETTE_TREES
+  postprocessors:
+    - WATER_COLUMNS
+    - CONTAIN_ROSETTE_WATER

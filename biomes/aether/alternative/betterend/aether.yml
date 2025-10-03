@@ -1,0 +1,24 @@
+id: AETHER
+type: BIOME
+extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
+color: $biomes/colors.yml:AETHER
+vanilla: minecraft:the_end
+
+colors:
+  grass: 0x91BD59
+  foliage: 0x77AB2F
+
+palette:
+  - GRASS: $meta.yml:top-y
+  
+features:
+  trees:
+    - OAK_BUSHES
+    - SPARSE_OAK_TREES
+  flora:
+    - GRASS
+    - MIXED_FLOWER_COVER
+  postprocessors:
+    - HANGING_LANTERNS
+  landforms:
+    - SMALL_MOSSY_BOULDER_PATCHES

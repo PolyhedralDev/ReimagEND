@@ -1,0 +1,36 @@
+if (getBlock(0,-3,4) == "minecraft:air" || 
+getBlock(0,-3,-4) == "minecraft:air" ||
+getBlock(-4,-3,0) == "minecraft:air" ||
+getBlock(4,-3,0) == "minecraft:air" 
+) fail;
+
+num radius = 4;
+num warp = 5;
+num warpFreq = 10;
+num radiusSquared = pow(radius,2);
+num yTranslate = -5;
+
+str mainBlock = "minecraft:deepslate";
+
+for (num x = -radius-warp; x < radius+warp; x = x + 1) {
+    for (num y = (-radius*5); y < (radius*5); y = y + 1) {
+        for (num z = -radius-warp; z < radius+warp; z = z + 1) {
+            num warpX = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+1000),
+                                warpFreq*(z+originZ()));
+            num warpY = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+2000),
+                                warpFreq*(z+originZ()));
+            num warpZ = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+3000),
+                                warpFreq*(z+originZ()));
+			num distanceSquared = pow(x+warpX,2)+pow((y+warpY)/3,2)+pow(z+warpZ,2);
+            if (distanceSquared < radiusSquared) {
+                block(x, y+yTranslate, z, mainBlock, true);
+			}
+        }
+    }
+}

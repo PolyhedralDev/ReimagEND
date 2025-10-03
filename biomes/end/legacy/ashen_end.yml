@@ -1,0 +1,17 @@
+id: ASHEN_END
+type: BIOME
+extends: [ BASE_END, EQ_ASHEN ]
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:ASHEN_END
+
+palette:
+  - ASHEN_END: $meta.yml:top-y
+
+slant:
+  - threshold: 0.8
+    palette:
+      - BLOCK:minecraft:smooth_basalt: $meta.yml:top-y
+
+features:
+  landforms:
+    - ASHEN_COLUMNS

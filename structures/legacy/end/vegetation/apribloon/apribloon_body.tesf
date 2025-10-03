@@ -1,0 +1,37 @@
+num radius = 6+randomInt(4);
+num warp = 2;
+num radiusSquared = pow(radius,2);
+
+for (num x = -radius-warp; x < radius+warp; x = x + 1) {
+    for (num y = ((-radius-warp)); y < ((radius+warp)); y = y + 1) {
+        for (num z = -radius-warp; z < radius+warp; z = z + 1) {
+
+            // upper section
+			num distanceSquared = pow(x,2)+(pow(y,2))+pow(z,2);
+
+            if (distanceSquared < (radiusSquared) && distanceSquared > (radiusSquared-(radius*2))) {
+                if (randomInt(8) == 0) {
+                    block(x, y, z, "minecraft:orange_concrete_powder", true);
+                    block(x, y-1, z, "minecraft:orange_concrete", true);
+                } else block(x, y, z, "minecraft:orange_concrete", true);
+			}
+
+            if (distanceSquared < (radiusSquared+3) && distanceSquared > (radiusSquared-(radius*2))) {
+                if (randomInt(3) == 0) block(x, y, z, "minecraft:light[level=15]", false);
+			}
+
+            // lower section
+			distanceSquared = (pow(x,2)+(pow(y,2))+pow(z,2))*2;
+
+            if ((distanceSquared*2) < (radiusSquared) && (distanceSquared*2.5) > (radiusSquared-(radius*3)) && y < radius/2.5) {
+                if (randomInt(8) == 0) {
+                    block(x, y-7, z, "minecraft:orange_concrete_powder", true);
+                    block(x, y-8, z, "minecraft:orange_concrete", true);
+                } else block(x, y-7, z, "minecraft:orange_concrete", true);
+			}
+
+
+        }
+    }
+}
+

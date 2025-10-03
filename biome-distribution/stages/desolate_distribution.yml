@@ -1,0 +1,82 @@
+stages:
+  - type: REPLACE_LIST
+    sampler:
+      type: EXPRESSION
+      expression: |
+        if(endCityToggle != 0,
+          if(radius(x,z) > spawnRadiusOffset, 
+            cellular(x, z), 1), 1)
+      variables:
+        endCityToggle: $customization.yml:toggle-end-cities
+        spawnRadiusOffset: $customization.yml:end-city-min
+      samplers:
+        radius:
+          dimensions: 2
+          type: DOMAIN_WARP
+          amplitude: 10
+          warp:
+            type: OPEN_SIMPLEX_2
+            frequency: 0.01
+          sampler:
+            type: DISTANCE
+            frequency: 1 / 150 / ${customization.yml:desolate-scale}
+        cellular:
+          type: CELLULAR
+          dimensions: 2
+          jitter: 0
+          return: CellValue
+          frequency: 1 / 10 / ${customization.yml:desolate-scale}
+    default-from: END_HIGHLANDS
+    default-to: END_HIGHLANDS
+    to:
+      END_HIGHLANDS:
+        - END_HIGHLANDS: 1
+        - END_HIGHLANDS_DESOLATE: 1
+      HANGING_ISLES:
+        - HANGING_ISLES: 1
+        - HANGING_ISLES_DESOLATE: 1
+      SHATTERED_END:
+        - SHATTERED_END: 1
+        - SHATTERED_END_DESOLATE: 1
+      SHATTERED_FOREST:
+        - SHATTERED_FOREST: 1
+        - SHATTERED_FOREST_DESOLATE: 1
+      TAINTED_END:
+        - TAINTED_END: 1
+        - TAINTED_END_DESOLATE: 1
+      DARK_END:
+        - DARK_END: 1
+        - DARK_END_DESOLATE: 1
+      AMETHYST_END:
+        - AMETHYST_END: 1
+        - AMETHYST_END_DESOLATE: 1
+      CHORAL_DEADLANDS:
+        - CHORAL_DEADLANDS: 1
+        - CHORAL_DEADLANDS_DESOLATE: 1
+      IVORY_EMPYREAN:
+        - IVORY_EMPYREAN: 1
+        - IVORY_EMPYREAN_DESOLATE: 1
+      VERMILION_WILDS:
+        - VERMILION_WILDS: 1
+        - VERMILION_WILDS_DESOLATE: 1
+      CRIM_THICKET:
+        - CRIM_THICKET: 1
+        - CRIM_THICKET_DESOLATE: 1
+      STYGIAN_BARRENS:
+        - STYGIAN_BARRENS: 1
+        - STYGIAN_BARRENS_DESOLATE: 1
+      MAUVE_JUNGLE:
+        - MAUVE_JUNGLE: 1
+        - MAUVE_JUNGLE_DESOLATE: 1
+      END_WILDS:
+        - END_WILDS: 1
+        - END_WILDS_DESOLATE: 1
+      CHORUVE_WOODS:
+        - CHORUVE_WOODS: 1
+        - CHORUVE_WOODS_DESOLATE: 1
+      TWISTED_GROVE:
+        - TWISTED_GROVE: 1
+        - TWISTED_GROVE_DESOLATE: 1
+      ROSETTE_POOLS:
+        - ROSETTE_POOLS: 1
+        - ROSETTE_POOLS_DESOLATE: 1

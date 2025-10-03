@@ -1,0 +1,40 @@
+id: END_SHIPS
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 611
+  padding: 402
+  salt: 4356
+
+locator:
+  type: AND
+  locators:
+    - type: RANDOM
+      height: &range
+        min: ${meta.yml:bottom-y} + 150
+        max: ${meta.yml:top-y} - 30
+      amount: 1
+      salt: 3678
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 3
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: -3
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - place_end_ship: 1
+    - blank: 1

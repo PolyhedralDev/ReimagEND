@@ -1,0 +1,31 @@
+id: TAINTED_END
+type: PALETTE
+
+layers:
+  - materials:
+      - minecraft:end_stone: 2
+      - minecraft:black_concrete_powder: 1
+      - minecraft:black_concrete: 1
+      - minecraft:purple_concrete: 1
+      - minecraft:purple_concrete_powder: 1
+      - minecraft:purple_concrete: 1
+      - minecraft:black_concrete: 1
+      - minecraft:black_concrete_powder: 1
+      - minecraft:end_stone: 2
+    layers: 1
+
+sampler:
+  type: DOMAIN_WARP
+  amplitude: 2
+  warp:
+    type: GAUSSIAN
+  sampler:
+    type: FBM
+    octaves: 2
+    sampler:
+      type: OPEN_SIMPLEX_2
+      frequency: 0.01
+      salt: 6881
+
+
+

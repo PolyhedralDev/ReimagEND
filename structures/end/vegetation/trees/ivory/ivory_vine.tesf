@@ -1,0 +1,25 @@
+if (getBlock(0,1,0) != "minecraft:white_stained_glass" ||
+    getBlock(0,0,0) != "minecraft:air" ||
+    getBlock(0,-1,0) != "minecraft:air") fail;
+
+num length = 4 + randomInt(7);
+
+str setBlock = "minecraft:white_stained_glass_pane";
+str endBlock = "minecraft:white_stained_glass";
+str lightBlock = "minecraft:light[level=15]";
+
+for (num i = 0; i < length; i = i + 1) {
+    if (getBlock(0, -i -1, 0) != "minecraft:air" || i == length-1) {
+        block(0, -i, 0, endBlock, false);
+        block(1, -i, 0, lightBlock, false);
+        block(-1, -i, 0, lightBlock, false);
+        block(0, -i, 1, lightBlock, false);
+        block(0, -i, -1, lightBlock, false);
+        break;
+    }
+
+    block(0, -i, 0, setBlock, false);
+}
+
+
+

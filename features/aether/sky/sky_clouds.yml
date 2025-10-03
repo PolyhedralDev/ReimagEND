@@ -1,0 +1,38 @@
+id: SKY_CLOUDS
+type: FEATURE
+
+distributor:
+  type: AND
+  distributors:
+    - type: PADDED_GRID
+      width: 11
+      padding: 7
+      salt: 2135
+    - type: SAMPLER
+      sampler:
+        type: PROBABILITY
+        sampler:
+          type: OPEN_SIMPLEX_2
+          salt: 3632
+      threshold: 0.2
+
+locator:
+  type: AND
+  locators:
+    - type: RANDOM
+      height: &range
+        min: ${meta.yml:top-y} - 50
+        max: ${meta.yml:top-y} - 30
+      amount: 1
+      salt: 2913
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 0
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures: 
+    - cloud: 1

@@ -1,0 +1,39 @@
+id: CRIM_SWIRLS
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 22
+  padding: 18
+  salt: 4981
+
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SET
+        blocks: $features/meta.yml:end-plantable-blocks
+        offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH
+        block: minecraft:end_stone
+        offset: -3
+    
+structures:
+  distribution:
+    type: CONSTANT
+  structures: crim_swirl_procedural

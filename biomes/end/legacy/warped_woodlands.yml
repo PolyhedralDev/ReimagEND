@@ -1,0 +1,20 @@
+id: WARPED_WOODLANDS
+type: BIOME
+extends: [ BASE_END, EQ_DEFAULT ]
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:WARPED_WOODLANDS
+
+colors:
+  grass: 0x54c0d9
+  foliage: 0x57c9e1
+
+palette:
+  - CYAN_POWDER_END: $meta.yml:top-y
+
+features:
+  trees:
+    - WARPED_MESQUITE_TREES
+    - TWISTING_BEANSTALKS
+  flora:
+    - END_GRASS
+    - WARPED_STEM_BUSHES

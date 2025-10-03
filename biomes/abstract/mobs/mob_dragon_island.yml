@@ -1,0 +1,37 @@
+id: MOB_DRAGON_ISLAND
+type: BIOME
+abstract: true
+
+spawning:
+  costs:
+    - type:
+        id: minecraft:pig
+      mass: 1
+      gravity: 1
+  spawns:
+    - group: AMBIENT
+      entries:
+        - type:
+            id: minecraft:bat
+          min-group-size: 8
+          max-group-size: 8
+          weight: 10
+    - group: MONSTER
+      entries:
+        - type:
+            id: minecraft:enderman
+          min-group-size: 4
+          max-group-size: 4
+          weight: 10
+        - type:
+            id: minecraft:vex
+          min-group-size: 4
+          max-group-size: 4
+          weight: 5
+    - group: UNDERGROUND_WATER_CREATURE
+      entries:
+        - type:
+            id: minecraft:glow_squid
+          min-group-size: 4
+          max-group-size: 6
+          weight: 10

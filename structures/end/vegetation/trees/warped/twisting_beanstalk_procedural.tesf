@@ -1,0 +1,56 @@
+num randPrecision = 100;
+
+num height = 20+randomInt(60);
+num direction = randomInt(randPrecision)/randPrecision;
+num dirInterval = 1;
+
+num radius = 1.5;
+
+str mainBlock = "minecraft:warped_wart_block";
+str altBlock = "minecraft:stripped_warped_hyphae";
+str setBlock = mainBlock;
+num baseLeafInterval = 5;
+num leafIntervalVar = 4;
+
+num rotate = 0;
+
+if (randomInt(2) == 0) {
+    direction = direction*-1;
+    dirInterval= dirInterval*-1;
+}
+
+str checkBlock = "";
+
+for (num l = 0; l < height; l = l + 1) {
+    if (getBlock(0, l + 5, 0) == "minecraft:end_stone") height = l;
+
+    setBlock = mainBlock;
+    checkBlock = getBlock(0,l,0);
+
+    num leafInterval = baseLeafInterval+randomInt(leafIntervalVar);
+
+    if (l % leafInterval == 0 && l < (height-10) && l > 5) {
+        if (rotate == 4) rotate = 0;
+
+        if (rotate == 0) structure(0, l, 0, "twisting_leaf", "NONE");
+        if (rotate == 1) structure(0, l, 0, "twisting_leaf", "CW_90");
+        if (rotate == 2) structure(0, l, 0, "twisting_leaf", "CW_180");
+        if (rotate == 3) structure(0, l, 0, "twisting_leaf", "CCW_90");
+        rotate = rotate + 1;
+    }
+
+    if (checkBlock != "minecraft:air" && checkBlock != "minecraft:warped_wart_block" && checkBlock != "minecraft:stripped_warped_hyphae") fail;
+    
+    for (num x = -radius; x < radius; x = x + 1) {
+        for (num y = -radius; y < radius; y = y + 1) {
+            for (num z = -radius; z < radius; z = z + 1) {
+                if (pow(x,2)+pow(y,2)+pow(z,2) < pow(radius,2)) {
+                    setBlock = mainBlock;
+                    if (randomInt(2) == 0 ) setBlock = altBlock;
+                block(x+cos(direction),l+y,z+sin(direction),setBlock);
+                }
+            }
+        }
+    }  
+    direction = direction + dirInterval;
+}

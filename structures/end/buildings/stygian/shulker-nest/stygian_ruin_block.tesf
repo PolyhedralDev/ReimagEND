@@ -1,0 +1,11 @@
+num random = randomInt(3);
+
+str setBlock = "minecraft:deepslate_bricks";
+if (random == 1) setBlock = "minecraft:polished_blackstone_bricks";
+if (random == 2) setBlock = "minecraft:deepslate_brick_slab";
+if (random == 3) setBlock = "minecraft:polished_blackstone_brick_slab";
+
+block(0, 0, 0, setBlock);
+
+
+

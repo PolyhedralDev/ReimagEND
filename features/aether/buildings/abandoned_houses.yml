@@ -1,0 +1,48 @@
+id: ABANDONED_HOUSES
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 126
+  padding: 109
+  salt: 6573
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SET
+        blocks:
+          - minecraft:snow
+          - minecraft:air
+        offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 5
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -3
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures: 
+    - abandoned_house_1: 1
+    - abandoned_house_2: 1
+    - abandoned_house_3: 1
+    - blank: 3

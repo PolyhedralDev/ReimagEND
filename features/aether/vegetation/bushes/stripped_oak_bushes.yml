@@ -1,0 +1,51 @@
+id: STRIPPED_SPRUCE_BUSHES
+type: FEATURE
+
+distributor:
+  type: AND
+  distributors:
+    - type: PADDED_GRID
+      width: 5
+      padding: 2
+      salt: 5768
+    - type: SAMPLER
+      sampler:
+        type: CELLULAR
+        return: CellValue
+        frequency: 0.025
+        salt: 4357
+      threshold: -0.6
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: OR
+        patterns:
+          - type: MATCH_SET
+            blocks: $features/meta.yml:plantable-blocks
+            offset: -1
+          - type: MATCH_SET
+            blocks:
+              - minecraft:sand
+              - minecraft:red_sand
+            offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SET
+        blocks:
+          - minecraft:snow
+          - minecraft:air
+        offset: 0
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: stripped_spruce_bush

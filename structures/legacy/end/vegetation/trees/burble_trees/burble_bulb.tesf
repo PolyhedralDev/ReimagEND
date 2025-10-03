@@ -1,0 +1,33 @@
+str leafBlock = "minecraft:purple_stained_glass";
+str placeBlock = leafBlock;
+
+num radius = 3+randomInt(2);
+num yTranslate = radius;
+
+structure(0,0,0,"burble_stems","NONE");
+
+for (num x = -radius; x < radius; x = x + 1) {
+  for (num y = -radius; y < radius+1; y = y + 1) {
+    for (num z = -radius; z < radius; z = z + 1) {
+        // First if statement determines the outside border of bubble
+        // Second if statement determines the inside border of bubble
+
+      if (pow(x,2)+pow(y,2)+pow(z,2) < pow(radius,2)) {
+          
+        if (pow(x,2)+pow(y,2)+pow(z,2) > (pow(radius,2)+1)/3) {
+
+          placeBlock = leafBlock;
+          block(x, y+yTranslate, z, placeBlock, false);
+        }
+        
+        if (pow(x,2)+pow(y,2)+pow(z,2) < (pow(1,2))) {
+          placeBlock = "minecraft:pearlescent_froglight";
+          block(x, y+yTranslate, z, placeBlock, false);
+        }
+
+      }
+    }   
+  }  
+}
+
+

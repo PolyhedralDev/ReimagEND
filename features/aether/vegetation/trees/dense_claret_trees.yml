@@ -1,0 +1,56 @@
+id: DENSE_CLARET_TREES
+type: FEATURE
+
+distributor:
+  type: AND
+  distributors:
+    - type: PADDED_GRID
+      width: 13
+      padding: 9
+      salt: 4356
+    - type: SAMPLER
+      sampler:
+        type: PROBABILITY
+        sampler:
+          type: OPEN_SIMPLEX_2
+          salt: 5436
+      threshold: 0.65
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SET
+        blocks: $features/meta.yml:plantable-blocks
+        offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SET
+        blocks:
+          - minecraft:snow
+          - minecraft:air
+        offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 5
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -3
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - claret_tree_procedural: 2
+    - blank: 1

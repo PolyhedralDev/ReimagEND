@@ -1,0 +1,17 @@
+id: AMETHYST_END_DESOLATE
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_DEFAULT
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:AMETHYST_END
+
+tags:
+  - ADD_VOID_BIOMES
+  
+palette:
+  - AMETHYST_END: $meta.yml:top-y
+
+features:
+  landforms:
+    - AMETHYST_SPIKE_CLUSTERS

@@ -1,0 +1,56 @@
+
+num radius = 5;
+num warp = 2;
+num warpFreq = 2;
+num radiusSquared = pow(radius,2);
+
+str mainBlock = "minecraft:purple_concrete";
+str altBlock = "minecraft:purple_concrete_powder";
+str lightBlock = "minecraft:light[level=15]";
+
+for (num x = -radius-warp; x < radius+warp; x = x + 1) {
+    for (num y = ((-radius-warp)*3); y < ((radius+warp)*3); y = y + 1) {
+        for (num z = -radius-warp; z < radius+warp; z = z + 1) {
+            num warpX = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+1000),
+                                warpFreq*(z+originZ()));
+            num warpY = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+2000),
+                                warpFreq*(z+originZ()));
+            num warpZ = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+3000),
+                                warpFreq*(z+originZ()));
+			num distanceSquared = pow(x+warpX,2)+pow((y+warpY)/4,2)+pow(z+warpZ,2);
+
+            if ((distanceSquared < (radiusSquared)/10)) {
+                if (randomInt(3) == 0) {
+                    block(x, y+radius, z, altBlock, false);
+                    block(x, y+radius-1, z, mainBlock, false);
+                } else block(x, y+radius, z, mainBlock, false);
+				
+			}
+
+			if (distanceSquared < (radiusSquared+1) && distanceSquared > (radiusSquared-(radius*3)) && y > -radius * sampler("simplex3",
+                                20*(x+originX()),
+                                10*(y+originY()+3000),
+                                30*(z+originZ()))) {
+                if (randomInt(3) == 0) block(x, y, z, lightBlock, false);
+			}
+
+            
+            if (distanceSquared < radiusSquared && distanceSquared > (radiusSquared-(radius*3)) && y > -radius * sampler("simplex3",
+                                20*(x+originX()),
+                                10*(y+originY()+3000),
+                                30*(z+originZ()))) {
+                if (randomInt(8) == 0) {
+                    block(x, y, z, altBlock, true);
+                    block(x, y-1, z, mainBlock, true);
+                } else block(x, y, z, mainBlock, true);
+			}
+        }
+    }
+}
+

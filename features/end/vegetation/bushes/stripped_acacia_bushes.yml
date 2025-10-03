@@ -10,23 +10,16 @@ distributor:
 locator:
   type: AND
   locators:
-    - type: TOP
+    - type: SURFACE
       range: &range
-        min: 0
-        max: 319
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
     - type: PATTERN
       range: *range
       pattern:
-        type: OR
-        patterns:
-          - type: MATCH_SET
-            blocks: $features/meta.yml:end-plantable-blocks
-            offset: -1
-          - type: MATCH_SET
-            blocks:
-              - minecraft:sand
-              - minecraft:red_sand
-            offset: -1
+          type: MATCH_SET
+          blocks: $features/meta.yml:end-plantable-blocks
+          offset: -1
     - type: PATTERN
       range: *range
       pattern:
@@ -40,7 +33,7 @@ locator:
       pattern:
         type: MATCH
         block: minecraft:end_stone
-        offset: -2
+        offset: -3
 
 structures:
   distribution:

@@ -1,0 +1,21 @@
+stages:
+  - type: REPLACE
+    sampler:
+      type: EXPRESSION
+      expression: |
+        circle(minRadius+noise(x,z)*10, maxRadius+noise(x,z)*10, x+noise(x,z)-1, z+noise(x,z)-1, 1)
+      variables:
+        minRadius: ${customization.yml:dragon-island-radius} + ${customization.yml:dragon-island-edge-buffer}
+        maxRadius: ${customization.yml:dragon-island-radius} + ${customization.yml:dragon-island-edge-buffer} + ${customization.yml:dragon-island-edge-width}
+      functions:
+        circle: { arguments: [ s, b, x, z, l ], expression: "if( x*x + z*z > s*s && x*x + z*z < b*b,-1,l)" }
+      samplers:
+        noise:
+          type: OPEN_SIMPLEX_2
+          dimensions: 2
+          salt: 3912
+          frequency: 0.1
+    from: DRAGON_ISLAND_VOID
+    to:
+      - DRAGON_ISLAND_EDGE: 1
+      - DRAGON_ISLAND_VOID: 1

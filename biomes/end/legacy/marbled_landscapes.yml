@@ -1,0 +1,19 @@
+id: MARBLED_LANDSCAPES
+type: BIOME
+extends: [ BASE_END, EQ_DEFAULT ]
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:AMETHYST_END
+
+colors:
+  grass: 0xd0b2a0
+  foliage: 0xd0b2a0
+
+palette:
+  - WHITE_GRAY_TERRACOTTA: $meta.yml:top-y
+
+features:
+  flora:
+    - END_GRASS
+  trees:
+    - MARBLED_MUSHROOMS
+

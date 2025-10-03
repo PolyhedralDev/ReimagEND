@@ -1,0 +1,21 @@
+id: CERISE_CORRAL
+type: BIOME
+extends: [ BASE_END, EQ_DEFAULT ]
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:CERISE_CORRAL
+
+colors:
+  grass: 0xc059b7
+  foliage: 0xc059b7
+
+palette:
+  - MAGENTA_POWDER_END: $meta.yml:top-y
+
+features:
+  landforms:
+    - MAGENTA_CORAL
+  flora:
+    - END_GRASS
+    - CRIMSON_STEM_BUSHES
+  trees:
+    - TRAP_TREES

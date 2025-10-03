@@ -1,0 +1,45 @@
+id: CLOUDS
+type: FEATURE
+
+distributor:
+  type: AND
+  distributors:
+    - type: PADDED_GRID
+      width: 21
+      padding: 17
+      salt: 4568
+    - type: SAMPLER
+      sampler:
+        type: PROBABILITY
+        sampler:
+          type: OPEN_SIMPLEX_2
+          salt: 7568
+      threshold: 0.3
+
+locator:
+  type: AND
+  locators:
+    - type: RANDOM
+      height: &range
+        min: ${meta.yml:bottom-y} + 40
+        max: ${meta.yml:top-y} - 40
+      amount: 1
+      salt: 7689
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: AND
+        patterns:
+          - type: MATCH_AIR
+            offset: 5
+          - type: MATCH_AIR
+            offset: 0
+          - type: MATCH_AIR
+            offset: -5
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - cloud: 1
+    - blank: 1

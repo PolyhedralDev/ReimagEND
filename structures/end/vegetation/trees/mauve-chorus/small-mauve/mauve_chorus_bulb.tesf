@@ -1,0 +1,79 @@
+num radius = 2.85;
+
+str mainBlock = "minecraft:purple_concrete";
+str altBlock = "minecraft:purple_concrete_powder";
+
+str middleBlock = "minecraft:white_concrete";
+str outlineBlock = "minecraft:blue_terracotta";
+str lightBlock = "minecraft:light[level=15]";
+
+num r = radius;
+for (num x = -r; x < r; x = x + 1) {
+    for (num y = -r; y < r; y = y + 1) {
+        for (num z = -r; z < r; z = z + 1) {
+            if (pow(x,2)+pow(y,2)+pow(z,2) <= pow(r,2)) {
+                if (randomInt(3) == 0) {
+                  block(x, y, z, altBlock, false);
+                  block(x, y-1, z, mainBlock, false);
+                } else block(x, y, z, mainBlock, false);
+            }
+
+            // Ensure concrete on sides of outline
+            block(-radius + 1, 0, -radius + 1, mainBlock, false);
+            block(radius - 1, 0, radius - 1, mainBlock, false);
+            block(-radius + 1, 0, radius - 1, mainBlock, false);
+            block(radius - 1, 0, -radius + 1, mainBlock, false);
+
+            block(-radius + 1, 0, -radius + 1, mainBlock, false);
+            block(radius - 1, 0, radius - 1, mainBlock, false);
+            block(-radius + 1, 0, radius - 1, mainBlock, false);
+            block(radius - 1, 0, -radius + 1, mainBlock, false);
+
+            // Ensure concrete above outline
+            block(radius - 1, 2, 0, mainBlock, true);
+            block(0, 2, -radius + 1, mainBlock, true);
+            block(-radius + 1, 2, 0, mainBlock, true);
+            block(0, 2, radius - 1, mainBlock, true);
+
+            // Center block of bulb
+            block(radius - 1, 0, 0, middleBlock, true);
+            block(-radius + 1, 0, 0, middleBlock, true);
+            block(0, 0, radius - 1, middleBlock, true);
+            block(0, 0, -radius + 1, middleBlock, true);
+            block(0, radius, 0, middleBlock, true);
+
+            // Light block on outside of center block
+            block(radius, 0, 0, lightBlock, true);
+            block(-radius, 0, 0, lightBlock, true);
+            block(0, 0, radius, lightBlock, true);
+            block(0, 0, -radius, lightBlock, true);
+            block(0, radius + 1, 0, lightBlock, true);
+
+            // outline blocks around center block
+            block(radius - 1, 0, 1, outlineBlock, true);
+            block(radius - 1, 0, -1, outlineBlock, true);
+            block(radius - 1, 1, 0, outlineBlock, true);
+            block(radius - 1, -1, 0, outlineBlock, true);
+
+            block(-radius + 1, 0, 1, outlineBlock, true);
+            block(-radius + 1, 0, -1, outlineBlock, true);
+            block(-radius + 1, 1, 0, outlineBlock, true);
+            block(-radius + 1, -1, 0, outlineBlock, true);
+
+            block(1, 0, radius - 1, outlineBlock, true);
+            block(-1, 0, radius - 1, outlineBlock, true);
+            block(0, 1, radius - 1, outlineBlock, true);
+            block(0, -1, radius - 1, outlineBlock, true);
+
+            block(1, 0, -radius + 1, outlineBlock, true);
+            block(-1, 0, -radius + 1, outlineBlock, true);
+            block(0, 1, -radius + 1, outlineBlock, true);
+            block(0, -1, -radius + 1, outlineBlock, true);
+
+            block(1, radius, 0, outlineBlock, true);
+            block(-1, radius, 0, outlineBlock, true);
+            block(0, radius, 1, outlineBlock, true);
+            block(0, radius, -1, outlineBlock, true);
+        }
+    }
+}

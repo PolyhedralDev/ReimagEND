@@ -1,18 +1,31 @@
 ![ReimagEND](https://github.com/user-attachments/assets/c407dcf6-ae98-4a7b-8db8-36b41d3ee7d3)
 
-## A Terra pack designed to reimagine the End with new biomes, features, and terrain to explore
+## A Terra pack designed to reimagine the End with new biomes, features, and terrain to explore.
 
-Part of this pack uses resources from Astrash's Aeropelago pack, found [here](https://github.com/Astrashh/Aeropelago).
+Part of this pack uses resources from 
+ - Astrash's Aeropelago pack, found [here](https://github.com/Astrashh/Aeropelago).
+ - PolyDev's Overworld pack, found [here](https://github.com/PolyhedralDev/TerraOverworldConfig).
 
-This pack is a *WORK IN PROGRESS*.  
+ReimagEnd is currently a **WORK IN PROGRESS**. 
 
-It is currently survival ready, but not feature complete. Expect frequent changes which may be incompatible (i.e, cause chunk borders) with older versions of the pack. 
+Expect frequent changes, which may be incompatible (i.e, cause chunk borders) with older versions of the pack.
 
-Vanilla End Cites generate with their loot tables unaffected while custom structures don't have custom loot table implementation as of the current moment.
+Vanilla End Cites generate with their loot tables unaffected while Terra's custom structures don't have custom 
+loot tables as loot table support for Terra has not been implemented yet.
+
+### KNOWN ISSUES
+#### Ender Dragon Respawn
+Respawning the ender dragon will cause the original vanilla end dragon spikes/pillars
+alongside those from Terra. It is designed this way for the moment to at least have the initial
+dragon fight involve end crystals and memorable with special dragon pillars.
+
+#### End Gateways
+End gateways are currently manually placed by Terra, which allow for two-way gateways to be created by players
+since block NBT support for Terra has not been implemented yet.
 
 ## Installation
-Download the ReimagEnd pack from the [releases page](https://github.com/justaureus/ReimagEND/releases) for a reliable pack version 
-or from the main ReimagEnd branch for changes that haven't been applied to the latest release yet.
+Download a ReimagEnd release from the [releases page](https://github.com/PolyhedralDev/ReimagEND/releases) for a reliable pack version 
+or from a ReimagEnd branch for changes that haven't been applied to the latest release yet.
 
 Follow this [installation guide](https://terra.polydev.org/install/index.html) for your particular platform.
 
@@ -34,23 +47,57 @@ worlds:
     generator: Terra:REIMAGEND
 ```
 
-## How to Disable Biomes
-Dislike a particular biome? 
-Well, you can customize everything in ReimagEnd to your liking and that includes disabling any biomes!
+## Biome Distribution
 
-Go to the corresponding distribution stage for that biome type (end, aether, & void), which can be found in `biome-providers\stages`
-###### Place a # in front of the weighted item representing the biome in the list to comment out the biome and disable it
+### Aether Pockets
+Scattered across the outer end, Aether pockets surrounded by void that
+resemble that of the overworld in the form of floating isles.
 
-## Overworld-Like Aether Pockets
-By default, overworld-like Aether pockets generate throughout the frontier of the outer end. 
+Aether pockets can be disabled with the `toggle-aether-pockets` setting in the `customization.yml`.
 
-Aether pocket generation can be disabled by going to the `meta.yml` and toggling the `toggle-aether-pockets` value
-###### Place a # in front of the stage to comment out the stage
+There are several different biome distribution presets available to be switched
+to in the `pack.yml`. Aether pockets will generate in some presets by default.
 
-## Dragon Island Difficulty Tweaks
-ReimagEnd has optional dragon island difficulty tweaks that can be enabled to make the dragon fight a bit more challenging, which are listed below.
-- Pitfall into the void around the dragon fountain that now resides on a small floating island in the center.
-- Vex spawners under the dragon fountain that make approaching the fountain a bit more challenging.
-- Vex spawners within the top and bottom sections of the dragon pillars that give the end crystals a bit more protection against those who seek to destroy them.
+Furthermore, there are settings in the `customization.yml` to tweak 
+biome distribution.
 
-Go to the `meta.yml` to enable and configure these features
+Anything specific may require configuring biome distribution files.
+
+### Presets
+
+The Rings of Life preset is ReimagEnd's default biome distribution.
+
+#### Rings Of Life
+Rings of life distributes the outer end in concentric rings with each individual 
+ring containing more life and vegetation as you venture further from the dragon island.
+
+#### Normal
+Normal distributes the outer end in a more typical fashion.
+
+#### Vanilla-Ish
+Vanilla-Ish distributes the outer end to mostly resemble vanilla's outer end.
+
+#### BetterEnd
+BetterEnd distributes the outer end to mostly resemble Dfsek's BetterEnd plugin.
+
+#### Aether World
+Aether World distributes the entire world as an Aether.
+
+#### Biome Removal or Rarity Customization
+Biomes can be removed from distribution by going to their distribution file 
+and commenting them out with a # in front of the line dash.
+
+You can adjust the rarity of biomes by tweaking the weight numbers attached 
+to each biome.
+
+Outer end biome distribution can be configured in `biome-distribution/stages/outer_end_distribution.yml`.
+
+Aether biome distribution can be configured in `biome-distribution/stages/outer_end_distribution.yml`.
+
+### Dragon Island
+
+The Dragon Island has various features to liven up the atmosphere.
+
+#### Dragon Pit
+The size of the Dragon Pit that generates in the center of the dragon island 
+can be tweaked with the `dragon-pit-radius` setting in the `customization.yml`.

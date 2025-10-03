@@ -1,0 +1,56 @@
+bool spawnable = true;
+print("Generating at X:" + originX() + ", Y:" + originY() + ", Z:" + originZ());
+
+if (getBlock(-2, 0, 2) != "minecraft:air" &&
+    getBlock(-2, 0, -2) != "minecraft:air" &&
+    getBlock(-2, -2, 0) != "minecraft:air" &&
+    getBlock(-2, 2, 0) != "minecraft:air" &&
+    spawnable == true) {
+    spawnable = false;
+    structure(0,0,0,"end_stronghold_n","NONE");
+}
+
+
+if (getBlock(2, 0, 2) != "minecraft:air" &&
+    getBlock(2, 0, -2) != "minecraft:air" &&
+    getBlock(2, -2, 0) != "minecraft:air" &&
+    getBlock(2, 2, 0) != "minecraft:air"&&
+    spawnable == true) {
+    spawnable = false;
+    structure(0,0,0,"end_stronghold_s","NONE");
+}
+
+
+
+if (getBlock(2, 0, -2) != "minecraft:air" &&
+    getBlock(-2, 0, -2) != "minecraft:air" &&
+    getBlock(0, -2, -2) != "minecraft:air" &&
+    getBlock(0, 2, -2) != "minecraft:air"&&
+    spawnable == true) {
+    spawnable = false;
+    structure(0,0,0,"end_stronghold_e","NONE");
+}
+
+
+
+if (getBlock(2, 0, -2) != "minecraft:air" &&
+    getBlock(-2, 0, -2) != "minecraft:air" &&
+    getBlock(0, -2, -2) != "minecraft:air" &&
+    getBlock(0, 2, -2) != "minecraft:air" &&
+    spawnable == true) {
+    spawnable = false;
+    structure(0,0,0,"end_stronghold_w","NONE");
+}
+
+num radius = 10;
+
+for(num x = -radius; x < radius; x = x + 1) {
+      for(num y = -radius; y < radius; y = y + 1) {
+            for(num z = -radius; z < radius; z = z + 1) {
+                if (getBlock(x,y,z) == "minecraft:spawner") {
+                    state(x, y, z, "type=minecraft:endermite");
+                }
+            }
+      }  
+}
+

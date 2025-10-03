@@ -1,0 +1,11 @@
+str blockID = getBlock(0, 0, 0);
+if (blockID != "minecraft:cobblestone" &&
+    blockID != "minecraft:white_stained_glass" &&
+    blockID != "minecraft:yellow_stained_glass" &&
+    blockID != "minecraft:oak_planks" &&
+    blockID != "minecraft:oak_plank_stairs" &&
+    blockID != "minecraft:cobblestone_stairs" &&
+    blockID != "minecraft:glass_pane" &&
+    blockID != "minecraft:oak_log") {
+    fail;
+}

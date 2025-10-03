@@ -1,0 +1,25 @@
+id: IVORY_EMPYREAN
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_DEFAULT
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:IVORY_EMPYREAN
+
+tags:
+  - ADD_VOID_BIOMES
+
+colors:
+  grass: 0xadadad
+  foliage: 0xadadad
+
+palette:
+  - WHITE_POWDER_END: $meta.yml:top-y
+
+features:
+  flora:
+    - END_GRASS
+  trees:
+    - IVORY_TREES
+    - STRIPPED_PALE_OAK_BUSHES
+    - FALLEN_IVORY_TREES

@@ -1,0 +1,28 @@
+id: BLUE_TERRACOTTA
+type: PALETTE
+
+layers:
+  - materials:
+      - minecraft:blue_terracotta: 3
+      - minecraft:end_stone: 2
+    layers: 1
+  - materials:
+      - minecraft:blue_terracotta: 3
+      - minecraft:end_stone: 2
+    layers: 1
+  - materials:
+      - minecraft:end_stone: 1
+    layers: 1
+
+sampler:
+  type: DOMAIN_WARP
+  amplitude: 2
+  warp:
+    type: GAUSSIAN
+  sampler:
+    type: FBM
+    octaves: 2
+    sampler:
+      type: OPEN_SIMPLEX_2
+      frequency: 0.007
+      salt: 6881

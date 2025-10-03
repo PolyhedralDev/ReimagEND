@@ -1,15 +1,17 @@
 id: AETHER_BRAMBLE_WILDS
 type: BIOME
-extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
+extends:
+  - BASE_AETHER
+  - EQ_AETHER_DEFAULT
 color: $biomes/colors.yml:AETHER_BRAMBLE_WILDS
 vanilla: minecraft:the_end
 
 colors:
-  grass: 0x635229
+  grass: 0x3ccfad
   foliage: 0x705f36
 
 palette:
-  - PODZOL: 319
+  - PODZOL: $meta.yml:top-y
 
 features:
   trees:

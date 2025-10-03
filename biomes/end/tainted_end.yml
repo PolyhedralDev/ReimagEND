@@ -1,0 +1,22 @@
+id: TAINTED_END
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_DEFAULT
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:TAINTED_END
+
+tags:
+  - ADD_VOID_BIOMES
+
+palette:
+  - TAINTED_END: $meta.yml:top-y
+
+features:
+  preprocessors:
+    - SMALL_TAINTED_TENDRILS
+    - TAINTED_TENDRILS
+  postprocessors:
+    - TAINTED_GLOWS
+    - BLACK_CONCRETE_POWDER_BOTTOM
+    - PURPLE_CONCRETE_POWDER_BOTTOM

@@ -1,19 +1,23 @@
 num randPrecision = 100;
 num goldenAngle = 2.39996;
 num pi = 3.14159;
-num twopi = 6.28318530718;
 
 num spikes = 8;
+num spikeRadius = 3.5;
+num spikeStart = 3;
+num spikeLengthBase = 7;
+num spikeLengthVariation = 1;
+
 num rootBase = 0;
-num rootDroop = -0.02;
-num rootVerticalDirection = -1-randomInt(randPrecision)/randPrecision*0.3;
+num rootDroop = 0.06;
+num rootVerticalDirection = 0.5;
 num rootAngle = randomInt(randPrecision)/randPrecision*2*pi;
 
 num yTranslate = -10;
 
-num spikeRadius = 3.5;
+str mainBlock = "minecraft:obsidian";
 
-str setBlock = "";
+str setBlock = mainBlock;
 for (num n = 0; n < spikes; n = n + 1) {
     // Branch direction vector
     num dx = sin(rootAngle);
@@ -25,7 +29,7 @@ for (num n = 0; n < spikes; n = n + 1) {
     dy = dy/mag;
     dz = dz/mag;
 
-    num length = 7+(randomInt(randPrecision)/randPrecision);
+    num length = spikeLengthBase+randomInt(spikeLengthVariation);
 
     for (num i = 0; i <= length; i = i + 0.05) {
         num cx = i*dx;
@@ -39,17 +43,21 @@ for (num n = 0; n < spikes; n = n + 1) {
         for(num x = -r; x <= r; x = x + 1) {
             for(num y = -r; y <= r; y = y + 1) {
                 for(num z = -r; z <= r; z = z + 1) {
-                    if (pow(x,2)+pow(y,2)+pow(z,2) <= pow(r,2)) {
-                        setBlock = "minecraft:obsidian";
-                        if (randomInt(5) == 0) setBlock = "minecraft:crying_obsidian";
+                    if (pow(x,2)+pow(y,2)+pow(z,2) <= pow(r,2) &&
+                        i > spikeStart) {
+                        setBlock = mainBlock;
 
                         block(i*cx + x, i*cy + y - spikeRadius + yTranslate, i*cz + z, setBlock, false);
+                        block(i*cx + x, i*cy + y - spikeRadius + yTranslate - 1, i*cz + z, setBlock, false);
                     }
                 }
             }
         }
         // Point vector down more
-        dy = dy - rootDroop;
+        if (i < length/2) {
+            dy = dy - rootDroop;
+        } dy = dy + rootDroop;
+
         // Normalize vector
         mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
         dx = dx/mag;

@@ -1,0 +1,38 @@
+id: STYGIAN_SHULKER_NESTS
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 89
+  padding: 102
+  salt: 7568
+
+locator:
+  type: AND
+  locators:
+    - type: TOP
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 0
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -1
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -3
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - stygian_shulker_nest: 1
+    - blank: 2

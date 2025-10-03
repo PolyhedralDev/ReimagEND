@@ -1,0 +1,33 @@
+id: CRASHED_END_SHIPS
+type: FEATURE
+
+distributor:
+  type: PADDED_GRID
+  width: 316
+  padding: 242
+  salt: 6578
+
+locator:
+  type: AND
+  locators:
+    - type: TOP
+      range: &range
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 3
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_SOLID
+        offset: -3
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - blank: 2
+    - place_crashed_end_ship: 1

@@ -20,10 +20,10 @@ distributor:
 locator:
   type: AND
   locators:
-    - type: TOP
+    - type: SURFACE
       range: &range
-        min: 0
-        max: 235
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
     - type: PATTERN
       range: *range
       pattern:

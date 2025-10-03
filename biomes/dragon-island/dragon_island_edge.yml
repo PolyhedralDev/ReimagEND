@@ -1,0 +1,18 @@
+id: DRAGON_ISLAND_EDGE
+type: BIOME
+extends:
+  - DRAGON_ISLAND
+  - EQ_DRAGON_ISLAND_EDGE
+vanilla: minecraft:the_end
+color: $biomes/colors.yml:DRAGON_ISLAND_EDGE
+
+particles:
+  particle: minecraft:reverse_portal
+  probability: 0.0025
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+features:
+  trees:
+    - SHATTERED_PILLARS

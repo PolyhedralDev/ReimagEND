@@ -1,0 +1,58 @@
+sampler: &sampler
+  type: EXPRESSION
+  expression: |
+    circle(centerRadius, x+noise(x,z)-1, z+noise(x,z)-1, 1) + 
+      circle(centerRadius+buffer, x+noise(x,z)-1, z+noise(x,z)-1, 0.5)
+  variables:
+    centerRadius: $customization.yml:dragon-island-radius
+    buffer: $customization.yml:void-buffer-width
+  functions:
+    circle:    {arguments: [r, x, z, l], expression: "if(x*x+z*z>r*r,-1,l)"}
+  samplers:
+    noise:
+      dimensions: 2
+      type: OPEN_SIMPLEX_2
+      salt: 5786
+      frequency: 0.1
+
+biomes:
+  type: PIPELINE
+  resolution: 4
+  blend:
+    amplitude: 2
+    sampler:
+      type: GAUSSIAN
+      frequency: 0.1
+  pipeline:
+    source:
+      type: SAMPLER
+      sampler: *sampler
+      biomes:
+        - outer-end: 1
+        - DRAGON_ISLAND_VOID: 2
+        - DRAGON_ISLAND: 1
+    stages:
+      - << biome-distribution/stages/alternative/vanilla_distribution.yml:stages
+      - << biome-distribution/stages/desolate_distribution.yml:stages
+
+      - type: FRACTAL_EXPAND
+        sampler:
+          type: WHITE_NOISE
+      - type: FRACTAL_EXPAND
+        sampler:
+          type: WHITE_NOISE
+      - type: FRACTAL_EXPAND
+        sampler:
+          type: WHITE_NOISE
+      - type: FRACTAL_EXPAND
+        sampler:
+          type: WHITE_NOISE
+      - type: SMOOTH
+        sampler:
+          type: WHITE_NOISE
+      - type: SMOOTH
+        sampler:
+          type: WHITE_NOISE
+
+      - << biome-distribution/stages/add_dragon_pit.yml:stages
+      - << biome-distribution/stages/add_dragon_island_edge.yml:stages

@@ -1,0 +1,15 @@
+id: AETHER_INSIPID_COASTS
+type: BIOME
+extends: [ BASE_AETHER, EQ_AETHER_COASTS]
+color: $biomes/colors.yml:AETHER_INSIPID_COASTS
+vanilla: minecraft:the_end
+
+palette:
+  - LIGHT_GRAY_POWDER: $meta.yml:top-y
+
+features:
+  landforms:
+    - SMALL_MOSSY_BOULDER_PATCHES
+  trees:
+    - OAK_BUSHES
+  buildings: []

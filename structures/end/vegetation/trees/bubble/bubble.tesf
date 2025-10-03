@@ -1,0 +1,104 @@
+num randPrecision = 100;
+num goldenAngle = 2.39996;
+num pi = 3.14159;
+
+num spikes = 8;
+num lengthBase = 10;
+
+num rootDroop = -0.02;
+num rootVerticalDirection = -0.5-randomInt(randPrecision)/randPrecision*0.2;
+num rootAngle = randomInt(randPrecision)/randPrecision*2*pi;
+
+num yTranslate = 0;
+
+str mainBlock = "minecraft:purple_concrete";
+str altBlock = "minecraft:purple_concrete_powder";
+
+num spikeRadius = 1.5;
+
+for (num n = 0; n < spikes; n = n + 1) {
+    // Branch direction vector
+    num dx = sin(rootAngle);
+    num dy = rootVerticalDirection;
+    num dz = cos(rootAngle);
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+
+    num length = lengthBase + randomInt(randPrecision)/randPrecision;
+
+    for (num i = 0; i <= length; i = i + 0.1) {
+        num cx = i*dx;
+        num cy = i*dy;
+        num cz = i*dz;
+
+        // Reduce radius inversely to length
+        num r = ((spikeRadius/(length)) * -i) + spikeRadius;
+
+        // Generate sphere at each point
+        for(num x = -r; x <= r; x = x + 1) {
+            for(num y = -r; y <= r; y = y + 1) {
+                for(num z = -r; z <= r; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) <= pow(r,2)) {
+                        if (randomInt(2) == 0) {
+                            block(cx + x, cy + y - spikeRadius + yTranslate, cz + z, altBlock, false);
+                            block(cx + x, cy + y - spikeRadius + yTranslate - 1, cz + z, mainBlock, false);
+                        } else block(cx + x, cy + y - spikeRadius + yTranslate, cz + z, mainBlock, false);
+                    }
+                }
+            }
+        }
+        // Point vector down more
+        if (i > length/2) {
+            dy = dy - rootDroop/2;
+        } else dy = dy - rootDroop;
+
+        // Normalize vector
+        mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
+        dx = dx/mag;
+        dy = dy/mag;
+        dz = dz/mag;
+    }
+
+    rootAngle = rootAngle + goldenAngle;
+}
+
+num radius = 3.5 + randomInt(randPrecision) / randPrecision * 2;
+num warp = 1;
+num warpFreq = 2;
+num squish = 0.75;
+num radiusSquared = pow(radius, 2);
+num bubbleYTranslate = 3;
+
+str lightBlock = "minecraft:light[level=15]";
+
+str setBlock = mainBlock;
+for (num x = -radius - warp; x < radius + warp; x = x + 1) {
+    for (num y = (-radius - warp) / squish; y < (radius + warp) / squish; y = y + 1) {
+        for (num z = -radius - warp; z < radius + warp; z = z + 1) {
+            num warpX = warp * sampler("simplex3",
+                warpFreq * (x + originX()),
+                warpFreq * (y + originY() + 1000),
+                warpFreq * (z + originZ()));
+            num warpY = warp * sampler("simplex3",
+                warpFreq * (x + originX()),
+                warpFreq * (y + originY() + 2000),
+                warpFreq * (z + originZ()));
+            num warpZ = warp * sampler("simplex3",
+                warpFreq * (x + originX()),
+                warpFreq * (y + originY() + 3000),
+                warpFreq * (z + originZ()));
+            if (pow(x + warpX, 2) + pow((y + warpY) * squish, 2) + pow(z + warpZ, 2) < radiusSquared/2) {
+                setBlock = lightBlock;
+                if (randomInt(2) == 0) setBlock = mainBlock;
+                block(x, y + bubbleYTranslate, z, setBlock);
+            }
+
+            if (pow(x + warpX, 2) + pow((y + warpY) * squish, 2) + pow(z + warpZ, 2) < radiusSquared) {
+                block(x, y + bubbleYTranslate, z, "minecraft:purple_stained_glass", false);
+            }
+        }
+    }
+}

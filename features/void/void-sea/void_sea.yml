@@ -4,6 +4,8 @@ type: FEATURE
 variables: &variables
   wallThickness: 0.5
   webThickness: 0.5
+  maxHeight: ${meta.yml:top-y} - 10
+  minHeight: ${meta.yml:bottom-y} + 10
 
 distributor:
   type: "YES"
@@ -14,8 +16,8 @@ locator:
     # Match air underground
     - type: PATTERN
       range: &range
-        min: 0
-        max: 255
+        min: $meta.yml:bottom-y
+        max: $meta.yml:top-y
       pattern:
         type: MATCH_AIR
         offset: 0  
@@ -24,7 +26,8 @@ locator:
       range: *range
       sampler:
         type: EXPRESSION
-        expression: "if( y > (10+(noise(x,z)*5)) && y < (245+(noise(x,z)*5)) , 1, -1)"
+        expression: "if( y > (minHeight+(noise(x,z)*5)) && y < (maxHeight+(noise(x,z)*5)) , 1, -1)"
+        variables: *variables
         samplers:
           noise:
             dimensions: 2

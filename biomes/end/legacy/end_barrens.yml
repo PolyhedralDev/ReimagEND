@@ -1,0 +1,8 @@
+id: END_BARRENS
+type: BIOME
+extends: [ BASE_END, EQ_DEFAULT ]
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:END_BARRENS
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y

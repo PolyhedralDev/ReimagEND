@@ -1,0 +1,12 @@
+if (getBlock(1,0,0) != "minecraft:air" &&
+    getBlock(-1,0,0) != "minecraft:air" &&
+    getBlock(0,0,1) != "minecraft:air" &&
+    getBlock(0,0,-1) != "minecraft:air" &&
+    getBlock(0,1,0) != "minecraft:air" &&
+    getBlock(0,-1,0) != "minecraft:air") fail;
+
+block(0,1,0, "minecraft:light[level=15]", false);
+block(0,0,0, "minecraft:white_concrete", false);
+block(0,-1,0, "minecraft:large_fern[half=lower]", false);
+
+

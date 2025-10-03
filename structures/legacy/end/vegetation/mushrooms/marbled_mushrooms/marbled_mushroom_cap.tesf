@@ -1,0 +1,39 @@
+num radius = 11+randomInt(5);
+num warp = 2;
+num warpFreq = 2;
+num radiusSquared = pow(radius,2);
+num yTranslate = -(radius/3.5);
+
+for (num x = -radius-warp; x < radius+warp; x = x + 1) {
+    for (num y = ((-radius-warp)); y < ((radius+warp)); y = y + 1) {
+        for (num z = -radius-warp; z < radius+warp; z = z + 1) {
+            num warpX = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+1000),
+                                warpFreq*(z+originZ()));
+            num warpY = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+2000),
+                                warpFreq*(z+originZ()));
+            num warpZ = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+3000),
+                                warpFreq*(z+originZ()));
+			num distanceSquared = pow(x+warpX,2)+pow((y+warpY)*2,2)+pow(z+warpZ,2);
+
+            if (distanceSquared < radiusSquared && distanceSquared > (radiusSquared/2) && y > -radius/4 ){
+                if (randomInt(3) == 0) {
+                    block(x, y+yTranslate, z, "minecraft:light_gray_terracotta", false);
+                    block(x, y+yTranslate-1, z, "minecraft:white_terracotta", false);
+                } else block(x, y+yTranslate, z, "minecraft:white_terracotta", false);
+				
+			}
+
+            if (distanceSquared < (radiusSquared/3) && y > -radius/4 ){
+               if (randomInt(10) == 0) block(x, y+yTranslate, z, "minecraft:light[level=15]", false);
+            }
+
+        }
+    }
+}
+

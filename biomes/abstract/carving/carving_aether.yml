@@ -1,0 +1,15 @@
+id: CARVING_AETHER
+type: BIOME
+abstract: true
+
+carving:
+  sampler:
+    dimensions: 3
+    type: EXPRESSION
+    expression: $biomes/abstract/carving/carving_sampler_template.yml:expression
+    samplers: $biomes/abstract/carving/carving_sampler_template.yml:samplers
+    variables:
+      "<<":
+        - biomes/abstract/carving/carving_sampler_template.yml:variables
+      # Variable Overrides:
+      carvingMaxMode: 1 # Use land heightmap

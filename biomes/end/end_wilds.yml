@@ -1,0 +1,24 @@
+id: END_WILDS
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_OVERHANGS
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:END_WILDS
+
+tags:
+  - ADD_VOID_BIOMES
+
+colors:
+  grass: 0xffce2d
+  foliage: 0xffce2d
+
+palette:
+  - YELLOW_POWDER_END: $meta.yml:top-y
+
+features:
+  trees:
+    - END_SPRUCE_TREES
+    - CRIMSON_STEM_BUSHES
+  flora:
+    - END_GRASS

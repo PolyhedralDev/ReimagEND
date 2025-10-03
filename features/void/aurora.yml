@@ -1,8 +1,6 @@
 id: AURORA
 type: FEATURE
 
-# Adds 'webs' of sculk blocks
-
 variables: &variables
   wallThickness: 0.08
   webThickness: 0.08
@@ -16,8 +14,8 @@ locator:
     # Match air underground
     - type: PATTERN
       range: &range
-        min: 0
-        max: 235
+        min: ${meta.yml:bottom-y} + 20
+        max: ${meta.yml:top-y} - 20
       pattern:
         type: MATCH_AIR
         offset: 0
@@ -48,7 +46,7 @@ locator:
             type: CELLULAR
             distance: Euclidean
             return: Distance2Div
-            frequency: 0.06
+            frequency: 0.03
 
 structures:
   distribution:
@@ -66,3 +64,4 @@ structures:
     #- purple_aurora_segment: 1 
     - magenta_aurora_segment: 1 
     #- pink_aurora_segment: 1 
+    - blank: 1

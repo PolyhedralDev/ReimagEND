@@ -1,0 +1,24 @@
+id: CRIM_THICKET
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_DEFAULT
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:CRIM_THICKET
+
+tags:
+  - ADD_VOID_BIOMES
+
+colors:
+  grass: 0x75394b
+  foliage: 0x75394b
+
+palette:
+  - PURPLE_TERRACOTTA_END: $meta.yml:top-y
+
+features:
+  trees:
+    - CRIM_TREES
+  flora:
+    - END_GRASS
+    - CRIMSON_STEM_BUSHES

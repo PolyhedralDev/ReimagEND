@@ -1,0 +1,93 @@
+num radius = 4;
+
+str mainBlock = "minecraft:purple_concrete";
+str altBlock = "minecraft:purple_concrete_powder";
+
+str middleBlock = "minecraft:white_concrete";
+str outlineBlock = "minecraft:blue_terracotta";
+
+num r = radius;
+for (num x = -r; x <= r; x = x + 1) {
+    for (num y = -r; y <= r; y = y + 1) {
+        for (num z = -r; z <= r; z = z + 1) {
+            if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                if (randomInt(3) == 0) {
+                    block(x, y, z, altBlock, false);
+                    block(x, y-1, z, mainBlock, false);
+                } else block(x, y, z, mainBlock, false);
+            }
+
+            if ((y == -1 || y == 1) &&
+                (x == -3 || x == 3) &&
+                z == 0) {
+                block(x, y, z, outlineBlock, true);
+            }
+
+            if ((y == -1 || y == 1) &&
+                (z == -3 || z == 3) &&
+                x == 0) {
+                block(x, y, z, outlineBlock, true);
+            }
+
+            if (y == 0 &&
+                (z == -3 || z == 3) &&
+                (x == -1 || x == 1)) {
+                block(x, y, z, outlineBlock, true);
+            }
+
+            if (y == 0 &&
+                (x == -3 || x == 3) &&
+                (z == -1 || z == 1)) {
+                block(x, y, z, outlineBlock, true);
+            }
+
+            if ((y == 3) &&
+                x == 0 &&
+                (z == -1 || z == 1)) {
+                block(x, y, z, outlineBlock, true);
+            }
+
+            if ((y == 3) &&
+                z == 0 &&
+                (x == -1 || x == 1)) {
+                block(x, y, z, outlineBlock, true);
+            }
+
+            if ((y == 3) &&
+                z == 0 &&
+                x == 0) {
+                block(x, y, z, middleBlock, true);
+            }
+
+            if (y == 0 &&
+                (x == -3 || x == 3) &&
+                z == 0) {
+                block(x, y, z, middleBlock, true);
+            }
+
+            if (y == 0 &&
+                (z == -3 || z == 3) &&
+                x == 0) {
+                block(x, y, z, middleBlock, true);
+            }
+
+            if ((y == 4) &&
+                z == 0 &&
+                x == 0) {
+                block(x, y, z, "minecraft:light[level=15]", true);
+            }
+
+            if (y == 0 &&
+                (x == -4 || x == 4) &&
+                z == 0) {
+                block(x, y, z, "minecraft:light[level=15]", true);
+            }
+
+            if (y == 0 &&
+                (z == -4 || z == 4) &&
+                x == 0) {
+                block(x, y, z, "minecraft:light[level=15]", true);
+            }
+        }
+    }
+}

@@ -1,0 +1,113 @@
+num randPrecision = 100;
+num pi = 3.14159;
+
+str trunkBlock = "minecraft:magenta_concrete";
+str altTrunkBlock = "minecraft:magenta_concrete_powder";
+str setBlock = trunkBlock;
+
+num trunkRadius = 3;
+num length = 20+randomInt(25);
+num xTranslate = 0;
+num zTranslate = 0;
+
+num topBranches = 1;
+num topBranchLengthUpwardsMin = 0;
+num topBranchLengthOutwardsMin = 0;
+num topBranchVerticalDirection = 0.8+randomInt(randPrecision)/randPrecision/1.5;
+str topBranchLeafStructure = "trap_tree_mouth";
+
+num sideBranchInterval = 7+randomInt(3);
+num sideBranchMinHeight = 8+randomInt(3);
+num sideBranchMaxHeight = length-20;
+num sideBranchLengthMin = 1;
+num sideBranchLengthVariation = 1;
+num sideBranchVerticalVariation = 0;
+num sideBranchVerticalDirection = 0.8+randomInt(randPrecision)/randPrecision/1.5;
+str sideBranchLeafStructure = "trap_tree_small_mouth";
+
+if (getBlock(0,length,0) != "minecraft:air") fail;
+
+if (getBlock(2,-2,0) == "minecraft:air") fail;
+if (getBlock(-2,-2,0) == "minecraft:air") fail;
+if (getBlock(0,-2,2) == "minecraft:air") fail;
+if (getBlock(0,-2,-2) == "minecraft:air") fail;
+
+num branchAngle = randomInt(randPrecision)/randPrecision*2*pi;
+
+// tree trunk
+for(num h = 0; h <= length; h = h + 1) {
+    // Reduce radius inversely to length
+    num r = (trunkRadius/length * -h/2) + trunkRadius;
+
+    // Generate sphere at each point
+    for(num x = -r; x <= r; x = x + 1) {
+        for(num y = -r; y <= r; y = y + 1) {
+            for(num z = -r; z <= r; z = z + 1) {
+                if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                    setBlock = trunkBlock;
+                    if (randomInt(2) == 0) setBlock = altTrunkBlock;
+                    if (randomInt(4) == 0) setBlock = "minecraft:magenta_stained_glass";
+                    block(x + xTranslate, h + y - trunkRadius, z + zTranslate, setBlock, false);                  
+                }
+            }
+        }
+    }
+
+    if (h > sideBranchMinHeight && h < sideBranchMaxHeight) {
+        if (h % sideBranchInterval == 0) {
+            // Branch direction vector
+            num dx = sin(branchAngle);
+            num dy = sideBranchVerticalDirection + randomInt(randPrecision)/randPrecision*sideBranchVerticalVariation;
+            num dz = cos(branchAngle);
+            // Normalize vector
+            num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+            dx = dx/mag;
+            dy = dy/mag;
+            dz = dz/mag;
+            // Branch origin
+            num ox = xTranslate;
+            num oy = h;
+            num oz = zTranslate;
+            // Set branch block based on largest unsigned vector component
+            num branchLength = sideBranchLengthMin + randomInt(randPrecision)/randPrecision*sideBranchLengthVariation;
+            // Generate branch
+            structure(dx+ox, dy+oy, dz+oz, sideBranchLeafStructure,"NONE");
+        }
+    }
+    xTranslate = xTranslate+(1-randomInt(3));
+    zTranslate = zTranslate+(1-randomInt(3));
+}
+
+for (num b = 1; b <= topBranches; b = b + 1) {
+    num t = b/topBranches;
+    num ti = 1-t;
+    // Branch direction vector
+    num dx = sin(branchAngle) * t;
+    num dy = topBranchVerticalDirection;
+    num dz = cos(branchAngle) * t;
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+    // Branch origin
+    num ox = xTranslate;
+    num oy = length-3;
+    num oz = zTranslate;
+    // Set branch block based on largest unsigned vector component
+    num branchLength = topBranchLengthUpwardsMin*ti + topBranchLengthOutwardsMin*t;
+    // Generate branch
+    for (num l = 0; l <= branchLength; l = l + 1) {
+        setBlock = trunkBlock;
+        if (randomInt(2) == 0) setBlock = altTrunkBlock;
+        if (randomInt(4) == 0) setBlock = "minecraft:magenta_stained_glass";
+        block(l*dx+ox, l*dy+oy, l*dz+oz, setBlock);
+        block(l*dx+ox+1, l*dy+oy, l*dz+oz, setBlock);
+        block(l*dx+ox-1, l*dy+oy, l*dz+oz, setBlock);
+        block(l*dx+ox, l*dy+oy, l*dz+oz+1, setBlock);
+        block(l*dx+ox, l*dy+oy, l*dz+oz-1, setBlock);
+    }
+    structure(dx+ox, dy+oy, dz+oz, topBranchLeafStructure, "NONE", "CW_90", "CCW_90", "CW_180");
+}
+
+structure(0,0,0,"magenta_strand_cluster","NONE");

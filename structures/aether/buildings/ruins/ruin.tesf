@@ -3,7 +3,6 @@ num size = 4+randomInt(5);
 num baseHeight = 5;
 num heightVariation = 15;
 
-num roomHeight = 4;
 num yOffset = -3;
 
 if (getBlock(size/2,yOffset,size/2) == "minecraft:air" ||

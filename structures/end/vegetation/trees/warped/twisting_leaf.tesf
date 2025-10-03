@@ -1,13 +1,12 @@
-num randPrecision = 100;
-
 num length = 5;
 num stemRadius = 1.1;
 num droop = 0.1;
 
-str setBlock = "";
+str mainBlock = "minecraft:stripped_warped_hyphae";
+str altBlock = "minecraft:stripped_warped_hyphae";
 
+str setBlock = mainBlock;
 num h = 0;
-num random = 0;
 for (num l = 0; l <= length/2; l = l + 0.5) {
 
     for (num x = -stemRadius; x <= stemRadius; x = x + 1) {
@@ -16,8 +15,8 @@ for (num l = 0; l <= length/2; l = l + 0.5) {
 
                 if (pow(x,2)+pow(y,2)+pow(z,2) < pow(stemRadius,2)) {
 
-                setBlock = "minecraft:warped_wart_block";
-                if (randomInt(3) == 0) setBlock = "minecraft:stripped_warped_hyphae";
+                setBlock = mainBlock;
+                if (randomInt(3) == 0) setBlock = altBlock;
                 block(x+l, y+h, z, setBlock, false);
 
                 }
@@ -25,16 +24,16 @@ for (num l = 0; l <= length/2; l = l + 0.5) {
         }
     }
 
-    setBlock = "minecraft:warped_wart_block";
-    if (randomInt(3) == 0) setBlock = "minecraft:stripped_warped_hyphae";
+    setBlock = mainBlock;
+    if (randomInt(3) == 0) setBlock = altBlock;
     block(l, h, 0, setBlock, true);
 
     h = h+(l*droop);
 }
 
-num radius = 3;
+num radius = 2.5;
 num warp = 1;
-num warpFreq = 1;
+num warpFreq = 2;
 num squish = 3;
 num radiusSquared = pow(radius,2);
 
@@ -55,8 +54,8 @@ for (num x = -radius-warp; x < radius+warp; x = x + 1) {
                                 warpFreq*(z+originZ()));
 			num distanceSquared = (pow(x+warpX,2)/1.5)+pow((y+warpY)*squish,2)+pow(z+warpZ,2);
             if (distanceSquared < radiusSquared) {
-                setBlock = "minecraft:warped_wart_block";
-                if (randomInt(3) == 0) setBlock = "minecraft:stripped_warped_hyphae";
+                setBlock = mainBlock;
+                if (randomInt(3) == 0) setBlock = altBlock;
                 block(x+length, y+((length*droop)*length/3), z, setBlock, true);
 			}
         }

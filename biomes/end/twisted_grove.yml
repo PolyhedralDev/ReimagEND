@@ -1,0 +1,25 @@
+id: TWISTED_GROVE
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_DEFAULT
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:TWISTED_GROVE
+
+tags:
+  - ADD_VOID_BIOMES
+
+colors:
+  grass: 0x3d8a9c
+  foliage: 0x3d8a9c
+  
+palette:
+  - CYAN_POWDER_END: $meta.yml:top-y
+
+features:
+  flora:
+    - END_GRASS
+    - TWISTING_VINES
+    - WARPED_STEM_BUSHES
+  trees:
+    - TWISTING_BEANSTALKS

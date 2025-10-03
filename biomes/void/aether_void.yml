@@ -1,0 +1,10 @@
+id: AETHER_VOID
+type: BIOME
+extends:
+  - EQ_VOID
+vanilla: minecraft:the_void
+color: $biomes/colors.yml:AETHER_VOID
+
+palette:
+  - BLOCK:minecraft:stone: $meta.yml:top-y
+

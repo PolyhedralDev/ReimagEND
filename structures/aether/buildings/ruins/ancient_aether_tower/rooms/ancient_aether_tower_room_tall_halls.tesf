@@ -4,7 +4,6 @@ num wallWidth = 2;
 
 str setBlock = "ruin_block";
 
-num random = randomInt(4);
 for (num y = 0; y < length; y = y + 1) {
     for (num x = -width-wallWidth; x <= width+wallWidth; x = x + 1) {
         for (num z = -width-wallWidth; z <= width+wallWidth; z = z + 1) {

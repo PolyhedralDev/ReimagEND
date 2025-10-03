@@ -1,0 +1,42 @@
+stages:
+  - type: REPLACE
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 500 / ${customization.yml:aether-biome-scale}
+    from: aether-spot
+    to:
+      - aether: 1
+      - aether-highlands: 1
+
+  - type: REPLACE_LIST
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 500 / ${customization.yml:aether-biome-scale}
+    default-from: aether
+    default-to:
+      - AETHER: 2
+      - AETHER_FOREST: 1
+    to:
+      aether-highlands:
+        - AETHER_HIGHLANDS: 2
+        - AETHER_HIGHLANDS_FOREST: 1
+
+  - type: BORDER
+    sampler:
+      type: CONSTANT
+    replace: AETHER
+    from: VOID
+    to: AETHER_VOID
+
+  - type: REPLACE
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 500 / ${customization.yml:outer-end-biome-scale}
+    from: outer-end
+    to:
+      - END_HIGHLANDS: 1
+      - SHATTERED_END: 1
+      - SHATTERED_FOREST: 1

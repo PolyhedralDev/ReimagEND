@@ -1,0 +1,23 @@
+id: CHORAL_DEADLANDS_DESOLATE
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_DEFAULT
+vanilla: minecraft:end_barrens
+color: $biomes/colors.yml:CHORAL_DEADLANDS
+
+tags:
+  - ADD_VOID_BIOMES
+
+colors:
+  grass: 0x808080
+  foliage: 0x808080
+
+palette:
+  - DEAD_CORAL_GROUND: $meta.yml:top-y
+
+features:
+  flora:
+    - CORAL_GRASS
+  trees:
+    - CHORAL_BRAMBLES

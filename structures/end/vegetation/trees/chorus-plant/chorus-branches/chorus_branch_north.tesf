@@ -1,0 +1,19 @@
+num length = 3+randomInt(2);
+bool allow = true;
+
+for (num y = 1; y < length; y = y + 1) {
+    if (getBlock(0,y,0) != "minecraft:air") {
+        allow = false;
+        fail;
+    }
+}
+
+if (allow == true) {
+    block(0,0,0,"minecraft:chorus_plant[up=true,south=true]");
+    for (num y = 1; y < length; y = y + 1) {
+        block(0,y,0,"minecraft:chorus_plant[up=true,down=true]");
+    }
+}
+
+block(0,length,0,"minecraft:chorus_flower[age=5]");
+

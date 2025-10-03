@@ -1,0 +1,69 @@
+num randPrecision = 100;
+num goldenAngle = 2.39996;
+num pi = 3.14159;
+
+num spikes = 5;
+num spikeRadius = 3.5;
+num spikeStart = 2;
+num spikeLengthBase = 5;
+num spikeLengthVariation = 1;
+
+num rootBase = 0;
+num rootDroop = 0.03;
+num rootVerticalDirection = 0.3;
+num rootAngle = randomInt(randPrecision)/randPrecision*2*pi;
+
+num yTranslate = 0;
+
+str mainBlock = "minecraft:obsidian";
+
+str setBlock = mainBlock;
+for (num n = 0; n < spikes; n = n + 1) {
+    // Branch direction vector
+    num dx = sin(rootAngle);
+    num dy = rootVerticalDirection;
+    num dz = cos(rootAngle);
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+
+    num length = spikeLengthBase+randomInt(spikeLengthVariation);
+
+    for (num i = 0; i <= length; i = i + 0.05) {
+        num cx = i*dx;
+        num cy = rootBase+i*dy;
+        num cz = i*dz;
+
+        // Reduce radius inversely to length
+        num r = ((spikeRadius/(length)) * -i) + spikeRadius;
+
+        // Generate sphere at each point
+        for(num x = -r; x <= r; x = x + 1) {
+            for(num y = -r; y <= r; y = y + 1) {
+                for(num z = -r; z <= r; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) <= pow(r,2) &&
+                        i > spikeStart) {
+                        setBlock = mainBlock;
+
+                        block(i*cx + x, i*cy + y - spikeRadius + yTranslate, i*cz + z, setBlock, false);
+                        block(i*cx + x, i*cy + y - spikeRadius + yTranslate - 1, i*cz + z, setBlock, false);
+                    }
+                }
+            }
+        }
+        // Point vector down more
+        if (i < length/2) {
+            dy = dy - rootDroop;
+        } dy = dy + rootDroop;
+
+        // Normalize vector
+        mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
+        dx = dx/mag;
+        dy = dy/mag;
+        dz = dz/mag;
+    }
+
+    rootAngle = rootAngle + goldenAngle;
+}

@@ -1,0 +1,15 @@
+stages:
+  - type: REPLACE
+    sampler:
+      type: CELLULAR
+      return: CellValue
+      frequency: 1 / 500 / ${customization.yml:outer-end-biome-scale}
+    from: outer-end
+    to:
+      - END_HIGHLANDS: 1
+      - SHATTERED_END: 1
+      - SHATTERED_FOREST: 1
+      - AMETHYST_END: 1
+      - END_WILDS: 1
+      - CHORAL_DEADLANDS: 1
+      - HANGING_ISLES: 1

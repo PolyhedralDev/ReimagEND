@@ -1,0 +1,261 @@
+str north = "false";
+str east = "false";
+str south = "false";
+str west = "false";
+
+str sideNorth = "false";
+str sideEast = "false";
+str sideSouth = "false";
+str sideWest = "false";
+
+bool allow = true;
+
+bool large = true;
+if (randomInt(2) == 0) large = false;
+
+num length = 1+randomInt(6);
+
+for (num y = 0; y < length; y = y + 1) {
+    if (getBlock(0,y,0) != "minecraft:air") fail;
+    block(0,y,0,"minecraft:chorus_plant[up=true,down=true]");
+}
+
+//north
+num sideLength = length + 1+randomInt(6);
+if (randomInt(2) == 0 && getBlock(0,length,-1) == "minecraft:air" && getBlock(0,sideLength,-1) == "minecraft:air") {
+    north = "true";
+    allow = true;
+
+    for (num y = length+1; y < sideLength; y = y + 1) {
+        if (getBlock(0,y,-1) != "minecraft:air") {
+            allow = false;
+            fail;
+        }
+    }
+
+    block(0,length,-1,"minecraft:chorus_plant[up=true,south=true]");
+
+    if (allow == true) {
+        for (num y = length+1; y < sideLength; y = y + 1) {
+         block(0,y,-1,"minecraft:chorus_plant[up=true,down=true]");
+        }
+    }
+
+
+    sideNorth = "false";
+    sideEast = "false";
+    sideSouth = "false";
+    sideWest = "false";
+
+    if (randomInt(2) == 0 && getBlock(0,sideLength,-2) == "minecraft:air" && large) {
+        sideNorth = "true";
+        structure(0,sideLength,-2,"chorus_branch_north","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(1,sideLength,-1) == "minecraft:air" && large) {
+        sideEast = "true";
+        structure(1,sideLength,-1,"chorus_branch_east","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(0,sideLength,0) == "minecraft:air" && large) {
+        sideSouth = "true";
+        structure(0,sideLength,0,"chorus_branch_south","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(-1,sideLength,-1) == "minecraft:air" && large) {
+        sideWest = "true";
+        structure(-1,sideLength,-1,"chorus_branch_west","NONE");
+    }
+
+    if (sideNorth == "false" && sideEast == "false" && sideSouth == "false" && sideWest == "false") {
+        block(0,sideLength,-1,"minecraft:chorus_flower[age=5]");
+    } else {
+        block(0,sideLength,-1,"minecraft:chorus_plant[down=true,north="+sideNorth+",east="+sideEast+",south="+sideSouth+",west="+sideWest+"]");
+    }
+}
+
+//east
+sideLength = length + 1+randomInt(6);
+if (randomInt(10) == 0  && getBlock(1,length,0) == "minecraft:air" && getBlock(1,sideLength,0) == "minecraft:air") {
+    east = "true";
+    allow = true;
+
+    for (num y = length+1; y < sideLength; y = y + 1) {
+        if (getBlock(1,y,0) != "minecraft:air") {
+            allow = false;
+            fail;
+        }
+    }
+
+    block(1,length,0,"minecraft:chorus_plant[up=true,west=true]");
+
+    if (allow == true) {
+        for (num y = length+1; y < sideLength; y = y + 1) {
+            block(1,y,0,"minecraft:chorus_plant[up=true,down=true]");
+        }
+    }
+
+
+    sideNorth = "false";
+    sideEast = "false";
+    sideSouth = "false";
+    sideWest = "false";
+
+
+    if (randomInt(2) == 0 && getBlock(1,sideLength,-1) == "minecraft:air" && large) {
+        sideNorth = "true";
+        structure(1,sideLength,-1,"chorus_branch_north","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(1,sideLength,0) == "minecraft:air" && large) {
+        sideEast = "true";
+        structure(2,sideLength,0,"chorus_branch_east","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(0,sideLength,1) == "minecraft:air" && large) {
+        sideSouth = "true";
+        structure(1,sideLength,1,"chorus_branch_south","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(-1,sideLength,0) == "minecraft:air" && large) {
+        sideWest = "true";
+        structure(0,sideLength,0,"chorus_branch_west","NONE");
+    }
+
+    if (sideNorth == "false" && sideEast == "false" && sideSouth == "false" && sideWest == "false") {
+        block(1,sideLength,0,"minecraft:chorus_flower[age=5]");
+    } else {
+        block(1,sideLength,0,"minecraft:chorus_plant[down=true,north="+sideNorth+",east="+sideEast+",south="+sideSouth+",west="+sideWest+"]");
+    }
+}
+
+//south
+sideLength = length + 1+randomInt(6);
+if (randomInt(2) == 0 && getBlock(0,length,1) == "minecraft:air" && getBlock(0,sideLength,1) == "minecraft:air") {
+    south = "true";
+    allow = true;
+
+    for (num y = length+1; y < sideLength; y = y + 1) {
+        if (getBlock(0,y,1) != "minecraft:air") {
+            allow = false;
+            fail;
+        }
+    }
+
+    block(0,length,1,"minecraft:chorus_plant[up=true,north=true]");
+    if (allow == true) {
+        for (num y = length+1; y < sideLength; y = y + 1) {
+            block(0,y,1,"minecraft:chorus_plant[up=true,down=true]");
+        }
+    }
+
+    sideNorth = "false";
+    sideEast = "false";
+    sideSouth = "false";
+    sideWest = "false";
+
+    if (randomInt(2) == 0 && getBlock(0,sideLength,0) == "minecraft:air" && large) {
+        sideNorth = "true";
+        structure(0,sideLength,0,"chorus_branch_north","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(1,sideLength,1) == "minecraft:air" && large) {
+        sideEast = "true";
+        structure(1,sideLength,1,"chorus_branch_east","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(0,sideLength,2) == "minecraft:air" && large) {
+        sideSouth = "true";
+        structure(0,sideLength,2,"chorus_branch_south","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(-1,sideLength,1) == "minecraft:air" && large) {
+        sideWest = "true";
+        structure(-1,sideLength,1,"chorus_branch_west","NONE");
+    }
+
+    if (sideNorth == "false" && sideEast == "false" && sideSouth == "false" && sideWest == "false") {
+        block(0,sideLength,1,"minecraft:chorus_flower[age=5]");
+    } else {
+        block(0,sideLength,1,"minecraft:chorus_plant[down=true,north="+sideNorth+",east="+sideEast+",south="+sideSouth+",west="+sideWest+"]");
+    }
+}
+
+//west
+sideLength = length + 1+randomInt(6);
+if (randomInt(2) == 0 && getBlock(-1,length,0) == "minecraft:air" && getBlock(-1,sideLength,0) == "minecraft:air") {
+    west = "true";
+    allow = true;
+
+    for (num y = length+1; y < sideLength; y = y + 1) {
+        if (getBlock(-1,y,0) != "minecraft:air") {
+            allow = false;
+            fail;
+        }
+    }
+
+    block(-1,length,0,"minecraft:chorus_plant[up=true,east=true]");
+    if (allow == true) {
+        for (num y = length+1; y < sideLength; y = y + 1) {
+            block(-1,y,0,"minecraft:chorus_plant[up=true,down=true]");
+        }
+    }
+
+    sideNorth = "false";
+    sideEast = "false";
+    sideSouth = "false";
+    sideWest = "false";
+
+    if (randomInt(2) == 0 && getBlock(-1,sideLength,-1) == "minecraft:air" && large) {
+        sideNorth = "true";
+        structure(-1,sideLength,-1,"chorus_branch_north","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(0,sideLength,0) == "minecraft:air" && large) {
+        sideEast = "true";
+        structure(0,sideLength,0,"chorus_branch_east","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(-1,sideLength,1) == "minecraft:air" && large) {
+        sideSouth = "true";
+        structure(-1,sideLength,1,"chorus_branch_south","NONE");
+    }
+
+    if (randomInt(2) == 0 && getBlock(-2,sideLength,0) == "minecraft:air" && large) {
+        sideWest = "true";
+        structure(-2,sideLength,0,"chorus_branch_west","NONE");
+    }
+
+    if (sideNorth == "false" && sideEast == "false" && sideSouth == "false" && sideWest == "false") {
+        block(-1,sideLength,0,"minecraft:chorus_flower[age=5]");
+    } else {
+        block(-1,sideLength,0,"minecraft:chorus_plant[down=true,north="+sideNorth+",east="+sideEast+",south="+sideSouth+",west="+sideWest+"]");
+    }
+}
+
+
+if (north == "false" &&
+    east == "false" &&
+    south == "false" &&
+    west == "false") {
+
+    num random = randomInt(4);
+    if (random == 0) {
+        block(0, length, 0, "minecraft:chorus_plant[down=true,north=true]", true);
+        structure(0, length, -1, "chorus_branch_north", "NONE");
+    }
+    if (random == 1) {
+        block(0, length, 0, "minecraft:chorus_plant[down=true,east=true]", true);
+        structure(1, length, 0, "chorus_branch_east", "NONE");
+    }
+    if (random == 2) {
+        block(0, length, 0, "minecraft:chorus_plant[down=true,south=true]", true);
+        structure(0, length, 1, "chorus_branch_south", "NONE");
+    }
+    if (random == 3) {
+        block(0, length, 0, "minecraft:chorus_plant[down=true,west=true]", true);
+        structure(-1, length, 0, "chorus_branch_west", "NONE");
+    }
+} else {
+    block(0,length,0,"minecraft:chorus_plant[down=true,north="+north+",east="+east+",south="+south+",west="+west+"]");
+}

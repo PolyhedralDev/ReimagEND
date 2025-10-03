@@ -1,0 +1,37 @@
+id: STYGIAN_JELLIES
+type: FEATURE
+
+distributor:
+  type: AND
+  distributors:
+    - type: PADDED_GRID
+      width: 27
+      padding: 15
+      salt: 7115
+    - type: SAMPLER
+      sampler:
+        type: CELLULAR
+        return: CellValue
+        frequency: 0.05
+        salt: 6541
+      threshold: -0.4
+
+locator:
+  type: AND
+  locators:
+    - type: RANDOM
+      height: &range
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 10
+      amount: 1
+      salt: 2913
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: MATCH_AIR
+        offset: 0
+
+structures:
+  distribution:
+    type: CONSTANT
+  structures: stygian_jelly_swarm

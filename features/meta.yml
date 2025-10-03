@@ -1,40 +1,24 @@
 end-plantable-blocks:
-  - minecraft:end_stone
-  - minecraft:yellow_concrete
   - minecraft:yellow_concrete_powder
   - minecraft:light_blue_concrete_powder
   - minecraft:cyan_concrete_powder
-  - minecraft:light_blue_terracotta
-  - minecraft:blue_terracotta
   - minecraft:magenta_concrete_powder
-  - minecraft:magenta_concrete
   - minecraft:purple_concrete_powder
-  - minecraft:purple_concrete
-  - minecraft:black_concrete
   - minecraft:black_concrete_powder
   - minecraft:white_concrete_powder
-  - minecraft:white_concrete
   - minecraft:lime_concrete_powder
-  - minecraft:lime_concrete
   - minecraft:green_concrete_powder
-  - minecraft:green_concrete
   - minecraft:pink_concrete_powder
-  - minecraft:pink_concrete
   - minecraft:red_concrete_powder
-  - minecraft:red_concrete
   - minecraft:blue_concrete_powder
-  - minecraft:blue_concrete
   - minecraft:orange_concrete_powder
-  - minecraft:orange_concrete
-  - minecraft:purple_terracotta
-  - minecraft:magenta_terracotta
-  - minecraft:white_terracotta
-  - minecraft:light_gray_terracotta
   - minecraft:dead_tube_coral_block
   - minecraft:dead_brain_coral_block
   - minecraft:dead_bubble_coral_block
   - minecraft:dead_fire_coral_block
   - minecraft:dead_horn_coral_block
+  - minecraft:purple_terracotta
+  - minecraft:blue_terracotta
 
 plantable-blocks:
   - minecraft:mud
@@ -45,57 +29,11 @@ plantable-blocks:
   - minecraft:moss_block
   - minecraft:rooted_dirt
 
-aquatic-plantable-blocks:
-  - minecraft:mud
-  - minecraft:sand
-  - minecraft:gravel
-
-sugarcane-plantable-blocks:
-  - minecraft:mud
-  - minecraft:sand
-  - minecraft:red_sand
-  - minecraft:grass_block
-  - minecraft:podzol
-  - minecraft:dirt
-  - minecraft:coarse_dirt
-  - minecraft:moss_block
-  - minecraft:rooted_dirt
-
-dripleaf-plantable-blocks:
-  - minecraft:mud
-  - minecraft:clay
-  - minecraft:coarse_dirt
-  - minecraft:dirt
-  - minecraft:farmland
-  - minecraft:grass_block
-  - minecraft:moss_block
-  - minecraft:mycelium
-  - minecraft:podzol
-  - minecraft:rooted_dirt
-
-sculk-plantable-blocks:
-  - minecraft:stone
-  - minecraft:tuff
-  - minecraft:deepslate
-  - minecraft:cobbled_deepslate
-  - minecraft:chiseled_deepslate
-  - minecraft:polished_deepslate
-  - minecraft:deepslate_tiles
-  - minecraft:cracked_deepslate_tiles
-  - minecraft:deepslate_bricks
-  - minecraft:cracked_deepslate_bricks
-  - minecraft:polished_basalt
-  - minecraft:deepslate_tile_wall
-  - minecraft:cobbled_deepslate_wall
-  - minecraft:polished_deepslate_wall
-  - minecraft:deepslate_tile_stairs
-  - minecraft:dark_oak_log
-  - minecraft:dark_oak_planks
-  - minecraft:dark_oak_fence
-  - minecraft:end_stone
-  - minecraft:black_concrete
-  - minecraft:black_concrete_powder
-  - minecraft:grass_block
-  - minecraft:dirt
-  - minecraft:oak_log
-  - minecraft:oak_leaves
+structure-blocks:
+  - minecraft:end_stone_bricks
+  - minecraft:magenta_stained_glass
+  - minecraft:purpur_stairs
+  - minecraft:purpur_slab
+  - minecraft:purpur_pillar
+  - minecraft:purpur_block
+  - minecraft:smooth_quartz

@@ -1,0 +1,59 @@
+num randPrecision = 100;
+num radius = 6+randomInt(randPrecision)/randPrecision*2;
+num warp = 2;
+num warpFreq = 3;
+num squish = 1+randomInt(randPrecision)/randPrecision;
+num radiusSquared = pow(radius,2);
+num yTranslate = 0;
+
+bool valid = false;
+while (yTranslate > -2) {
+    if ((check(radius, -1 + yTranslate, radius) == "LAND" &&
+        check(-radius, -1 + yTranslate, radius) == "LAND" &&
+        check(radius, -1 + yTranslate, -radius) == "LAND" &&
+        check(-radius, -1 + yTranslate, -radius) == "LAND") && (
+        check(radius, 3 + yTranslate, 0) == "AIR" &&
+        check(-radius, 3 + yTranslate, 0) == "AIR" &&
+        check(0, 3 + yTranslate, radius) == "AIR" &&
+        check(0, 3 + yTranslate, -radius) == "AIR"
+        )
+    ) valid = true;
+    yTranslate = yTranslate - 1;
+}
+
+if (!valid) fail;
+
+for (num x = -radius-warp; x < radius+warp; x = x + 1) {
+    for (num y = (-radius-warp)/squish; y < (radius+warp); y = y + 1) {
+        for (num z = -radius-warp; z < radius+warp; z = z + 1) {
+            num warpX = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+1000),
+                                warpFreq*(z+originZ()));
+            num warpY = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+2000),
+                                warpFreq*(z+originZ()));
+            num warpZ = warp * sampler("simplex3",
+                                warpFreq*(x+originX()),
+                                warpFreq*(y+originY()+3000),
+                                warpFreq*(z+originZ()));
+            if (pow(x+warpX,2)+pow((y+warpY)*squish,2)+pow(z+warpZ,2) < radiusSquared && y < -1) {
+                str setBlock = "minecraft:end_stone";
+                if (getBlock(x, y+yTranslate, z) == "minecraft:air" &&
+                    getBlock(x, y+yTranslate, z) != "minecraft:water") {
+                    block(x, y+yTranslate, z, setBlock, true);
+                    block(x, y+yTranslate - 1, z, setBlock, true);
+                }
+            }
+
+            if (pow(x+warpX,2)+pow((y+warpY)*squish,2)+pow(z+warpZ,2) < (radiusSquared-20) && y < -1) {
+                block(x, y+yTranslate, z, "minecraft:water", true, true);
+            }
+
+            if (pow(x+warpX,2)+pow((y+warpY),2)+pow(z+warpZ,2) < (radiusSquared-20) && y > -1) {
+                if (getBlock(x, y+yTranslate, z) != "minecraft:water") block(x, y+yTranslate, z, "minecraft:air", true);
+            }
+        }
+    }
+}

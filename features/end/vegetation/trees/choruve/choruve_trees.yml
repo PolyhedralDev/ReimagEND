@@ -1,0 +1,62 @@
+id: CHORUVE_TREES
+type: FEATURE
+
+distributor:
+  type: AND
+  distributors:
+    - type: PADDED_GRID
+      width: 13
+      padding: 6
+      salt: 6457
+    - type: SAMPLER
+      sampler:
+        type: PROBABILITY
+        sampler:
+          type: OPEN_SIMPLEX_2
+          salt: 2436
+      threshold: 0.95
+
+locator:
+  type: AND
+  locators:
+    - type: SURFACE
+      range: &range
+        min: $meta.yml:bottom-y
+        max: ${meta.yml:top-y} - 30
+    - type: PATTERN
+      range: *range
+      pattern:
+        type: AND
+        patterns:
+          - type: MATCH_SET
+            blocks: $features/meta.yml:end-plantable-blocks
+            offset: -1
+          - type: MATCH
+            block: minecraft:end_stone
+            offset: -3
+          - type: MATCH
+            block: minecraft:air
+            offset: 0
+          - type: MATCH
+            block: minecraft:air
+            offset: 3
+          - type: MATCH
+            block: minecraft:air
+            offset: 6
+          - type: MATCH
+            block: minecraft:air
+            offset: 9
+          - type: MATCH
+            block: minecraft:air
+            offset: 12
+          - type: MATCH
+            block: minecraft:air
+            offset: 15
+
+structures:
+  distribution:
+    type: WHITE_NOISE
+  structures:
+    - choruve_tree_procedural: 3
+    - large_choruve_tree_procedural: 1
+    - blank: 2

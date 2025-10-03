@@ -1,0 +1,26 @@
+num fallCheck = 20;
+
+for (num i = 0; i < fallCheck; i = i + 1) {
+    str checkBlock = getBlock(0, -i, 0);
+    if (checkBlock != "minecraft:air" &&
+    checkBlock != "minecraft:short_grass" &&
+    checkBlock != "minecraft:nether_sprouts" &&
+    checkBlock != "minecraft:warped_roots" &&
+    checkBlock != "minecraft:dead_horn_coral_fan[waterlogged=false]" &&
+    checkBlock != "minecraft:dead_horn_coral[waterlogged=false]" &&
+    checkBlock != "minecraft:dead_brain_coral_fan[waterlogged=false]" &&
+    checkBlock != "minecraft:dead_brain_coral[waterlogged=false]" &&
+    checkBlock != "minecraft:dead_fire_coral_fan[waterlogged=false]" &&
+    checkBlock != "minecraft:dead_fire_coral[waterlogged=false]" &&
+    checkBlock != "minecraft:dead_bubble_coral_fan[waterlogged=false]" &&
+    checkBlock != "minecraft:dead_bubble_coral[waterlogged=false]" &&
+    checkBlock != "minecraft:dead_tube_coral_fan[waterlogged=false]" &&
+    checkBlock != "minecraft:twisting_vines" &&
+    checkBlock != "minecraft:tall_grass") {
+        structure(0, -i + 1, 0, "end_ruin_block", "NONE");
+        break;
+    }
+}
+
+
+

@@ -1,0 +1,109 @@
+num randPrecision = 100;
+num goldenAngle = 2.39996;
+num pi = 3.14159;
+
+num length = 5 + randomInt(3);
+num trunkRadius = 2;
+num trunkBase = 4 + randomInt(3);
+num buffer = 7;
+num scanOffset = 5;
+num maxCheckDepth = 20;
+
+// Direction vector
+num tdx = (randomInt(randPrecision) / randPrecision - 0.5) * 1.5;
+num tdz = (randomInt(randPrecision) / randPrecision - 0.5) * 1.5;
+
+num tmag = sqrt(pow2(tdx) + pow2(tdz));
+tdx = tdx / tmag;
+tdz = tdz / tmag;
+
+str mainBlock = "minecraft:obsidian";
+str altBlock = "minecraft:black_concrete";
+
+str setBlock = mainBlock;
+// Generate roots at base of trunk
+num rootRadius = 1.5;
+num roots = 3 + randomInt(2);
+num rootMaxLength = 10;
+num rootDroop = 0.06;
+num rootVerticalDirection = -0.4 - randomInt(randPrecision) / randPrecision * 0.3;
+num rootAngle = randomInt(randPrecision) / randPrecision * 2 * pi;
+for (num r = 0; r < roots; r = r + 1) {
+    // Branch direction vector
+    num dx = sin(rootAngle);
+    num dy = rootVerticalDirection;
+    num dz = cos(rootAngle);
+    // Normalize vector
+    num mag = sqrt(pow(dx, 2) + pow(dy, 2) + pow(dz, 2));
+    dx = dx / mag;
+    dy = dy / mag;
+    dz = dz / mag;
+
+    for (num i = 0; i <= rootMaxLength; i = i + 0.5) {
+        num cx = i * dx;
+        num cy = trunkBase + i * dy;
+        num cz = i * dz;
+
+        // Place root block
+        if (getBlock(cx, cy, cz) == "minecraft:end_stone" ||
+            getBlock(cx+1, cy, cz+1) == "minecraft:end_stone" ||
+            getBlock(cx, cy, cz+1) == "minecraft:end_stone" ||
+            getBlock(cx+1, cy, cz) == "minecraft:end_stone") {
+            break;
+        }
+
+        for (num x = -rootRadius; x < rootRadius; x = x + 1) {
+            for (num y = -rootRadius; y < rootRadius; y = y + 1) {
+                for (num z = -rootRadius; z < rootRadius; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) < pow(rootRadius,2) ) {
+                        setBlock = mainBlock;
+                        if (randomInt(2) == 0) setBlock = altBlock;
+                        block(cx + x, cy + y, cz + z, setBlock);
+                    }
+                }
+            }
+        }
+
+        // Point vector down more
+        dy = dy - rootDroop;
+        // Normalize vector
+        mag = sqrt(pow2(dx) + pow2(dy) + pow2(dz));
+        dx = dx / mag;
+        dy = dy / mag;
+        dz = dz / mag;
+    }
+
+    rootAngle = rootAngle + goldenAngle;
+}
+
+if (check((length / 2) * tdx, scanOffset, (length / 2) * tdz) == "LAND") fail;
+if (getBlock((length / 2) * tdx, scanOffset, (length / 2) * tdz) != "minecraft:air") fail;
+
+for (num l = buffer; l <= buffer + length; l = l + 1) {
+
+    num yTranslate = scanOffset;
+    while (check(l * tdx, yTranslate - 1, l * tdz) != "LAND" &&
+        check(l * tdx + 1, yTranslate - 1, l * tdz) != "LAND" &&
+        check(l * tdx + 1, yTranslate - 1, l * tdz + 1) != "LAND" &&
+        check(l * tdx, yTranslate - 1, l * tdz + 1) != "LAND" &&
+        yTranslate > -maxCheckDepth) yTranslate = yTranslate - 1;
+
+    if (yTranslate == -maxCheckDepth) fail;
+
+    if (getBlock(l * tdx, yTranslate - 1, l * tdz) == mainBlock ||
+        getBlock(l * tdx, yTranslate - 1, l * tdz) == altBlock) continue;
+
+    num r = trunkRadius;
+    // Generate sphere at each point
+    for (num x = -r; x < r; x = x + 1) {
+        for (num y = -r; y < r; y = y +1) {
+            for (num z = -r; z < r; z = z +1) {
+                if (pow(x, 2) + pow(y, 2) + pow(z, 2) <= pow(r, 2)) {
+                    setBlock = mainBlock;
+                    if (randomInt(2) == 0) setBlock = altBlock;
+                    block(l * tdx +x, yTranslate +y, l * tdz +z, setBlock, true);
+                }
+            }
+        }
+    }
+}

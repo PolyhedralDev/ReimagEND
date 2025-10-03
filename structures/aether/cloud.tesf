@@ -1,0 +1,51 @@
+num randPrecision = 100;
+num radius = 3 + randomInt(randPrecision) / randPrecision * 3;
+num warp = 5;
+num warpFreq = 2;
+num squish = 3 + randomInt(randPrecision) / randPrecision;
+num radiusSquared = pow(radius, 2);
+num yTranslate = -1;
+
+num length = 10 + randomInt(10);
+num segmentInterval = 2;
+// Direction vector
+num dx = (randomInt(randPrecision)/randPrecision-0.5)*1.5;
+num dy = 0.01;
+num dz = (randomInt(randPrecision)/randPrecision-0.5)*1.5;
+
+
+// Normalize vector
+num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+dx = dx/mag;
+dy = dy/mag;
+dz = dz/mag;
+
+str mainBlock = "minecraft:powder_snow";
+
+for (num l = -round(length/2); l < round(length/2); l = l + 1) {
+
+    if (l % segmentInterval == 0) {
+        for (num x = -radius - warp; x < radius + warp; x = x + 1) {
+            for (num y = (-radius - warp) / squish; y < (radius + warp) / squish; y = y + 1) {
+                for (num z = -radius - warp; z < radius + warp; z = z + 1) {
+                    num warpX = warp * sampler("simplex3",
+                        warpFreq * (x + originX() + l),
+                        warpFreq * (y + originY() + 1000),
+                        warpFreq * (z + originZ()));
+                    num warpY = warp * sampler("simplex3",
+                        warpFreq * (x + originX()),
+                        warpFreq * (y + originY() + 2000 + l),
+                        warpFreq * (z + originZ()));
+                    num warpZ = warp * sampler("simplex3",
+                        warpFreq * (x + originX()),
+                        warpFreq * (y + originY() + 3000),
+                        warpFreq * (z + originZ() + l));
+                    if (pow(x + warpX, 2) + pow((y + warpY) * squish, 2) + pow(z + warpZ, 2) < radiusSquared) {
+                        block(l * dx + x, l * dy + y + yTranslate, l * dz + z, mainBlock);
+                    }
+                }
+            }
+        }
+    }
+}
+

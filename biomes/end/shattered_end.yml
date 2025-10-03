@@ -1,0 +1,19 @@
+id: SHATTERED_END
+type: BIOME
+extends:
+  - BASE_END
+  - EQ_SHATTERED
+vanilla: minecraft:end_highlands
+color: $biomes/colors.yml:SHATTERED_END
+
+tags:
+  - ADD_VOID_BIOMES
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+features:
+  landforms:
+    - LARGE_PILLARS
+  trees:
+    - SHATTERED_PILLARS

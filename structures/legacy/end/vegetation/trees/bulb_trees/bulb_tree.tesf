@@ -1,0 +1,110 @@
+if (getBlock(3,-2,0) == "minecraft:air") fail;
+if (getBlock(-3,-2,0) == "minecraft:air") fail;
+if (getBlock(0,-2,3) == "minecraft:air") fail;
+if (getBlock(0,-2,-3) == "minecraft:air") fail;
+
+num randPrecision = 100;
+num goldenAngle = 2.39996;
+num pi = 3.14159;
+
+str trunkBlock = "minecraft:light_gray_concrete";
+str altTrunkBlock = "minecraft:light_gray_concrete_powder";
+str setBlock = trunkBlock;
+
+num trunkRadius = 3;
+num length = 20+randomInt(10);
+num xTranslate = 0;
+num zTranslate = 0;
+
+num topBranchLeafTranslate = 0;
+str topBranchLeafStructure = "bulb";
+
+num sideBranchInterval = 8+randomInt(5);
+num sideBranchMinHeight = 2;
+num sideBranchMaxHeight = -1;
+str sideBranchLeafStructure = "blank";
+
+if (getBlock(0,length,0) != "minecraft:air") fail;
+
+// tree trunk
+for(num h = 0; h <= length; h = h + 1) {
+    // light_blueuce radius inversely to length
+    num r = (trunkRadius/length * -h/2) + trunkRadius;
+
+    // Generate sphere at each point
+    for(num x = -r; x <= r; x = x + 1) {
+        for(num y = -r; y <= r; y = y + 1) {
+            for(num z = -r; z <= r; z = z + 1) {
+                if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                    setBlock = trunkBlock;
+                    if (randomInt(2) == 0) setBlock = altTrunkBlock;
+                    block(x + xTranslate, h + y - trunkRadius, z + zTranslate, setBlock, false);                  
+                }
+            }
+        }
+    }
+
+    if (h > sideBranchMinHeight && h < sideBranchMaxHeight) {
+        if (h % sideBranchInterval == 0) {
+            // Generate branch
+            structure(0, h, 0, sideBranchLeafStructure, "NONE");
+        }
+    }
+}
+
+structure(0, length+topBranchLeafTranslate, 0, topBranchLeafStructure, "NONE", "CW_90", "CCW_90", "CW_180");
+
+num spikes = 8;
+num rootBase = 0;
+num rootDroop = -0.025;
+num rootVerticalDirection = -1-randomInt(randPrecision)/randPrecision*0.3;
+num rootAngle = randomInt(randPrecision)/randPrecision*2*pi;
+
+num spikeRadius = 3;
+setBlock = "";
+
+for (num n = 0; n < spikes; n = n + 1) {
+    // Branch direction vector
+    num dx = sin(rootAngle);
+    num dy = rootVerticalDirection;
+    num dz = cos(rootAngle);
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+
+    num spikeLength = 5;
+
+    for (num i = 0; i <= spikeLength; i = i + 0.05) {
+        num cx = i*dx;
+        num cy = rootBase+i*dy;
+        num cz = i*dz;
+
+        // Reduce radius inversely to spikeLength
+        num r = ((spikeRadius/(spikeLength)) * -i) + spikeRadius;
+
+        // Generate sphere at each point
+        for(num x = -r; x <= r; x = x + 1) {
+            for(num y = -r; y <= r; y = y + 1) {
+                for(num z = -r; z <= r; z = z + 1) {
+                    if (pow(x,2)+pow(y,2)+pow(z,2) <= pow(r,2)) {
+                        setBlock = trunkBlock;
+                        if (randomInt(5) == 0) setBlock = altTrunkBlock;
+
+                        block(i*cx + x, i*cy + y - spikeRadius + length, i*cz + z, setBlock, true);
+                    }
+                }
+            }
+        }
+        // Point vector down more
+        dy = dy - rootDroop;
+        // Normalize vector
+        mag = sqrt(pow2(dx)+pow2(dy)+pow2(dz));
+        dx = dx/mag;
+        dy = dy/mag;
+        dz = dz/mag;
+    }
+
+    rootAngle = rootAngle + goldenAngle;
+}

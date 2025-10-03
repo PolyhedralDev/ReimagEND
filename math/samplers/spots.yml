@@ -1,0 +1,55 @@
+variables: &variables
+  aetherPocketToggle: $customization.yml:aether-pocket-toggle
+
+  spawnRadiusOffset: $customization.yml:spot-spawn-radius-offset
+
+  spread: $customization.yml:spot-spread
+
+  biomeBorder: $customization.yml:spot-border
+
+  minRadius: $customization.yml:spot-radius-min
+  maxRadius: $customization.yml:spot-radius-max
+
+cellular: &cellular
+  dimensions: 2
+  type: CELLULAR
+  frequency: 1 / ${customization.yml:spot-spread}
+  salt: 3
+  jitter: 1-2*(${customization.yml:spot-radius-max}/${customization.yml:spot-spread})
+
+samplers:
+  spotDistance: # Returns block distance from closest spot center
+    dimensions: 2
+    type: DOMAIN_WARP
+    amplitude: 7
+    warp:
+      type: OPEN_SIMPLEX_2
+      frequency: 0.015
+    sampler:
+      type: EXPRESSION
+      expression: (noise(x, z)+1)*spread
+      variables: *variables
+      samplers:
+        noise:
+          <<: *cellular
+          distance: Euclidean
+
+  spotSizePercent: # Returns a random value between 0 and 1 that determines the size of the spot
+    dimensions: 2
+    type: PROBABILITY
+    sampler:
+      <<: *cellular
+      return: CellValue
+
+  spotRadius: # Returns the radius of the spot in blocks
+    dimensions: 2
+    type: EXPRESSION
+    expression: lerp(spotSizePercent(x, z), 0, minRadius, 1, maxRadius)
+    functions: $math/functions/interpolation.yml:functions
+    variables: *variables
+    samplers:
+      spotSizePercent: $math/samplers/spots.yml:samplers.spotSizePercent
+
+  spotAngle:
+    <<: *cellular
+    return: Angle

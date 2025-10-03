@@ -1,0 +1,91 @@
+num randPrecision = 100;
+num pi = 3.14159;
+
+str trunkBlock = "minecraft:white_concrete";
+str altTrunkBlock = "minecraft:white_concrete_powder";
+str setBlock = trunkBlock;
+
+num trunkRadius = 3;
+num length = 10+randomInt(20);
+num xTranslate = 0;
+num zTranslate = 0;
+
+num topBranches = 8+randomInt(3);
+num topBranchLengthUpwardsMin = 0;
+num topBranchLengthOutwardsMin = 0;
+num topBranchVerticalDirection = 0.8+randomInt(randPrecision)/randPrecision/1.5;
+str topBranchLeafStructure = "blue_mushroom_cap";
+
+num sideBranchInterval = 5+randomInt(5);
+num sideBranchMinHeight = 10+randomInt(5);
+num sideBranchMaxHeight = length-20;
+num sideBranchLengthMin = 1;
+num sideBranchLengthVariation = 1;
+num sideBranchVerticalVariation = 0;
+num sideBranchVerticalDirection = 0.8+randomInt(randPrecision)/randPrecision/1.5;
+
+if (getBlock(0,length,0) != "minecraft:air") fail;
+
+num branchAngle = randomInt(randPrecision)/randPrecision*2*pi;
+
+// tree trunk
+for(num h = 0; h <= length; h = h + 1) {
+    // Reduce radius inversely to length
+    num r = (trunkRadius/length * -h/2) + trunkRadius;
+
+    // Generate sphere at each point
+    for(num x = -r; x <= r; x = x + 1) {
+        for(num y = -r; y <= r; y = y + 1) {
+            for(num z = -r; z <= r; z = z + 1) {
+                if (pow(x,2)+pow(y,2)+pow(z,2) < pow(r,2)) {
+                    setBlock = trunkBlock;
+                    if (randomInt(2) == 0) setBlock = altTrunkBlock;
+                    block(x + xTranslate, h + y - trunkRadius, z + zTranslate, setBlock, false);                  
+                }
+            }
+        }
+    }
+
+    if (h > sideBranchMinHeight && h < sideBranchMaxHeight) {
+        if (h % sideBranchInterval == 0) {
+            // Branch direction vector
+            num dx = sin(branchAngle);
+            num dy = sideBranchVerticalDirection + randomInt(randPrecision)/randPrecision*sideBranchVerticalVariation;
+            num dz = cos(branchAngle);
+            // Normalize vector
+            num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+            dx = dx/mag;
+            dy = dy/mag;
+            dz = dz/mag;
+            // Branch origin
+            num ox = xTranslate;
+            num oy = h;
+            num oz = zTranslate;
+            // Generate branch
+            structure(dx+ox, dy+oy, dz+oz, "blank","NONE");
+        }
+    }
+    xTranslate = xTranslate+(1-randomInt(3));
+    zTranslate = zTranslate+(1-randomInt(3));
+}
+
+for (num b = 1; b <= topBranches; b = b + 1) {
+    num t = b/topBranches;
+    num ti = 1-t;
+    // Branch direction vector
+    num dx = sin(branchAngle) * t;
+    num dy = topBranchVerticalDirection;
+    num dz = cos(branchAngle) * t;
+    // Normalize vector
+    num mag = sqrt(pow(dx,2)+pow(dy,2)+pow(dz,2));
+    dx = dx/mag;
+    dy = dy/mag;
+    dz = dz/mag;
+    // Branch origin
+    num ox = xTranslate;
+    num oy = length-3;
+    num oz = zTranslate;
+    // Set branch block based on largest unsigned vector component
+    // Generate branch
+    structure(dx+ox, dy+oy, dz+oz, topBranchLeafStructure,"NONE");
+}

@@ -1,6 +1,6 @@
 num randPrecision = 100;
 
-num length = 10 + randomInt(randPrecision)/randPrecision*40;
+num length = 10 + randomInt(randPrecision)/randPrecision*10;
 num radius = 1.5 + randomInt(randPrecision)/randPrecision*3;
 // Direction vector
 num dx = (randomInt(randPrecision)/randPrecision-0.5)*1.5;

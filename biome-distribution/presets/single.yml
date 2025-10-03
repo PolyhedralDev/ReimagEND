@@ -1,0 +1,33 @@
+biomes:
+  type: EXTRUSION
+  extrusions:
+    - << biome-distribution/extrusions/add_void_biomes.yml:extrusions
+  provider:
+    type: PIPELINE
+    resolution: 4
+    blend:
+      amplitude: 2
+      sampler:
+        type: OPEN_SIMPLEX_2
+        frequency: 0.1
+    pipeline:
+      source:
+        type: SAMPLER
+        biomes:
+          - single-biome: 3
+          - VOID: 1
+        sampler:
+          type: FBM
+          octaves: 2
+          sampler:
+            type: OPEN_SIMPLEX_2
+            frequency: 1 / 600 / ${customization.yml:outer-end-biome-scale}
+      stages:
+        - << biome-distribution/stages/outer_end_distribution.yml:stages
+        - << biome-distribution/stages/desolate_distribution.yml:stages
+
+        - type: REPLACE
+          sampler:
+            type: CONSTANT
+          from: single-biome
+          to: $pack.yml:preset-single-biome

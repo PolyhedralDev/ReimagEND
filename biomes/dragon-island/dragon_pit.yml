@@ -1,0 +1,24 @@
+id: DRAGON_PIT
+type: BIOME
+extends:
+  - DRAGON_ISLAND
+  - EQ_VOID
+vanilla: minecraft:the_end
+color: $biomes/colors.yml:DRAGON_PIT
+
+particles:
+  particle: minecraft:trail{target:[0.5,85,0.5],color:[0.302, 0.192, 0.412],duration:75}
+  probability: 0.0005
+
+colors:
+  grass: 0xdee6a4
+  water: 0x62529E
+  water-fog: 0x62529E
+  #fog: 0x000000
+  #sky: 0x000000
+
+palette:
+  - BLOCK:minecraft:end_stone: $meta.yml:top-y
+
+
+

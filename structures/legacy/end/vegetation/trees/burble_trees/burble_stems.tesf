@@ -1,0 +1,21 @@
+num dx = 1;
+num dz = 1;
+
+num length = 4;
+
+num droop = 0.3;
+
+str setBlock = "minecraft:black_concrete";
+
+num y = 0;
+for (num l = 0; l <= length; l = l + 0.5) {
+    block(l*dx, y, dz*l, setBlock, true);
+
+    block(-l*dx, y, dz*l, setBlock, true);
+
+    block(l*dx, y, -dz*l, setBlock, true);
+
+    block(-l*dx, y, -dz*l, setBlock, true);
+
+    y = y+(l*droop);
+}
