@@ -2,7 +2,7 @@ id: MARBLED_LANDSCAPES
 type: BIOME
 extends: [ BASE_END, EQ_DEFAULT ]
 vanilla: minecraft:end_highlands
-color: $biomes/colors.yml:AMETHYST_END
+color: $biomes/colors.yml:MARBLED_LANDSCAPES
 
 colors:
   grass: 0xd0b2a0
