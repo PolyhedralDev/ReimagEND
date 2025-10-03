@@ -4,7 +4,7 @@
 
 Part of this pack uses resources from 
  - Astrash's Aeropelago pack, found [here](https://github.com/Astrashh/Aeropelago).
- - PolyDev's Overworld pack, found [here](https://github.com/PolyhedralDev/TerraOverworldConfig).
+ - Our Overworld pack, found [here](https://github.com/PolyhedralDev/TerraOverworldConfig).
 
 ReimagEnd is currently a **WORK IN PROGRESS**. 
 
