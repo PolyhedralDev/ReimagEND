@@ -6,10 +6,10 @@ num yTranslate = 0;
 str setBlock = "ruin_block";
 
 for (num l = 0; l < checkBot; l = l + 1) {
-    if (getBlock(radius/2,-l,radius/2) == "minecraft:air" || getBlock(radius/2,-l,radius/2) == "minecraft:grass" ||
-    getBlock(-radius/2,-l,radius/2) == "minecraft:air" || getBlock(-radius/2,-l,radius/2) == "minecraft:grass" ||
-    getBlock(radius/2,-l,-radius/2) == "minecraft:air" || getBlock(radius/2,-l,-radius/2) == "minecraft:grass" ||
-    getBlock(-radius/2,-l,radius/2) == "minecraft:air" || getBlock(-radius/2,-l,-radius/2) == "minecraft:grass") continue;
+    if (getBlock(radius/2,-l,radius/2) == "minecraft:air" || getBlock(radius/2,-l,radius/2) == "minecraft:short_grass" ||
+    getBlock(-radius/2,-l,radius/2) == "minecraft:air" || getBlock(-radius/2,-l,radius/2) == "minecraft:short_grass" ||
+    getBlock(radius/2,-l,-radius/2) == "minecraft:air" || getBlock(radius/2,-l,-radius/2) == "minecraft:short_grass" ||
+    getBlock(-radius/2,-l,radius/2) == "minecraft:air" || getBlock(-radius/2,-l,-radius/2) == "minecraft:short_grass") continue;
     yTranslate = -l;
     break;
 }

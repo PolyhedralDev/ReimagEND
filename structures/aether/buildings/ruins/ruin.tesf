@@ -20,7 +20,7 @@ for (num y = height; y > yOffset; y = y - 1) {
 
             if ( (y <= height) && ((x == size/2) || (x == -size/2) || ((z == size/2) || (z == -size/2)))) {
                 if ((getBlock(x,y,z) == "minecraft:air") || 
-                (getBlock(x,y,z) == "minecraft:grass") || 
+                (getBlock(x,y,z) == "minecraft:short_grass") ||
                 (getBlock(x,y,z) == "minecraft:fern") || 
                 (getBlock(x,y,z) == "minecraft:tall_grass")) {
                     structure(x,y,z,"ruin_block","NONE");
@@ -29,7 +29,7 @@ for (num y = height; y > yOffset; y = y - 1) {
 
             if ((y % 4 == 0) && ((x <= (size-2)/2) && (x >= (-size+2)/2) && ((z <= (size-2)/2) && (z >= (-size+2)/2)))) {
                 if ((getBlock(x,y,z) == "minecraft:air") || 
-                (getBlock(x,y,z) == "minecraft:grass") || 
+                (getBlock(x,y,z) == "minecraft:short_grass") ||
                 (getBlock(x,y,z) == "minecraft:fern") || 
                 (getBlock(x,y,z) == "minecraft:tall_grass")) {
                     if (randomInt(4) == 0) {
