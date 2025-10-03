@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Validate Biome Colors
+        run: bash ./.scripts/validate-biome-colors.sh
+  
+  release:
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.repository == 'PolyhedralDev/TerraOverworldConfig' && github.event_name == 'push'
+
+    env:
+      repo_url: ${{ github.server_url }}/${{ github.repository }}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: '2'
+
+      - name: Check for version bump
+        run: bash ./.scripts/check-version-bump.sh
+
+      - name: Create artifacts
+        run: bash ./.scripts/pack.sh
+
+      - name: Grab release changelog
+        if: env.version-bumped == 'true'
+        run: bash ./.scripts/changelog/extract-release-changelog.sh
+
+      - name: Update changelog
+        if: env.version-bumped == 'true'
+        run: bash ./.scripts/changelog/update-changelog.sh
+
+      - name: Push changelog
+        if: env.version-bumped == 'true'
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: Polyhedral-Bot
+          author_email: polybot@protonmail.com
+          message: Version ${{ env.version }}
+          tag: v${{ env.version }} -F ${{ env.release_changelog }} --cleanup=verbatim
+          add: CHANGELOG.md
+
+      - name: Release
+        if: env.version-bumped == 'true'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ env.version }}
+          body_path: ${{ env.release_changelog }}
+          files: |
+            .artifacts/*
+
+      - name: Release latest
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "Latest Build"
+          files: |
+            .artifacts/*
