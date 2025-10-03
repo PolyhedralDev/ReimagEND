@@ -4,7 +4,7 @@ extends:
   - BASE_END
   - EQ_OVERHANGS
 vanilla: minecraft:end_barrens
-color: $biomes/colors.yml:ROSETTE_POOLS
+color: $biomes/colors.yml:ROSETTE_POOLS_DESOLATE
 
 tags:
   - ADD_VOID_BIOMES

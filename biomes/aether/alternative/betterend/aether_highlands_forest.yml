@@ -1,7 +1,7 @@
 id: AETHER_HIGHLANDS_FOREST
 type: BIOME
 extends: [ AETHER_HIGHLANDS ]
-color: $biomes/colors.yml:AETHER_HIGHLANDS
+color: $biomes/colors.yml:AETHER_HIGHLANDS_FOREST
 vanilla: minecraft:the_end
 
 features:

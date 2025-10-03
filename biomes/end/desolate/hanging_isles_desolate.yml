@@ -4,7 +4,7 @@ extends:
   - BASE_END
   - EQ_OVERHANGS
 vanilla: minecraft:end_barrens
-color: $biomes/colors.yml:HANGING_ISLES
+color: $biomes/colors.yml:HANGING_ISLES_DESOLATE
 
 tags:
   - ADD_VOID_BIOMES

@@ -4,7 +4,7 @@ extends:
   - BASE_END
   - EQ_SPIKES
 vanilla: minecraft:end_barrens
-color: $biomes/colors.yml:DARK_END
+color: $biomes/colors.yml:DARK_END_DESOLATE
 
 particles:
   particle: minecraft:ash

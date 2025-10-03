@@ -4,7 +4,7 @@ extends:
   - BASE_END
   - EQ_DEFAULT
 vanilla: minecraft:end_barrens
-color: $biomes/colors.yml:VERMILION_WILDS
+color: $biomes/colors.yml:VERMILION_WILDS_DESOLATE
 
 tags:
   - ADD_VOID_BIOMES
