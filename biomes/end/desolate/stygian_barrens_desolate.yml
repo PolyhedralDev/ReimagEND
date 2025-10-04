@@ -4,7 +4,7 @@ extends:
   - BASE_END
   - EQ_NARROW
 vanilla: minecraft:end_barrens
-color: $biomes/colors.yml:STYGIAN_BARRENS
+color: $biomes/colors.yml:STYGIAN_BARRENS_DESOLATE
 
 tags:
   - ADD_VOID_BIOMES

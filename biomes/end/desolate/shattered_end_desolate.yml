@@ -4,7 +4,7 @@ extends:
   - BASE_END
   - EQ_SHATTERED
 vanilla: minecraft:end_barrens
-color: $biomes/colors.yml:SHATTERED_END
+color: $biomes/colors.yml:SHATTERED_END_DESOLATE
 
 tags:
   - ADD_VOID_BIOMES
