@@ -4,7 +4,7 @@ str blockID = getBlock(0, -length, 0);
 if (blockID != "minecraft:air") fail;
 
 for (num y = 0; y < length; y = y + 1) {
-    block(0,-y,0,"minecraft:chain");
+    block(0,-y,0,"minecraft:iron_chain");
 }
 
 block(0,-length,0,"minecraft:lantern[hanging=true]");
