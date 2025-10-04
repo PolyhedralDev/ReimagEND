@@ -40,17 +40,23 @@ generate in an area where it previously did not (resulting in a chunk border).
 ---
 
 ## [Unreleased]
-
 ### Added
+
 
 ### Changed
 
+
 ### Removed
 
+
 ### Fixed
+
 
 <!--
 DO NOT MODIFY TEXT BELOW, CI automatically manages new version sections for each
 new release. Add any new change logs to the [Unreleased] section above instead.
 -->
+
+## [v3.0.0]
+
 
