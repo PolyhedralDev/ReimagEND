@@ -56,7 +56,3 @@ generate in an area where it previously did not (resulting in a chunk border).
 DO NOT MODIFY TEXT BELOW, CI automatically manages new version sections for each
 new release. Add any new change logs to the [Unreleased] section above instead.
 -->
-
-## [v3.0.0]
-
-
