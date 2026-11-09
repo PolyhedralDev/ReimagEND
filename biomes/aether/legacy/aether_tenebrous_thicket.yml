@@ -4,9 +4,9 @@ extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
 color: $biomes/colors.yml:AETHER_TENEBROUS_THICKET
 vanilla: minecraft:the_end
 
-colors:
-  grass: 0x292825
-  foliage: 0x292825
+attributes:
+  terra:biome/grass_color: "#292825"
+  terra:biome/foliage_color: "#292825"
 
 palette:
   - MUD_POWDER_MIX: $meta.yml:top-y

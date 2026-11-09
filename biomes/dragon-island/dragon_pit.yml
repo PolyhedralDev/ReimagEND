@@ -6,16 +6,19 @@ extends:
 vanilla: minecraft:the_end
 color: $biomes/colors.yml:DRAGON_PIT
 
-particles:
-  particle: minecraft:trail{target:[0.5,85,0.5],color:[0.302, 0.192, 0.412],duration:75}
-  probability: 0.0005
-
-colors:
-  grass: 0xdee6a4
-  water: 0x62529E
-  water-fog: 0x62529E
-  #fog: 0x000000
-  #sky: 0x000000
+attributes:
+  minecraft:visual/ambient_particles:
+    - particle:
+        type: minecraft:trail
+        target: [0.5, 85, 0.5]
+        color: [0.302, 0.192, 0.412]
+        duration: 75
+      probability: 0.0005
+  terra:biome/grass_color: "#dee6a4"
+  terra:biome/water_color: "#62529e"
+  minecraft:visual/water_fog_color: "#62529e"
+  #minecraft:visual/fog_color: "#000000"
+  #minecraft:visual/sky_color: "#000000"
 
 palette:
   - BLOCK:minecraft:end_stone: $meta.yml:top-y

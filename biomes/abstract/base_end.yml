@@ -2,12 +2,12 @@ id: BASE_END
 type: BIOME
 abstract: true
   
-colors:
-  grass: 0xdee6a4
-  water: 0x62529E
-  water-fog: 0x62529E
-  #fog: 0x000000
-  #sky: 0x000000
+attributes:
+  terra:biome/grass_color: "#dee6a4"
+  terra:biome/water_color: "#62529e"
+  minecraft:visual/water_fog_color: "#62529e"
+  #minecraft:visual/fog_color: "#000000"
+  #minecraft:visual/sky_color: "#000000"
 
 features:
   global-preprocessors:

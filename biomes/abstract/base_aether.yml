@@ -10,13 +10,13 @@ tags:
   - AETHER
 
 # Overworld Atmosphere
-colors:
-  grass: 0x91BD59
-  foliage: 0x77AB2F
-#  fog: 0xc8e8e7
-#  water: 0xbadfe6
-#  water-fog: 0xbadfe6
-#  sky: 0xc8e8e7
+attributes:
+  terra:biome/grass_color: "#91bd59"
+  terra:biome/foliage_color: "#77ab2f"
+#  minecraft:visual/fog_color: "#c8e8e7"
+#  terra:biome/water_color: "#badfe6"
+#  minecraft:visual/water_fog_color: "#badfe6"
+#  minecraft:visual/sky_color: "#c8e8e7"
 
 features:
   preprocessors:

@@ -4,9 +4,9 @@ extends: [ BASE_END, EQ_DEFAULT ]
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:WARPED_WOODLANDS
 
-colors:
-  grass: 0x54c0d9
-  foliage: 0x57c9e1
+attributes:
+  terra:biome/grass_color: "#54c0d9"
+  terra:biome/foliage_color: "#57c9e1"
 
 palette:
   - CYAN_POWDER_END: $meta.yml:top-y

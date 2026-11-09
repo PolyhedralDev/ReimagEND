@@ -9,9 +9,9 @@ color: $biomes/colors.yml:STYGIAN_BARRENS
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0x44404a
-  foliage: 0x44404a
+attributes:
+  terra:biome/grass_color: "#44404a"
+  terra:biome/foliage_color: "#44404a"
 
 palette:
   - BLOCK:minecraft:end_stone: $meta.yml:top-y

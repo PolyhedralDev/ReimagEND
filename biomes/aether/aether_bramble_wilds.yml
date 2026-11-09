@@ -6,9 +6,9 @@ extends:
 color: $biomes/colors.yml:AETHER_BRAMBLE_WILDS
 vanilla: minecraft:the_end
 
-colors:
-  grass: 0x3ccfad
-  foliage: 0x705f36
+attributes:
+  terra:biome/grass_color: "#3ccfad"
+  terra:biome/foliage_color: "#705f36"
 
 palette:
   - PODZOL: $meta.yml:top-y

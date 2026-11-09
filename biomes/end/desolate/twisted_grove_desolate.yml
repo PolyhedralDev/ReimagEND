@@ -9,9 +9,9 @@ color: $biomes/colors.yml:TWISTED_GROVE_DESOLATE
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0x3d8a9c
-  foliage: 0x3d8a9c
+attributes:
+  terra:biome/grass_color: "#3d8a9c"
+  terra:biome/foliage_color: "#3d8a9c"
   
 palette:
   - CYAN_POWDER_END: $meta.yml:top-y

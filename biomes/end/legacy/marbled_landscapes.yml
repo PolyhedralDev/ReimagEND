@@ -4,9 +4,9 @@ extends: [ BASE_END, EQ_DEFAULT ]
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:MARBLED_LANDSCAPES
 
-colors:
-  grass: 0xd0b2a0
-  foliage: 0xd0b2a0
+attributes:
+  terra:biome/grass_color: "#d0b2a0"
+  terra:biome/foliage_color: "#d0b2a0"
 
 palette:
   - WHITE_GRAY_TERRACOTTA: $meta.yml:top-y

@@ -4,11 +4,11 @@ extends: [ BASE_AETHER, EQ_AETHER_DRIFTFALLS ]
 color: $biomes/colors.yml:AETHER_DRIFTFALLS
 vanilla: minecraft:the_end
 
-colors:
-  water: 0x90fcf0
-  water-fog: 0x90fcf0
-  grass: 0xccfff9
-  foliage: 0xccfff9
+attributes:
+  terra:biome/water_color: "#90fcf0"
+  minecraft:visual/water_fog_color: "#90fcf0"
+  terra:biome/grass_color: "#ccfff9"
+  terra:biome/foliage_color: "#ccfff9"
 
 palette:
   - GRASS: $meta.yml:top-y

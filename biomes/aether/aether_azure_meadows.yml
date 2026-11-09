@@ -7,9 +7,9 @@ extends:
 color: $biomes/colors.yml:AETHER_AZURE_MEADOWS
 vanilla: minecraft:the_end
 
-colors:
-  grass: 0x3ccfad
-  foliage: 0x3c79cf
+attributes:
+  terra:biome/grass_color: "#3ccfad"
+  terra:biome/foliage_color: "#3c79cf"
 
 palette:
   - GRASS: $meta.yml:top-y

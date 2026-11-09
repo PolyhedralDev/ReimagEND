@@ -9,9 +9,9 @@ color: $biomes/colors.yml:CRIM_THICKET_DESOLATE
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0x75394b
-  foliage: 0x75394b
+attributes:
+  terra:biome/grass_color: "#75394b"
+  terra:biome/foliage_color: "#75394b"
 
 palette:
   - PURPLE_TERRACOTTA_END: $meta.yml:top-y

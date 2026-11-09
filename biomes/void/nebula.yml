@@ -5,9 +5,11 @@ extends:
 vanilla: minecraft:the_void
 color: $biomes/colors.yml:NEBULA
 
-particles:
-  particle: minecraft:end_rod
-  probability: 0.0005
+attributes:
+  minecraft:visual/ambient_particles:
+    - particle:
+        type: minecraft:end_rod
+      probability: 0.0005
 
 features:
   preprocessors:

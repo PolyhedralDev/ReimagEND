@@ -8,7 +8,7 @@ features:
   preprocessors:
     - VOID_SEA_AIR
 
-colors:
-  water: 0x000000
-  water-fog: 0x000000
+attributes:
+  terra:biome/water_color: "#000000"
+  minecraft:visual/water_fog_color: "#000000"
 

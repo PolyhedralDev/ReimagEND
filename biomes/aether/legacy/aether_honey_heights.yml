@@ -4,11 +4,11 @@ extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
 color: $biomes/colors.yml:AETHER_HONEY_HEIGHTS
 vanilla: minecraft:the_end
 
-colors:
-  grass: 0xEBAF4C
-  foliage: 0xEBAF4C
-  water: 0xEBAF4C
-  water-fog: 0xEBAF4C
+attributes:
+  terra:biome/grass_color: "#ebaf4c"
+  terra:biome/foliage_color: "#ebaf4c"
+  terra:biome/water_color: "#ebaf4c"
+  minecraft:visual/water_fog_color: "#ebaf4c"
 
 palette:
   - YELLOW_CONCRETE_TERRACOTTA: $meta.yml:top-y

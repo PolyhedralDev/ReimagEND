@@ -9,9 +9,9 @@ color: $biomes/colors.yml:CHORUVE_WOODS
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0x584a6c
-  foliage: 0x584a6c
+attributes:
+  terra:biome/grass_color: "#584a6c"
+  terra:biome/foliage_color: "#584a6c"
 
 palette:
   - BLUE_TERRACOTTA: $meta.yml:top-y

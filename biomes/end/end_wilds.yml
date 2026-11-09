@@ -9,9 +9,9 @@ color: $biomes/colors.yml:END_WILDS
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0xffce2d
-  foliage: 0xffce2d
+attributes:
+  terra:biome/grass_color: "#ffce2d"
+  terra:biome/foliage_color: "#ffce2d"
 
 palette:
   - YELLOW_POWDER_END: $meta.yml:top-y

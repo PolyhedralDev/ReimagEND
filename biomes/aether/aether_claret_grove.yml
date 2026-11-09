@@ -7,9 +7,9 @@ extends:
 color: $biomes/colors.yml:AETHER_CLARET_GROVE
 vanilla: minecraft:the_end
 
-colors:
-  grass: 0x3ccfad
-  foliage: 0xc24f92
+attributes:
+  terra:biome/grass_color: "#3ccfad"
+  terra:biome/foliage_color: "#c24f92"
 
 palette:
   - GRASS: $meta.yml:top-y

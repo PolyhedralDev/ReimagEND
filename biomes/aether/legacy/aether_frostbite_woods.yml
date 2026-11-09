@@ -4,9 +4,9 @@ extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
 color: $biomes/colors.yml:AETHER_FROSTBITE_WOODS
 vanilla: minecraft:the_end
 
-colors:
-  grass: 0xc7d6f0
-  foliage: 0xc7d6f0
+attributes:
+  terra:biome/grass_color: "#c7d6f0"
+  terra:biome/foliage_color: "#c7d6f0"
 
 palette:
   - CALCITE_POWDER_MIX: $meta.yml:top-y

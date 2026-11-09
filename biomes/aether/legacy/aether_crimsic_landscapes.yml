@@ -4,9 +4,9 @@ extends: [ BASE_AETHER, EQ_AETHER_CLIFFS ]
 color: $biomes/colors.yml:AETHER_CRIMSIC_LANDSCAPES
 vanilla: minecraft:the_end
 
-colors:
-  grass: 0xDC143C
-  foliage: 0xDC143C
+attributes:
+  terra:biome/grass_color: "#dc143c"
+  terra:biome/foliage_color: "#dc143c"
 
 palette:
   - GRASS_GRAY_TERRACOTTA: $meta.yml:top-y

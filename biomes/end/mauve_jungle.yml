@@ -9,9 +9,9 @@ color: $biomes/colors.yml:MAUVE_JUNGLE
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0x7b349e
-  foliage: 0x7b349e
+attributes:
+  terra:biome/grass_color: "#7b349e"
+  terra:biome/foliage_color: "#7b349e"
 
 palette:
   - PURPLE_POWDER_END: $meta.yml:top-y

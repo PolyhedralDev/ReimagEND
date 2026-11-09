@@ -7,9 +7,9 @@ color: $biomes/colors.yml:VOID_SEA
 tags:
   - VOID_SEA
 
-colors:
-  water: 0x000000
-  water-fog: 0x000000
+attributes:
+  terra:biome/water_color: "#000000"
+  minecraft:visual/water_fog_color: "#000000"
 
 palette:
   - BLOCK:minecraft:end_stone: $meta.yml:top-y

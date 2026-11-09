@@ -6,9 +6,11 @@ extends:
 vanilla: minecraft:the_end
 color: $biomes/colors.yml:DRAGON_ISLAND_EDGE
 
-particles:
-  particle: minecraft:reverse_portal
-  probability: 0.0025
+attributes:
+  minecraft:visual/ambient_particles:
+    - particle:
+        type: minecraft:reverse_portal
+      probability: 0.0025
 
 palette:
   - BLOCK:minecraft:end_stone: $meta.yml:top-y

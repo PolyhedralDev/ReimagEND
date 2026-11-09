@@ -4,9 +4,9 @@ extends: [ BASE_END, EQ_DEFAULT ]
 vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:APRICHORUS_PLAINS
 
-colors:
-  grass: 0xdd5f00
-  foliage: 0xdd5f00
+attributes:
+  terra:biome/grass_color: "#dd5f00"
+  terra:biome/foliage_color: "#dd5f00"
 
 palette:
   - ORANGE_POWDER_END: $meta.yml:top-y

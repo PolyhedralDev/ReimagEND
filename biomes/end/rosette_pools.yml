@@ -9,11 +9,11 @@ color: $biomes/colors.yml:ROSETTE_POOLS
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0xd3658e
-  foliage: 0xd3658e
-  water: 0xd3658e
-  water-fog: 0xd3658e
+attributes:
+  terra:biome/grass_color: "#d3658e"
+  terra:biome/foliage_color: "#d3658e"
+  terra:biome/water_color: "#d3658e"
+  minecraft:visual/water_fog_color: "#d3658e"
 
 palette:
   - PINK_POWDER_END: $meta.yml:top-y

@@ -9,9 +9,9 @@ color: $biomes/colors.yml:CHORAL_DEADLANDS_DESOLATE
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0x808080
-  foliage: 0x808080
+attributes:
+  terra:biome/grass_color: "#808080"
+  terra:biome/foliage_color: "#808080"
 
 palette:
   - DEAD_CORAL_GROUND: $meta.yml:top-y

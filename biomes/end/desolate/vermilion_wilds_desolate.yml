@@ -9,9 +9,9 @@ color: $biomes/colors.yml:VERMILION_WILDS_DESOLATE
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0xc0423a
-  foliage: 0xc0423a
+attributes:
+  terra:biome/grass_color: "#c0423a"
+  terra:biome/foliage_color: "#c0423a"
 
 palette:
   - RED_POWDER_END: $meta.yml:top-y

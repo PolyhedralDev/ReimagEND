@@ -7,9 +7,9 @@ extends:
 color: $biomes/colors.yml:AETHER_WISPY_ISLES
 vanilla: minecraft:the_end
 
-colors:
-  grass: 0x3ccfad
-  foliage: 0x9ed8de
+attributes:
+  terra:biome/grass_color: "#3ccfad"
+  terra:biome/foliage_color: "#9ed8de"
 
 palette:
   - GRASS: $meta.yml:top-y

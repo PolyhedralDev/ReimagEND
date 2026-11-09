@@ -4,9 +4,9 @@ extends: [ BASE_AETHER, EQ_AETHER_DEFAULT ]
 color: $biomes/colors.yml:AETHER_HIGHLANDS
 vanilla: minecraft:the_end
 
-colors:
-  grass: 0x80B497
-  foliage: 0x60A17B
+attributes:
+  terra:biome/grass_color: "#80b497"
+  terra:biome/foliage_color: "#60a17b"
 
 palette:
   - PODZOL: $meta.yml:top-y

@@ -6,9 +6,11 @@ extends:
 vanilla: minecraft:end_highlands
 color: $biomes/colors.yml:DARK_END
 
-particles:
-  particle: minecraft:ash
-  probability: 0.005
+attributes:
+  minecraft:visual/ambient_particles:
+    - particle:
+        type: minecraft:ash
+      probability: 0.005
 
 palette:
   - DARK_END: $meta.yml:top-y

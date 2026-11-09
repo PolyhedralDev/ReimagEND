@@ -9,9 +9,9 @@ color: $biomes/colors.yml:IVORY_EMPYREAN
 tags:
   - ADD_VOID_BIOMES
 
-colors:
-  grass: 0xadadad
-  foliage: 0xadadad
+attributes:
+  terra:biome/grass_color: "#adadad"
+  terra:biome/foliage_color: "#adadad"
 
 palette:
   - WHITE_POWDER_END: $meta.yml:top-y

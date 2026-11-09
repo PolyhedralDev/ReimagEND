@@ -4,9 +4,9 @@ extends: [ BASE_END, EQ_DEFAULT ]
 vanilla: minecraft:end_barrens
 color: $biomes/colors.yml:CERISE_CORRAL
 
-colors:
-  grass: 0xc059b7
-  foliage: 0xc059b7
+attributes:
+  terra:biome/grass_color: "#c059b7"
+  terra:biome/foliage_color: "#c059b7"
 
 palette:
   - MAGENTA_POWDER_END: $meta.yml:top-y
